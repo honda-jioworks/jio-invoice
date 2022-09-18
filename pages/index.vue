@@ -1,5 +1,5 @@
 <template>
-  <div>ここに画面を実装していきます。</div>
+  <div>ダッシュボードを置く想定</div>
 </template>
 
 <script lang="ts">
