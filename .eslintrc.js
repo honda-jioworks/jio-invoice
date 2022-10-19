@@ -7,9 +7,13 @@ module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'plugin:nuxt/recommended',
+    'eslint:recommended',
+    'plugin:vue/recommended',
     'prettier',
   ],
   plugins: [],
   // add your custom rules here
-  rules: {},
-}
+  rules: {
+    semi: ['error', 'always'],
+  },
+};
