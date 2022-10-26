@@ -25,6 +25,7 @@
 </template>
 
 <script lang="ts">
+
 import { Vue, Component } from 'nuxt-property-decorator'
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue'
 import basic from '@/components/organisms/basic.vue'

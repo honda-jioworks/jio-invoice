@@ -4,8 +4,14 @@
     :auto-line-width="autoLineWidth" auto-draw></v-sparkline>
 </template>
 <script lang="ts">
+<<<<<<< HEAD
 import { Vue, Component } from 'nuxt-property-decorator'
 import DashBoard from '@/components/templates/DashBoard.vue';
+=======
+import { Vue, Component } from 'nuxt-property-decorator';
+import DashBoard from '~/components/templates/DashBoard.vue';
+
+>>>>>>> 3e6623a58dfd6d8347698d463ba5c774c2dcfd6c
 @Component({
   components:{ DashBoard}
 })
