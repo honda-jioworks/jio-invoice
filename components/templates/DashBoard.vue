@@ -7,7 +7,7 @@
         <v-col cols="12"><MostRecentSalesAmount /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12">Organismsの一つを置く（直近の取引欄の想定）</v-col>
+        <v-col cols="12"></v-col>
       </v-row>
     </v-container>
     <!-- フッター -->
@@ -18,7 +18,8 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue'
-@Component({ components: { MostRecentSalesAmount } })
+
+@Component({ components: { MostRecentSalesAmount} })
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }
