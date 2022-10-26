@@ -15,7 +15,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
 @Component({})
 export default class MostRecentSalesAmount extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
-  private headers: Array<Object> = [
+   private headers: Array<Object> = [
     {
       text: '直近の売上金額',
       align: 'start',
@@ -29,7 +29,7 @@ export default class MostRecentSalesAmount extends Vue {
     { text: '注文書', value: 'iron' },
   ]
 
-  private desserts: Array<Object> = [
+   private desserts: Array<Object> = [
     {
       name: '9月　　　　　　16,395,500円',
       calories: '1枚',
