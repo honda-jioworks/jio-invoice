@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-sheet class="groundwork">
     <!-- ヘッダー -->
     <!-- コンテンツエリア -->
@@ -13,12 +14,19 @@
     <!-- フッター -->
     <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
   </v-sheet>
+      <v-row>
+        <v-col cols="12"><DetailsInfomation /></v-col>
+      </v-row>
+  </div>
 </template>
 
+
+
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
-import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue'
-@Component({ components: { MostRecentSalesAmount } })
+import { Vue, Component } from 'nuxt-property-decorator';
+import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
+import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
+@Component({ components: { MostRecentSalesAmount,DetailsInfomation } })
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }
