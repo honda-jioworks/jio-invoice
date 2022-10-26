@@ -22,11 +22,13 @@
 
 
 <script lang="ts">
+
 import { Vue, Component } from 'nuxt-property-decorator'
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue'
 import contact from '~/components/molecules/Contact.vue'
 
 @Component({ components: { MostRecentSalesAmount, contact } })
+
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }

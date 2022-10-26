@@ -53,9 +53,12 @@ export type postDataResult = {
 </template>
 
 <script lang="ts">
+
 Vue.config.devtools = true;
 import { Vue, Component } from 'nuxt-property-decorator'
 import DashBoard from '~/components/templates/DashBoard.vue'
+
+
 
 @Component({
   components: { DashBoard },
