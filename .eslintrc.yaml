@@ -1,0 +1,22 @@
+root: true
+  
+extends:
+  - 'plugin:@typescript-eslint/recommended'
+  - '@nuxtjs/eslint-config-typescript'
+  - 'plugin:nuxt/recommended'
+  - 'plugin:jest/recommended'
+  - 'plugin:prettier/recommended'
+
+rules:
+  # eslint
+  'no-irregular-whitespace':
+    - 'warn'
+  # @typescript-eslint/eslint-plugin
+  '@typescript-eslint/ban-ts-comment':
+    - 'error'
+    - 'ts-ignore': 'allow-with-description'
+  # eslint-plugin-jest
+  'jest/no-conditional-expect':
+    - 'warn'
+  'jest/no-jasmine-globals':
+    - 'off'
