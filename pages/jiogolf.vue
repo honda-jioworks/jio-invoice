@@ -2,6 +2,7 @@
   <div>
     <CaddyDashBoard v-if="pageName === 'caddy'" />
     <GolfCourseDashBoard v-if="pageName === 'golfCourse'" />
+    <GolfToolTip />
   </div>
 </template>
 
@@ -9,9 +10,10 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import CaddyDashBoard from '~/components/templates/CaddyDashBoard.vue';
 import GolfCourseDashBoard from '~/components/templates/GolfCourseDashBoard.vue';
+import GolfToolTip from '~/components/atoms/GolfToolTip.vue';
 
 @Component({
-  components: { CaddyDashBoard, GolfCourseDashBoard },
+  components: { CaddyDashBoard, GolfCourseDashBoard, GolfToolTip },
 })
 export default class JioGolf extends Vue {
   // pages内でコンテンツ制御（データ取得・更新などのロジックのみ）を管轄する
