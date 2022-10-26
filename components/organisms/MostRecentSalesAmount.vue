@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator';
 @Component({})
 export default class MostRecentSalesAmount extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
@@ -27,7 +27,7 @@ export default class MostRecentSalesAmount extends Vue {
     { text: '合計請求書', value: 'carbs' },
     { text: '領収書', value: 'protein' },
     { text: '注文書', value: 'iron' },
-  ]
+  ];
 
   private desserts: Array<Object> = [
     {
@@ -54,7 +54,7 @@ export default class MostRecentSalesAmount extends Vue {
       protein: '0枚',
       iron: '0枚',
     },
-  ]
+  ];
 }
 </script>
 <style lang="scss" scoped>

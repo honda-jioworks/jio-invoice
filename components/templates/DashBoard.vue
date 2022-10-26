@@ -27,6 +27,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
 import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
 @Component({ components: { MostRecentSalesAmount,DetailsInfomation } })
+
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }
