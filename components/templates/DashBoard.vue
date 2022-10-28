@@ -7,9 +7,6 @@
         <v-col cols="12"><MostRecentSalesAmount /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><CompanyInfomation /></v-col>
-      </v-row>
-      <v-row>
         <v-col cols="12"><BasicInformation /></v-col>
       </v-row>
     </v-container>
@@ -19,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
 import CompanyInfomation from '@/components/organisms/CompanyInfomation.vue';
 import BasicInformation from '@/components/organisms/BasicInformation.vue';
