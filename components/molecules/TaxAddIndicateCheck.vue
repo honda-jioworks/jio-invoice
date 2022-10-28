@@ -1,0 +1,10 @@
+<template>
+  <v-container
+    class="px-0"
+    fluid
+  >
+    <v-checkbox
+      label="合計請求書で消費税を合算表示する"
+    ></v-checkbox>
+  </v-container>
+</template>
