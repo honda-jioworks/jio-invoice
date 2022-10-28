@@ -19,11 +19,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
-@Component({ components: { MostRecentSalesAmount } })
+import CompanyInfomation from '@/components/organisms/CompanyInfomation.vue';
+import BasicInformation from '@/components/organisms/BasicInformation.vue';
+import OfficeURL from '@/components/molecules/OfficeURL.vue';
+@Component({ components: { MostRecentSalesAmount, CompanyInfomation, BasicInformation, OfficeURL } })
 export default class DashBoard extends Vue {
-  // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
+  @Prop({ type: String, default: '' })
+  text!: string;
 }
 </script>
 <style lang="scss" scoped>

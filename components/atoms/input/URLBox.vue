@@ -1,20 +1,22 @@
 <template>
   <div>
-    <v-text-field id="officeURL" value="https://jioworks.com" dense>
-    </v-text-field>
-    <!-- v-btn @click="getOfficeURL()"> aaa </v-btn -->
+    <v-text-field v-model="textVal" dense @blur="changeText"> </v-text-field>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator'
+import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class URLBox extends Vue {
-  public officeURL = '';
-  @Emit('getOfficeURL')
-  getOfficeURL() {
-    this.officeURL = document.getElementById('officeURL')
-    this.$emit('getOfficeURL', this.officeURL)
+  private textVal = 'https://jioworks.com/';
+
+  created(): void {
+    this.changeText('');
+  }
+
+  @Emit()
+  changeText(_: string): string {
+    return this.textVal;
   }
 }
 </script>
