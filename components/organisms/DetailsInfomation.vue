@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row>
+    <v-row :align-content="test">
       <v-col cols="6"><ConsumptionTax /></v-col>
       <v-col cols="6"><ConsumptionTaxRounding /></v-col>
     </v-row>
@@ -17,13 +17,13 @@
     </v-row>
     <v-row>
       <v-col cols="6"><SubjectName /></v-col>
-      <v-col cols="6"><TaxRate /></v-col>  
+      <v-col cols="6"><TaxRate /></v-col>
     </v-row>
-    <v-row>         
+    <v-row>
       <v-col cols="6"><SalaryPaymentDate /></v-col>
       <v-col cols="6"><BonusPaymentDate /></v-col>
     </v-row>
-  </div>    
+  </div>
 </template>
 
 <script lang="ts">
@@ -40,8 +40,20 @@ import TaxRate from '@/components/molecules/TaxRate.vue';
 import SalaryPaymentDate from '@/components/molecules/SalaryPaymentDate.vue';
 import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
 
-@Component({ components: { ConsumptionTax,ConsumptionTaxRounding,MulUnitPriceQuantityRounding,UnitPriceCulculationRounding,DecimalalPart,NumberOfDigits,AmountOfWithholdingTax,SubjectName,TaxRate,SalaryPaymentDate,BonusPaymentDate }})
-export default class DetailsInfomation extends Vue {
-  
-}
+@Component({
+  components: {
+    ConsumptionTax,
+    ConsumptionTaxRounding,
+    MulUnitPriceQuantityRounding,
+    UnitPriceCulculationRounding,
+    DecimalalPart,
+    NumberOfDigits,
+    AmountOfWithholdingTax,
+    SubjectName,
+    TaxRate,
+    SalaryPaymentDate,
+    BonusPaymentDate,
+  },
+})
+export default class DetailsInfomation extends Vue {}
 </script>
