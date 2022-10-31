@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <h1>得意先登録画面を作っていきます</h1>
-    <h2>
-      まずはscriptとかは一旦気にせずラベルとテキストボックスを置くところから始めましょう
-    </h2>
-  </div>
+  <div><CustomerRegisterForm /></div>
 </template>
+
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator';
+import CustomerRegisterForm from '~/components/organisms/CustomerRegisterForm.vue';
+
+@Component({ components: { CustomerRegisterForm } })
+export default class CustomerRegister extends Vue {}
+</script>
