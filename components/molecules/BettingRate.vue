@@ -13,8 +13,8 @@ import { Vue, Component } from 'nuxt-property-decorator';
 @Component({})
 export default class BettingRate extends Vue {
   inputRules: Array<object> = [
-    (v: any) => !!v || '項目を入力してください',
-    (v: any) => /^([1-9]{1,3}\d*|0)$/.test(v) || '数値を入力してください',
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^([1-9]{1,3}\d*|0)$/.test(v) || '数値を入力してください',
   ];
 }
 </script>
