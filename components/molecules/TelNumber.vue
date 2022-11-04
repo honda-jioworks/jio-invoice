@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
-import TelLabel from '~/components/atoms/label/TelLabel.vue'
-import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue'
-import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue'
+import { Vue, Component } from 'nuxt-property-decorator';
+import TelLabel from '~/components/atoms/label/TelLabel.vue';
+import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
+import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
 @Component({
   components: {
     TelLabel,

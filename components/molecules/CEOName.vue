@@ -1,8 +1,8 @@
 <template>
   <v-sheet>
     <v-row>
-      <v-col cols="2"><CEONameLabel /></v-col>
-      <v-col cols="3"><CEONameTextBox /></v-col>
+      <CEONameLabel />
+      <CEONameTextBox @scan-name="scanName" />
     </v-row>
   </v-sheet>
 </template>
@@ -12,5 +12,11 @@ import { Vue, Component } from 'nuxt-property-decorator';
 import CEONameLabel from '~/components/atoms/label/CEONameLabel.vue';
 import CEONameTextBox from '~/components/atoms/input/CEONameTextBox.vue';
 @Component({ components: { CEONameTextBox, CEONameLabel } })
-export default class CEOName extends Vue {}
+export default class CEOName extends Vue {
+  private name: string = '';
+
+  scanName(val: string): void {
+    this.name = val;
+  }
+}
 </script>

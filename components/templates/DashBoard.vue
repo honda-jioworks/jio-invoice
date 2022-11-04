@@ -7,9 +7,6 @@
         <v-col cols="12"><MostRecentSalesAmount /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><CompanyInfomation /></v-col>
-      </v-row>
-      <v-row>
         <v-col cols="12"><BasicInformation /></v-col>
       </v-row>
     </v-container>
