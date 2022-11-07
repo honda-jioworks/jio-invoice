@@ -1,22 +1,27 @@
 <template>
   <div>
-    <v-text-field v-model="textVal" dense @blur="changeText"> </v-text-field>
+    <v-text-field :value="textUrl" @input="scanUrl"> </v-text-field>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class URLBox extends Vue {
-  private textVal = 'https://jioworks.com/';
+  private textUrl: string = 'https://jioworks.com';
 
   created(): void {
-    this.changeText('');
+    this.scanUrl('');
   }
 
   @Emit()
-  changeText(_: string): string {
-    return this.textVal;
+  scanUrl(_: string): string {
+    return this.textUrl;
   }
 }
 </script>
+<style lang="scss">
+.textField {
+  color: red;
+}
+</style>
