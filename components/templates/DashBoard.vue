@@ -18,6 +18,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
+
 import CompanyInfomation from '@/components/organisms/CompanyInfomation.vue';
 import BasicInformation from '@/components/organisms/BasicInformation.vue';
 import OfficeURL from '@/components/molecules/OfficeURL.vue';
