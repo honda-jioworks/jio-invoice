@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class URLBtn extends Vue {
   @Prop({ type: String, required: true })
   urlValue!: string;
 
-  private props = ['officeURL'];
+  @Emit()
   accessOfficeURL() {
-    window.open(this.urlValue, '_brank');
+    window.open(this.urlValue, Date());
   }
 }
 </script>
