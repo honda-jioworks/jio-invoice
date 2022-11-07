@@ -1,10 +1,10 @@
 <template>
   <v-sheet>
     <v-row>
-      <v-col cols="2"><FAXLabel /></v-col>
-      <v-col cols="1"><ThreeNumbersTextBox /></v-col>
-      <v-col cols="1"><FourNumbersTextBox /></v-col>
-      <v-col cols="1"><FourNumbersTextBox /></v-col>
+      <FAXLabel />
+      <v-col cols="2"><ThreeNumbersTextBox /></v-col>
+      <v-col cols="2"><FourNumbersTextBox /></v-col>
+      <v-col cols="2"><FourNumbersTextBox /></v-col>
     </v-row>
   </v-sheet>
 </template>

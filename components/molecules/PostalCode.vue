@@ -2,9 +2,9 @@
   <v-sheet>
     <v-row>
       <PostalCodeLabel />
-      <ThreeNumbersTextBox />
-      <FourNumbersTextBox />
-      <AddressSearch />
+      <v-col cols="2"><ThreeNumbersTextBox /></v-col>
+      <v-col cols="2"><FourNumbersTextBox /></v-col>
+      <v-col cols="2"><AddressSearch /></v-col>
     </v-row>
   </v-sheet>
 </template>

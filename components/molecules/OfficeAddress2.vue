@@ -2,7 +2,7 @@
   <v-sheet>
     <v-row>
       <AddressTwoLabel />
-      <AddressTwo />
+      <v-col cols="4"><AddressTwo /></v-col>
     </v-row>
   </v-sheet>
 </template>

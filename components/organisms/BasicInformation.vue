@@ -6,23 +6,21 @@
       <v-row>
         <v-col cols="4"><OfficeName /></v-col>
         <v-col cols="4"><CEOName /></v-col>
-        <v-col cols="4"></v-col>
       </v-row>
       <v-row>
-        <v-col cols="8"><PostalCode /></v-col>
+        <v-col cols="7"><PostalCode /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7"><OfficeAddress /></v-col>
+        <v-col cols="12"><OfficeAddress /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="6"><OfficeAddress2 /></v-col>
+        <v-col cols="12"><OfficeAddress2 /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><TelNumber /></v-col>
+        <v-col cols="7" md="6"><TelNumber /></v-col>
+        <v-col cols="7" md="6"><FAXNumber /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><FAXNumber /></v-col>
-      </v-row>
+      <v-row> </v-row>
       <v-row>
         <v-col cols="12"><OfficeURL /></v-col>
       </v-row>

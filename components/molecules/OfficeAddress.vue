@@ -2,7 +2,7 @@
   <v-sheet>
     <v-row>
       <AddressLabel />
-      <AddressOne />
+      <v-col cols="4"><AddressOne /></v-col>
       <ShowMap />
     </v-row>
   </v-sheet>
