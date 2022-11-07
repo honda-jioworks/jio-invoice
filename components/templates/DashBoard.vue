@@ -36,6 +36,6 @@ export default class DashBoard extends Vue {
   background-color: gray;
 }
 .DatilInfomation {
-  background-color: lightblue;
+  background-color: gray;
 }
 </style>

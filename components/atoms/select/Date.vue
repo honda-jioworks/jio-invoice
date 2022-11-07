@@ -1,6 +1,6 @@
 <template>
-  <v-col class="d-flex">
-    <v-select :items="items" outlined></v-select>
+  <v-col>
+    <v-select :items="items" outlined :rules="rules"></v-select>
   </v-col>
 </template>
 
@@ -10,7 +10,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
   components: {},
 })
 export default class Date extends Vue {
-  items = [
+  private items: Array<string> = [
     '1',
     '2',
     '3',
@@ -41,6 +41,7 @@ export default class Date extends Vue {
     '28',
     '末',
   ];
+  private rules: Array<object> = [(v: String) => !!v || '項目を選択してください'];
 }
 </script>
 

@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="6">数量の桁:</v-col>
       <v-col cols="6">
-        <v-select :items="items" outlined></v-select>
+        <v-select :items="items" :rules="rules" outlined></v-select>
       </v-col>
     </v-row>
   </div>
@@ -12,13 +12,8 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
-export default class NumberOfDigits extends Vue {}
-</script>
-
-<script>
-export default {
-  data: () => ({
-    items: ['整数7桁 小数なし', '整数6桁 小数第1位', '整数5桁 小数第2位', '整数4桁 小数第3位'],
-  }),
-};
+export default class NumberOfDigits extends Vue {
+  private items: Array<string> = ['整数7桁 小数なし', '整数6桁 小数第1位', '整数5桁 小数第2位', '整数4桁 小数第3位'];
+  private rules: Array<object> = [(v: String) => !!v || '項目を選択してください'];
+}
 </script>

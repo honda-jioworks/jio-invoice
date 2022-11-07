@@ -1,28 +1,20 @@
 <template>
   <div>
-    <v-row :align-content="test">
-      <v-col cols="6"><ConsumptionTax /></v-col>
-      <v-col cols="6"><ConsumptionTaxRounding /></v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="6"><MulUnitPriceQuantityRounding /></v-col>
-      <v-col cols="6"><UnitPriceCulculationRounding /></v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="6"><DecimalalPart /></v-col>
-      <v-col cols="6"><NumberOfDigits /></v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="6"><AmountOfWithholdingTax /></v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="6"><SubjectName /></v-col>
-      <v-col cols="6"><TaxRate /></v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="6"><SalaryPaymentDate /></v-col>
-      <v-col cols="6"><BonusPaymentDate /></v-col>
-    </v-row>
+    <v-container no-gutters>
+      <v-row>
+        <v-col cols="12"><ConsumptionTax /></v-col>
+        <v-col cols="12"><ConsumptionTaxRounding /></v-col>
+        <v-col cols="12"><MulUnitPriceQuantityRounding /></v-col>
+        <v-col cols="12"><UnitPriceCulculationRounding /></v-col>
+        <v-col cols="12"><DecimalalPart /></v-col>
+        <v-col cols="12"><NumberOfDigits /></v-col>
+        <v-col cols="12"><AmountOfWithholdingTax /></v-col>
+        <v-col cols="12"><SubjectName /></v-col>
+        <v-col cols="12"><TaxRate /></v-col>
+        <v-col cols="12"><SalaryPaymentDate /></v-col>
+        <v-col cols="12"><BonusPaymentDate /></v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
