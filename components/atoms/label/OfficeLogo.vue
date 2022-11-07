@@ -1,3 +1,3 @@
 <template>
-    <v-header>会社ロゴ:</v-header>
+  <label>会社ロゴ:</label>
 </template>

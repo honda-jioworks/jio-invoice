@@ -1,3 +1,3 @@
 <template>
-    <v-header>社印:</v-header>
+  <label>社印:</label>
 </template>
