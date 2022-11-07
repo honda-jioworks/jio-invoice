@@ -1,45 +1,44 @@
 <template>
-    <v-sheet class="pageback">
-        <v-container fluid>
-            <v-row>
-                <v-col cols="12"><TransactionSection /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="12"><TaxProcessing /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="12"><DepositAccount /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="12"><ClosingDate /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><RecoveryCycle /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><StartingBalance /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><BettingRate /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><PriceCategory /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><TaxRounding /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><PriceQuantityRounding /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><PriceCalcRounding /></v-col>
-            </v-row>
-            <v-row>
-                <v-col cols="7"><TaxAddIndicateCheck /></v-col>
-            </v-row>
-        </v-container>
-        
-    </v-sheet>
+  <v-sheet class="pageback">
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12"><TransactionSection /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12"><TaxProcessing /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12"><DepositAccount /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12"><ClosingDate /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><RecoveryCycle /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><StartingBalance @send-message="sendMessage" />{{ message }}</v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><BettingRate /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><PriceCategory /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><TaxRounding /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><PriceQuantityRounding /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><PriceCalcRounding /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="7"><TaxAddIndicateCheck /></v-col>
+      </v-row>
+    </v-container>
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -57,8 +56,26 @@ import DepositAccount from '../molecules/DepositAccount.vue';
 import TaxProcessing from '../molecules/TaxProcessing.vue';
 import TransactionSection from '../molecules/TransactionSection.vue';
 
-@Component({ components: { TransactionSection, TaxProcessing, DepositAccount, ClosingDate, RecoveryCycle, StartingBalance, BettingRate, PriceCategory, TaxRounding, PriceQuantityRounding, PriceCalcRounding, TaxAddIndicateCheck }})
+@Component({
+  components: {
+    TransactionSection,
+    TaxProcessing,
+    DepositAccount,
+    ClosingDate,
+    RecoveryCycle,
+    StartingBalance,
+    BettingRate,
+    PriceCategory,
+    TaxRounding,
+    PriceQuantityRounding,
+    PriceCalcRounding,
+    TaxAddIndicateCheck,
+  },
+})
 export default class CustomerRegisterForm extends Vue {
-// 登録処理など記述していくのか？
+  message: string = '';
+  sendMessage(message: string): void {
+    this.message = message;
+  }
 }
 </script>
