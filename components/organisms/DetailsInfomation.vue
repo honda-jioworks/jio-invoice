@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-sheet class="abc">
     <v-container no-gutters>
       <v-row>
         <v-col cols="12"><ConsumptionTax /></v-col>
@@ -15,7 +15,7 @@
         <v-col cols="12"><BonusPaymentDate /></v-col>
       </v-row>
     </v-container>
-  </div>
+  </v-sheet>
 </template>
 
 <script lang="ts">

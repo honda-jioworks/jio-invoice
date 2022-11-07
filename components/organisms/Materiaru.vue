@@ -1,5 +1,8 @@
 <template>
-  <div><main-01 /><main-02 /></div>
+  <v-sheet class="abc">
+    <main-01 />
+    <main-02 />
+  </v-sheet>
 </template>
 
 <script lang="ts">

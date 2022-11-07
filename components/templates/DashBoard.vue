@@ -4,10 +4,13 @@
     <!-- コンテンツエリア -->
     <v-container fluid>
       <v-row>
-        <v-col cols="12"><MostRecentSalesAmount /></v-col>
+        <v-col cols="12"><BasicInformation /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><BasicInformation /></v-col>
+        <v-col cols="12"><DetailsInfomation /></v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12"><Materiaru /></v-col>
       </v-row>
     </v-container>
     <!-- フッター -->
@@ -21,8 +24,9 @@ import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.
 
 import CompanyInfomation from '@/components/organisms/CompanyInfomation.vue';
 import BasicInformation from '@/components/organisms/BasicInformation.vue';
-import OfficeURL from '@/components/molecules/OfficeURL.vue';
-@Component({ components: { MostRecentSalesAmount, CompanyInfomation, BasicInformation, OfficeURL } })
+import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
+import Materiaru from '@/components/organisms/Materiaru.vue';
+@Component({ components: { MostRecentSalesAmount, CompanyInfomation, BasicInformation, DetailsInfomation, Materiaru } })
 export default class DashBoard extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;
@@ -31,9 +35,6 @@ export default class DashBoard extends Vue {
 </script>
 <style lang="scss" scoped>
 .groundwork {
-  background-color: gray;
-}
-.DatilInfomation {
   background-color: gray;
 }
 </style>
