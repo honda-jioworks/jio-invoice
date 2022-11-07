@@ -6,12 +6,10 @@
       <v-row>
         <v-col cols="12"><BasicInformation /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><DetailsInfomation /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12"><Materiaru /></v-col>
-      </v-row>
+
+      <!-- <v-row>
+        <v-col cols="12">{{ saito }}</v-col>
+      </v-row> -->
     </v-container>
     <!-- フッター -->
     <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
@@ -22,14 +20,11 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
 
-import CompanyInfomation from '@/components/organisms/CompanyInfomation.vue';
-import BasicInformation from '@/components/organisms/BasicInformation.vue';
-import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
-import Materiaru from '@/components/organisms/Materiaru.vue';
-@Component({ components: { MostRecentSalesAmount, CompanyInfomation, BasicInformation, DetailsInfomation, Materiaru } })
+import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
+@Component({ components: { MostRecentSalesAmount, LogoSealinfo } })
 export default class DashBoard extends Vue {
-  @Prop({ type: String, default: '' })
-  text!: string;
+  //   @Prop({ type: String, default: 'ほんだ' })
+  //   private saito?: String;
 }
 // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 </script>
