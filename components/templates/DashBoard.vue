@@ -26,9 +26,13 @@ export default class DashBoard extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;
 }
+// templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 </script>
 <style lang="scss" scoped>
 .groundwork {
+  background-color: gray;
+}
+.DatilInfomation {
   background-color: gray;
 }
 </style>
