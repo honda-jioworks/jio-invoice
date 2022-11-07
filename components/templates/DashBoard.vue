@@ -16,12 +16,10 @@
 </template>
 
 <script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator';
+import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
 
-import { Vue, Component } from 'nuxt-property-decorator'
-import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue'
-
-@Component({ components: { MostRecentSalesAmount} })
-
+@Component({ components: { MostRecentSalesAmount } })
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }
