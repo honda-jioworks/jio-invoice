@@ -60,7 +60,7 @@ import FileName from '@/components/molecules/FileName.vue';
     FileName,
   },
 })
-export default class BasicInformation extends Vue {}
+export default class CompanyInfomation extends Vue {}
 </script>
 <style lang="scss" scoped>
 .groundwork {
