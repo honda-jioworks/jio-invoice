@@ -17,7 +17,7 @@
         <v-col cols="7"><RecoveryCycle /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7"><StartingBalance @send-message="sendMessage" />{{ message }}</v-col>
+        <v-col cols="7"><StartingBalance /></v-col>
       </v-row>
       <v-row>
         <v-col cols="7"><BettingRate /></v-col>
@@ -72,10 +72,5 @@ import TransactionSection from '../molecules/TransactionSection.vue';
     TaxAddIndicateCheck,
   },
 })
-export default class CustomerRegisterForm extends Vue {
-  message: string = '';
-  sendMessage(message: string): void {
-    this.message = message;
-  }
-}
+export default class CustomerRegisterForm extends Vue {}
 </script>

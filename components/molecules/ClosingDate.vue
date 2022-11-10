@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="center">
       <v-col class="d-flex" cols="12" sm="2">
-        <v-select :items="items" label="締日（毎月）" :rules="boxRules"></v-select>
+        <v-select :items="items" label="締日（毎月）：" :rules="boxRules"></v-select>
       </v-col>
     </v-row>
   </v-container>
@@ -44,6 +44,6 @@ export default class ClosingDate extends Vue {
     '28日',
     '末日',
   ];
-  boxRules: Array<any> = [(v: object) => !!v || '項目を選択してください'];
+  boxRules: Array<object> = [(v: object) => !!v || '項目を選択してください'];
 }
 </script>

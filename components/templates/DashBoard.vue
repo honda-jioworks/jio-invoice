@@ -10,23 +10,16 @@
       <v-row>
         <v-col cols="12"><CustomerList /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><v-text-field :value="shinozaki" /></v-col>
-      </v-row>
     </v-container>
-    <!-- :value=　で"shinozaki"というプロパティを指定してあげる-->
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component } from 'nuxt-property-decorator';
 import CustomerList from '../organisms/CustomerList.vue';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
 @Component({ components: { MostRecentSalesAmount, CustomerList } })
-export default class DashBoard extends Vue {
-  @Prop({ type: String, default: 'しのざき' })
-  shinozaki!: string; //DashBoardのプロパティ
-}
+export default class DashBoard extends Vue {}
 </script>
 <style lang="scss" scoped>
 .groundwork {
