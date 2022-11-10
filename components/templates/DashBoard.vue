@@ -2,16 +2,22 @@
   <v-sheet class="groundwork">
     <v-container fluid>
       <v-row>
-        <v-col cols="12"><MostRecentSalesAmount /></v-col>
+        <v-col cols="12">
+          <MostRecentSalesAmount />
+        </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12">Organismsの一つを置く（直近の取引欄の想定）</v-col>
+        <v-col cols="12">
+          <information />
+        </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><CustomerList /></v-col>
+        <v-col cols="12">
+          <basic />
+        </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><v-text-field :value="shinozaki" /></v-col>
+        <v-col cols="12"> </v-col>
       </v-row>
     </v-container>
     <!-- :value=　で"shinozaki"というプロパティを指定してあげる-->
@@ -20,16 +26,13 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import CustomerList from '../organisms/CustomerList.vue';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
-@Component({ components: { MostRecentSalesAmount, CustomerList } })
-export default class DashBoard extends Vue {
-  @Prop({ type: String, default: 'しのざき' })
-  shinozaki!: string; //DashBoardのプロパティ
-}
+import basic from '@/components/organisms/basic.vue';
+@Component({ components: { MostRecentSalesAmount, basic } })
+export default class DashBoard extends Vue {}
 </script>
 <style lang="scss" scoped>
 .groundwork {
-  background-color: gray;
+  background-color: white;
 }
 </style>
