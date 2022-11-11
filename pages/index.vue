@@ -163,7 +163,7 @@ export default class indexPage extends Vue {
 </script> -->
 
 <template>
-  <div><DashBoard :text="test" /></div>
+  <div><DashBoard /></div>
 </template>
 <!-- :shinozaki はプロパティ　子のクラス変数とも言い換えれる　testは変数 -->
 
