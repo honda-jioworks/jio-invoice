@@ -7,17 +7,13 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12">
-          <information />
-        </v-col>
+        <v-col cols="12"><CustomerRegisterForm /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12">
-          <basic />
-        </v-col>
+        <v-col cols="12">Organismsの一つを置く（直近の取引欄の想定）</v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"> </v-col>
+        <v-col cols="12"><contact /></v-col>
       </v-row>
     </v-container>
     <!-- :value=　で"shinozaki"というプロパティを指定してあげる-->
@@ -27,9 +23,15 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
-import basic from '@/components/organisms/basic.vue';
-@Component({ components: { MostRecentSalesAmount, basic } })
-export default class DashBoard extends Vue {}
+
+import contact from '~/components/molecules/Contact.vue';
+import CustomerRegisterForm from '@/components/organisms/CustomerRegisterform.vue';
+
+@Component({ components: { MostRecentSalesAmount, contact, CustomerRegisterForm } })
+export default class DashBoard extends Vue {
+  @Prop({ type: String, default: '' })
+  yamazaki?: string;
+}
 </script>
 <style lang="scss" scoped>
 .groundwork {
