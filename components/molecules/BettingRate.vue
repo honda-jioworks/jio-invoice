@@ -17,6 +17,7 @@ export default class BettingRate extends Vue {
     (v: string) => !!v || '項目を入力してください',
     (v: string) => /^([1-9]\d*|0)$/.test(v) || '数値を入力してください',
     (v: string) => (v && v.length <= 3) || '3桁以内で入力してください',
+    (v: number) => (v && v <= 100) || '100%までの値で入力してください',
   ];
 }
 </script>

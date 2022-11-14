@@ -16,6 +16,7 @@ export default class StartingBalance extends Vue {
   inputRules: Array<object> = [
     (v: string) => !!v || '項目を入力してください',
     (v: string) => /^([1-9]\d*|0)$/.test(v) || '数値を入力してください',
+    (v: number) => (v && v <= 999999999999999) || '上限値以内で入力してください',
   ];
 }
 </script>
