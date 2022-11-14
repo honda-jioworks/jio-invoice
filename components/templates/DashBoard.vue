@@ -12,13 +12,19 @@
     </v-container>
     <!-- フッター -->
     <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
+    <v-container class="AccountRegister">
+      <v-row>
+        <v-col cols="12"><AccountInformation /></v-col>
+      </v-row>
+    </v-container>
   </v-sheet>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
-@Component({ components: { MostRecentSalesAmount } })
+import AccountInformation from '@/components/organisms/AccountInformation.vue';
+@Component({ components: { MostRecentSalesAmount, AccountInformation } })
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }
@@ -26,5 +32,8 @@ export default class DashBoard extends Vue {
 <style lang="scss" scoped>
 .groundwork {
   background-color: gray;
+}
+.AccountRegister {
+  background-color: lightgray;
 }
 </style>
