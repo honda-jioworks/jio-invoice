@@ -2,8 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="1"><CheckBox /></v-col>
-        <v-col cols="5">入力候補に表示しない</v-col>
+        <v-checkbox v-model="checkbox" label="入力候補に表示しない"></v-checkbox>
       </v-row>
     </v-container>
   </div>
@@ -11,7 +10,8 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import CheckBox from '@/components/atoms/CheckBox.vue';
-@Component({ components: { CheckBox } })
-export default class InputCandidate extends Vue {}
+@Component({ components: {} })
+export default class InputCandidate extends Vue {
+  private checkbox: boolean = false;
+}
 </script>

@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="color">
     <FinancialInstitutionName />
+    <BranchName />
     <AccountNumber />
     <AccountName />
     <DepositCategory />
@@ -39,5 +40,13 @@ import InputCandidate from '@/components/molecules/InputCandidate.vue';
     InputCandidate,
   },
 })
-export default class AccountInformation extends Vue {}
+export default class AccountInformation extends Vue {
+  //登録処理を書いていく
+}
 </script>
+
+
+<style lang="scss" scoped>
+.color {
+  background-color: white;
+}

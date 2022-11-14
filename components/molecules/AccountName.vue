@@ -2,8 +2,9 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="2">口座番号：</v-col>
-        <v-col cols="4"><TextBox /></v-col>
+        <v-col cols="10" sm="7" lg="5">
+          <v-text-field label="口座名義" :rules="textRules" outlined></v-text-field>
+        </v-col>
       </v-row>
     </v-container>
   </div>

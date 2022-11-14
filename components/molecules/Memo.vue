@@ -2,8 +2,10 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="2">メモ:</v-col>
-        <v-col cols="5"><TextBox /></v-col>
+        <!--v-col cols="5"><TextBox /-->
+        <v-col cols="10" sm="7" lg="5">
+          <v-textarea label="メモ" outlined></v-textarea>
+        </v-col>
       </v-row>
     </v-container>
   </div>

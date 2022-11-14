@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-select :rules="selectRules" :items="contents" outlined></v-select>
+    <v-select label="預金区分" :rules="selectRules" :items="contents" outlined></v-select>
   </div>
 </template>
 
