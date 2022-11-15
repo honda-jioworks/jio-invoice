@@ -4,11 +4,13 @@
       <img :src="Url" width="200px" />
       <v-file-input
         v-model="image"
-        @input="scanImg"
+        @input="scanImgs"
         accept="image/*"
         label="画像ファイルから選択"
         prepend-icon="mdi-image"
       />
+
+      <!-- <v-btn @click="remove">remove</v-btn> -->
     </v-col>
   </v-row>
 </template>
@@ -17,7 +19,7 @@
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
-export default class clearbutton extends Vue {
+export default class Selectfile extends Vue {
   public image = null;
 
   get Url(): string | undefined {
@@ -29,8 +31,13 @@ export default class clearbutton extends Vue {
   }
 
   @Emit()
-  scanImg() {
-    return this.image;
+  scanImgs() {
+    return this.Url;
   }
+
+  //@input="scanImg"
+  // scanImg() {
+  //   return this.image;
+  // }
 }
 </script>
