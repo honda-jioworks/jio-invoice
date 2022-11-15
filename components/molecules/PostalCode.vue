@@ -2,7 +2,7 @@
   <v-row>
     <span class="zipcode-mark">〒</span>
     <v-col cols="12" md="4">
-      <v-text-field :rules="nameRules" label="郵便番号"></v-text-field>
+      <v-text-field :rules="nameRules" label="郵便番号："></v-text-field>
     </v-col>
 
     <v-btn large min-width="30" id="search"> 住所を表示 </v-btn>

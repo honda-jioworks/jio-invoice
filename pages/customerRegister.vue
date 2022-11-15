@@ -1,48 +1,23 @@
-<!-- <template>
-  <form>
-    <v-text-field
-      v-model="name"
-      :error-messages="nameErrors"
-      :counter="10"
-      label="Name"
-      required
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
-    ></v-text-field>
-    <v-text-field
-      v-model="email"
-      :error-messages="emailErrors"
-      label="E-mail"
-      required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
-    ></v-text-field>
-    <v-select
-      v-model="select"
-      :items="items"
-      :error-messages="selectErrors"
-      label="Item"
-      required
-      @change="$v.select.$touch()"
-      @blur="$v.select.$touch()"
-    ></v-select>
-    <v-checkbox
-      v-model="checkbox"
-      :error-messages="checkboxErrors"
-      label="Do you agree?"
-      required
-      @change="$v.checkbox.$touch()"
-      @blur="$v.checkbox.$touch()"
-    ></v-checkbox>
+<template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12">
+        <BasicInfomationForm />
+      </v-col>
+      <v-col cols="12">
+        <ContactAddressForm />
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
 
-    <v-btn
-      class="mr-4"
-      @click="submit"
-    >
-      submit
-    </v-btn>
-    <v-btn @click="clear">
-      clear
-    </v-btn>
-  </form>
-</template> -->
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator';
+import BasicInfomationForm from '~/components/organisms/BasicInfomationForm.vue';
+import ContactAddressForm from '~/components/organisms/ContactAddressForm.vue';
+
+@Component({
+  components: { BasicInfomationForm, ContactAddressForm },
+})
+export default class IndexPage extends Vue {}
+</script>

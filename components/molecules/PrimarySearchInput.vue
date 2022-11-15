@@ -14,7 +14,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 @Component({
   components: {},
 })
-export default class Search1 extends Vue {
-  nameRules: Array<object> = [(v: string) => !!v || '文字を入力してください。'];
+export default class PrimarySearchInput extends Vue {
+  nameRules: Array<object> = [(v: string) => !!v || '検索キーを入力してください。'];
 }
 </script>
