@@ -14,15 +14,15 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import PostalCode from '~/components/molecules/PostalCode.vue';
+import PostalCode from '@/components/molecules/PostalCode.vue';
 import AddressInput from '@/components/molecules/AddressInput.vue';
 import DepartmentInput from '@/components/molecules/DepartmentInput.vue';
 import PostBox from '@/components/molecules/PostBox.vue';
 import HonorificBox from '@/components/molecules/HonorificBox.vue';
 import PhoneNumber from '@/components/molecules/PhoneNumber.vue';
 import EmailInput from '@/components/molecules/EmailInput.vue';
-import TelNumber from '@/components/molecules/TelNumber.vue';
-import FaxNumber from '@/components/molecules/FaxNumber.vue';
+import TelNumber from '../molecules/TelNumber.vue';
+import FaxNumber from '../molecules/FaxNumber.vue';
 
 @Component({
   components: {
