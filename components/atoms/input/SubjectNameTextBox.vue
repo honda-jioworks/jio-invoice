@@ -1,15 +1,23 @@
 <template>
   <v-col>
-    <v-text-field outlined :rules="rules"></v-text-field>
+    <v-text-field :rules="rules" disabled="val" @onkeydown="changeBool"></v-text-field>
   </v-col>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 @Component({
   components: {},
 })
 export default class TextBox extends Vue {
+  private val: boolean = false;
+  @Prop({ type: Boolean })
+  checkVal!: boolean;
+
+  changeBool(_: boolean) {
+    this.val = this.checkVal;
+  }
+
   private rules: Array<object> = [
     (v: String) => !!v || '項目を入力してください',
     //(v: String) => v.length <= 25 || 'Max 25 characters',
