@@ -13,8 +13,6 @@
         <v-col cols="12"><Materiaru /></v-col>
       </v-row>
     </v-container>
-    <!-- フッター -->
-    <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
   </v-sheet>
 </template>
 
