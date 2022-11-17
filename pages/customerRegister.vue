@@ -1,3 +1,4 @@
+
 <template>
   <v-container fluid>
     <v-row>
@@ -30,3 +31,5 @@ import AccountInformation from '~/components/organisms/AccountInformation.vue';
 })
 export default class IndexPage extends Vue {}
 </script>
+
+
