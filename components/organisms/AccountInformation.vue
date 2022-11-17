@@ -35,7 +35,7 @@
     <!--4段目-->
     <v-row>
       <v-col cols="12" sm="6" lg="8">
-        <Memo />
+        <MemoBox />
       </v-col>
     </v-row>
     <!--5段目-->
@@ -57,11 +57,11 @@ import BranchName from '@/components/molecules/BranchName.vue';
 import AccountNumber from '@/components/molecules/AccountNumber.vue';
 import AccountName from '@/components/molecules/AccountName.vue';
 import DepositCategory from '@/components/molecules/DepositCategory.vue';
-import SearchKeyOne from '@/components/molecules/SearchKeyOne.vue';
 import SearchKeyTwo from '@/components/molecules/SearchKeyTwo.vue';
-import Memo from '@/components/molecules/Memo.vue';
+import MemoBox from '@/components/molecules/MemoBox.vue';
 import DefaultValue from '@/components/molecules/DefaultValue.vue';
 import InputCandidate from '@/components/molecules/InputCandidate.vue';
+import SearchKeyOne from '../molecules/SearchKeyOne.vue';
 
 @Component({
   components: {
@@ -70,11 +70,11 @@ import InputCandidate from '@/components/molecules/InputCandidate.vue';
     AccountNumber,
     AccountName,
     DepositCategory,
-    SearchKeyOne,
     SearchKeyTwo,
-    Memo,
+    MemoBox,
     DefaultValue,
     InputCandidate,
+    SearchKeyOne
   },
 })
 export default class AccountInformation extends Vue {

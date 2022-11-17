@@ -1,4 +1,3 @@
-
 <template>
   <v-container fluid>
     <v-row>
@@ -11,7 +10,9 @@
       <v-col cols="12">
         <TransactionForm />
       </v-col>
-
+      <v-col cols="12">
+        <EmployeesRegisterForm />
+      </v-col>
       <v-col cols="12">
         <AccountInformation />
       </v-col>
@@ -25,11 +26,10 @@ import BasicInfomationForm from '~/components/organisms/BasicInfomationForm.vue'
 import ContactAddressForm from '~/components/organisms/ContactAddressForm.vue';
 import TransactionForm from '~/components/organisms/TransactionForm.vue';
 import AccountInformation from '~/components/organisms/AccountInformation.vue';
+import EmployeesRegisterForm from '~/components/organisms/EmployeesRegisterForm.vue';
 
 @Component({
-  components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation },
+  components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation, EmployeesRegisterForm },
 })
 export default class IndexPage extends Vue {}
 </script>
-
-

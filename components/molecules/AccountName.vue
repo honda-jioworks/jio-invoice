@@ -15,6 +15,6 @@ import { Vue, Component } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
 export default class AccountName extends Vue {
-  private textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+  textRules: Array<Object> = [(v: string) => !!v || '項目を入力してください'];
 }
 </script>

@@ -7,7 +7,7 @@
         <AbbreviationInput />
         <PrimarySearchInput />
         <SecondSearchInput />
-        <MemoInput />
+        <MemoBox />
         <NotShowBox />
       </v-col>
     </v-row>
@@ -21,7 +21,7 @@ import CustomerNameKana from '@/components/molecules/CustomerNameKana.vue';
 import AbbreviationInput from '~/components/molecules/AbbreviationInput.vue';
 import PrimarySearchInput from '@/components/molecules/PrimarySearchInput.vue';
 import SecondSearchInput from '@/components/molecules/SecondSearchInput.vue';
-import MemoInput from '@/components/molecules/MemoInput.vue';
+import MemoBox from '@/components/molecules/MemoBox.vue';
 import NotShowBox from '~/components/molecules/NotShowBox.vue';
 @Component({
   components: {
@@ -30,7 +30,7 @@ import NotShowBox from '~/components/molecules/NotShowBox.vue';
     AbbreviationInput,
     PrimarySearchInput,
     SecondSearchInput,
-    MemoInput,
+    MemoBox,
     NotShowBox,
   },
 })

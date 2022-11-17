@@ -15,5 +15,5 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
-export default class Memo extends Vue {}
+export default class MemoBox extends Vue {}
 </script>
