@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="10" sm="6" lg="4"><SelectBox :contents="test" /></v-col>
+        <v-col><SelectBox :contents="test" /></v-col>
       </v-row>
     </v-container>
   </div>
@@ -14,13 +14,13 @@ import SelectBox from '@/components/atoms/SelectBox.vue';
 @Component({ components: { SelectBox } })
 export default class FinancialInstitutionName extends Vue {
   private test: Array<string> = [
-    '普通貯金',
-    '当座貯金',
-    '定期貯金',
+    '普通預金',
+    '当座預金',
+    '定期預金',
     '定期積金',
-    '通知貯金',
-    '別段貯金',
-    '郵便貯金',
+    '通知預金',
+    '別段預金',
+    '郵便預金',
     'その他',
   ];
 }

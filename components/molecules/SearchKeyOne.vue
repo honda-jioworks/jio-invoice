@@ -2,8 +2,8 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="10" sm="5" lg="3">
-          <v-text-field label="検索キー1" :rules="textRules" outlined></v-text-field>
+        <v-col>
+          <v-text-field label="検索キー1" :rules="textRules"></v-text-field>
         </v-col>
       </v-row>
     </v-container>

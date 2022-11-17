@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-col cols="10" sm="5" lg="3">
-      <v-text-field label="支店名" :rules="textRules" outlined></v-text-field>
+    <v-col>
+      <v-text-field label="支店名" :rules="textRules"></v-text-field>
     </v-col>
   </div>
 </template>
@@ -10,5 +10,7 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
-export default class BranchName extends Vue {}
+export default class BranchName extends Vue {
+  private textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+}
 </script>

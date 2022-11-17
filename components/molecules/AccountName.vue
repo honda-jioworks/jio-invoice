@@ -2,8 +2,8 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="10" sm="7" lg="5">
-          <v-text-field label="口座名義" :rules="textRules" outlined></v-text-field>
+        <v-col>
+          <v-text-field label="口座名義" :rules="textRules"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -14,5 +14,7 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
-export default class AccountName extends Vue {}
+export default class AccountName extends Vue {
+  private textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+}
 </script>

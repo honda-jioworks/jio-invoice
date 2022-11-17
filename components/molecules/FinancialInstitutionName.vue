@@ -2,9 +2,9 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="10" sm="5" lg="3">
+        <v-col>
           <!--TextBox :name="label" label="金融機関名" /-->
-          <v-text-field label="金融機関名" :rules="textRules" outlined></v-text-field>
+          <v-text-field label="金融機関名" :rules="textRules"></v-text-field>
         </v-col>
       </v-row>
     </v-container>

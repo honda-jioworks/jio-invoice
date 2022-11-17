@@ -3,8 +3,8 @@
     <v-container>
       <v-row>
         <!--v-col cols="5"><TextBox /-->
-        <v-col cols="10" sm="7" lg="5">
-          <v-textarea label="メモ" outlined></v-textarea>
+        <v-col>
+          <v-textarea label="メモ" rows="1"></v-textarea>
         </v-col>
       </v-row>
     </v-container>

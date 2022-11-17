@@ -1,15 +1,52 @@
 <template>
   <div class="color">
-    <FinancialInstitutionName />
-    <BranchName />
-    <AccountNumber />
-    <AccountName />
-    <DepositCategory />
-    <SearchKeyOne />
-    <SearchKeyTwo />
-    <Memo />
-    <DefaultValue />
-    <InputCandidate />
+    <!--1段目-->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4">
+        <FinancialInstitutionName />
+      </v-col>  
+      <v-col cols="12" sm="6" lg="4">
+        <BranchName />
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
+    <!--2段目-->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4">
+        <AccountNumber />
+      </v-col>      
+      <v-col cols="12" sm="6" lg="4">
+        <AccountName />
+      </v-col>
+      <v-col cols="12" sm="6" lg="4">
+        <DepositCategory />
+      </v-col>
+    </v-row>
+    <!--3段目-->
+    <v-row>  
+      <v-col cols="12" sm="6" lg="4">
+        <SearchKeyOne />
+      </v-col>
+        <v-col cols="12" sm="6" lg="4">
+        <SearchKeyTwo />
+      </v-col>  
+      <v-spacer></v-spacer>
+    </v-row>
+    <!--4段目-->
+    <v-row>
+      <v-col cols="12" sm="6" lg="8">
+        <Memo />
+      </v-col>
+    </v-row>
+    <!--5段目-->
+    <v-row>
+      <v-col cols="12" sm="6" lg="6">
+        <DefaultValue />
+      </v-col>
+      <v-col cols="12" sm="6" lg="6">
+        <InputCandidate />
+      </v-col>
+    </v-row>       
   </div>
 </template>
 
