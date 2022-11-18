@@ -7,8 +7,8 @@
     <div><HonorificBox /></div>
     <div><PhoneNumber /></div>
     <div><EmailInput /></div>
-    <div><TelNumber /></div>
-    <div><FaxNumber /></div>
+    <div><TelNumberInput /></div>
+    <div><FaxNumberInput /></div>
   </v-sheet>
 </template>
 
@@ -21,8 +21,8 @@ import PostBox from '@/components/molecules/PostBox.vue';
 import HonorificBox from '@/components/molecules/HonorificBox.vue';
 import PhoneNumber from '@/components/molecules/PhoneNumber.vue';
 import EmailInput from '@/components/molecules/EmailInput.vue';
-import TelNumber from '../molecules/TelNumber.vue';
-import FaxNumber from '../molecules/FaxNumber.vue';
+import TelNumberInput from '../molecules/TelNumberInput.vue';
+import FaxNumberInput from '../molecules/FaxNumberInput.vue';
 
 @Component({
   components: {
@@ -33,8 +33,8 @@ import FaxNumber from '../molecules/FaxNumber.vue';
     HonorificBox,
     PhoneNumber,
     EmailInput,
-    TelNumber,
-    FaxNumber,
+    TelNumberInput,
+    FaxNumberInput,
   },
 })
 export default class CustomerRegisterForm extends Vue {

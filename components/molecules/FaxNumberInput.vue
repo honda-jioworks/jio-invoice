@@ -11,5 +11,5 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 @Component({})
-export default class FaxNumber extends Vue {}
+export default class FaxNumberInput extends Vue {}
 </script>

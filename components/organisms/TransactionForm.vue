@@ -2,8 +2,9 @@
   <v-sheet class="pageback">
     <v-container fluid>
       <v-row>
-        <v-col cols="12"><TransactionSection /></v-col>
+        <v-col cols="12"><TransactionSection @keep-id="keepId" /></v-col>
       </v-row>
+      <p>値：{{ value }}</p>
       <v-row>
         <v-col cols="12"><TaxProcessing /></v-col>
       </v-row>
@@ -72,5 +73,11 @@ import TransactionSection from '../molecules/TransactionSection.vue';
     TaxAddIndicateCheck,
   },
 })
-export default class TransactionForm extends Vue {}
+export default class TransactionForm extends Vue {
+  value: any = '';
+
+  keepId(sectionId: any): void {
+    this.value = sectionId;
+  }
+}
 </script>
