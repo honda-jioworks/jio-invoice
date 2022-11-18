@@ -14,7 +14,7 @@ export default class RegNumber extends Vue {
   private bool: boolean = false;
 
   @Emit()
-  pushCheckbox(val: boolean): boolean {
+  pushCheckbox(_: boolean): boolean {
     return (this.bool = !this.bool);
   }
 }

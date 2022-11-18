@@ -23,7 +23,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import CompanyInformation from '~/components/organisms/CompanyInformation.vue';
 import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
 import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
-@Component({ components: { CompanyInformation, DetailsInfomation, RegistrationNumber, LogoSealinfo } })
+@Component({ components: { CompanyInformation, DetailsInfomation, RegistrationNumber } })
 export default class DashBoard extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;

@@ -10,7 +10,7 @@
         <v-col cols="12"><NumberOfDigits /></v-col>
         <v-col cols="12"><AmountOfWithholdingTax @check-bool="checkBool" /></v-col>
         <v-col cols="12"><SubjectName :checkVal="bool" /></v-col>
-        <v-col cols="12"><TaxRate /></v-col>
+        <v-col cols="12"><TaxRate :checkVal="bool" /></v-col>
         <v-col cols="12"><SalaryPaymentDate /></v-col>
         <v-col cols="12"><BonusPaymentDate /></v-col>
       </v-row>

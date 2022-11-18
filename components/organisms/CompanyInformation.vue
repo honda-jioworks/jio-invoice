@@ -8,10 +8,10 @@
         <v-col cols="4"><CEOName /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7"><PostalCode /></v-col>
+        <v-col cols="7"><PostalCode :officePostalCode="postalCode" @send-address="sendAddress" /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><OfficeAddress /></v-col>
+        <v-col cols="12"><OfficeAddress :addressVal="address" /></v-col>
       </v-row>
       <v-row>
         <v-col cols="12"><OfficeAddress2 /></v-col>
@@ -60,7 +60,13 @@ import FileName from '@/components/molecules/FileName.vue';
     FileName,
   },
 })
-export default class CompanyInfomation extends Vue {}
+export default class CompanyInfomation extends Vue {
+  private address: string = '';
+  private postalCode: string = '1600022';
+  sendAddress(val: string): void {
+    this.address = val;
+  }
+}
 </script>
 <style lang="scss" scoped>
 .groundwork {

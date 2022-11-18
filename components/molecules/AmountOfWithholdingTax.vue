@@ -16,8 +16,7 @@ export default class AmountOfWithholdingTax extends Vue {
 
   @Emit()
   checkBool(val: boolean): boolean {
-    this.bool = val;
-    return this.bool;
+    return (this.bool = val);
   }
 }
 </script>

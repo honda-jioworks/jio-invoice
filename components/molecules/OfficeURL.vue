@@ -2,7 +2,7 @@
   <div>
     <v-sheet>
       <v-row>
-        <OfficeURLLabel ref="yuki" />
+        <OfficeURLLabel />
         <URLBox @scan-url="scanUrl" @scan-test="scanTest" />
         <URLBtn :urlValue="textVal" />
       </v-row>
@@ -18,12 +18,8 @@ import URLBtn from '@/components/atoms/button/URLBtn.vue';
 @Component({ components: { OfficeURLLabel, URLBox, URLBtn } })
 export default class OfficeURL extends Vue {
   private textVal: string = '';
-  @Ref()
-  yuki!: OfficeURLLabel;
-
   scanUrl(val: string): void {
     this.textVal = val;
-    this.yuki.test();
   }
 
   scanTest(value: string): void {
