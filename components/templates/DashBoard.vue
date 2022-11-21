@@ -9,6 +9,9 @@
       <v-row>
         <v-col cols="12"><LogoSealinfo /></v-col>
       </v-row>
+      <v-row>
+        <!-- <v-col cols="12"><OfficeSealPanel /></v-col> -->
+      </v-row>
     </v-container>
   </v-sheet>
 </template>
@@ -19,7 +22,8 @@ import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.
 import BasicInformation from '../organisms/BasicInformation.vue';
 import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
 import CompanyLogoSeal from '../molecules/OfficeLogo.vue';
-@Component({ components: { MostRecentSalesAmount, LogoSealinfo, BasicInformation, CompanyLogoSeal } })
+import OfficeSealPanel from '../molecules/OfficeSealPanel.vue';
+@Component({ components: { MostRecentSalesAmount, LogoSealinfo, BasicInformation, CompanyLogoSeal, OfficeSealPanel } })
 export default class DashBoard extends Vue {}
 </script>
 <style lang="scss" scoped>

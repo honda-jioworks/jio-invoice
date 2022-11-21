@@ -2,12 +2,19 @@
   <div>
     <v-sheet rounded>
       <v-row>
-        <v-col cols="12"><OfficeLogoName /><Selectfile id="OfficeLogo" ref="SelectImg" @scan-imgs="scanImgs" /></v-col>
-        <v-col cols="12"
-          ><SelectImgbutton selectimgbutton="画像を選択してください" @scan-img="scanImg" :urlValue="imgVal"
-        /></v-col>
-        <v-col cols="12"><Clearbutton id="DeleteOfficeLogo" action="クリア" /></v-col>
-        <v-col cols="12 " depressed elevation="5" rounded color="#909090"><ImgImport /></v-col>
+        <v-col cols="12"><OfficeLogoName /></v-col>
+        <div class="wrap">
+          <v-col cols="12"><Selectfile id="OfficeLogo" ref="SelectImg" /></v-col>
+          <div>
+            <v-col cols="12"
+              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="clickSelect"
+            /></v-col>
+            <v-col cols="12"><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="removeButton" /></v-col>
+            <v-col cols="12 "
+              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="imgDownlord"
+            /></v-col>
+          </div>
+        </div>
       </v-row>
     </v-sheet>
   </div>
@@ -26,17 +33,19 @@ import SelectImgbutton from '../atoms/button/SelectImgbutton.vue';
   components: { OfficeLogoName, Selectfile, Clearbutton, CompanySeal, ImgImport, CreateCompanySeal, SelectImgbutton },
 })
 export default class OfficeLogo extends Vue {
-  private imgVal = '';
-
   @Ref()
   SelectImg!: Selectfile;
 
-  scanImg() {
-    this.SelectImg.Url;
+  removeButton() {
+    this.SelectImg.remove();
   }
 
-  scanImgs() {
-    this.imgVal;
+  imgDownlord() {
+    this.SelectImg.downloadByURL();
+  }
+
+  clickSelect(): void {
+    this.SelectImg.selectimg();
   }
 }
 </script>
@@ -44,5 +53,25 @@ export default class OfficeLogo extends Vue {
 <style lang="scss" scoped>
 .btn {
   align-items: flex-end;
+}
+.wrap {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.wrap img {
+  width: 30%;
+}
+.wrap div {
+  width: 40%;
+}
+.wrap div button {
+  display: block;
+  width: 60%;
+  line-height: 32px;
+  margin: 28px 20px;
 }
 </style>
