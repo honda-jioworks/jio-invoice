@@ -1,6 +1,6 @@
 <template>
-  <v-row justify="start">
-    <v-col sm="12" md="11" lg="9" xl="6">
+  <v-row>
+    <v-col>
       <v-sheet class="groundwork">
         <!-- ヘッダー -->
         <!-- コンテンツエリア -->
