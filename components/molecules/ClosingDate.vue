@@ -2,14 +2,14 @@
   <v-container fluid>
     <v-row align="center">
       <v-col class="d-flex" cols="12" sm="2">
-        <v-select :items="items" label="締日（毎月）：" :rules="boxRules"></v-select>
+        <v-select label="締日（毎月）：" :items="items" :rules="boxRules" @change="getClosing" return-object></v-select>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Emit } from 'nuxt-property-decorator';
 
 @Component({})
 export default class ClosingDate extends Vue {
@@ -45,5 +45,11 @@ export default class ClosingDate extends Vue {
     '末日',
   ];
   boxRules: Array<any> = [(v: object) => !!v || '項目を選択してください'];
+  closing: any = '';
+
+  @Emit()
+  getClosing(closing: any): any {
+    return closing;
+  }
 }
 </script>
