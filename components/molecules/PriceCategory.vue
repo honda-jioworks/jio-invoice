@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid>
-    <v-row align="center">
-      <v-col class="d-flex" cols="12" sm="4">
-        <v-select :items="items" label="単価区分：" :rules="boxRules"></v-select>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex">
+        <v-select :items="items" label="単価区分" :rules="boxRules"></v-select>
       </v-col>
     </v-row>
   </v-container>

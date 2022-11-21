@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid>
-    <v-row align="center">
-      <v-col class="d-flex" cols="12" sm="6">
-        <v-text-field :rules="inputRules" label="開始残高："></v-text-field>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex">
+        <v-text-field :rules="inputRules" label="開始残高"></v-text-field>
       </v-col>
     </v-row>
   </v-container>

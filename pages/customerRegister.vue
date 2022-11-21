@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container class="groundcolor">
     <v-row>
       <v-col cols="12">
         <BasicInfomationForm />
@@ -11,14 +11,18 @@
         <TransactionForm />
       </v-col>
       <v-col cols="12">
-        <EmployeesRegisterForm />
-      </v-col>
-      <v-col cols="12">
         <AccountInformation />
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<style lang="scss" scoped>
+.groundcolor {
+  background: grey;
+}
+</style>
+
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
@@ -26,10 +30,10 @@ import BasicInfomationForm from '~/components/organisms/BasicInfomationForm.vue'
 import ContactAddressForm from '~/components/organisms/ContactAddressForm.vue';
 import TransactionForm from '~/components/organisms/TransactionForm.vue';
 import AccountInformation from '~/components/organisms/AccountInformation.vue';
-import EmployeesRegisterForm from '~/components/organisms/EmployeesRegisterForm.vue';
 
 @Component({
-  components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation, EmployeesRegisterForm },
+  components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation, 
+   },
 })
 export default class IndexPage extends Vue {}
 </script>

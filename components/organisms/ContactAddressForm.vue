@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <v-sheet class="groundwork">
     <div><PostalCode /></div>
     <div><AddressInput /></div>
     <div><DepartmentInput /></div>
@@ -41,3 +41,9 @@ export default class CustomerRegisterForm extends Vue {
   // 登録処理など記述していくのか？
 }
 </script>
+
+<style lang="scss" scoped>
+.groundwork {
+  background-color: white;
+}
+</style>
