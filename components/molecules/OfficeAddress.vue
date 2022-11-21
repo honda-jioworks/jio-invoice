@@ -3,7 +3,7 @@
     <v-row>
       <AddressLabel />
       <v-col cols="4"><AddressOne :addressVal="addressVal" /></v-col>
-      <ShowMap />
+      <ShowMap @show-maptest="showMaptest" />
     </v-row>
   </v-sheet>
 </template>
@@ -23,5 +23,7 @@ import ShowMap from '~/components/atoms/button/ShowMap.vue';
 export default class OfficeAddress extends Vue {
   @Prop({ type: String })
   addressVal!: string;
+
+  showMaptest() {}
 }
 </script>
