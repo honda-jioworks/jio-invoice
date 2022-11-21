@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-text-field :value="textUrl" @input="scanUrl"> </v-text-field>
+    <v-text-field :value="textUrl" @input="scanTest"> </v-text-field>
   </div>
 </template>
 
@@ -17,6 +17,11 @@ export default class URLBox extends Vue {
   @Emit()
   scanUrl(_: string): string {
     return this.textUrl;
+  }
+
+  @Emit()
+  scanTest(url: string): string {
+    return url;
   }
 }
 </script>

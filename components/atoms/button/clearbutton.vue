@@ -1,6 +1,6 @@
 <template>
-  <v-card-actions class="justify-end">
-    <v-btn depressed elevation="5" @click="RemoveButton">{{ action }}</v-btn>
+  <v-card-actions>
+    <v-btn depressed elevation="5" @click="removeButton" width="200px" color="#dcdcdc">{{ action }}</v-btn>
   </v-card-actions>
 
   <!--button>クリア</button-->
@@ -16,11 +16,10 @@ export default class clearbutton extends Vue {
   @Prop({ type: String })
   action?: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String })
   clearbutton!: string;
 
-  RemoveButton() {}
-  //   return (this.clearbutton = '');
-  // }
+  @Emit()
+  removeButton() {}
 }
 </script>

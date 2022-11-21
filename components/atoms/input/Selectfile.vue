@@ -1,38 +1,57 @@
 <template>
   <v-row justify="center">
     <v-col sm="5" md="5" lg="5" xl="5">
-      <img :src="Url" width="200px" />
-      <v-file-input
-        v-model="image"
-        @input="scanImgs"
+      <div v-if="Url">
+        <img :src="Url" width="350px" />
+      </div>
+      <input
+        type="file"
+        ref="scanImgs"
+        style="display: none"
         accept="image/*"
         label="画像ファイルから選択"
         prepend-icon="mdi-image"
+        @change="uploadFile"
       />
-
-      <!-- <v-btn @click="remove">remove</v-btn> -->
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { url } from 'inspector';
+import { Vue, Component, Ref } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
 export default class Selectfile extends Vue {
-  public image = null;
+  public Url: string | undefined = '';
+  files: any;
+  value!: string;
 
-  get Url(): string | undefined {
-    if (this.image === null) {
-      return;
-    } else {
-      return URL.createObjectURL(this.image);
-    }
+  remove() {
+    this.Url = '';
   }
 
-  @Emit()
-  scanImgs() {
-    return this.Url;
+  @Ref()
+  scanImgs!: Selectfile;
+
+  selectimg() {
+    this.scanImgs.click();
+  }
+  click() {
+    throw new Error();
+  }
+
+  uploadFile() {
+    const file = this.scanImgs.files[0];
+    console.log(this.scanImgs.files[0].name);
+    this.Url = URL.createObjectURL(file);
+    this.scanImgs.value = '';
+  }
+  downloadByURL() {
+    const file = document.createElement('a');
+    file.download = this.files;
+    file.href = this.Url!;
+    file.click();
   }
 
   //@input="scanImg"
@@ -41,3 +60,8 @@ export default class Selectfile extends Vue {
   // }
 }
 </script>
+
+<style lang="scss" scoped>
+.img {
+}
+</style>

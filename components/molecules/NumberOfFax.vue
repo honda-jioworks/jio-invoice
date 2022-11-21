@@ -3,8 +3,8 @@
     <v-row>
       <FAXLabel />
       <v-col cols="2"><ThreeNumbersTextBox /></v-col>
-      <v-col cols="2"><FourNumbersTextBox /></v-col>
-      <v-col cols="2"><FourNumbersTextBox /></v-col>
+      <v-col cols="3"><FourNumbersTextBox /></v-col>
+      <v-col cols="3"><FourNumbersTextBox /></v-col>
     </v-row>
   </v-sheet>
 </template>

@@ -21,6 +21,7 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import OfficeLogo from '~/components/molecules/OfficeLogo.vue';
 import OfficeSeal from '~/components/molecules/OfficeSeal.vue';
+
 @Component({ components: { OfficeLogo, OfficeSeal } })
 export default class LogoSealinfo extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄

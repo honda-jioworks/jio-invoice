@@ -8,9 +8,9 @@
         <v-col cols="12"><UnitPriceCulculationRounding /></v-col>
         <v-col cols="12"><DecimalalPart /></v-col>
         <v-col cols="12"><NumberOfDigits /></v-col>
-        <v-col cols="12"><AmountOfWithholdingTax /></v-col>
-        <v-col cols="12"><SubjectName /></v-col>
-        <v-col cols="12"><TaxRate /></v-col>
+        <v-col cols="12"><AmountOfWithholdingTax @check-bool="checkBool" /></v-col>
+        <v-col cols="12"><SubjectName :checkVal="bool" /></v-col>
+        <v-col cols="12"><TaxRate :checkVal="bool" /></v-col>
         <v-col cols="12"><SalaryPaymentDate /></v-col>
         <v-col cols="12"><BonusPaymentDate /></v-col>
       </v-row>
@@ -47,5 +47,10 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
     BonusPaymentDate,
   },
 })
-export default class DetailsInfomation extends Vue {}
+export default class DetailsInfomation extends Vue {
+  private bool: boolean = false;
+  checkBool(val: boolean): void {
+    this.bool = val;
+  }
+}
 </script>
