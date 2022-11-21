@@ -1,7 +1,9 @@
 <template>
   <v-sheet class="abc">
-    <RegistrationCheck @push-checkbox="pushCheckbox" />
-    <RegistrationNumberBox :checkValue="disabled" />
+    <v-container>
+      <RegistrationCheck @push-checkbox="pushCheckbox" />
+      <RegistrationNumberBox :checkValue="disabled" />
+    </v-container>
   </v-sheet>
 </template>
 
