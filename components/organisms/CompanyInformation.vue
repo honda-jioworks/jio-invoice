@@ -4,20 +4,28 @@
     <!-- コンテンツエリア -->
     <v-container fluid>
       <v-row>
-        <v-col cols="4"><OfficeName /></v-col>
-        <v-col cols="4"><CEOName /></v-col>
+        <v-col cols="4"><OfficeName :officeName="officeName" /></v-col>
+        <v-col cols="4"><CEOName :CEOName="CEOName" /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7"><PostalCode :officePostalCode="postalCode" @send-address="sendAddress" /></v-col>
+        <v-col cols="7"
+          ><PostalCode
+            :officePostalCode="postalCode"
+            :postalCode1="postalCode1"
+            :postalCode2="postalCode2"
+            @send-address="sendAddress"
+        /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><OfficeAddress :addressVal="address" /></v-col>
+        <v-col cols="12"
+          ><OfficeAddress :postalCode1="postalCode1" :postalCode2="postalCode2" :addressVal="address"
+        /></v-col>
       </v-row>
       <v-row>
         <v-col cols="12"><OfficeAddress2 /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7" md="6"><TelNumber /></v-col>
+        <v-col cols="7" md="6"><TelNumber :telNumber="telNumber" /></v-col>
         <v-col cols="7" md="6"><FAXNumber /></v-col>
       </v-row>
       <v-row> </v-row>
@@ -61,8 +69,18 @@ import FileName from '@/components/molecules/FileName.vue';
   },
 })
 export default class CompanyInfomation extends Vue {
-  private address: string = '';
+  private officeName: string = '株式会社jioworks';
+  private CEOName: string = '横田　龍介';
   private postalCode: string = '1600022';
+  private postalCode1: string = this.postalCode.substr(0, 3);
+  private postalCode2: string = this.postalCode.substr(3, 4);
+  private address: string = '';
+  private address1: string = '東京都新宿区新宿5-11-1';
+  private address2: string = 'ホーメスト新宿ビル9F';
+  private telNumber: string = '03-6709-8269';
+  private faxNumber: string = '03-6709-8279';
+  private officeUrl: string = 'https://jioworks.com';
+
   sendAddress(val: string): void {
     this.address = val;
   }

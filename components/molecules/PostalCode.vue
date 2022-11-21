@@ -2,9 +2,10 @@
   <v-sheet>
     <v-row>
       <PostalCodeLabel />
-      <v-col cols="2"><ThreeNumbersTextBox /></v-col>
-      <v-col cols="2"><FourNumbersTextBox /></v-col>
-      <v-col cols="2"><AddressSearch :postalCode="postalCode" @send-address="sendAddress" /></v-col>
+      <v-col cols="2"><ThreeNumbersTextBox :postalCode1="postalCode1" /></v-col>
+      <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" /></v-col>
+      <v-col cols="2"><AddressSearch :officePostalCode="officePostalCode" @send-address="sendAddress" /></v-col>
+      <v-spacer />
     </v-row>
   </v-sheet>
 </template>
@@ -31,6 +32,12 @@ export default class DashBoard extends Vue {
   }
 
   @Prop({ type: String })
-  postalCode!: string;
+  officePostalCode!: string;
+
+  @Prop({ type: String })
+  postalCode1!: string;
+
+  @Prop({ type: String })
+  postalCode2!: string;
 }
 </script>

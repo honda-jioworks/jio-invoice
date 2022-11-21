@@ -1,15 +1,15 @@
 <template>
   <v-sheet class="abc">
     <RegistrationCheck @push-checkbox="pushCheckbox" />
-    <RegNumber :checkValue="disabled" />
+    <RegistrationNumberBox :checkValue="disabled" />
   </v-sheet>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 import RegistrationCheck from '~/components/molecules/RegistrationCheck.vue';
-import RegNumber from '~/components/molecules/RegNumber.vue';
-@Component({ components: { RegistrationCheck, RegNumber } })
+import RegistrationNumberBox from '~/components/molecules/RegistrationNumberBox.vue';
+@Component({ components: { RegistrationCheck, RegistrationNumberBox } })
 export default class RegistrationNumber extends Vue {
   private disabled: boolean = false;
 
