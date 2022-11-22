@@ -1,44 +1,36 @@
 <template>
-  <v-sheet class="pageback">
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12"><TransactionSection /></v-col>
+  <div class="Transactioncolor">
+    <!-- 1段目 -->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4"><TransactionSection class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4"><TaxProcessing class="mb-n5" /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><TaxProcessing /></v-col>
+     <!-- 2段目 -->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4"><DepositAccount class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4"><ClosingDate class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4"><RecoveryCycle class="mb-n5" /></v-col>
+    </v-row>
+      <!-- 3段目 -->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4"><StartingBalance class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4"><BettingRate class="mb-n5" /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><DepositAccount /></v-col>
+      <!-- 4段目 -->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4"><PriceCategory class="mb-n5" /></v-col>
+    </v-row>
+      <!-- 5段目 -->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4"><TaxRounding class="mb-n5"/></v-col>
+      <v-col cols="12" sm="6" lg="4"><PriceQuantityRounding class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4"><PriceCalcRounding class="mb-n5" /></v-col>
+    </v-row>
+      <!-- 6段目 -->
+    <v-row>
+      <v-col cols="12"><TaxAddIndicateCheck class="mb-5" /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><ClosingDate /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><RecoveryCycle /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><StartingBalance /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><BettingRate /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><PriceCategory /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><TaxRounding /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><PriceQuantityRounding /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><PriceCalcRounding /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="7"><TaxAddIndicateCheck /></v-col>
-      </v-row>
-    </v-container>
-  </v-sheet>
+  </div>
 </template>
 
 <script lang="ts">
@@ -74,3 +66,9 @@ import TransactionSection from '../molecules/TransactionSection.vue';
 })
 export default class TransactionForm extends Vue {}
 </script>
+</script>
+<style lang="scss" scoped>
+.Transactioncolor {
+  background-color: white;
+}
+</style>

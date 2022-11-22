@@ -1,12 +1,15 @@
 <template>
-  <v-row>
-    <span class="zipcode-mark">〒</span>
-    <v-col cols="12" md="4">
-      <v-text-field :rules="nameRules" label="郵便番号："></v-text-field>
-    </v-col>
-
-    <v-btn large min-width="30" id="search"> 住所を表示 </v-btn>
-  </v-row>
+  <v-container>
+    <v-row>
+      <span class="zipcode-mark"></span>
+      <v-col cols="7" sm="10" md="10" lg="10" xl="10">
+        <v-text-field :rules="nameRules" label="郵便番号"></v-text-field>
+      </v-col>
+      <v-col align-self="top" cols="5" sm="2" md="2" lg="2" xl="2">
+        <v-btn id="search" class="ml-n2">住所を表示</v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">

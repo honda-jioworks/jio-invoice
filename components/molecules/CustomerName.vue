@@ -1,10 +1,12 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="5">
-        <v-text-field :rules="nameRules" label="得意先名："> </v-text-field>
+      <v-col cols="10" sm="10" md="10" lg="10" xl="10">
+        <v-text-field :rules="nameRules" label="得意先名"> </v-text-field>
       </v-col>
-      <v-btn small>会社を検索</v-btn>
+      <v-col align-self="top" cols="2" md="2" sm="2" lg="2" xl="2">
+        <v-btn>会社を検索</v-btn>
+      </v-col>
     </v-row>
   </v-container>
 </template>
