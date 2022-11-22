@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="groundwork">
-    <v-container class="AccountRegister">
+    <v-container>
       <v-row>
         <v-col cols="12"><AccountInformation /></v-col>
       </v-row>
@@ -14,8 +14,6 @@ import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.
 
 import AccountInformation from '@/components/organisms/AccountInformation.vue';
 @Component({ components: { MostRecentSalesAmount, AccountInformation } })
-
-
 export default class DashBoard extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }

@@ -1,12 +1,17 @@
 <template>
-  <v-form>
-    <v-row>
-      <v-col cols="12" md="5">
-        <v-text-field :rules="nameRules" label="担当者メール："></v-text-field>
-      </v-col>
-      <v-btn large min-width="30"> 送る </v-btn>
-    </v-row>
-  </v-form>
+  <v-container>
+    <v-form>
+      <v-row>
+        <v-col cols="8" sm="9" md="9" lg="9" xl="9">
+          <v-text-field :rules="nameRules" label="担当者メール"></v-text-field>
+        </v-col>
+        <v-spacer />
+        <v-col cols="2" sm="2" md="2" lg="2" xl="2">
+          <v-btn height="45" width="75" class="ml-n12">送る</v-btn>
+        </v-col>
+      </v-row>
+    </v-form>
+  </v-container>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';

@@ -1,11 +1,13 @@
 <template>
-  <v-form>
-    <v-row>
-      <v-col cols="12" md="5">
-        <v-text-field :rules="nameRules" label="担当者携帯："></v-text-field>
-      </v-col>
-    </v-row>
-  </v-form>
+  <v-container>
+    <v-form>
+      <v-row>
+        <v-col>
+          <v-text-field :rules="nameRules" label="担当者携帯"></v-text-field>
+        </v-col>
+      </v-row>
+    </v-form>
+  </v-container>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
