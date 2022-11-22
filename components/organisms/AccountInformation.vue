@@ -4,17 +4,17 @@
     <v-row>
       <v-col cols="12" sm="6" lg="4">
         <FinancialInstitutionName />
-      </v-col>  
+      </v-col>
       <v-col cols="12" sm="6" lg="4">
         <BranchName />
       </v-col>
-      <v-spacer></v-spacer>
+      <v-spacer />
     </v-row>
     <!--2段目-->
     <v-row>
       <v-col cols="12" sm="6" lg="4">
         <AccountNumber />
-      </v-col>      
+      </v-col>
       <v-col cols="12" sm="6" lg="4">
         <AccountName />
       </v-col>
@@ -23,14 +23,14 @@
       </v-col>
     </v-row>
     <!--3段目-->
-    <v-row>  
+    <v-row>
       <v-col cols="12" sm="6" lg="4">
         <SearchKeyOne />
       </v-col>
-        <v-col cols="12" sm="6" lg="4">
+      <v-col cols="12" sm="6" lg="4">
         <SearchKeyTwo />
-      </v-col>  
-      <v-spacer></v-spacer>
+      </v-col>
+      <v-spacer />
     </v-row>
     <!--4段目-->
     <v-row>
@@ -46,7 +46,7 @@
       <v-col cols="12" sm="6" lg="6">
         <InputCandidate />
       </v-col>
-    </v-row>       
+    </v-row>
   </div>
 </template>
 
@@ -74,7 +74,7 @@ import SearchKeyOne from '../molecules/SearchKeyOne.vue';
     MemoBox,
     DefaultValue,
     InputCandidate,
-    SearchKeyOne
+    SearchKeyOne,
   },
 })
 export default class AccountInformation extends Vue {
@@ -82,8 +82,8 @@ export default class AccountInformation extends Vue {
 }
 </script>
 
-
 <style lang="scss" scoped>
 .color {
-  background-color: white;
+  background: white;
 }
+</style>

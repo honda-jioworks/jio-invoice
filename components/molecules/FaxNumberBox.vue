@@ -3,16 +3,15 @@
     <v-form>
       <v-row>
         <v-col>
-          <v-text-field :rules="nameRules" label="部署"></v-text-field>
+          <v-text-field label="FAX"></v-text-field>
         </v-col>
       </v-row>
     </v-form>
   </v-container>
 </template>
+
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 @Component({})
-export default class DepartmentInput extends Vue {
-  nameRules: Array<object> = [(v: string) => !!v || '部署名を入力してください'];
-}
+export default class FaxNumberBox extends Vue {}
 </script>
