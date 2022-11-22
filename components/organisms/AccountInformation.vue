@@ -52,7 +52,7 @@ import SearchKeyOne from '../molecules/SearchKeyOne.vue';
     MemoBox,
     DefaultValue,
     InputCandidate,
-    SearchKeyOne
+    SearchKeyOne,
   },
 })
 export default class AccountInformation extends Vue {
@@ -64,4 +64,5 @@ export default class AccountInformation extends Vue {
   background-color: white;
 }
 </style>
+
 

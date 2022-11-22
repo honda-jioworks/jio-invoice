@@ -32,8 +32,13 @@ import TransactionForm from '~/components/organisms/TransactionForm.vue';
 import AccountInformation from '~/components/organisms/AccountInformation.vue';
 
 @Component({
-  components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation, 
-   },
+  components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation },
 })
 export default class IndexPage extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.groundcolor {
+  background: gray;
+}
+</style>
