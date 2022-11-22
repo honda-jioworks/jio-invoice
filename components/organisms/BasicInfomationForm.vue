@@ -36,8 +36,3 @@ import NotShowBox from '~/components/molecules/NotShowBox.vue';
 })
 export default class BasicInfomationForm extends Vue {}
 </script>
-<style lang="scss" scoped>
-.groundwork {
-  background-color: white;
-}
-</style>

@@ -1,11 +1,11 @@
 <template>
-  <v-container fluid>
-    <v-row align="center">
-      <v-col class="d-flex" cols="12" sm="3">
-        <v-select :items="cyclemonth" label="回収サイクル：" :rules="boxRules"></v-select>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex" cols="8">
+        <v-select :items="cyclemonth" label="回収サイクル" :rules="boxRules"></v-select>
       </v-col>
-      <v-col class="d-flex" cols="12" sm="3">
-        <v-select :items="cycledate" :rules="boxRules"></v-select>
+      <v-col class="d-flex" cols="4">
+        <v-select :items="cycledate" :rules="boxRules" ></v-select>
       </v-col>
     </v-row>
   </v-container>
