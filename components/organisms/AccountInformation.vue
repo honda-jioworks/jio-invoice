@@ -2,28 +2,28 @@
   <div class="Accountcolor">
     <!--1段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><FinancialInstitutionName class="mb-n5" /></v-col>  
-      <v-col cols="12" sm="6" lg="4"><BranchName class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><FinancialInstitutionName class="mb-n5" /></v-col>  
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><BranchName class="mb-n5" /></v-col>
     </v-row>
     <!--2段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><AccountNumber class="mb-n5" /></v-col>      
-      <v-col cols="12" sm="6" lg="4"><AccountName class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><DepositCategory class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><AccountNumber class="mb-n5" /></v-col>      
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><AccountName class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><DepositCategory class="mb-n5" /></v-col>
     </v-row>
     <!--3段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><SearchKeyOne class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><SearchKeyTwo class="mb-n5" /></v-col>  
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><SearchKeyOne class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><SearchKeyTwo class="mb-n5" /></v-col>  
     </v-row>
     <!--4段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="8"><MemoBox class="mb-n5"/></v-col>
+      <v-col cols="12" sm="6" lg="8" md="4" xl="4"><MemoBox class="mb-n5"/></v-col>
     </v-row>
     <!--5段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="6"><DefaultValue class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="6"><InputCandidate /></v-col>
+      <v-col cols="12" sm="6" lg="6" md="4" xl="4"><DefaultValue class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="6" md="4" xl="4"><InputCandidate /></v-col>
     </v-row>       
   </div>
 </template>
