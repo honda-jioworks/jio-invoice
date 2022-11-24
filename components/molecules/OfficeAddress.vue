@@ -2,14 +2,22 @@
   <v-sheet>
     <v-row>
       <AddressLabel />
-      <v-col cols="4"><AddressOne :addressVal="addressVal" /></v-col>
-      <ShowMap @show-maptest="showMaptest" />
+      <v-col cols="4"
+        ><AddressOne :address1="address1" :newAddress="newAddress" @change-address="changeAddress"
+      /></v-col>
+      <ShowMap
+        :newAddress="newAddress"
+        :postalCode1="postalCode1"
+        :postalCode2="postalCode2"
+        :address1="address1"
+        @show-maptest="showMaptest"
+      />
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 import AddressLabel from '~/components/atoms/label/AddressLabel.vue';
 import AddressOne from '~/components/atoms/input/AddressOne.vue';
 import ShowMap from '~/components/atoms/button/ShowMap.vue';
@@ -21,9 +29,21 @@ import ShowMap from '~/components/atoms/button/ShowMap.vue';
   },
 })
 export default class OfficeAddress extends Vue {
-  @Prop({ type: String })
-  addressVal!: string;
+  @Emit()
+  changeAddress(val: string): string {
+    return val;
+  }
 
-  showMaptest() {}
+  @Prop({ type: String })
+  postalCode1!: string;
+
+  @Prop({ type: String })
+  postalCode2!: string;
+
+  @Prop({ type: String })
+  address1!: string;
+
+  @Prop({ type: String })
+  newAddress!: string;
 }
 </script>

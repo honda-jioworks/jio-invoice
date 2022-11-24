@@ -1,12 +1,20 @@
 <template>
-  <v-text-field :value="addressVal"> </v-text-field>
+  <v-text-field v-model="newAddress" @input="changeAddress"> </v-text-field>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class AddressOne extends Vue {
   @Prop({ type: String })
-  addressVal!: string;
+  address1!: string;
+
+  @Prop({ type: String })
+  newAddress!: string;
+
+  @Emit()
+  changeAddress(val: string): string {
+    return val;
+  }
 }
 </script>

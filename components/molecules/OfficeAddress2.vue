@@ -2,13 +2,13 @@
   <v-sheet>
     <v-row>
       <AddressTwoLabel />
-      <v-col cols="4"><AddressTwo /></v-col>
+      <v-col cols="4"><AddressTwo :address2="address2" /></v-col>
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import AddressTwoLabel from '~/components/atoms/label/AddressTwoLabel.vue';
 import AddressTwo from '~/components/atoms/input/AddressTwo.vue';
 @Component({
@@ -17,5 +17,8 @@ import AddressTwo from '~/components/atoms/input/AddressTwo.vue';
     AddressTwo,
   },
 })
-export default class OfficeAddress extends Vue {}
+export default class OfficeAddress extends Vue {
+  @Prop({ type: String })
+  address2!: string;
+}
 </script>

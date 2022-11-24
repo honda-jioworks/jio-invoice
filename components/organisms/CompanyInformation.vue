@@ -20,11 +20,16 @@
       </v-row>
       <v-row>
         <v-col cols="12"
-          ><OfficeAddress :postalCode1="postalCode1" :postalCode2="postalCode2" :addressVal="address"
+          ><OfficeAddress
+            :address1="address1"
+            :postalCode1="postalCode1"
+            :postalCode2="postalCode2"
+            :newAddress="address"
+            @change-address="changeAddress"
         /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><OfficeAddress2 /></v-col>
+        <v-col cols="12"><OfficeAddress2 :address2="address2" /></v-col>
       </v-row>
       <v-row>
         <v-col cols="7" md="6"><TelNumber :telNumber="telNumber" /></v-col>
@@ -83,6 +88,10 @@ export default class CompanyInfomation extends Vue {
   private faxNumber: string = '03-6709-8279';
   private officeUrl: string = 'https://jioworks.com';
   fileName: any = 'ファイル名が表示されます';
+
+  changeAddress(val: string): void {
+    this.address = val;
+  }
 
   sendAddress(val: string): void {
     this.address = val;
