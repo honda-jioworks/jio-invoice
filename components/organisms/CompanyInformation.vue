@@ -33,8 +33,8 @@
         <v-col cols="12"><OfficeURL /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="auto"><FileLocation /></v-col>
-        <v-col cols="auto"><FileName /></v-col>
+        <v-col cols="auto"><FileLocation ref="scanfile" @scan-file="scanFile" /></v-col>
+        <v-col cols="auto"><FileName :fileName="fileName" /></v-col>
       </v-row>
     </v-container>
     <!-- フッター -->
@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Ref } from 'nuxt-property-decorator';
 import OfficeName from '@/components/molecules/OfficeName.vue';
 import CEOName from '@/components/molecules/CEOName.vue';
 import PostalCode from '@/components/molecules/PostalCode.vue';
@@ -54,6 +54,7 @@ import FAXNumber from '~/components/molecules/NumberOfFax.vue';
 import OfficeURL from '@/components/molecules/OfficeURL.vue';
 import FileLocation from '@/components/molecules/FileLocation.vue';
 import FileName from '@/components/molecules/FileName.vue';
+import { file } from '@babel/types';
 @Component({
   components: {
     OfficeName,
@@ -80,9 +81,19 @@ export default class CompanyInfomation extends Vue {
   private telNumber: string = '03-6709-8269';
   private faxNumber: string = '03-6709-8279';
   private officeUrl: string = 'https://jioworks.com';
+  fileName: any = 'ファイル名が表示されます';
 
   sendAddress(val: string): void {
     this.address = val;
+  }
+
+  @Ref()
+  scanfile!: FileLocation;
+
+  scanFile(fileName: any) {
+    this.fileName = fileName;
+
+    console.log(fileName);
   }
 }
 </script>

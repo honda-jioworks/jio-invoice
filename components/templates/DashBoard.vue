@@ -10,11 +10,12 @@
         <v-col cols="12"><DetailsInfomation /></v-col>
       </v-row>
       <v-row>
+        <v-col cols="12"><LogoSealinfo /></v-col>
+      </v-row>
+      <v-row>
         <v-col cols="12"><RegistrationNumber /></v-col>
       </v-row>
     </v-container>
-    <!-- フッター -->
-    <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
   </v-sheet>
 </template>
 
@@ -22,8 +23,9 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import CompanyInformation from '~/components/organisms/CompanyInformation.vue';
 import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
+import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
 import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
-@Component({ components: { CompanyInformation, DetailsInfomation, RegistrationNumber } })
+@Component({ components: { CompanyInformation, DetailsInfomation, LogoSealinfo, RegistrationNumber } })
 export default class DashBoard extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;
