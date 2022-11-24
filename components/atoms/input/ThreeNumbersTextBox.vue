@@ -1,9 +1,9 @@
 <template>
-  <v-text-field :value="postalCode1" :counter="3" solo> </v-text-field>
+  <v-text-field v-model="postalCode1" @input="getPostalCodeOne" :counter="3" solo> </v-text-field>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class ThreeNumbersTextBox extends Vue {
   @Prop({ type: String })
@@ -11,5 +11,10 @@ export default class ThreeNumbersTextBox extends Vue {
 
   @Prop({ type: String })
   telNumber1!: string;
+
+  @Emit()
+  getPostalCodeOne(val: string): string {
+    return val;
+  }
 }
 </script>

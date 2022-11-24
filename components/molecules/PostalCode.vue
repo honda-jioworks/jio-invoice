@@ -2,9 +2,15 @@
   <v-sheet>
     <v-row>
       <PostalCodeLabel />
-      <v-col cols="2"><ThreeNumbersTextBox :postalCode1="postalCode1" /></v-col>
-      <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" /></v-col>
-      <v-col cols="2"><AddressSearch :officePostalCode="officePostalCode" @send-address="sendAddress" /></v-col>
+      <v-col cols="2"><ThreeNumbersTextBox :postalCode1="postalCode1" @get-postal-code-one="getPostalCodeOne" /></v-col>
+      <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" @get-postal-code-two="getPostalCodeTwo" /></v-col>
+      <v-col cols="2"
+        ><AddressSearch
+          :officePostalCode="officePostalCode"
+          :postalCode1="postalCode1"
+          :postalCode2="postalCode2"
+          @send-address="sendAddress"
+      /></v-col>
       <v-spacer />
     </v-row>
   </v-sheet>
@@ -26,9 +32,20 @@ import AddressSearch from '~/components/atoms/button/AddressSearch.vue';
 })
 export default class DashBoard extends Vue {
   private address: string = '';
+
   @Emit()
   sendAddress(val: string): void {
     this.address = val;
+  }
+
+  @Emit()
+  getPostalCodeOne(val: string): string {
+    return val;
+  }
+
+  @Emit()
+  getPostalCodeTwo(val: string): string {
+    return val;
   }
 
   @Prop({ type: String })

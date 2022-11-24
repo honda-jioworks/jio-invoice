@@ -14,6 +14,8 @@
             :postalCode1="postalCode1"
             :postalCode2="postalCode2"
             @send-address="sendAddress"
+            @get-postal-code-one="getPostalCodeOne"
+            @get-postal-code-two="getPostalCodeTwo"
         /></v-col>
       </v-row>
       <v-row>
@@ -54,7 +56,6 @@ import FAXNumber from '~/components/molecules/NumberOfFax.vue';
 import OfficeURL from '@/components/molecules/OfficeURL.vue';
 import FileLocation from '@/components/molecules/FileLocation.vue';
 import FileName from '@/components/molecules/FileName.vue';
-import { file } from '@babel/types';
 @Component({
   components: {
     OfficeName,
@@ -92,8 +93,14 @@ export default class CompanyInfomation extends Vue {
 
   scanFile(fileName: any) {
     this.fileName = fileName;
+  }
 
-    console.log(fileName);
+  getPostalCodeOne(val: string): void {
+    this.postalCode1 = val;
+  }
+
+  getPostalCodeTwo(val: string): void {
+    this.postalCode2 = val;
   }
 }
 </script>
