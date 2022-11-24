@@ -12,6 +12,6 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class InputCandidate extends Vue {
-  private checkbox: boolean = false;
+  checkbox: boolean = false;
 }
 </script>

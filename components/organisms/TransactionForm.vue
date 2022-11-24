@@ -2,29 +2,29 @@
   <div class="Transactioncolor">
     <!-- 1段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><TransactionSection class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><TaxProcessing class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TransactionSection class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TaxProcessing class="mb-n5" /></v-col>
       </v-row>
      <!-- 2段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><DepositAccount class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><ClosingDate class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><RecoveryCycle class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><DepositAccount class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><ClosingDate class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><RecoveryCycle class="mb-n5" /></v-col>
     </v-row>
       <!-- 3段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><StartingBalance class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><BettingRate class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><StartingBalance class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><BettingRate class="mb-n5" /></v-col>
       </v-row>
       <!-- 4段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><PriceCategory class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><PriceCategory class="mb-n5" /></v-col>
     </v-row>
       <!-- 5段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4"><TaxRounding class="mb-n5"/></v-col>
-      <v-col cols="12" sm="6" lg="4"><PriceQuantityRounding class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4"><PriceCalcRounding class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TaxRounding class="mb-n5"/></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><PriceQuantityRounding class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><PriceCalcRounding class="mb-n5" /></v-col>
     </v-row>
       <!-- 6段目 -->
     <v-row>

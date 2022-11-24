@@ -16,7 +16,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
 export default class AccountNumber extends Vue {
-  private textRules: Array<Object> = [
+ textRules: Array<Object> = [
     (v: string) => !!v || '項目を入力してください',
     (v: string) => /^[+,-]?([1-9]\d*|0)$/.test(v) || '数値を入力してください',
   ];
