@@ -2,17 +2,16 @@
   <div>
     <v-container>
       <v-row>
-        <v-col><SelectBox :contents="test" /></v-col>
+        <v-col><v-select @change="testSelect" :contents="test"></v-select></v-col>
       </v-row>
     </v-container>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
-import SelectBox from '@/components/atoms/SelectBox.vue';
-@Component({ components: { SelectBox } })
-export default class FinancialInstitutionName extends Vue {
+import { Vue, Component, Emit } from 'nuxt-property-decorator';
+@Component({})
+export default class DepositCategory extends Vue {
   private test: Array<string> = [
     '普通預金',
     '当座預金',
@@ -20,8 +19,12 @@ export default class FinancialInstitutionName extends Vue {
     '定期積金',
     '通知預金',
     '別段預金',
-    '郵便預金',
+    '郵便貯金',
     'その他',
   ];
+  @Emit()
+  testSelect() {
+    return this.test;
+  }
 }
 </script>

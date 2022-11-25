@@ -19,7 +19,7 @@
         <AccountName />
       </v-col>
       <v-col cols="12" sm="6" lg="4">
-        <DepositCategory />
+        <DepositCategory @test-select="testSelect" />
       </v-col>
     </v-row>
     <!--3段目-->
@@ -78,7 +78,11 @@ import SearchKeyOne from '../molecules/SearchKeyOne.vue';
   },
 })
 export default class AccountInformation extends Vue {
-  //登録処理を書いていく
+  private selectVal: string = '';
+  testSelect(val: string): void {
+    this.selectVal = val;
+    console.log(this.selectVal)
+  }
 }
 </script>
 
