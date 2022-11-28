@@ -2,7 +2,15 @@
   <div>
     <v-container>
       <v-row>
-        <v-col><v-select @change="testSelect" :contents="test"></v-select></v-col>
+        <v-col
+          ><v-select
+            label="預金区分"
+            :rules="selectRules"
+            @change="testSelect"
+            :items="contents"
+            v-model="selectCheck"
+          ></v-select
+        ></v-col>
       </v-row>
     </v-container>
   </div>
@@ -12,7 +20,9 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class DepositCategory extends Vue {
-  private test: Array<string> = [
+  private selectCheck: string = '';
+  private selectRules: Array<Object> = [(v: any) => !!v || '項目を選択してください'];
+  private contents: Array<string> = [
     '普通預金',
     '当座預金',
     '定期預金',
@@ -24,7 +34,7 @@ export default class DepositCategory extends Vue {
   ];
   @Emit()
   testSelect() {
-    return this.test;
+    return this.selectCheck;
   }
 }
 </script>

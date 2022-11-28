@@ -42,39 +42,40 @@ export default class BasicInfomationForm extends Vue {
   private secondVal: string = '';
   private memoVal: string = '';
   private checkVal: boolean = false;
+
   scanName(val: string): void {
+    //得意先名
     this.nameVal = val;
-    console.log(this.nameVal);
   }
 
   scanKana(val: string): void {
+    //得意先名(カナ)
     this.kanaVal = val;
-    console.log(this.kanaVal);
   }
 
   scanShort(val: string): void {
+    //略称
     this.shortVal = val;
-    console.log(this.shortVal);
   }
 
   scanPrimary(val: string): void {
+    //検索キー１
     this.primaryVal = val;
-    console.log(this.primaryVal);
   }
 
   scanSecond(val: string): void {
+    //検索キー２
     this.secondVal = val;
-    console.log(this.secondVal);
   }
 
   scanMemo(val: string): void {
+    //メモ
     this.memoVal = val;
-    console.log(this.memoVal);
   }
 
   scanCheck(val: boolean): void {
+    //入力候補に表示しない
     this.checkVal = val;
-    console.log(this.checkVal);
   }
 }
 </script>
