@@ -54,17 +54,17 @@ export default class RecoveryCycle extends Vue {
     '28日',
     '末日',
   ];
-  boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
-  month: any = '';
-  date: any = '';
+  boxRules: Array<object> = [(v: string) => !!v || '項目を選択してください'];
+  month: string = '';
+  date: string = '';
 
   @Emit()
-  getMonth(month: any): any {
+  getMonth(month: string): string {
     return month;
   }
 
   @Emit()
-  getDate(date: any): any {
+  getDate(date: string): string {
     return date;
   }
 }

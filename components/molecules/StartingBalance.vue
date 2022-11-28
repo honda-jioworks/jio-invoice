@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="center">
       <v-col class="d-flex" cols="12" sm="6">
-        <v-text-field label="開始残高" :rules="inputRules" :value="balance" @change="getBalance"></v-text-field>
+        <v-text-field label="開始残高" :rules="inputRules" v-model="balance" @input="getBalance"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -19,8 +19,8 @@ export default class StartingBalance extends Vue {
   balance: string = '';
 
   @Emit()
-  getBalance(balance: string): any {
-    return balance;
+  getBalance(balance: string): string {
+    return this.balance;
   }
 }
 </script>

@@ -4,13 +4,11 @@
       <v-row>
         <v-col cols="12"><TransactionSection @get-section="getSection" /></v-col>
       </v-row>
-      <p>値：{{ section }}</p>
       <v-row>
         <v-col cols="12"><TaxProcessing @get-process="getProcess" /></v-col>
       </v-row>
-      <p>値：{{ process }}</p>
       <v-row>
-        <v-col cols="12"><DepositAccount /></v-col>
+        <v-col cols="12"><DepositAccount @get-account="getAccount" /></v-col>
       </v-row>
       <v-row>
         <v-col cols="12"><ClosingDate @get-closing="getClosing" /></v-col>
@@ -18,19 +16,15 @@
       <v-row>
         <v-col cols="7"><RecoveryCycle @get-month="getMonth" @get-date="getDate" /></v-col>
       </v-row>
-      <p>値：{{ month }} {{ date }}</p>
       <v-row>
         <v-col cols="7"><EmployeesBox @get-employee="getEmployee" /></v-col>
       </v-row>
-      <p>値：{{ employee }}</p>
       <v-row>
         <v-col cols="7"><StartingBalance @get-balance="getBalance" /></v-col>
       </v-row>
-      <p>値：{{ balance }}</p>
       <v-row>
         <v-col cols="7"><BettingRate @get-rate="getRate" /></v-col>
       </v-row>
-      <p>値：{{ rate }}</p>
       <v-row>
         <v-col cols="7"><PriceCategory @get-category="getCategory" /></v-col>
       </v-row>
@@ -44,7 +38,7 @@
         <v-col cols="7"><PriceCalcRounding @get-pcrounding="getPcrounding" /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7"><TaxAddIndicateCheck /></v-col>
+        <v-col cols="7"><TaxAddIndicateCheck @get-tax="getTax" /></v-col>
       </v-row>
     </v-container>
   </v-sheet>
@@ -84,65 +78,104 @@ import TransactionSection from '../molecules/TransactionSection.vue';
   },
 })
 export default class TransactionForm extends Vue {
-  section: any = '';
-  process: any = '';
-  closing: any = '';
-  month: any = '';
-  date: any = '';
-  employee: any = '';
-  balance: any = '';
-  rate: any = '';
-  category: any = '';
-  taxrnd: any = '';
-  pqrounding: any = '';
-  pcrounding: any = '';
+  section: string = '';
+  process: string = '';
+  closing: string = '';
+  month: string = '';
+  date: string = '';
+  employee: string = '';
+  balance: string = '';
+  rate: string = '';
+  category: string = '';
+  taxrnd: string = '';
+  pqrounding: string = '';
+  pcrounding: string = '';
+  tax: boolean = false;
+  account: string ='';
 
-  getSection(section: any): void {
+  // 取引区分
+  getSection(section: string): void {
     this.section = section;
+    console.log(section)
   }
 
-  getProcess(process: any): void {
+  // 税処理
+  getProcess(process: string): void {
     this.process = process;
+    console.log(process)
   }
 
-  getClosing(closing: any): void {
+  // 入金先
+  getAccount(account: string): void {
+    this.account = account;
+    console.log(account)
+  }
+
+  // 締日
+  getClosing(closing: string): void {
     this.closing = closing;
+    console.log(closing)
   }
 
-  getMonth(month: any): void {
+  // 回収サイクル
+  getMonth(month: string): void {
     this.month = month;
+    console.log(month)
   }
 
-  getDate(date: any): void {
+  // 回収サイクル
+  getDate(date: string): void {
     this.date = date;
+    console.log(date)
   }
 
-  getEmployee(employee: any): void {
+  // 自社担当者
+  getEmployee(employee: string): void {
     this.employee = employee;
+    console.log(employee)
   }
 
-  getBalance(balance: any): void {
+  // 開始残高
+  getBalance(balance: string): void {
     this.balance = balance;
+    console.log(balance)
   }
 
-  getRate(rate: any): void {
+  // 掛掛率
+  getRate(rate: string): void {
     this.rate = rate;
+    console.log(rate)
   }
 
-  getCategory(category: any): void {
+  // 単価区分
+  getCategory(category: string): void {
     this.category = category;
+    console.log(category)
   }
 
-  getTaxrounding(taxrnd: any): void {
+  // 消費税の端数処理
+  getTaxrounding(taxrnd: string): void {
     this.taxrnd = taxrnd;
+    console.log(taxrnd)
   }
 
-  getPqrounding(pqrounding: any): void {
+  // 単価×数量の端数処理
+  getPqrounding(pqrounding: string): void {
     this.pqrounding = pqrounding;
+    console.log(pqrounding)
   }
 
-  getPcrounding(pcrounding: any): void {
+  // 単価計算の端数処理
+  getPcrounding(pcrounding: string): void {
     this.pcrounding = pcrounding;
+    console.log(pcrounding)
+  
+  }
+
+  // 合計請求書で消費税を合算表示する
+  getTax(tax: boolean): void {
+    this.tax = tax;
+    console.log(tax)
   }
 }
 </script>

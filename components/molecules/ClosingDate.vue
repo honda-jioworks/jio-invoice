@@ -44,11 +44,11 @@ export default class ClosingDate extends Vue {
     '28日',
     '末日',
   ];
-  boxRules: Array<any> = [(v: object) => !!v || '項目を選択してください'];
-  closing: any = '';
+  boxRules: Array<object> = [(v: object) => !!v || '項目を選択してください'];
+  closing: string = '';
 
   @Emit()
-  getClosing(closing: any): any {
+  getClosing(closing: string): string {
     return closing;
   }
 }

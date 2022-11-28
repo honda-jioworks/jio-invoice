@@ -13,7 +13,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 import SelectBox from '@/components/atoms/SelectBox.vue';
 @Component({ components: { SelectBox } })
 export default class FinancialInstitutionName extends Vue {
-  private test: Array<string> = [
+   test: Array<string> = [
     '普通預金',
     '当座預金',
     '定期預金',

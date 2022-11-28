@@ -15,7 +15,7 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class FinancialInstitutionName extends Vue {
-  private textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+  textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
 
   private label: string = '金融機関名';
 }

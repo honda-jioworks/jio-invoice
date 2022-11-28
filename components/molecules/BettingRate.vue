@@ -12,6 +12,9 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class BettingRate extends Vue {
+  numberCheck(value: string): string|boolean{
+    return (value && value.length <= 3) || '3桁以内で入力してください';
+  }
   inputRules: Array<object> = [
     (v: string) => !!v || '項目を入力してください',
     (v: string) => /^([1-9]\d*|0)$/.test(v) || '数値を入力してください',
@@ -20,12 +23,8 @@ export default class BettingRate extends Vue {
   rate: string = '';
 
   @Emit()
-  getRate(rate: string): any {
+  getRate(rate: number): number  {
     return rate;
-  }
-
-  private numberCheck(value: string): any {
-    return (value && value.length <= 3) || '3桁以内で入力してください';
   }
 }
 </script>

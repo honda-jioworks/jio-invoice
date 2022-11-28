@@ -4,10 +4,8 @@
       <v-col class="d-flex" cols="12" sm="3">
         <v-select
           label="税処理："
-          :items="items"
+          :items="tax"
           :rules="boxRules"
-          item-text="process"
-          item-value="processId"
           @change="getProcess"
           return-object
         ></v-select>
@@ -21,17 +19,12 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 
 @Component({})
 export default class TaxProcessing extends Vue {
-  items: Array<object> = [
-    { process: '内税', processId: 1 },
-    { process: '外税', processId: 2 },
-    { process: '合計請求', processId: 3 },
-    { process: '税なし', processId: 4 },
-  ];
+  tax: Array<string> = ['内税', '外税', '合計請求',  '税なし',  ];
   boxRules: Array<object> = [(v: object) => !!v || '項目を選択してください'];
-  process: any = '';
+  process: string = '';
 
   @Emit()
-  getProcess(process: any): any {
+  getProcess(process: string): string {
     return process;
   }
 }

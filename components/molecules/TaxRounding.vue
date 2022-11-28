@@ -4,10 +4,8 @@
       <v-col class="d-flex" cols="12" sm="5">
         <v-select
           label="消費税の端数処理："
-          :items="items"
+          :items="taxrounding"
           :rules="boxRules"
-          item-text="process"
-          item-value="processId"
           @change="getTaxrounding"
           return-object
         ></v-select>
@@ -21,17 +19,17 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 
 @Component({})
 export default class TaxRounding extends Vue {
-  items: Array<object> = [
-    { process: '基本情報に従う', processId: 1 },
-    { process: '切り上げ', processId: 2 },
-    { process: '切り捨て', processId: 3 },
-    { process: '四捨五入', processId: 4 },
+  taxrounding: Array<string> = [
+    '基本情報に従う', 
+    '切り上げ', 
+    '切り捨て', 
+    '四捨五入', 
   ];
-  boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
-  taxrnd: any = '';
+  boxRules: Array<object> = [(v: string) => !!v || '項目を選択してください'];
+  taxrnd: string = '';
 
   @Emit()
-  getTaxrounding(taxrnd: any): any {
+  getTaxrounding(taxrnd: string): string {
     return taxrnd;
   }
 }
