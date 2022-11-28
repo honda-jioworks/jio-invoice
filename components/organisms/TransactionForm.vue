@@ -96,86 +96,72 @@ export default class TransactionForm extends Vue {
   // 取引区分
   getSection(section: string): void {
     this.section = section;
-    console.log(section)
   }
 
   // 税処理
   getProcess(process: string): void {
     this.process = process;
-    console.log(process)
+
   }
 
   // 入金先
   getAccount(account: string): void {
     this.account = account;
-    console.log(account)
   }
 
   // 締日
   getClosing(closing: string): void {
     this.closing = closing;
-    console.log(closing)
   }
 
   // 回収サイクル
   getMonth(month: string): void {
     this.month = month;
-    console.log(month)
   }
 
   // 回収サイクル
   getDate(date: string): void {
     this.date = date;
-    console.log(date)
   }
 
   // 自社担当者
   getEmployee(employee: string): void {
     this.employee = employee;
-    console.log(employee)
   }
 
   // 開始残高
   getBalance(balance: string): void {
     this.balance = balance;
-    console.log(balance)
   }
 
   // 掛掛率
   getRate(rate: string): void {
     this.rate = rate;
-    console.log(rate)
   }
 
   // 単価区分
   getCategory(category: string): void {
     this.category = category;
-    console.log(category)
   }
 
   // 消費税の端数処理
   getTaxrounding(taxrnd: string): void {
     this.taxrnd = taxrnd;
-    console.log(taxrnd)
   }
 
   // 単価×数量の端数処理
   getPqrounding(pqrounding: string): void {
     this.pqrounding = pqrounding;
-    console.log(pqrounding)
   }
 
   // 単価計算の端数処理
   getPcrounding(pcrounding: string): void {
     this.pcrounding = pcrounding;
-    console.log(pcrounding)
-  
   }
 
   // 合計請求書で消費税を合算表示する
   getTax(tax: boolean): void {
     this.tax = tax;
-    console.log(tax)
   }
 }
 </script>
