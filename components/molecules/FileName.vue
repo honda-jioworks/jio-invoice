@@ -15,6 +15,7 @@ import FileNameLabel from '~/components/atoms/label/FileNameLabel.vue';
   },
 })
 export default class FileName extends Vue {
+  //PropでorganismsのfileNameの値を受け取る。
   @Prop({ type: String })
   fileName!: string;
 }

@@ -68,10 +68,4 @@ export default class OfficeLogo extends Vue {
 .wrap div {
   width: 40%;
 }
-.wrap div button {
-  display: block;
-  width: 60%;
-  line-height: 32px;
-  margin: 28px 20px;
-}
 </style>

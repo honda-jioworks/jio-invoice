@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-sheet class="groundwork">
+      <v-sheet>
         <!-- ヘッダー -->
         <!-- コンテンツエリア -->
         <v-container fluid>
@@ -27,8 +27,4 @@ export default class LogoSealinfo extends Vue {
   // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 }
 </script>
-<style lang="scss" scoped>
-.groundwork {
-  background-color: white;
-}
-</style>
+<style lang="scss" scoped></style>

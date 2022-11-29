@@ -33,7 +33,7 @@
         <v-col cols="12"><OfficeURL /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="auto"><FileLocation ref="scanfile" @scan-file="scanFile" /></v-col>
+        <v-col cols="auto"><FileLocation @scan-file="scanFile" /></v-col>
         <v-col cols="auto"><FileName :fileName="fileName" /></v-col>
       </v-row>
     </v-container>
@@ -86,14 +86,9 @@ export default class CompanyInfomation extends Vue {
   sendAddress(val: string): void {
     this.address = val;
   }
-
-  @Ref()
-  scanfile!: FileLocation;
-
+  //Emitで貰った値がfileNameに格納される。
   scanFile(fileName: any) {
     this.fileName = fileName;
-
-    console.log(fileName);
   }
 }
 </script>

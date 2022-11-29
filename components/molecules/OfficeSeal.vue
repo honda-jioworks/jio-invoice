@@ -9,7 +9,7 @@
             <v-col cols="12"
               ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="clickSelect"
             /></v-col>
-            <v-col cols="12"><CreateCompanySeal @create-seal="createSeal" /></v-col>
+            <!-- <v-col cols="12"><CreateCompanySeal @create-seal="createSeal" /></v-col> -->
             <v-col cols="12"
               ><Clearbutton id="DeleteCompanySeal" action="クリア" @remove-button="removeButton"
             /></v-col>
@@ -36,6 +36,7 @@ import SelectImgbutton from '../atoms/button/SelectImgbutton.vue';
   components: { Selectfile, Clearbutton, CompanySeal, ImgImport, CreateCompanySeal, SelectImgbutton },
 })
 export default class OfficeSeal extends Vue {
+  //RefしてAtomsのクリックイベントを実行している
   @Ref()
   SelectImg!: Selectfile;
 

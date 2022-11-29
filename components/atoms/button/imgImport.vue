@@ -14,6 +14,7 @@ export default class imgImport extends Vue {
   @Prop({ type: String })
   selectimgbutton?: string;
 
+  //EmitしてMoleculesのImgImportにクリックイベントを渡してる。
   @Emit()
   imgDownlord() {}
 }

@@ -8,6 +8,7 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class FileNameLabel extends Vue {
+  //PropでFileName内のfileNameの値を受け取る。
   @Prop()
   fileName!: string;
 }

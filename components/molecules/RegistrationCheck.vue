@@ -10,7 +10,7 @@
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
-export default class RegNumber extends Vue {
+export default class RegistrationCheck extends Vue {
   private bool: boolean = false;
 
   @Emit()

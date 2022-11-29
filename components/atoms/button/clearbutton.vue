@@ -19,6 +19,7 @@ export default class clearbutton extends Vue {
   @Prop({ type: String })
   clearbutton!: string;
 
+  //EmitしてMoleculesのOfficeLogo、OfficeSealにクリックイベントを渡してる。
   @Emit()
   removeButton() {}
 }

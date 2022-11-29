@@ -26,7 +26,9 @@ export default class Selectfile extends Vue {
   public Url: string | undefined = '';
   files: any;
   value!: string;
+  private test: any;
 
+  //OfficeLogo,OfficeSealのRefで参照した際のクリックメゾット実行される
   remove() {
     this.Url = '';
   }
@@ -34,6 +36,7 @@ export default class Selectfile extends Vue {
   @Ref()
   scanImgs!: Selectfile;
 
+  //Refでこのコンポーネントのinputを参照し下記のメゾットを実行する
   selectimg() {
     this.scanImgs.click();
   }

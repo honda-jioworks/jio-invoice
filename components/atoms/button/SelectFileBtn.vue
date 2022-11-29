@@ -8,6 +8,7 @@ export default class SelectFileBtn extends Vue {
   @Prop()
   btnName!: string;
 
+  //MoleculesのFileLocationのSelectImgにEmitしてクリックイベントを渡してる
   @Emit()
   btnClick() {}
 }
