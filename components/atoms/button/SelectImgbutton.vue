@@ -16,6 +16,7 @@ export default class SelectImgbutton extends Vue {
   @Prop({ type: String })
   selectimgbutton?: string;
 
+  //EmitしてMoleculesのSelectImgbuttonにクリックイベントを渡してる。
   @Emit()
   clickSelect() {}
 }

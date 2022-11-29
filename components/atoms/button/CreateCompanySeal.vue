@@ -11,6 +11,7 @@ import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
   components: {},
 })
 export default class CreateCompanySeal extends Vue {
+  //EmitしてMoleculesのCreateCompanySealにクリックイベントを渡してる。
   @Emit()
   createSeal() {}
 }

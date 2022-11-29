@@ -25,9 +25,11 @@ export default class FileLocation extends Vue {
   @Ref()
   SelectFile!: FileRefer;
 
+  //受け取ったクリックイベントを実行し、RefでSelectFileを参照、SelectFileのbtnclickを実行する
   btnClick() {
     this.SelectFile.btnclick();
   }
+  //受け取ったFileの名前をEmitでさらにCompanyInformationへ渡す。
   @Emit()
   scanFile(fileName: any) {
     return fileName;

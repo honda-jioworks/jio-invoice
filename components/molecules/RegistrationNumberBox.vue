@@ -16,7 +16,7 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
 @Component({ components: { MostRecentSalesAmount } })
-export default class RegNumber extends Vue {
+export default class RegistrationNumberBox extends Vue {
   @Prop({ type: Boolean, required: true, default: false })
   checkValue!: boolean;
 }
