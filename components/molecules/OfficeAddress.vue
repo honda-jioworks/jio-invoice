@@ -29,20 +29,21 @@ import ShowMap from '~/components/atoms/button/ShowMap.vue';
   },
 })
 export default class OfficeAddress extends Vue {
+  // 入力された住所の前半部分をorganismsに送信する
   @Emit()
   changeAddress(val: string): string {
     return val;
   }
-
+  // 郵便番号の前3桁
   @Prop({ type: String })
   postalCode1!: string;
-
+  // 郵便番号の後ろ4桁
   @Prop({ type: String })
   postalCode2!: string;
-
+  // データベースから受け取った住所情報の前半部分
   @Prop({ type: String })
   address1!: string;
-
+  // 入力された郵便番号をもとに生成された住所情報
   @Prop({ type: String })
   newAddress!: string;
 }

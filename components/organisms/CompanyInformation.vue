@@ -10,7 +10,6 @@
       <v-row>
         <v-col cols="7"
           ><PostalCode
-            :officePostalCode="postalCode"
             :postalCode1="postalCode1"
             :postalCode2="postalCode2"
             @send-address="sendAddress"
@@ -24,12 +23,12 @@
             :address1="address1"
             :postalCode1="postalCode1"
             :postalCode2="postalCode2"
-            :newAddress="address"
+            :newAddress="address1"
             @change-address="changeAddress"
         /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"><OfficeAddress2 :address2="address2" /></v-col>
+        <v-col cols="12"><OfficeAddress2 :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
       </v-row>
       <v-row>
         <v-col cols="7" md="6"><TelNumber :telNumber="telNumber" /></v-col>
@@ -37,7 +36,7 @@
       </v-row>
       <v-row> </v-row>
       <v-row>
-        <v-col cols="12"><OfficeURL /></v-col>
+        <v-col cols="12"><OfficeURL :officeUrl="officeUrl" /></v-col>
       </v-row>
       <v-row>
         <v-col cols="auto"><FileLocation ref="scanfile" @scan-file="scanFile" /></v-col>
@@ -76,25 +75,34 @@ import FileName from '@/components/molecules/FileName.vue';
   },
 })
 export default class CompanyInfomation extends Vue {
+  // データベースから持ってくるデータ
   private officeName: string = '株式会社jioworks';
   private CEOName: string = '横田　龍介';
   private postalCode: string = '1600022';
-  private postalCode1: string = this.postalCode.substr(0, 3);
-  private postalCode2: string = this.postalCode.substr(3, 4);
-  private address: string = '';
   private address1: string = '東京都新宿区新宿5-11-1';
   private address2: string = 'ホーメスト新宿ビル9F';
   private telNumber: string = '03-6709-8269';
   private faxNumber: string = '03-6709-8279';
   private officeUrl: string = 'https://jioworks.com';
+  // 入力された郵便番号をもとに生成された住所情報
+  private address: string = this.address1 + this.address2;
+  // 郵便番号の前3桁を取得
+  private postalCode1: string = this.postalCode.substr(0, 3);
+  // 郵便番号の後ろ4桁を取得
+  private postalCode2: string = this.postalCode.substr(3, 4);
+  // ファイル名の初期値を定義
   fileName: any = 'ファイル名が表示されます';
-
+  // 入力された住所情報の前半部分をaddress1に代入
   changeAddress(val: string): void {
-    this.address = val;
+    this.address1 = val;
   }
-
+  // 入力された住所情報の後半部分をaddress1に代入
+  changeAddressTwo(val: string): void {
+    this.address2 = val;
+  }
+  // 生成された住所情報をaddress1に代入
   sendAddress(val: string): void {
-    this.address = val;
+    this.address1 = val;
   }
 
   @Ref()
@@ -103,11 +111,11 @@ export default class CompanyInfomation extends Vue {
   scanFile(fileName: any) {
     this.fileName = fileName;
   }
-
+  // 入力された郵便番号の前3桁をにpostalCode1に代入する
   getPostalCodeOne(val: string): void {
     this.postalCode1 = val;
   }
-
+  // 入力された郵便番号の前3桁をにpostalCode2に代入する
   getPostalCodeTwo(val: string): void {
     this.postalCode2 = val;
   }
