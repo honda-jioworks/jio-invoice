@@ -44,12 +44,14 @@ export default class Selectfile extends Vue {
     throw new Error();
   }
 
+  //アップロードされたfileの情報を取得している。
   uploadFile() {
     const file = this.scanImgs.files[0];
-    console.log(this.scanImgs.files[0].name);
     this.Url = URL.createObjectURL(file);
     this.scanImgs.value = '';
   }
+
+  //上のメゾットで取得した画像をダウンロードするメゾット。
   downloadByURL() {
     const file = document.createElement('a');
     file.download = this.files;
