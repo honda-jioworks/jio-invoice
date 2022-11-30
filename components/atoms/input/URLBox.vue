@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-text-field :value="textUrl" @input="scanTest"> </v-text-field>
+    <v-text-field :value="officeUrl" @input="scanUrl"> </v-text-field>
   </div>
 </template>
 
@@ -8,19 +8,12 @@
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class URLBox extends Vue {
-  private textUrl: string = 'https://jioworks.com';
-
-  created(): void {
-    this.scanUrl('');
-  }
-
+  // データベースから受け取ったURL
+  @Prop({ type: String })
+  officeUrl!: string;
+  // 入力されたURLをmoleculesに送る
   @Emit()
-  scanUrl(_: string): string {
-    return this.textUrl;
-  }
-
-  @Emit()
-  scanTest(url: string): string {
+  scanUrl(url: string): string {
     return url;
   }
 }

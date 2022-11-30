@@ -22,11 +22,12 @@ import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue'
   },
 })
 export default class DashBoard extends Vue {
+  // データベースから受け取った電話番号
   @Prop({ type: String })
   telNumber!: string;
-
-  // private telNumber1: string = this.telNumber.substr(0, 2);
-  // private telNumber2: string = this.telNumber.substr(2, 4);
-  // private telNumber3: string = this.telNumber.substr(6, 4);
+  // 電話番号を3つに分割する
+  private telNumber1: string = this.telNumber.substr(0, 2);
+  private telNumber2: string = this.telNumber.substr(2, 4);
+  private telNumber3: string = this.telNumber.substr(6, 4);
 }
 </script>
