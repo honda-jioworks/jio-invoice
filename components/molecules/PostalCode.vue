@@ -2,9 +2,11 @@
   <v-sheet>
     <v-row>
       <PostalCodeLabel />
-      <v-col cols="2"><ThreeNumbersTextBox :postalCode1="postalCode1" /></v-col>
-      <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" /></v-col>
-      <v-col cols="2"><AddressSearch :officePostalCode="officePostalCode" @send-address="sendAddress" /></v-col>
+      <v-col cols="2"><ThreeNumbersTextBox :postalCode1="postalCode1" @get-postal-code-one="getPostalCodeOne" /></v-col>
+      <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" @get-postal-code-two="getPostalCodeTwo" /></v-col>
+      <v-col cols="2"
+        ><AddressSearch :postalCode1="postalCode1" :postalCode2="postalCode2" @send-address="sendAddress"
+      /></v-col>
       <v-spacer />
     </v-row>
   </v-sheet>
@@ -26,17 +28,27 @@ import AddressSearch from '~/components/atoms/button/AddressSearch.vue';
 })
 export default class DashBoard extends Vue {
   private address: string = '';
+  // 生成された住所情報をorganismsに送る
   @Emit()
   sendAddress(val: string): void {
     this.address = val;
   }
+  // 入力された郵便番号の前3桁をorganismsに送る
+  @Emit()
+  getPostalCodeOne(val: string): string {
+    return val;
+  }
+  // 入力された郵便番号の後ろ4桁をorganismsに送る
+  @Emit()
+  getPostalCodeTwo(val: string): string {
+    return val;
+  }
 
-  @Prop({ type: String })
-  officePostalCode!: string;
-
+  // データベースから受け取った郵便番号の前3桁
   @Prop({ type: String })
   postalCode1!: string;
 
+  // データベースから受け取った郵便番号の後ろ4桁
   @Prop({ type: String })
   postalCode2!: string;
 }

@@ -12,7 +12,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class RegistrationCheck extends Vue {
   private bool: boolean = false;
-
+  // クリックされた時にboolean値を反転させてorganismsに送る
   @Emit()
   pushCheckbox(_: boolean): boolean {
     return (this.bool = !this.bool);
