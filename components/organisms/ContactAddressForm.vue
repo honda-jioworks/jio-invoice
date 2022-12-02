@@ -1,7 +1,14 @@
 <template>
   <v-sheet>
-    <div><PostalCode /></div>
-    <div><AddressInput /></div>
+    <div>
+      <PostalCode
+        @scan-postal-code="scanPostalCode"
+        :officePostalCode="postalCode"
+        @send-address="sendAddress"
+        :postalCodeVal="postalCodeVal"
+      />
+    </div>
+    <div><AddressInput :addressVal="address" @change-address="changeAddress" /></div>
     <div><DepartmentInput /></div>
     <div><PostBox /></div>
     <div><HonorificBox /></div>
@@ -38,6 +45,24 @@ import FaxNumberInput from '../molecules/FaxNumberInput.vue';
   },
 })
 export default class CustomerRegisterForm extends Vue {
-  // 登録処理など記述していくのか？
+  private postalCode: string = '';
+  private postalCodeVal: string = this.postalCode;
+  private address: string = '';
+  private changeAddressVal: string = '';
+
+  scanPostalCode(val: string): void {
+    //郵便番号をmoleculesから受け取る
+    this.postalCodeVal = val;
+  }
+
+  sendAddress(val: string): void {
+    //住所をmoleculesから受け取る
+    this.address = val;
+  }
+
+  changeAddress(val: string): void {
+    //住所をmoleculesから受け取りorganismsで出力
+    this.changeAddressVal = val;
+  }
 }
 </script>

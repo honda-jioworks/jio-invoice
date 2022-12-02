@@ -1,23 +1,16 @@
 <template>
-  <v-sheet class="groundwork">
-    <v-container class="AccountRegister">
-      <v-row>
-        <v-col cols="12"><AccountInformation /></v-col>
-      </v-row>
-    </v-container>
-  </v-sheet>
+  <div>
+    <v-text-field v-model="value"></v-text-field>
+  </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
-import MostRecentSalesAmount from '@/components/organisms/MostRecentSalesAmount.vue';
-
-import AccountInformation from '@/components/organisms/AccountInformation.vue';
-@Component({ components: { MostRecentSalesAmount, AccountInformation } })
-
-
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
+@Component({})
 export default class DashBoard extends Vue {
-  // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
+  // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
+  @Prop({ type: String })
+  value!: string;
 }
 </script>
 <style lang="scss" scoped>
