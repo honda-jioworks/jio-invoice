@@ -1,5 +1,5 @@
 <template>
-  <div><DashBoard :test="text" /></div>
+  <div><DashBoard /></div>
 </template>
 
 <script lang="ts">
@@ -8,7 +8,5 @@ import DashBoard from '@/components/templates/DashBoard.vue';
 @Component({
   components: { DashBoard },
 })
-export default class IndexPages extends Vue {
-  private test: string = '本夛';
-}
+export default class IndexPage extends Vue {}
 </script>
