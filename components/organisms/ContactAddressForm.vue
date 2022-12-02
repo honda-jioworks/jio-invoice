@@ -48,11 +48,11 @@
     <v-row>
       <v-col cols="12" sm="6" md="6" lg="6" xl="6">
         <!--TEL-->
-        <TelNumberBox class="mt-n5" />
+        <TelNumberInput class="mt-n5" />
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6" xl="6">
         <!--FAX-->
-        <FaxNumberBox class="mt-n5" />
+        <FaxNumberInput class="mt-n5" />
       </v-col>
     </v-row>
   </v-container>
@@ -67,8 +67,8 @@ import PostBox from '@/components/molecules/PostBox.vue';
 import HonorificBox from '@/components/molecules/HonorificBox.vue';
 import PhoneNumber from '@/components/molecules/PhoneNumber.vue';
 import EmailInput from '@/components/molecules/EmailInput.vue';
-import TelNumberBox from '@/components/molecules/TelNumberBox.vue';
-import FaxNumberBox from '@/components/molecules/FaxNumberBox.vue';
+import TelNumberInput from '~/components/molecules/TelNumberInput.vue';
+import FaxNumberInput from '~/components/molecules/FaxNumberInput.vue';
 
 @Component({
   components: {
@@ -79,11 +79,11 @@ import FaxNumberBox from '@/components/molecules/FaxNumberBox.vue';
     HonorificBox,
     PhoneNumber,
     EmailInput,
-    TelNumberBox,
-    FaxNumberBox,
+    TelNumberInput,
+    FaxNumberInput,
   },
 })
-export default class CustomerRegisterForm extends Vue {
+export default class ContactAddressForm extends Vue {
   // 登録処理など記述していくのか？
 }
 </script>
