@@ -9,13 +9,13 @@
       />
     </div>
     <div><AddressInput :addressVal="address" @change-address="changeAddress" /></div>
-    <div><DepartmentInput /></div>
-    <div><PostBox /></div>
-    <div><HonorificBox /></div>
-    <div><PhoneNumber /></div>
-    <div><EmailInput /></div>
-    <div><TelNumberInput /></div>
-    <div><FaxNumberInput /></div>
+    <div><DepartmentInput @get-department="getDepartment" /></div>
+    <div><PostBox @get-postbox="getPostbox" /></div>
+    <div><HonorificBox @get-manager="getManager" @get-honorific="getHonorific" /></div>
+    <div><PhoneNumber @get-number="getNumber" /></div>
+    <div><EmailInput @get-email="getEmail" :getClick="email" @send-email="emailVal" /></div>
+    <div><TelNumberInput @get-telnumber="getTelnumber" /></div>
+    <div><FaxNumberInput @get-faxnumber="getFaxnumber" /></div>
   </v-sheet>
 </template>
 
@@ -49,6 +49,15 @@ export default class CustomerRegisterForm extends Vue {
   private postalCodeVal: string = this.postalCode;
   private address: string = '';
   private changeAddressVal: string = '';
+  private department: string = '';
+  private postbox: string = '';
+  private manager: string = '';
+  private number: string = '';
+  private email: string = '';
+  private telnumber: string = '';
+  private faxnumber: string = '';
+  private honorific: string = '';
+  private addressValue: string = '';
 
   scanPostalCode(val: string): void {
     //郵便番号をmoleculesから受け取る
@@ -63,6 +72,44 @@ export default class CustomerRegisterForm extends Vue {
   changeAddress(val: string): void {
     //住所をmoleculesから受け取りorganismsで出力
     this.changeAddressVal = val;
+  }
+
+  // 部署
+  getDepartment(val: string): void {
+    this.department = val;
+  }
+  // 役職
+  getPostbox(val: string): void {
+    this.postbox = val;
+  }
+
+  // 担当者名
+  getManager(val: string): void {
+    this.manager = val;
+  }
+  // 敬称
+  getHonorific(val: string): void {
+    this.honorific = val;
+  }
+  // 担当者番号
+  getNumber(val: string): void {
+    this.number = val;
+  }
+  // 担当者メール
+  getEmail(val: string): void {
+    this.email = val;
+  }
+  // 送るボタン
+  emailVal(val: string): void {
+    this.addressValue = val;
+  }
+  // TEL
+  getTelnumber(val: string): void {
+    this.telnumber = val;
+  }
+  // FAX
+  getFaxnumber(val: string): void {
+    this.faxnumber = val;
   }
 }
 </script>
