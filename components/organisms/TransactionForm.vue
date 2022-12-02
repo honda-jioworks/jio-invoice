@@ -4,7 +4,6 @@
       <v-row>
         <v-col cols="12"><TransactionSection @keep-id="keepId" /></v-col>
       </v-row>
-      <p>値：{{ value }}</p>
       <v-row>
         <v-col cols="12"><TaxProcessing /></v-col>
       </v-row>
