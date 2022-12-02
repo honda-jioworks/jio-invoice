@@ -2,13 +2,13 @@
   <v-sheet>
     <div><PostalCode /></div>
     <div><AddressInput /></div>
-    <div><DepartmentInput /></div>
-    <div><PostBox /></div>
-    <div><HonorificBox /></div>
-    <div><PhoneNumber /></div>
-    <div><EmailInput /></div>
-    <div><TelNumberInput /></div>
-    <div><FaxNumberInput /></div>
+    <div><DepartmentInput @get-depertment="getDepertment" /></div>
+    <div><PostBox @get-postbox="getPostbox" /></div>
+    <div><HonorificBox @get-manager="getManager"  @get-honorific="getHonorific" /></div>
+    <div><PhoneNumber @get-number="getNumber" /></div>
+    <div><EmailInput @get-email="getEmail" v-bind:getClick="email" @sendAddress="getAddress" /></div>
+    <div><TelNumberInput @get-telnumber="getTelnumber" /></div>
+    <div><FaxNumberInput @get-faxnumber="getFaxnumber" /></div>
   </v-sheet>
 </template>
 
@@ -37,7 +37,52 @@ import FaxNumberInput from '../molecules/FaxNumberInput.vue';
     FaxNumberInput,
   },
 })
-export default class CustomerRegisterForm extends Vue {
-  // 登録処理など記述していくのか？
+export default class ContactAddressForm extends Vue {
+  depertment: string='';
+  postbox: string='';
+  manager: string='';
+  number: string='';
+  email: string='';
+  telnumber: string='';
+  faxnumber: string='';
+  honorific: string='';
+  address: string='';
+  // 役職
+  getDepertment(val: string): void{
+    this.depertment = val;
+  }
+  // 部署
+  getPostbox(val: string): void{
+    this.postbox = val;
+  }
+  // 担当者名
+  getManager(val: string): void{
+    this.manager = val;
+  }
+  // 敬称
+  getHonorific(val: string): void{
+    this.honorific = val;
+  }
+  // 担当者番号
+  getNumber(val: string): void{
+    this.number = val;
+  }
+  // 担当者メール
+  getEmail(val: string): void{
+    this.email = val;
+  }
+  // 送るボタン
+  getAddress(val: string): void{
+    this.address = val;
+  }
+  // TEL
+  getTelnumber(val: string): void{
+    this.telnumber = val;
+  }
+  // FAX
+  getFaxnumber(val: string): void{
+    this.faxnumber = val;
+  }
 }
+
 </script>

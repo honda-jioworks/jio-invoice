@@ -2,10 +2,10 @@
   <v-container>
     <v-row>
       <v-col cols="12" md="5">
-        <v-text-field :rules="nameRules" label="担当者名" @change="getManager"></v-text-field>
+        <v-text-field :rules="nameRules" :value="manager" label="担当者名" @input="getManager"></v-text-field>
       </v-col>
       <v-col cols="1">
-        <v-select :rules="serectRules" :items="keisyo" label="敬称" @change="getHonorific"></v-select>
+        <v-select :rules="serectRules" :value="honorific" :items="keisyo" label="敬称" @input="getHonorific"></v-select>
       </v-col>
     </v-row>
   </v-container>

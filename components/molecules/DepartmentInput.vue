@@ -2,7 +2,7 @@
   <v-form>
     <v-row>
       <v-col cols="12" md="6">
-        <v-text-field :rules="nameRules" label="部署" @change="getDepertment"></v-text-field>
+        <v-text-field :rules="nameRules" label="部署" :value="depertment" @input="getDepertment"></v-text-field>
       </v-col>
     </v-row>
   </v-form>

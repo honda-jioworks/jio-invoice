@@ -2,7 +2,7 @@
   <v-form>
     <v-row>
       <v-col cols="12" md="6">
-        <v-text-field :rules="nameRules" label="役職" @change="getPostbox"></v-text-field>
+        <v-text-field :rules="nameRules" :value="postbox" label="役職" @input="getPostbox"></v-text-field>
       </v-col>
     </v-row>
   </v-form>
