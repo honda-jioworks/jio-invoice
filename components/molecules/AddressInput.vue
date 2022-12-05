@@ -1,10 +1,10 @@
 <template>
   <v-row>
     <v-col cols="12" md="6">
-      <v-text-field :rules="nameRules" label="住所：" :value="addressVal" @input="changeAddress"></v-text-field>
+      <v-text-field :rules="nameRules" label="住所：" v-model="addressVal" @input="changeAddress"></v-text-field>
     </v-col>
 
-    <v-btn large min-width="30"> 地図を表示 </v-btn>
+    <v-btn large min-width="30" @click="showMaptest"> 地図を表示 </v-btn>
   </v-row>
 </template>
 <script lang="ts">
@@ -21,6 +21,10 @@ export default class AddressInput extends Vue {
   changeAddress(val: string): string {
     //住所をorganismsへ送る
     return val;
+  }
+  @Emit()
+  showMaptest() {
+    window.open('https://www.google.com/maps/search/〒' + this.addressVal + '/', 'subwin', 'width=750,height=750');
   }
 }
 </script>
