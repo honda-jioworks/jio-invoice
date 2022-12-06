@@ -1,5 +1,5 @@
 <template>
-  <v-text-field v-model="postalCode1" @input="getPostalCodeOne" :counter="3" solo> </v-text-field>
+  <v-text-field :value="postalCode1" @input="getPostalCodeOne" :counter="3" solo> </v-text-field>
 </template>
 
 <script lang="ts">
