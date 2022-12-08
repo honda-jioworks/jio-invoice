@@ -6,15 +6,15 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    script: [
+      {
+        src: 'https://yubinbango.github.io/yubinbango-core/yubinbango-core.js',
+      },
+    ],
     titleTemplate: '%s - jio-invoice',
     title: 'jio-invoice',
     htmlAttrs: {
       lang: 'en',
-      script: [
-        {
-          src: 'https://yubinbango.github.io/yubinbango-core/yubinbango-core.js',
-        },
-      ],
     },
     meta: [
       { charset: 'utf-8' },

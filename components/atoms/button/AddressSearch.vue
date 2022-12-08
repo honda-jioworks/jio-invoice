@@ -1,7 +1,6 @@
 <template>
   <div>
-    <v-btn @click="makeAddress()" v-model="addressVal"> 住所を検索 </v-btn>
-    <v-text-field :value="postalCode1" />
+    <v-btn v-model="addressVal" @mouseover="makeAddress()" @click="sendAddress"> 住所を検索 </v-btn>
   </div>
 </template>
 
@@ -24,16 +23,9 @@ export default class AddressSearch extends Vue {
   //入力された郵便番号をもとに住所情報を生成
   async makeAddress() {
     this.zipCode = this.postalCode1 + '-' + this.postalCode2;
-    try {
-      console.log(this.zipCode);
-      console.log(typeof this.zipCode);
-      const address = await fetchAddressByZipcode(this.zipCode);
-      const { region, locality, street, extended } = address;
-      this.addressVal = region + locality + street + extended;
-      console.log(this.addressVal);
-    } catch (e) {
-      alert(e);
-    }
+    const address = await fetchAddressByZipcode(this.zipCode);
+    const { region, locality, street, extended } = address;
+    this.addressVal = region + locality + street + extended;
   }
   //郵便番号から住所に変換しmoleculesに送る
   @Emit()
