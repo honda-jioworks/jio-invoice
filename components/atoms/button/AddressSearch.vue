@@ -23,9 +23,11 @@ export default class AddressSearch extends Vue {
   //入力された郵便番号をもとに住所情報を生成
   async makeAddress() {
     this.zipCode = this.postalCode1 + '-' + this.postalCode2;
-    const address = await fetchAddressByZipcode(this.zipCode);
-    const { region, locality, street, extended } = address;
-    this.addressVal = region + locality + street + extended;
+    try {
+      const address = await fetchAddressByZipcode(this.zipCode);
+      const { region, locality, street, extended } = address;
+      this.addressVal = region + locality + street + extended;
+    } catch {}
   }
   //郵便番号から住所に変換しmoleculesに送る
   @Emit()

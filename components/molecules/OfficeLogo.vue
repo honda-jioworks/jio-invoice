@@ -4,14 +4,16 @@
       <v-row>
         <v-col cols="12"><OfficeLogoName /></v-col>
         <div class="wrap">
-          <v-col cols="12"><Selectfile id="OfficeLogo" ref="SelectImg" /></v-col>
+          <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
           <div>
             <v-col cols="12"
-              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="clickSelect"
+              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="logoSelect"
             /></v-col>
-            <v-col cols="12"><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="removeButton" /></v-col>
+            <v-col cols="12"
+              ><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="logoRemoveButton"
+            /></v-col>
             <v-col cols="12 "
-              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="imgDownlord"
+              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="logoDownlord"
             /></v-col>
           </div>
         </div>
@@ -36,16 +38,18 @@ export default class OfficeLogo extends Vue {
   @Ref()
   SelectImg!: Selectfile;
 
-  removeButton() {
-    this.SelectImg.remove();
+  @Emit()
+  logoSelect() {
+    return this.SelectImg.selectimg();
+  }
+  @Emit()
+  logoRemoveButton() {
+    return this.SelectImg.remove();
   }
 
-  imgDownlord() {
-    this.SelectImg.downloadByURL();
-  }
-
-  clickSelect(): void {
-    this.SelectImg.selectimg();
+  @Emit()
+  logoDownlord() {
+    return this.SelectImg.downloadByURL();
   }
 }
 </script>

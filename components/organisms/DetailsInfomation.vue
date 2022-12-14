@@ -2,17 +2,17 @@
   <v-sheet class="abc">
     <v-container no-gutters>
       <v-row>
-        <v-col cols="12"><ConsumptionTax /></v-col>
-        <v-col cols="12"><ConsumptionTaxRounding /></v-col>
-        <v-col cols="12"><MulUnitPriceQuantityRounding /></v-col>
-        <v-col cols="12"><UnitPriceCulculationRounding /></v-col>
-        <v-col cols="12"><DecimalalPart /></v-col>
-        <v-col cols="12"><NumberOfDigits /></v-col>
+        <v-col cols="12"><ConsumptionTax @scan-select="scanConsumptionTax" /></v-col>
+        <v-col cols="12"><ConsumptionTaxRounding @scan-select="scanConsumptionTaxRounding" /></v-col>
+        <v-col cols="12"><MulUnitPriceQuantityRounding @scan-select="scanMulUnitPriceQuantityRounding" /></v-col>
+        <v-col cols="12"><UnitPriceCulculationRounding @scan-select="scanUnitPriceCulculationRounding" /></v-col>
+        <v-col cols="12"><DecimalalPart @scan-select="scanDecimalalPart" /></v-col>
+        <v-col cols="12"><NumberOfDigits @scan-select="scanNumberOfDigits" /></v-col>
         <v-col cols="12"><AmountOfWithholdingTax @check-bool="checkBool" /></v-col>
-        <v-col cols="12"><SubjectName :checkVal="bool" /></v-col>
-        <v-col cols="12"><TaxRate :checkVal="bool" /></v-col>
-        <v-col cols="12"><SalaryPaymentDate /></v-col>
-        <v-col cols="12"><BonusPaymentDate /></v-col>
+        <v-col cols="12"><SubjectName :checkVal="bool" @scan-text="scanText" /></v-col>
+        <v-col cols="12"><TaxRate :checkVal="bool" @scan-select="scanTaxRate" /></v-col>
+        <v-col cols="12"><SalaryPaymentDate @scan-select="scanSalaryPaymentDate" /></v-col>
+        <v-col cols="12"><BonusPaymentDate @scan-select="scanBonusPaymentDate" /></v-col>
       </v-row>
     </v-container>
   </v-sheet>
@@ -48,9 +48,57 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
   },
 })
 export default class DetailsInfomation extends Vue {
+  private consumptionTaxVal: string = ''; //消費税
+  private consumptionTaxRoundingVal: string = ''; //消費税の端数処理
+  private mulUnitPriceQuantityRoundingVal: string = '';
+  private unitPriceCulculationRoundingVal: string = '';
+  private decimalalPartVal: string = '';
+  private numberOfDigitsVal: string = '';
+  private textVal: string = '';
+  private taxRateVal: string = '';
+  private salaryPaymentDateVal: string = '';
+  private bonusPaymentDateVal: string = '';
+
+  scanConsumptionTax(val: string): void {
+    this.consumptionTaxVal = val;
+  }
+
+  scanConsumptionTaxRounding(val: string): void {
+    this.consumptionTaxRoundingVal = val;
+  }
+
+  scanMulUnitPriceQuantityRounding(val: string): void {
+    this.mulUnitPriceQuantityRoundingVal = val;
+  }
+
+  scanUnitPriceCulculationRounding(val: string): void {
+    this.unitPriceCulculationRoundingVal = val;
+  }
+
+  scanDecimalalPart(val: string): void {
+    this.decimalalPartVal = val;
+  }
+
+  scanNumberOfDigits(val: string): void {
+    this.numberOfDigitsVal = val;
+  }
+
   private bool: boolean = false;
   checkBool(val: boolean): void {
     this.bool = val;
+  }
+  scanText(val: string): void {
+    this.textVal = val;
+  }
+
+  scanTaxRate(val: string): void {
+    this.taxRateVal = val;
+  }
+  scanSalaryPaymentDate(val: string): void {
+    this.salaryPaymentDateVal = val;
+  }
+  scanBonusPaymentDate(val: string): void {
+    this.bonusPaymentDateVal = val;
   }
 }
 </script>

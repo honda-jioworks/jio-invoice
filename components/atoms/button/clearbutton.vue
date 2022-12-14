@@ -1,6 +1,8 @@
 <template>
   <v-card-actions>
-    <v-btn depressed elevation="5" @click="removeButton" width="200px" color="#dcdcdc">{{ action }}</v-btn>
+    <v-btn depressed elevation="5" @click="removeButton" width="200px" color="#dcdcdc" :value="clickVal">{{
+      action
+    }}</v-btn>
   </v-card-actions>
 
   <!--button>クリア</button-->
@@ -13,6 +15,7 @@ import Selectfile from '~/components/atoms/input/Selectfile.vue';
   components: { Selectfile },
 })
 export default class clearbutton extends Vue {
+  public clickVal: string = '';
   @Prop({ type: String })
   action?: string;
 
@@ -21,6 +24,8 @@ export default class clearbutton extends Vue {
 
   //EmitしてMoleculesのOfficeLogo、OfficeSealにクリックイベントを渡してる。
   @Emit()
-  removeButton() {}
+  removeButton() {
+    return this.clickVal;
+  }
 }
 </script>

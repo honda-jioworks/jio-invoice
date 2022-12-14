@@ -18,8 +18,7 @@
 </template>
 
 <script lang="ts">
-import { url } from 'inspector';
-import { Vue, Component, Ref } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, Emit } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
 export default class Selectfile extends Vue {
@@ -68,5 +67,6 @@ export default class Selectfile extends Vue {
 
 <style lang="scss" scoped>
 .img {
+  background-color: gray;
 }
 </style>
