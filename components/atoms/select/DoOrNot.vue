@@ -1,7 +1,5 @@
 <template>
-  <v-col>
-    <v-select :items="items" :rules="rules" outlined @input="checkBool" v-model="check"></v-select>
-  </v-col>
+    <v-select :items="items" :rules="rules" @input="checkBool" v-model="check"></v-select>
 </template>
 
 <script lang="ts">

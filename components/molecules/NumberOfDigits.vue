@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="6">数量の桁:</v-col>
       <v-col cols="6">
-        <v-select :items="items" :rules="rules" outlined></v-select>
+        <v-select :items="items" :rules="rules"></v-select>
       </v-col>
     </v-row>
   </div>

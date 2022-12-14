@@ -1,11 +1,9 @@
 <template>
   <div>
-    <v-container>
-      <v-row>
-        <v-col cols="6">消費税：</v-col>
-        <v-col cols="6"><AutomaticCalculation /></v-col>
-      </v-row>
-    </v-container>
+    <v-row>
+      <v-col cols="6">消費税：</v-col>
+      <v-col cols="6"><AutomaticCalculation /></v-col>
+    </v-row>
   </div>
 </template>
 

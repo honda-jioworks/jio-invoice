@@ -1,7 +1,5 @@
 <template>
-  <v-col>
     <v-text-field :rules="rules" :disabled="!checkVal"></v-text-field>
-  </v-col>
 </template>
 
 <script lang="ts">
