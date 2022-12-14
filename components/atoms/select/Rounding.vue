@@ -1,7 +1,5 @@
 <template>
-  <v-col>
-    <v-select :items="items" dense outlined :rules="rules"></v-select>
-  </v-col>
+    <v-select :items="items" :rules="rules"></v-select>
 </template>
 
 <script lang="ts">

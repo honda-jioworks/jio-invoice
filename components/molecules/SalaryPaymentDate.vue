@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="6">給与支給日:</v-col>
-      <v-col cols="6"><Date /></v-col>
+      <v-col cols="6" ><Date /></v-col>
     </v-row>  
   </div>
 </template>
@@ -14,3 +14,5 @@
   export default class SalaryPaymentDate extends Vue{
   }
 </script>
+</script>
+

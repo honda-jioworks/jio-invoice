@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">賞与支給日:</v-col>
-      <v-col cols="6"><Date /></v-col>
+      <v-col cols="6" >賞与支給日:</v-col>
+      <v-col cols="6" ><Date /></v-col>
     </v-row>
   </div>
 </template>
