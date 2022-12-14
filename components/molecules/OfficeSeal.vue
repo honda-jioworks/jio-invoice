@@ -4,17 +4,17 @@
       <v-row>
         <v-col cols="12"><CompanySeal /></v-col>
         <div class="wrap">
-          <v-col cols="12"><Selectfile ref="SelectImg" id="CompanySeal" /></v-col>
+          <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
           <div>
             <v-col cols="12"
-              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="clickSelect"
+              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"
             /></v-col>
             <!-- <v-col cols="12"><CreateCompanySeal @create-seal="createSeal" /></v-col> -->
             <v-col cols="12"
-              ><Clearbutton id="DeleteCompanySeal" action="クリア" @remove-button="removeButton"
+              ><Clearbutton id="DeleteCompanySeal" action="クリア" @remove-button="sealRemoveButton"
             /></v-col>
             <v-col cols="12 "
-              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="imgDownlord"
+              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="sealDownlord"
             /></v-col>
           </div>
         </div>
@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, Prop, Emit } from 'nuxt-property-decorator';
 import Selectfile from '~/components/atoms/input/Selectfile.vue';
 import CompanySeal from '../atoms/label/CompanySeal.vue';
 import Clearbutton from '../atoms/button/clearbutton.vue';
@@ -40,16 +40,18 @@ export default class OfficeSeal extends Vue {
   @Ref()
   SelectImg!: Selectfile;
 
-  removeButton() {
-    this.SelectImg.remove();
+  @Emit()
+  sealSelect() {
+    return this.SelectImg.selectimg();
   }
 
-  imgDownlord() {
-    this.SelectImg.downloadByURL();
+  @Emit()
+  sealRemoveButton() {
+    return this.SelectImg.remove();
   }
-
-  clickSelect(): void {
-    this.SelectImg.selectimg();
+  @Emit()
+  sealDownlord() {
+    return this.SelectImg.downloadByURL();
   }
 
   createSeal() {
