@@ -8,5 +8,5 @@ import DashBoard from '@/components/templates/DashBoard.vue';
 @Component({
   components: { DashBoard },
 })
-export default class IndexPage extends Vue {}
+export default class index extends Vue {}
 </script>
