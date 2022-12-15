@@ -1,5 +1,5 @@
 <template>
-  <BasicInformation />
+  <div><DashBoard /></div>
 </template>
 
 <script lang="ts">
@@ -11,7 +11,7 @@ import BasicInformation from '@/components/organisms/BasicInformation.vue';
     BasicInformation,
   },
 })
-export default class index extends Vue {}
+export default class IndexPage extends Vue {}
 </script>
 <style lang="scss" scoped>
 .groundwork {

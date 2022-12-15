@@ -1,29 +1,38 @@
 <template>
   <v-sheet>
-    <v-row class="d-none d-sm-none d-flex">
-      <v-col><FileLocationLabel /></v-col>
-      <v-col><FileRefer /></v-col>
-    </v-row>
-    <v-row class="d-none d-md-none d-sm-flex">
-      <v-col><FileLocationLabel /></v-col>
-      <v-col><FileRefer /></v-col>
-    </v-row>
-    <v-row class="hidden-sm-and-down">
-      <v-col><FileLocationLabel /></v-col>
-      <v-col><FileRefer /></v-col>
+    <v-row>
+      <FileLocationLabel />
+      <SelectFileBtn @btn-click="btnClick" btnName="参照" />
+      <FileRefer ref="SelectFile" @scan-file="scanFile" />
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, Emit } from 'nuxt-property-decorator';
 import FileLocationLabel from '~/components/atoms/label/FileLocationLabel.vue';
-import FileRefer from '~/components/atoms/button/FileRefer.vue';
+import FileRefer from '~/components/atoms/input/FileRefer.vue';
+import SelectFileBtn from '../atoms/button/SelectFileBtn.vue';
+
 @Component({
   components: {
     FileLocationLabel,
     FileRefer,
+    SelectFileBtn,
   },
 })
-export default class FileLocation extends Vue {}
+export default class FileLocation extends Vue {
+  @Ref()
+  SelectFile!: FileRefer;
+
+  //受け取ったクリックイベントを実行し、RefでSelectFileを参照、SelectFileのbtnclickを実行する
+  btnClick() {
+    this.SelectFile.btnclick();
+  }
+  //受け取ったFileの名前をEmitでさらにCompanyInformationへ渡す。
+  @Emit()
+  scanFile(fileName: any) {
+    return fileName;
+  }
+}
 </script>

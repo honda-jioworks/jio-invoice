@@ -7,10 +7,7 @@ import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class CEONameTextBox extends Vue {
   private name: string = '';
-
-  @Prop({ type: String, default: '' })
-  type!: string;
-
+  // ページ表示時にscanNameメソッドを実行
   created(): void {
     this.scanName('');
   }

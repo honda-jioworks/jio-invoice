@@ -1,11 +1,14 @@
 <template>
-  <v-text-field value="株式会社jioworks"> </v-text-field>
+  <v-text-field :value="officeName"> </v-text-field>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 @Component({ components: {} })
-export default class OfficeNameTextBox extends Vue {}
+export default class OfficeNameTextBox extends Vue {
+  @Prop({ type: String })
+  officeName!: string;
+}
 </script>
 <style lang="scss" scoped>
 .v-text-field {

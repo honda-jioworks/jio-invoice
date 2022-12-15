@@ -1,21 +1,36 @@
 <template>
   <div>
-    <v-container no-gutters>
-      <v-row>
-        <v-col cols="12"><ConsumptionTax /></v-col>
-        <v-col cols="12"><ConsumptionTaxRounding /></v-col>
-        <v-col cols="12"><MulUnitPriceQuantityRounding /></v-col>
-        <v-col cols="12"><UnitPriceCulculationRounding /></v-col>
-        <v-col cols="12"><DecimalalPart /></v-col>
-        <v-col cols="12"><NumberOfDigits /></v-col>
-        <v-col cols="12"><AmountOfWithholdingTax /></v-col>
-        <v-col cols="12"><SubjectName /></v-col>
-        <v-col cols="12"><TaxRate /></v-col>
-        <v-col cols="12"><SalaryPaymentDate /></v-col>
-        <v-col cols="12"><BonusPaymentDate /></v-col>
-      </v-row>
-    </v-container>
+  <!-- 1段目 -->
+    <v-row>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><ConsumptionTax class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><ConsumptionTaxRounding class="mb-n5" /></v-col>
+    </v-row>
+  <!-- 2段目 -->
+    <v-row> 
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><MulUnitPriceQuantityRounding class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><UnitPriceCulculationRounding class="mb-n5" /></v-col>
+    </v-row>
+  <!-- 3段目 -->
+    <v-row> 
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><DecimalalPart class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><NumberOfDigits class="mb-n5" /></v-col>
+    </v-row>
+  <!-- 4段目 -->
+    <v-row> 
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><AmountOfWithholdingTax @check-bool="checkBool" class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><SubjectName :checkVal="bool" class="mb-n5" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TaxRate :checkVal="bool" class="mb-n5" /></v-col>
+    </v-row>
+  <!-- 5段目 -->
+    <v-row>   
+      <v-col cols="12" sm="6" lg="3" md="4" xl="4"><SalaryPaymentDate class="mb-n5" /></v-col>
+    </v-row>
+  <!-- 6段目 -->
+    <v-row>  
+      <v-col cols="12" sm="6" lg="3" md="4" xl="4"><BonusPaymentDate class="mb-n5" /></v-col>
+    </v-row>
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -47,5 +62,69 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
     BonusPaymentDate,
   },
 })
-export default class DetailsInfomation extends Vue {}
+export default class DetailsInfomation extends Vue {
+
+  public bool: boolean = false;
+  private consumptionTaxVal: string = ''; //消費税
+  private consumptionTaxRoundingVal: string = ''; //消費税の端数処理
+  private mulUnitPriceQuantityRoundingVal: string = '';
+  private unitPriceCulculationRoundingVal: string = '';
+  private decimalalPartVal: string = '';
+  private numberOfDigitsVal: string = '';
+  private textVal: string = '';
+  private taxRateVal: string = '';
+  private salaryPaymentDateVal: string = '';
+  private bonusPaymentDateVal: string = '';
+
+  scanConsumptionTax(val: string): void {
+    this.consumptionTaxVal = val;
+  }
+
+  scanConsumptionTaxRounding(val: string): void {
+    this.consumptionTaxRoundingVal = val;
+  }
+
+  scanMulUnitPriceQuantityRounding(val: string): void {
+    this.mulUnitPriceQuantityRoundingVal = val;
+  }
+
+  scanUnitPriceCulculationRounding(val: string): void {
+    this.unitPriceCulculationRoundingVal = val;
+  }
+
+  scanDecimalalPart(val: string): void {
+    this.decimalalPartVal = val;
+  }
+
+  scanNumberOfDigits(val: string): void {
+    this.numberOfDigitsVal = val;
+  }
+
+
+
+  checkBool(val: boolean): void {
+    this.bool = val;
+  }
+  scanText(val: string): void {
+    this.textVal = val;
+  }
+
+  scanTaxRate(val: string): void {
+    this.taxRateVal = val;
+  }
+  scanSalaryPaymentDate(val: string): void {
+    this.salaryPaymentDateVal = val;
+  }
+  scanBonusPaymentDate(val: string): void {
+    this.bonusPaymentDateVal = val;
+  }
+}
 </script>
+<style lang="scss" scoped>
+@media  screen and (max-width: 768px) {
+  
+}
+  
+
+</style>
+
