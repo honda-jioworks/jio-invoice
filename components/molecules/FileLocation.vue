@@ -1,8 +1,16 @@
 <template>
   <v-sheet>
-    <v-row>
-      <FileLocationLabel />
-      <FileRefer />
+    <v-row class="d-none d-sm-none d-flex">
+      <v-col><FileLocationLabel /></v-col>
+      <v-col><FileRefer /></v-col>
+    </v-row>
+    <v-row class="d-none d-md-none d-sm-flex">
+      <v-col><FileLocationLabel /></v-col>
+      <v-col><FileRefer /></v-col>
+    </v-row>
+    <v-row class="hidden-sm-and-down">
+      <v-col><FileLocationLabel /></v-col>
+      <v-col><FileRefer /></v-col>
     </v-row>
   </v-sheet>
 </template>

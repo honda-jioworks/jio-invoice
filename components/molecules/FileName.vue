@@ -1,7 +1,13 @@
 <template>
   <v-sheet>
-    <v-row>
-      <FileNameLabel />
+    <v-row class="d-none d-sm-none d-flex">
+      <v-col><FileNameLabel /></v-col>
+    </v-row>
+    <v-row class="d-none d-md-none d-sm-flex">
+      <v-col><FileNameLabel /></v-col>
+    </v-row>
+    <v-row class="hidden-sm-and-down">
+      <v-col><FileNameLabel /></v-col>
     </v-row>
   </v-sheet>
 </template>

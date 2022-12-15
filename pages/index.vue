@@ -1,14 +1,20 @@
 <template>
-  <div><DashBoard :test="text" /></div>
+  <BasicInformation />
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import DashBoard from '@/components/templates/DashBoard.vue';
+import BasicInformation from '@/components/organisms/BasicInformation.vue';
+
 @Component({
-  components: { DashBoard },
+  components: {
+    BasicInformation,
+  },
 })
-export default class IndexPages extends Vue {
-  private test: string = '本夛';
-}
+export default class index extends Vue {}
 </script>
+<style lang="scss" scoped>
+.groundwork {
+  background-color: gray;
+}
+</style>

@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-sheet>
-      <v-row>
-        <OfficeURLLabel />
-        <URLBox @scan-url="scanUrl" />
-        <URLBtn v-bind:urlValue="textVal" />
+      <v-row class="hidden-sm-and-up">
+        <v-col cols="2"><OfficeURLLabel /></v-col>
+        <v-col cols="6"><URLBox @scan-url="scanUrl" /></v-col>
+        <v-col cols="4"><URLBtn v-bind:urlValue="textVal" /></v-col>
       </v-row>
     </v-sheet>
   </div>

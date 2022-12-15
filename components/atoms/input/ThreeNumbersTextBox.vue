@@ -7,3 +7,8 @@ import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class ThreeNumbersTextBox extends Vue {}
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  width: 75%;
+}
+</style>

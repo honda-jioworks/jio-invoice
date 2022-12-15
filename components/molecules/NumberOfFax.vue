@@ -1,7 +1,19 @@
 <template>
   <v-sheet>
-    <v-row>
-      <FAXLabel />
+    <v-row class="d-none d-sm-none d-flex">
+      <v-col cols="3"><FAXLabel /></v-col>
+      <v-col cols="3"><ThreeNumbersTextBox /></v-col>
+      <v-col cols="3"><FourNumbersTextBox /></v-col>
+      <v-col cols="3"><FourNumbersTextBox /></v-col>
+    </v-row>
+    <v-row class="d-none d-md-none d-sm-flex">
+      <v-col cols="3"><FAXLabel /></v-col>
+      <v-col cols="3"><ThreeNumbersTextBox /></v-col>
+      <v-col cols="3"><FourNumbersTextBox /></v-col>
+      <v-col cols="3"><FourNumbersTextBox /></v-col>
+    </v-row>
+    <v-row class="hidden-sm-and-down">
+      <v-col cols="3"><FAXLabel /></v-col>
       <v-col cols="2"><ThreeNumbersTextBox /></v-col>
       <v-col cols="2"><FourNumbersTextBox /></v-col>
       <v-col cols="2"><FourNumbersTextBox /></v-col>

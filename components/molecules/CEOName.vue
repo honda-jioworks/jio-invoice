@@ -1,8 +1,16 @@
 <template>
   <v-sheet>
-    <v-row>
-      <CEONameLabel />
-      <CEONameTextBox @scan-name="scanName" />
+    <v-row dense class="hidden-sm-and-up">
+      <v-col cols="4"><CEONameLabel /></v-col>
+      <v-col cols="6"><CEONameTextBox @scan-name="scanName" /></v-col>
+    </v-row>
+    <v-row dense class="d-none d-sm-flex d-md-none">
+      <v-col cols="4"><CEONameLabel /></v-col>
+      <v-col cols="5"><CEONameTextBox @scan-name="scanName" /></v-col>
+    </v-row>
+    <v-row dense class="hidden-sm-and-down">
+      <v-col cols="4"><CEONameLabel /></v-col>
+      <v-col cols="5"><CEONameTextBox @scan-name="scanName" /></v-col>
     </v-row>
   </v-sheet>
 </template>
