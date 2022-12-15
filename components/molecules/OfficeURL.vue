@@ -17,7 +17,7 @@ import URLBox from '~/components/atoms/input/URLBox.vue';
 import URLBtn from '@/components/atoms/button/URLBtn.vue';
 @Component({ components: { OfficeURLLabel, URLBox, URLBtn } })
 export default class OfficeURL extends Vue {
-  private urlValue: string = '';
+  public urlValue: string = '';
   // データベースから受け取ったURL
   @Prop({ type: String })
   officeUrl!: string;

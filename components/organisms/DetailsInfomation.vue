@@ -30,6 +30,7 @@
       <v-col cols="12" sm="6" lg="3" md="4" xl="4"><BonusPaymentDate class="mb-n5" /></v-col>
     </v-row>
   </div>
+  
 </template>
 
 <script lang="ts">
@@ -62,9 +63,60 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
   },
 })
 export default class DetailsInfomation extends Vue {
+
   public bool: boolean = false;
+  private consumptionTaxVal: string = ''; //消費税
+  private consumptionTaxRoundingVal: string = ''; //消費税の端数処理
+  private mulUnitPriceQuantityRoundingVal: string = '';
+  private unitPriceCulculationRoundingVal: string = '';
+  private decimalalPartVal: string = '';
+  private numberOfDigitsVal: string = '';
+  private textVal: string = '';
+  private taxRateVal: string = '';
+  private salaryPaymentDateVal: string = '';
+  private bonusPaymentDateVal: string = '';
+
+  scanConsumptionTax(val: string): void {
+    this.consumptionTaxVal = val;
+  }
+
+  scanConsumptionTaxRounding(val: string): void {
+    this.consumptionTaxRoundingVal = val;
+  }
+
+  scanMulUnitPriceQuantityRounding(val: string): void {
+    this.mulUnitPriceQuantityRoundingVal = val;
+  }
+
+  scanUnitPriceCulculationRounding(val: string): void {
+    this.unitPriceCulculationRoundingVal = val;
+  }
+
+  scanDecimalalPart(val: string): void {
+    this.decimalalPartVal = val;
+  }
+
+  scanNumberOfDigits(val: string): void {
+    this.numberOfDigitsVal = val;
+  }
+
+
+
   checkBool(val: boolean): void {
     this.bool = val;
+  }
+  scanText(val: string): void {
+    this.textVal = val;
+  }
+
+  scanTaxRate(val: string): void {
+    this.taxRateVal = val;
+  }
+  scanSalaryPaymentDate(val: string): void {
+    this.salaryPaymentDateVal = val;
+  }
+  scanBonusPaymentDate(val: string): void {
+    this.bonusPaymentDateVal = val;
   }
 }
 </script>

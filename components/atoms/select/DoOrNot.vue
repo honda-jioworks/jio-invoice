@@ -1,5 +1,5 @@
 <template>
-    <v-select :items="items" :rules="rules" @input="checkBool" v-model="check"></v-select>
+    <v-select :items="items" :rules="rules" outlined @input="checkBool" v-model="check" @change="scanSelect"></v-select>
 </template>
 
 <script lang="ts">
@@ -8,9 +8,9 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
   components: {},
 })
 export default class DoOrNot extends Vue {
-  private items: Array<Object> = ['する', 'しない'];
-  private rules: Array<object> = [(v: String) => !!v || '項目を選択してください']; //バリデーションチェック
-  private check = '';
+  public items: Array<Object> = ['する', 'しない'];
+  public rules: Array<object> = [(v: String) => !!v || '項目を選択してください']; //バリデーションチェック
+  public check: string = '';
   @Emit()
   checkBool(): boolean {
     if (this.check == 'する') {
@@ -20,6 +20,11 @@ export default class DoOrNot extends Vue {
     } else {
       return false;
     }
+  }
+
+  @Emit()
+  scanSelect() {
+    return this.check;
   }
 }
 </script>

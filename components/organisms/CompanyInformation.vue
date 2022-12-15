@@ -1,7 +1,5 @@
 <template>
   <v-sheet class="abc">
-    <!-- ヘッダー -->
-    <!-- コンテンツエリア -->
     <v-container fluid>
       <v-row>
         <v-col cols="4"><OfficeName :officeName="officeName" /></v-col>
@@ -31,10 +29,21 @@
         <v-col cols="12"><OfficeAddress2 :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7" md="6"><TelNumber :telNumber="telNumber" /></v-col>
-        <v-col cols="7" md="6"><FAXNumber /></v-col>
+        <v-col cols="7" md="6"
+          ><TelNumber
+            :telNumber="telNumber"
+            @send-tel-number-one="getTelNumberOne"
+            @send-tel-number-two="getTelNumberTwo"
+            @send-tel-number-three="getTelNumberThree"
+        /></v-col>
+        <v-col cols="7" md="6"
+          ><NumberOfFax
+            :faxNumber="faxNumber"
+            @send-fax-number-one="getFaxNumberOne"
+            @send-fax-number-two="getFaxNumberTwo"
+            @send-fax-number-three="getFaxNumberThree"
+        /></v-col>
       </v-row>
-      <v-row> </v-row>
       <v-row>
         <v-col cols="12"><OfficeURL :officeUrl="officeUrl" /></v-col>
       </v-row>
@@ -56,7 +65,7 @@ import PostalCode from '@/components/molecules/PostalCode.vue';
 import OfficeAddress from '@/components/molecules/OfficeAddress.vue';
 import OfficeAddress2 from '@/components/molecules/OfficeAddress2.vue';
 import TelNumber from '@/components/molecules/TelNumber.vue';
-import FAXNumber from '~/components/molecules/NumberOfFax.vue';
+import NumberOfFax from '~/components/molecules/NumberOfFax.vue';
 import OfficeURL from '@/components/molecules/OfficeURL.vue';
 import FileLocation from '@/components/molecules/FileLocation.vue';
 import FileName from '@/components/molecules/FileName.vue';
@@ -68,7 +77,7 @@ import FileName from '@/components/molecules/FileName.vue';
     OfficeAddress,
     OfficeAddress2,
     TelNumber,
-    FAXNumber,
+    NumberOfFax,
     OfficeURL,
     FileLocation,
     FileName,
@@ -90,6 +99,18 @@ export default class CompanyInfomation extends Vue {
   public postalCode1: string = this.postalCode.substr(0, 3);
   // 郵便番号の後ろ4桁を取得
   public postalCode2: string = this.postalCode.substr(3, 4);
+  //　電話番号の前3桁を取得
+  private telNumber1: string = this.telNumber.substr(0, 3);
+  //　電話番号の中4桁を取得
+  private telNumber2: string = this.telNumber.substr(3, 4);
+  //　電話番号の後ろ4桁を取得
+  private telNumber3: string = this.telNumber.substr(3, 4);
+  //　FAXの電話番号の前3桁を取得
+  private faxNumber1: string = this.faxNumber.substr(0, 3);
+  //　FAXの電話番号の中4桁を取得
+  private faxNumber2: string = this.faxNumber.substr(3, 4);
+  //　FAXの電話番号の後ろ4桁を取得
+  private faxNumber3: string = this.faxNumber.substr(3, 4);
   // ファイル名の初期値を定義
   fileName: any = 'ファイル名が表示されます';
   // 入力された住所情報の前半部分をaddress1に代入
@@ -115,6 +136,30 @@ export default class CompanyInfomation extends Vue {
   // 入力された郵便番号の前3桁をにpostalCode2に代入する
   getPostalCodeTwo(val: string): void {
     this.postalCode2 = val;
+  }
+  // 入力された電話番号の前をtelNumber1に代入する
+  getTelNumberOne(val: string): void {
+    this.telNumber1 = val;
+  }
+  // 入力された電話番号の中をtelNumber2に代入する
+  getTelNumberTwo(val: string): void {
+    this.telNumber2 = val;
+  }
+  // 入力された電話番号の後ろをtelNumber3に代入する
+  getTelNumberThree(val: string): void {
+    this.telNumber3 = val;
+  }
+  // 入力されたFAX番号の後ろをfaxNumber1に代入する
+  getFaxNumberOne(val: string): void {
+    this.faxNumber1 = val;
+  }
+  // 入力されたFAX番号の後ろをfaxNumber2に代入する
+  getFaxNumberTwo(val: string): void {
+    this.faxNumber2 = val;
+  }
+  // 入力されたFAX番号の後ろをfaxNumber3に代入する
+  getFaxNumberThree(val: string): void {
+    this.faxNumber3 = val;
   }
 }
 </script>

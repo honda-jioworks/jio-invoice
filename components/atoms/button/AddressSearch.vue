@@ -1,35 +1,38 @@
 <template>
   <div>
-    <v-btn @mouseover="makeAddress" @click="sendAddress"> 住所を検索 </v-btn>
+    <v-btn v-model="addressVal" @mouseover="makeAddress()" @click="sendAddress"> 住所を検索 </v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Emit, Prop } from 'nuxt-property-decorator';
-import { Core as YubinBangoCore } from 'yubinbango-core';
+import { fetchAddressByZipcode } from '@/plugins/yubinbango';
+
 @Component({ components: {} })
 export default class AddressSearch extends Vue {
+  private zipCode: string = '';
   // 住所
-  private address: string = '';
+  private addressVal: string = '';
   // データベースから受け取った郵便番号の前3桁
   @Prop({ type: String })
   postalCode1!: string;
   // データベースから受け取った郵便番号の後ろ4桁
   @Prop({ type: String })
   postalCode2!: string;
-  // 入力された郵便番号をもとに住所情報を生成
-  makeAddress(_: string): void {
-    let newPostalCode: string = this.postalCode1 + this.postalCode2;
-    new YubinBangoCore(newPostalCode, (addr: { region: string; locality: string; street: string }) => {
-      this.address = addr.region; // 都道府県
-      this.address += addr.locality; // 市区町村
-      this.address += addr.street; // 町域
-    });
+
+  //入力された郵便番号をもとに住所情報を生成
+  async makeAddress() {
+    this.zipCode = this.postalCode1 + '-' + this.postalCode2;
+    try {
+      const address = await fetchAddressByZipcode(this.zipCode);
+      const { region, locality, street, extended } = address;
+      this.addressVal = region + locality + street + extended;
+    } catch {}
   }
-  // 生成した住所情報をmoleculesに送る
+  //郵便番号から住所に変換しmoleculesに送る
   @Emit()
   sendAddress(_: string): string {
-    return this.address;
+    return this.addressVal;
   }
 }
 </script>
