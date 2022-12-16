@@ -2,15 +2,15 @@
   <div>
     <v-sheet rounded>
       <v-row>
-        <v-col cols="12"><OfficeLogoName /></v-col>
+        <v-col cols="1"><OfficeLogoName /></v-col>
         <div class="wrap">
-          <v-col cols="12"><Selectfile id="OfficeLogo" ref="SelectImg" /></v-col>
+          <v-col cols="1"><Selectfile id="OfficeLogo" ref="SelectImg" /></v-col>
           <div>
-            <v-col cols="12"
+            <v-col cols="1"
               ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="clickSelect"
             /></v-col>
-            <v-col cols="12"><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="removeButton" /></v-col>
-            <v-col cols="12 "
+            <v-col cols="1"><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="removeButton" /></v-col>
+            <v-col cols="1"
               ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="imgDownlord"
             /></v-col>
           </div>

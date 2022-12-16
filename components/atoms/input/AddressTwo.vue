@@ -6,7 +6,7 @@
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class AddressTwo extends Vue {
-  private newAddress2: string = '';
+  newAddress2: string = '';
   // データベースから受け取った住所情報の後半部分
   @Prop({ type: String })
   address2!: string;

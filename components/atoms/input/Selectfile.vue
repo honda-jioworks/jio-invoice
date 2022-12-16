@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col sm="5" md="5" lg="5" xl="5">
+    <v-col sm="5" md="5" lg="5" xl="5" :rules="nameRules">
       <div v-if="Url">
         <img :src="Url" width="350px" />
       </div>
@@ -23,6 +23,7 @@ import { Vue, Component, Ref } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
 export default class Selectfile extends Vue {
+  nameRules: Array<object> = [(v: string) => !!v || '項目を入力してください'];
   public Url: string | undefined = '';
   files: any;
   value!: string;

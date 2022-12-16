@@ -1,6 +1,6 @@
 <template>
   <v-card-actions>
-    <v-btn depressed elevation="5" @click="removeButton" width="200px" color="#dcdcdc">{{ action }}</v-btn>
+    <v-btn depressed elevation="5" width="200px" color="#dcdcdc" @click="removeButton">{{ action }}</v-btn>
   </v-card-actions>
 
   <!--button>クリア</button-->
@@ -19,7 +19,7 @@ export default class clearbutton extends Vue {
   @Prop({ type: String })
   clearbutton!: string;
 
-  //EmitしてMoleculesのOfficeLogo、OfficeSealにクリックイベントを渡してる。
+  // EmitしてMoleculesのOfficeLogo、OfficeSealにクリックイベントを渡してる。
   @Emit()
   removeButton() {}
 }

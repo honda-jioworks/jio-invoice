@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -6,6 +6,11 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    script: [
+      {
+        src: 'https://yubinbango.github.io/yubinbango-core/yubinbango-core.js',
+      },
+    ],
     titleTemplate: '%s - jio-invoice',
     title: 'jio-invoice',
     htmlAttrs: {
@@ -24,7 +29,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '~/plugins/yubinbango.ts' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -84,4 +89,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};

@@ -1,12 +1,13 @@
 <template>
-  <v-text-field :value="name" @input="scanName"> </v-text-field>
+  <v-text-field :value="name" @input="scanName" :rules="nameRules"> </v-text-field>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class CEONameTextBox extends Vue {
-  private name: string = '';
+  nameRules: Array<object> = [(v: string) => !!v || '項目を入力してください'];
+  public name: string = '';
   // ページ表示時にscanNameメソッドを実行
   created(): void {
     this.scanName('');

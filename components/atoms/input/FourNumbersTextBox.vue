@@ -1,11 +1,15 @@
 <template>
-  <v-text-field v-model="postalCode2" @input="getPostalCodeTwo" :counter="4" solo> </v-text-field>
+  <v-text-field v-model="postalCode2" @input="getPostalCodeTwo" :counter="4" solo  :rules="nameRules"> </v-text-field>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class FourNumbersTextBox extends Vue {
+    nameRules: Array<object> = [
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^[+,-]?([1-9]\d*|0)$/.test(v) || '数値を入力してください',
+  ];
   // データベースから受け取った郵便番号の後ろ4桁
   @Prop({ type: String })
   postalCode2!: string;
