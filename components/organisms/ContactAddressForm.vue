@@ -9,7 +9,6 @@
       />
     </div>
     <div><AddressInput :addressVal="address" @change-address="changeAddress" /></div>
-
     <div><DepartmentInput @get-depertment="getDepertment" /></div>
     <div><PostBox @get-postbox="getPostbox" /></div>
     <div><HonorificBox @get-manager="getManager"  @get-honorific="getHonorific" /></div>
@@ -46,19 +45,19 @@ import FaxNumberInput from '../molecules/FaxNumberInput.vue';
   },
 })
 export default class ContactAddressForm extends Vue {
-  private postalCode: string = '';
-  private postalCodeVal: string = this.postalCode;
-  private address: string = '';
-  private changeAddressVal: string = '';
-  depertment: string='';
-  postbox: string='';
-  manager: string='';
-  number: string='';
-  email: string='';
-  telnumber: string='';
-  faxnumber: string='';
-  honorific: string='';
-  address: string='';
+  public postalCode: string = '';
+  public postalCodeVal: string = this.postalCode;
+  public address: string = '';
+  public changeAddressVal: string = '';
+  public depertment: string='';
+  public postbox: string='';
+  public manager: string='';
+  public number: string='';
+  public email: string='';
+  public telnumber: string='';
+  public faxnumber: string='';
+  public honorific: string='';
+  public addressValue: string='';
   scanPostalCode(val: string): void {
     //郵便番号をmoleculesから受け取る
     this.postalCodeVal = val;
@@ -72,7 +71,7 @@ export default class ContactAddressForm extends Vue {
   changeAddress(val: string): void {
     //住所をmoleculesから受け取りorganismsで出力
     this.changeAddressVal = val;
-
+  }
   
   // 役職
   getDepertment(val: string): void{
@@ -112,5 +111,5 @@ export default class ContactAddressForm extends Vue {
 
   }
 }
-}
+
 </script>

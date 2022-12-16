@@ -5,7 +5,6 @@
         <v-col>
           <v-text-field
             label="検索キー2"
-            :rules="textRules"
             v-model="textSearchtwo"
             @input="scanSearchtwo"
           ></v-text-field>
@@ -19,7 +18,7 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class SearchKeyTwo extends Vue {
-  private textSearchtwo: string = '';
+  public textSearchtwo: string = '';
 
   @Emit()
   scanSearchtwo(): string {

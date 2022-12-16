@@ -20,8 +20,8 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class FinancialInstitutionName extends Vue {
-  private textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
-  private textFinancialname: string = '';
+  public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+  public textFinancialname: string = '';
 
   @Emit()
   scanFinancialname(): string {

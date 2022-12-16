@@ -16,7 +16,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 })
 export default class CustomerName extends Vue {
   nameRules: Array<object> = [(v: string) => !!v || '得意先名を入力してください。'];
-  private textName: string = '';
+  public textName: string = '';
   @Emit()
   scanName(_: string): string {
     return this.textName;

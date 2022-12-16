@@ -8,7 +8,7 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class NotShowBox extends Vue {
-  private check: boolean = false;
+  public check: boolean = false;
 
   @Emit()
   scanCheck(_: boolean): boolean {

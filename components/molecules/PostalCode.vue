@@ -4,7 +4,7 @@
     <v-col cols="12" md="4">
       <v-text-field :rules="nameRules" label="郵便番号" v-model="textPostalCode" @input="scanPostalCode"></v-text-field>
     </v-col>
-    <v-btn @click="sendAddress()" :value="officePostalCode"> 住所を表示 </v-btn>
+    <v-btn @click="sendAddress()" > 住所を表示 </v-btn>
   </v-row>
 </template>
 
@@ -14,9 +14,9 @@ import { fetchAddressByZipcode } from '@/plugins/yubinbango';
 
 @Component({})
 export default class PostalCode extends Vue {
-  private textPostalCode: string = '';
-  private addressVal: string = '';
-  private zipCode: string = '';
+  public textPostalCode: string = '';
+  public addressVal: string = '';
+  public zipCode: string = '';
 
   nameRules: Array<object> = [
     (v: string) => !!v || '郵便番号を入力してください',

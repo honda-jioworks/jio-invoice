@@ -15,7 +15,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
   components: {},
 })
 export default class SecondSearchInput extends Vue {
-  private textSecond: string = '';
+  public textSecond: string = '';
   @Emit()
   scanSecond(): string {
     return this.textSecond;

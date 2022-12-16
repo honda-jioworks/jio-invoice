@@ -16,7 +16,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
 export default class MemoBox extends Vue {
-  private textMemo: string = '';
+  public textMemo: string = '';
   @Emit()
   scanMemo(): string {
     return this.textMemo;

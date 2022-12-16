@@ -20,7 +20,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
 export default class AccountName extends Vue {
-  private textAccountname: string = '';
+  public textAccountname: string = '';
   textRules: Array<Object> = [(v: string) => !!v || '項目を入力してください'];
   @Emit()
   scanAccountname() {

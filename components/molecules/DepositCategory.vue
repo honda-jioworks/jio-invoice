@@ -20,9 +20,9 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class DepositCategory extends Vue {
-  private selectCheck: string = '';
-  private selectRules: Array<Object> = [(v: any) => !!v || '項目を選択してください'];
-  private contents: Array<string> = [
+  public selectCheck: string = '';
+  public selectRules: Array<Object> = [(v: any) => !!v || '項目を選択してください'];
+  public contents: Array<string> = [
     '普通預金',
     '当座預金',
     '定期預金',

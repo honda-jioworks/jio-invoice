@@ -14,7 +14,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class PrimarySearchInput extends Vue {
   nameRules: Array<object> = [(v: string) => !!v || '検索キーを入力してください。'];
-  private textPrimary: string = '';
+  public textPrimary: string = '';
   @Emit()
   scanPrimary(): string {
     return this.textPrimary;

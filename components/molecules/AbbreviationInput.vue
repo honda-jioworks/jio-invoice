@@ -15,7 +15,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 })
 export default class AbbreviatationInput extends Vue {
   nameRules: Array<object> = [(v: string) => !!v || '得意先名(略称)を入力してください。'];
-  private textShort: string = '';
+  public textShort: string = '';
   @Emit()
   scanShort() {
     return this.textShort;

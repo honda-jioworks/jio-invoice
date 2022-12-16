@@ -11,8 +11,8 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 import TextBox from '@/components/atoms/TextBox.vue';
 @Component({ components: { TextBox } })
 export default class BranchName extends Vue {
-  private textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
-  private textBranchname: string = '';
+  public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+  public textBranchname: string = '';
   @Emit()
   scanBranchname(): string {
     return this.textBranchname;

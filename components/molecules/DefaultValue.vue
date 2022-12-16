@@ -12,7 +12,7 @@
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class DefaultValue extends Vue {
-  private checkbox: boolean = false;
+  public checkbox: boolean = false;
 
   @Emit()
   scanDefault(_: boolean): boolean {
