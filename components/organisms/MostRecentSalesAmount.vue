@@ -1,20 +1,16 @@
 <template>
-  <v-sheet class="groundwork">
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      :items-per-page="5"
-      class="elevation-1"
-      hide-default-footer
-    ></v-data-table>
-  </v-sheet>
+  <div>
+    <v-text-field :test="value"></v-text-field>
+  </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
-@Component({})
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import DashBoard from '@/components/templates/DashBoard.vue';
+@Component({ components: { DashBoard } })
 export default class MostRecentSalesAmount extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
+
   headers: Array<Object> = [
     {
       text: '直近の売上金額',
@@ -55,6 +51,10 @@ export default class MostRecentSalesAmount extends Vue {
       iron: '0枚',
     },
   ];
+
+  @Prop({ type: String, default: 'aaa' })
+  value!: string;
+
 }
 </script>
 <style lang="scss" scoped>

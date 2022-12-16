@@ -8,6 +8,6 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 @Component({})
 export default class CheckBox extends Vue {
-  private checkbox: boolean = false;
+  public checkbox: boolean = false;
 }
 </script>

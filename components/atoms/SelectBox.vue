@@ -10,6 +10,6 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator';
 export default class TextBox extends Vue {
   @Prop({ type: Array })
   contents!: string;
-  private selectRules: Array<Object> = [(v: any) => !!v || '項目を選択してください'];
+  public selectRules: Array<Object> = [(v: any) => !!v || '項目を選択してください'];
 }
 </script>

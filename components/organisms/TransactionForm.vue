@@ -64,7 +64,13 @@ import TransactionSection from '../molecules/TransactionSection.vue';
     TaxAddIndicateCheck,
   },
 })
-export default class TransactionForm extends Vue {}
+export default class TransactionForm extends Vue {
+  value: any = '';
+
+  keepId(sectionId: any): void {
+    this.value = sectionId;
+  }
+}
 </script>
 </script>
 <style lang="scss" scoped>
