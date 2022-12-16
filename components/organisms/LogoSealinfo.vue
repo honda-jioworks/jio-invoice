@@ -1,30 +1,20 @@
 <template>
-  <v-row>
-    <v-col>
-      <v-sheet>
-        <!-- ヘッダー -->
-        <!-- コンテンツエリア -->
-        <v-container fluid>
-          <v-row>
-            <v-col cols="12"
-              ><OfficeLogo
-                @logo-select="logoSelect"
-                @logo-downlord="logoDownlord"
-                @logo-remove-button="logoRemoveButton"
-            /></v-col>
-            <v-col cols="12"
-              ><OfficeSeal
-                @seal-select="sealSelect"
-                @seal-remove-button="sealRemoveButton"
-                @seal-downlord="sealDownlord"
-            /></v-col>
-          </v-row>
-        </v-container>
-        <!-- フッター -->
-        <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
-      </v-sheet>
-    </v-col>
-  </v-row>
+  <v-sheet class="groundwork">
+    <!-- ヘッダー -->
+    <!-- コンテンツエリア -->
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12"
+          ><OfficeLogo @logo-select="logoSelect" @logo-downlord="logoDownlord" @logo-remove-button="logoRemoveButton"
+        /></v-col>
+        <v-col cols="12"
+          ><OfficeSeal @seal-select="sealSelect" @seal-remove-button="sealRemoveButton" @seal-downlord="sealDownlord"
+        /></v-col>
+      </v-row>
+    </v-container>
+    <!-- フッター -->
+    <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -67,4 +57,8 @@ export default class LogoSealinfo extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.groundwork {
+  background-color: white;
+}
+</style>
