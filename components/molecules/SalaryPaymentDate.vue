@@ -17,3 +17,4 @@ export default class SalaryPaymentDate extends Vue {
     return val;
   }
 }
+</script>

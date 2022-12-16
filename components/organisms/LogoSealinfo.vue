@@ -59,6 +59,6 @@ export default class LogoSealinfo extends Vue {
 </script>
 <style lang="scss" scoped>
 .groundwork {
-  background-color: white;
+  background-color: gray;
 }
 </style>
