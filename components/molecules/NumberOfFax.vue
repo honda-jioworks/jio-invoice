@@ -1,10 +1,11 @@
 <template>
   <v-sheet>
-    <v-row>
-      <FAXLabel />
-      <v-col cols="2"><ThreeNumbersTextBox @get-postal-code-one="sendFaxNumberOne" /></v-col>
+    <v-row class="d-none d-xl-flex d-md-none" dense>
+      <v-col cols="2" class="wrap28"><FAXLabel /></v-col>
+      <v-col cols="3" class="wrap29"><ThreeNumbersTextBox @get-postal-code-one="sendFaxNumberOne" /></v-col>
       <v-col cols="3"><FourNumbersTextBox @get-postal-code-two="sendFaxNumberTwo" /></v-col>
       <v-col cols="3"><FourNumbersTextBox @get-postal-code-two="sendFaxNumberThree" /></v-col>
+      <v-col cols="1"></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -44,3 +45,8 @@ export default class NumberOfFax extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.wrap28 {
+  margin-left: 30px;
+}
+</style>

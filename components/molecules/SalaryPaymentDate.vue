@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">給与支給日:</v-col>
-      <v-col cols="6"><Date @scan-select="scanSelect" /></v-col>
+      <v-col cols="6" class="wrap16">給与支給日:</v-col>
+      <v-col cols="6" class="wrap17"><Date @scan-select="scanSelect" /></v-col>
     </v-row>
   </div>
 </template>
@@ -18,3 +18,12 @@ export default class SalaryPaymentDate extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.wrap16 {
+  margin-top: 40px;
+}
+.wrap17 {
+  margin-top: 20px;
+}
+</style>

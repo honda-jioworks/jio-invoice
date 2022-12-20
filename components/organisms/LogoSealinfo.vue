@@ -1,20 +1,27 @@
 <template>
-  <v-sheet class="groundwork">
-    <!-- ヘッダー -->
-    <!-- コンテンツエリア -->
-    <v-container fluid>
+  <!-- ヘッダー -->
+  <!-- コンテンツエリア -->
+  <v-sheet>
+    <v-container>
       <v-row>
-        <v-col cols="12"
-          ><OfficeLogo @logo-select="logoSelect" @logo-downlord="logoDownlord" @logo-remove-button="logoRemoveButton"
-        /></v-col>
-        <v-col cols="12"
-          ><OfficeSeal @seal-select="sealSelect" @seal-remove-button="sealRemoveButton" @seal-downlord="sealDownlord"
-        /></v-col>
-      </v-row>
+        <v-col cols="12" xl="12"
+          ><OfficeLogo
+            @logo-select="logoSelect"
+            @logo-downlord="logoDownlord"
+            @logo-remove-button="logoRemoveButton" /></v-col
+      ></v-row>
+      <v-row>
+        <v-col cols="12" xl="12"
+          ><OfficeSeal
+            @seal-select="sealSelect"
+            @seal-remove-button="sealRemoveButton"
+            @seal-downlord="sealDownlord" /></v-col
+      ></v-row>
     </v-container>
-    <!-- フッター -->
-    <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
   </v-sheet>
+
+  <!-- フッター -->
+  <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
 </template>
 
 <script lang="ts">

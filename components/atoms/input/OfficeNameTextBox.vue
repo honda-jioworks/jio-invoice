@@ -10,3 +10,8 @@ export default class OfficeNameTextBox extends Vue {
   officeName!: string;
 }
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  width: 100%;
+}
+</style>

@@ -25,4 +25,7 @@ export default class CEONameTextBox extends Vue {
 .textbox {
   border: 2px solid black;
 }
+.v-text-field {
+  width: 100%;
+}
 </style>

@@ -23,3 +23,8 @@ export default class AddressOne extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  width: 100%;
+}
+</style>

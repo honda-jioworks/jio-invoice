@@ -1,5 +1,5 @@
 <template>
-  <v-subheader>URL:</v-subheader>
+  <v-subheader>URL：</v-subheader>
 </template>
 
 <script lang="ts">

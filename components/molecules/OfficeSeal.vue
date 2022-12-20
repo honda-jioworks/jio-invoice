@@ -1,26 +1,26 @@
 <template>
-  <div>
-    <v-sheet rounded>
-      <v-row>
-        <v-col cols="12"><CompanySeal /></v-col>
-        <div class="wrap">
-          <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
-          <div>
-            <v-col cols="12"
-              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"
-            /></v-col>
-            <!-- <v-col cols="12"><CreateCompanySeal @create-seal="createSeal" /></v-col> -->
-            <v-col cols="12"
-              ><Clearbutton id="DeleteCompanySeal" action="クリア" @remove-button="sealRemoveButton"
-            /></v-col>
-            <v-col cols="12 "
-              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="sealDownlord"
-            /></v-col>
-          </div>
+  <v-sheet rounded>
+    <v-row>
+      <v-col cols="12" xl="4"><CompanySeal /></v-col>
+    </v-row>
+    <v-row>
+      <div class="wrap">
+        <v-col cols="12" xl="6" class="wrap39"><Selectfile ref="SelectImg" /></v-col>
+        <div>
+          <v-col cols="12"
+            ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"
+          /></v-col>
+          <!-- <v-col cols="12"><CreateCompanySeal @create-seal="createSeal" /></v-col> -->
+          <v-col cols="12"
+            ><Clearbutton id="DeleteCompanySeal" action="クリア" @remove-button="sealRemoveButton"
+          /></v-col>
+          <v-col cols="12 "
+            ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="sealDownlord"
+          /></v-col>
         </div>
-      </v-row>
-    </v-sheet>
-  </div>
+      </div>
+    </v-row>
+  </v-sheet>
 </template>
 
 <script lang="ts">
@@ -61,25 +61,16 @@ export default class OfficeSeal extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.btn {
-  align-items: flex-end;
-}
 .wrap {
-  width: 60%;
-  margin: 0 auto;
+  width: 20%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
 }
 
-.wrap div {
-  width: 40%;
-}
-.wrap div button {
-  display: block;
-  width: 60%;
-  line-height: 32px;
-  margin: 28px 20px;
+.wrap39 {
+  margin-right: 700px;
 }
 </style>

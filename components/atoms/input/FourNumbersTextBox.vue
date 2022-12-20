@@ -1,5 +1,7 @@
 <template>
-  <v-text-field v-model="postalCode2" @input="getPostalCodeTwo" :counter="4" solo> </v-text-field>
+  <v-row>
+    <v-col><v-text-field v-model="postalCode2" @input="getPostalCodeTwo" :counter="4" solo> </v-text-field></v-col>
+  </v-row>
 </template>
 
 <script lang="ts">
@@ -22,3 +24,8 @@ export default class FourNumbersTextBox extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  width: 70%;
+}
+</style>

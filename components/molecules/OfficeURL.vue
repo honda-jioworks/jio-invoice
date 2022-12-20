@@ -2,9 +2,15 @@
   <div>
     <v-sheet>
       <v-row>
-        <OfficeURLLabel />
-        <URLBox :officeUrl="officeUrl" @scan-url="scanUrl" />
-        <URLBtn :officeUrl="officeUrl" :urlValue="urlValue" />
+        <v-col cols="2" class="wrap29">
+          <OfficeURLLabel />
+        </v-col>
+        <v-col cols="6" class="wrap35">
+          <URLBox :officeUrl="officeUrl" @scan-url="scanUrl" />
+        </v-col>
+        <v-col>
+          <URLBtn :officeUrl="officeUrl" :urlValue="urlValue" />
+        </v-col>
       </v-row>
     </v-sheet>
   </div>
@@ -27,3 +33,11 @@ export default class OfficeURL extends Vue {
   }
 }
 </script>
+<style lang="scss">
+.wrap29 {
+  padding-left: 59px;
+}
+.wrap35 {
+  margin-left: 30px;
+}
+</style>

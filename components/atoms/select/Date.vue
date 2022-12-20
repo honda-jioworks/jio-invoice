@@ -58,4 +58,8 @@ export default class Date extends Vue {
 .layout {
   width: 50vh;
 }
+
+.v-select {
+  margin-left: 5px;
+}
 </style>

@@ -21,3 +21,8 @@ export default class AddressTwo extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  width: 100%;
+}
+</style>

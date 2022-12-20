@@ -19,3 +19,10 @@ export default class ThreeNumbersTextBox extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  padding: auto, auto, auto, auto;
+  margin: auto, auto, auto, auto;
+  width: 70%;
+}
+</style>

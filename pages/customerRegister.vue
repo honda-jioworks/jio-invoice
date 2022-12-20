@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <DisplayLogoSealinfo />
+  </div>
 </template>
 
 <script lang="ts">
