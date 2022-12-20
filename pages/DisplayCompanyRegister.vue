@@ -1,20 +1,13 @@
 <template>
-  <v-sheet class="groundwork">
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12"><CompanyInformation /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12"><DetailsInfomation /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12"><LogoSealinfo /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12"><RegistrationNumber /></v-col>
-      </v-row>
-    </v-container>
-  </v-sheet>
+  <div>
+    <CompanyInformation />
+
+    <DetailsInfomation />
+
+    <LogoSealinfo />
+
+    <RegistrationNumber />
+  </div>
 </template>
 
 <script lang="ts">
@@ -24,7 +17,7 @@ import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
 import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
 import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
 @Component({ components: { CompanyInformation, DetailsInfomation, LogoSealinfo, RegistrationNumber } })
-export default class companyRegister extends Vue {
+export default class DisplayCompanyRegister extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;
 }

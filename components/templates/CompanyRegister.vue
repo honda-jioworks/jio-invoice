@@ -24,7 +24,7 @@ import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
 import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
 import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
 @Component({ components: { CompanyInformation, DetailsInfomation, LogoSealinfo, RegistrationNumber } })
-export default class DisplayompanyRegister extends Vue {
+export default class CompanyRegister extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;
 }

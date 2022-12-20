@@ -67,7 +67,7 @@ export default {
         {
           icon: 'mdi-pencil',
           title: '自社情報登録画面',
-          to: '/companyRegister',
+          to: '/DisplayCompanyRegister',
         },
         {
           icon: 'mdi-pencil',
