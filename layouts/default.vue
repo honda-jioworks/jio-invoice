@@ -81,6 +81,11 @@ export default {
           title: 'Customer Register',
           to: '/customerRegister',
         },
+        {
+          icon: 'mdi-pencil',
+          title: '請求書一覧画面',
+          to: '/DisplayInvoiceList',
+        },
       ],
       miniVariant: false,
       right: true,
