@@ -9,6 +9,8 @@
         <SecondSearchInput @scan-second="scanSecond" />
         <MemoBox @scan-memo="scanMemo" />
         <NotShowBox @scan-check="scanCheck" />
+        <v-btn @click="onsave"> OK </v-btn>
+        <v-btn @click="oncansel"> キャンセル </v-btn>
       </v-col>
     </v-row>
   </v-sheet>
