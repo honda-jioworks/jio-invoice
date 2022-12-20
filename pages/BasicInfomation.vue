@@ -1,57 +1,50 @@
 <template>
-    <v-sheet class="groundwork">
-      <v-row>
-        <v-col cols="12">
-          <CustomerName @scan-name="scanName" />
-          <CustomerNameKana @scan-kana="scanKana" />
-          <AbbreviationInput @scan-short="scanShort" />
-          <PrimarySearchInput @scan-primary="scanPrimary" />
-          <SecondSearchInput @scan-second="scanSecond" />
-          <MemoBox @scan-memo="scanMemo" />
-          <NotShowBox @scan-check="scanCheck" />
-          <V-btn @click="onsave"> OK </V-btn>
-          <V-btn @click="cansel"> キャンセル </V-btn>
-        </v-col>
-      </v-row>
-    </v-sheet>
-  </template>
-  
-  <script lang="ts">
-  import { Vue, Component } from 'nuxt-property-decorator';
-  import CustomerName from '@/components/molecules/CustomerName.vue';
-  import CustomerNameKana from '@/components/molecules/CustomerNameKana.vue';
-  import AbbreviationInput from '~/components/molecules/AbbreviationInput.vue';
-  import PrimarySearchInput from '@/components/molecules/PrimarySearchInput.vue';
-  import SecondSearchInput from '@/components/molecules/SecondSearchInput.vue';
-  import MemoBox from '@/components/molecules/MemoBox.vue';
-  import NotShowBox from '~/components/molecules/NotShowBox.vue';
-  
+  <v-sheet class="groundwork">
+    <v-row>
+      <v-col cols="12">
+        <CustomerName @scan-name="scanName" />
+        <CustomerNameKana @scan-kana="scanKana" />
+        <AbbreviationInput @scan-short="scanShort" />
+        <PrimarySearchInput @scan-primary="scanPrimary" />
+        <SecondSearchInput @scan-second="scanSecond" />
+        <MemoBox @scan-memo="scanMemo" />
+        <NotShowBox @scan-check="scanCheck" />
+      </v-col>
+    </v-row>
+  </v-sheet>
+</template>
 
-  @Component({
-    components: {
-      CustomerName,
-      CustomerNameKana,
-      AbbreviationInput,
-      PrimarySearchInput,
-      SecondSearchInput,
-      MemoBox,
-      NotShowBox,
-      
-    },
-  })
-  export default class BasicInfomation extends Vue {
-    private nameVal: string = '';
-    private kanaVal: string = '';
-    private shortVal: string = '';
-    private primaryVal: string = '';
-    private secondVal: string = '';
-    private memoVal: string = '';
-    private checkVal: boolean = false;
-    private saveVal: string = '';
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator';
+import CustomerName from '@/components/molecules/CustomerName.vue';
+import CustomerNameKana from '@/components/molecules/CustomerNameKana.vue';
+import AbbreviationInput from '~/components/molecules/AbbreviationInput.vue';
+import PrimarySearchInput from '@/components/molecules/PrimarySearchInput.vue';
+import SecondSearchInput from '@/components/molecules/SecondSearchInput.vue';
+import MemoBox from '@/components/molecules/MemoBox.vue';
+import NotShowBox from '~/components/molecules/NotShowBox.vue';
 
-    saveButton(val: string): void {
-        this.saveVal = val;
-    }
+@Component({
+  components: {
+    CustomerName,
+    CustomerNameKana,
+    AbbreviationInput,
+    PrimarySearchInput,
+    SecondSearchInput,
+    MemoBox,
+    NotShowBox,
+  },
+})
+export default class BasicInfomation extends Vue {
+  private nameVal: string = '';
+  private kanaVal: string = '';
+  private shortVal: string = '';
+  private primaryVal: string = '';
+  private secondVal: string = '';
+  private memoVal: string = '';
+  private checkVal: boolean = false;
+  private saveVal: string = '';
+
 
     scanName(val: string): void {
       this.nameVal = val;
@@ -89,10 +82,9 @@
 
     }
   }
-  </script>
-  <style lang="scss" scoped>
-  .groundwork {
-    background-color: white;
-  }
-  </style>
-  
+</script>
+<style lang="scss" scoped>
+.groundwork {
+  background-color: white;
+}
+</style>
