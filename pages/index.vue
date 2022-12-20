@@ -4,17 +4,9 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import BasicInformation from '@/components/organisms/BasicInformation.vue';
-
+import DashBoard from '@/components/templates/DashBoard.vue';
 @Component({
-  components: {
-    BasicInformation,
-  },
+  components: { DashBoard },
 })
-export default class IndexPage extends Vue {}
+export default class index extends Vue {}
 </script>
-<style lang="scss" scoped>
-.groundwork {
-  background-color: gray;
-}
-</style>

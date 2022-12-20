@@ -1,47 +1,50 @@
 <template>
-  <v-sheet class="abc">
-    <!-- ヘッダー -->
-    <!-- コンテンツエリア -->
-    <v-container fluid>
-      <v-row no-gutters>
-        <v-col cols="12" xs="12" sm="8" md="8" lg="6" xl="7"><OfficeName /></v-col>
-      </v-row>
-      <v-row no-gutters>
-        <v-col cols="12" xs="12" sm="8" md="8" lg="6" xl="7"><CEOName /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" sm="8" md="8" lg="6" xl="7">
-          <PostalCode />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="8" md="8" lg="12" xl="7"><OfficeAddress /></v-col>
-      </v-row>
-      <v-row no-gutters>
-        <v-col cols="12" xs="12" sm="8" md="8" lg="12" xl="7"><OfficeAddress2 /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="9" md="8" lg="6"><ShowMap /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="8" md="6" lg="8" xl="6"><TelNumber /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="8" md="6" lg="8" xl="6"><FAXNumber /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="12" md="12" lg="6"><OfficeURL /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="8" md="12" lg="5"><FileLocation /></v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" xs="12" sm="8" md="12" lg="6"><FileName /></v-col>
-      </v-row>
-    </v-container>
-    <!-- フッター -->
-    <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
-  </v-sheet>
+  <v-container fluid>
+    <v-sheet class="abc">
+      <div>
+        <!-- ヘッダー -->
+        <!-- コンテンツエリア -->
+        <v-row>
+          <v-col cols="12" xs="12" sm="8" md="12" lg="12" xl="12"><OfficeName /></v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="12" xs="12" sm="8" md="8" lg="6" xl="7"><CEOName /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" sm="8" md="8" lg="6" xl="7">
+            <PostalCode />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="8" md="8" lg="12" xl="7"><OfficeAddress /></v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="12" xs="12" sm="8" md="8" lg="12" xl="7"><OfficeAddress2 /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="9" md="8" lg="6"><ShowMap /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="8" md="6" lg="8" xl="6"><TelNumber /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="8" md="6" lg="8" xl="6"><FAXNumber /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="12" md="12" lg="6"><OfficeURL /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="8" md="12" lg="5"><FileLocation /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" xs="12" sm="8" md="12" lg="6"><FileName /></v-col>
+        </v-row>
+      </div>
+    </v-sheet>
+  </v-container>
+
+  <!-- フッター -->
+  <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
 </template>
 
 <script lang="ts">

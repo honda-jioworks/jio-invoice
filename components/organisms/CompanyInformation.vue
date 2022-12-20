@@ -1,12 +1,13 @@
 <template>
-  <v-sheet class="abc">
-    <v-container fluid>
-      <v-row>
-        <v-col cols="4"><OfficeName :officeName="officeName" /></v-col>
-        <v-col cols="4"><CEOName :CEOName="CEONameVal" /></v-col>
+  <v-container fluid>
+    <v-sheet class="abc">
+      <v-row dense>
+        <v-col cols="12" xl="6"><OfficeName :officeName="officeName" /></v-col>
+        <v-col cols="12" xl="6"><CEOName :CEOName="CEONameVal" /></v-col>
+        <v-col cols="2"></v-col>
       </v-row>
       <v-row>
-        <v-col cols="7"
+        <v-col cols="6"
           ><PostalCode
             :postalCode1="postalCode1"
             :postalCode2="postalCode2"
@@ -16,7 +17,7 @@
         /></v-col>
       </v-row>
       <v-row>
-        <v-col cols="12"
+        <v-col cols="12" xl="6"
           ><OfficeAddress
             :address1="address1"
             :postalCode1="postalCode1"
@@ -25,18 +26,18 @@
             @change-address="changeAddress"
         /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12"><OfficeAddress2 :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
+      <v-row no-gutters>
+        <v-col cols="12" xl="6"><OfficeAddress2 :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
       </v-row>
-      <v-row>
-        <v-col cols="7" md="6"
+      <v-row n>
+        <v-col cols="12" md="12" xl="6"
           ><TelNumber
             :telNumber="telNumber"
             @send-tel-number-one="getTelNumberOne"
             @send-tel-number-two="getTelNumberTwo"
             @send-tel-number-three="getTelNumberThree"
         /></v-col>
-        <v-col cols="7" md="6"
+        <v-col cols="12" md="6" xl="6"
           ><NumberOfFax
             :faxNumber="faxNumber"
             @send-fax-number-one="getFaxNumberOne"
@@ -44,17 +45,18 @@
             @send-fax-number-three="getFaxNumberThree"
         /></v-col>
       </v-row>
+
       <v-row>
-        <v-col cols="12"><OfficeURL :officeUrl="officeUrl" /></v-col>
+        <v-col cols="12" xl="6"><OfficeURL :officeUrl="officeUrl" /></v-col>
       </v-row>
       <v-row>
         <v-col cols="auto"><FileLocation @scan-file="scanFile" /></v-col>
         <v-col cols="auto"><FileName :fileName="fileName" /></v-col>
       </v-row>
-    </v-container>
-    <!-- フッター -->
-    <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
-  </v-sheet>
+    </v-sheet>
+  </v-container>
+  <!-- フッター -->
+  <!-- ただし、全体のヘッダやフッタはlayouts側で作ってるため基本的にはコンテンツだけで大丈夫なはず -->
 </template>
 
 <script lang="ts">

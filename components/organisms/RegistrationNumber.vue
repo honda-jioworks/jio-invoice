@@ -1,8 +1,14 @@
 <template>
   <v-sheet class="abc">
     <v-container>
-      <RegistrationCheck @push-checkbox="pushCheckbox" />
-      <RegistrationNumberBox :checkValue="disabled" @scan-check="getCheck" />
+      <v-row>
+        <v-col cols="12" xl="12">
+          <RegistrationCheck @push-checkbox="pushCheckbox" />
+        </v-col>
+        <v-col cols="12" xl="12">
+          <RegistrationNumberBox :checkValue="disabled" @scan-check="getCheck" />
+        </v-col>
+      </v-row>
     </v-container>
   </v-sheet>
 </template>

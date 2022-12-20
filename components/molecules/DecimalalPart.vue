@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-row>
-      <v-col cols="6">単価、数量の小数部0を印刷:</v-col>
+    <v-row dense>
+      <v-col cols="6" class="wrap09">単価、数量の小数部0を印刷:</v-col>
       <v-col cols="6"><DoOrNot @scan-select="scanSelect" /></v-col>
     </v-row>
   </div>
@@ -19,3 +19,8 @@ export default class DecimalalPart extends Vue {
   }
 }
 </script>
+<style lang="scss">
+.wrap09 {
+  margin-top: 23px;
+}
+</style>

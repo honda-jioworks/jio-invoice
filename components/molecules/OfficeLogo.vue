@@ -3,6 +3,8 @@
     <v-sheet rounded>
       <v-row>
         <v-col cols="12"><OfficeLogoName /></v-col>
+      </v-row>
+      <v-row>
         <div class="wrap">
           <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
           <div>
@@ -60,12 +62,13 @@ export default class OfficeLogo extends Vue {
 }
 .wrap {
   width: 60%;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
 }
+
 .wrap img {
   width: 30%;
 }

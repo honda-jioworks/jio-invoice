@@ -1,5 +1,5 @@
 <template>
-    <v-select :items="items" :rules="rules" outlined @input="checkBool" v-model="check" @change="scanSelect"></v-select>
+  <v-select :items="items" :rules="rules" outlined @input="checkBool" v-model="check" @change="scanSelect"></v-select>
 </template>
 
 <script lang="ts">
@@ -28,3 +28,10 @@ export default class DoOrNot extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.v-select {
+  margin-top: 16px;
+  margin-right: 12px;
+  margin-left: 18px;
+}
+</style>

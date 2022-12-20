@@ -1,10 +1,12 @@
 <template>
   <v-sheet>
-    <v-row>
-      <PostalCodeLabel />
-      <v-col cols="2"><ThreeNumbersTextBox :postalCode1="postalCode1" @get-postal-code-one="getPostalCodeOne" /></v-col>
+    <v-row dense>
+      <v-col cols="2" class="wrap21"><PostalCodeLabel /></v-col>
+      <v-col cols="3" class="wrap22"
+        ><ThreeNumbersTextBox :postalCode1="postalCode1" @get-postal-code-one="getPostalCodeOne"
+      /></v-col>
       <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" @get-postal-code-two="getPostalCodeTwo" /></v-col>
-      <v-col cols="2"
+      <v-col cols="3" class="wrap37"
         ><AddressSearch :postalCode1="postalCode1" :postalCode2="postalCode2" @send-address="sendAddress"
       /></v-col>
       <v-spacer />
@@ -54,5 +56,14 @@ export default class DashBoard extends Vue {
 }
 </script>
 
-< style lang="scss">
+<style lang="scss" scoped>
+.wrap21 {
+  margin-left: 11px;
+}
+.wrap22 {
+  margin-left: 11px;
+}
+.wrap37 {
+  margin-left: 10px;
+}
 </style>

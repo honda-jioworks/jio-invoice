@@ -27,3 +27,10 @@ export default class TextBox extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.v-text-field {
+  margin-top: 9px;
+
+  margin-left: 4px;
+}
+</style>

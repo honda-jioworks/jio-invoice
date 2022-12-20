@@ -1,8 +1,8 @@
 <template>
   <v-sheet>
     <v-row>
-      <AddressTwoLabel />
-      <v-col cols="4"><AddressTwo :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
+      <v-col cols="2" class="wrap31"><AddressTwoLabel /></v-col>
+      <v-col cols="6" class="wrap32"><AddressTwo :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -28,4 +28,11 @@ export default class OfficeAddress extends Vue {
   }
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.wrap31 {
+  margin-left: 25px;
+}
+.wrap32 {
+  padding-right: 18px;
+}
+</style>

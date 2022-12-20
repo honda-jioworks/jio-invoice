@@ -1,16 +1,9 @@
 <template>
   <v-sheet>
-    <v-row dense class="hidden-sm-and-up">
-      <v-col cols="4"><CEONameLabel /></v-col>
-      <v-col cols="6"><CEONameTextBox @scan-name="scanName" /></v-col>
-    </v-row>
-    <v-row dense class="d-none d-sm-flex d-md-none">
-      <v-col cols="4"><CEONameLabel /></v-col>
-      <v-col cols="5"><CEONameTextBox @scan-name="scanName" /></v-col>
-    </v-row>
-    <v-row dense class="hidden-sm-and-down">
-      <v-col cols="4"><CEONameLabel /></v-col>
-      <v-col cols="5"><CEONameTextBox @scan-name="scanName" /></v-col>
+    <v-row dense class="d-none d-xl-flex d-md-none">
+      <v-col cols="2" class="wrap34"><CEONameLabel /></v-col>
+      <v-col cols="6" class="wrap35"><CEONameTextBox @scan-name="scanName" /></v-col>
+      <v-col cols="3"></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -31,3 +24,11 @@ export default class CEOName extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.wrap34 {
+  margin-right: 10px;
+}
+.wrap35 {
+  margin-left: 15px;
+}
+</style>

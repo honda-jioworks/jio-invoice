@@ -1,10 +1,15 @@
 <template>
   <v-sheet>
-    <v-row>
-      <TelLabel />
-      <v-col cols="2"><ThreeNumbersTextBox :telNumber1="telNumber1" @get-postal-code-one="sendTelNumberOne" /></v-col>
-      <v-col cols="3"><FourNumbersTextBox :telNumber2="telNumber2" @get-postal-code-two="sendTelNumberTwo" /></v-col>
+    <v-row class="d-none d-xl-flex d-md-none" dense>
+      <v-col cols="2" class="wrap25"><TelLabel /></v-col>
+      <v-col cols="3" class="wrap26"
+        ><ThreeNumbersTextBox :telNumber1="telNumber1" @get-postal-code-one="sendTelNumberOne"
+      /></v-col>
+      <v-col cols="3" class="wrap27"
+        ><FourNumbersTextBox :telNumber2="telNumber2" @get-postal-code-two="sendTelNumberTwo"
+      /></v-col>
       <v-col cols="3"><FourNumbersTextBox :telNumber3="telNumber3" @get-postal-code-two="sendTelNumberThree" /></v-col>
+      <v-col cols="1"></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -44,3 +49,11 @@ export default class DashBoard extends Vue {
   }
 }
 </script>
+<style lang="scss" scoped>
+.wrap25 {
+  padding-left: 48px;
+}
+.wrap26 {
+  margin-left: 26px;
+}
+</style>

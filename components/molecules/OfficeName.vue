@@ -1,8 +1,13 @@
 <template>
   <v-sheet>
-    <v-row>
-      <OfficeNameLabel />
-      <OfficeNameTextBox :officeName="officeName" />
+    <v-row class="d-none d-xl-flex d-md-none" dense>
+      <v-col cols="2" class="wrap32">
+        <OfficeNameLabel />
+      </v-col>
+      <v-col cols="6" class="wrap33">
+        <OfficeNameTextBox :officeName="officeName" />
+      </v-col>
+      <v-col cols="3"></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -17,4 +22,11 @@ export default class OfficeName extends Vue {
   officeName!: string;
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.wrap32 {
+  margin-left: 10px;
+}
+.wrap33 {
+  margin-left: 10px;
+}
+</style>

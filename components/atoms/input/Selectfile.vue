@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col sm="5" md="5" lg="5" xl="5">
+    <v-col sm="5" md="5" lg="12" xl="5">
       <div v-if="Url">
         <img :src="Url" width="350px" />
       </div>

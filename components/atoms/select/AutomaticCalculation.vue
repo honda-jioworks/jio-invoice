@@ -1,5 +1,5 @@
 <template>
-  <v-select :items="items" dense outlined :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
+  <v-select :items="items" outlined :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
 </template>
 
 <script lang="ts">
