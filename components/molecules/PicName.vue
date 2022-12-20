@@ -10,8 +10,8 @@
   import { Vue, Component,} from 'nuxt-property-decorator';
   @Component({ components: {} })
   export default class PicName extends Vue {
-    items: Array<string> = ['','',''];
+    items: Array<string> = ['横田 龍介','本夛 寛','岩間良一','立木 悠貴','齋藤賢司',''];
   }
 </script>
-  
+
   
