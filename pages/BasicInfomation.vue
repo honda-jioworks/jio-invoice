@@ -9,7 +9,8 @@
           <SecondSearchInput @scan-second="scanSecond" />
           <MemoBox @scan-memo="scanMemo" />
           <NotShowBox @scan-check="scanCheck" />
-          <SaveCancelButton />
+          <V-btn @click="onsave"> OK </V-btn>
+          <V-btn @click="cansel"> キャンセル </V-btn>
         </v-col>
       </v-row>
     </v-sheet>
@@ -24,7 +25,7 @@
   import SecondSearchInput from '@/components/molecules/SecondSearchInput.vue';
   import MemoBox from '@/components/molecules/MemoBox.vue';
   import NotShowBox from '~/components/molecules/NotShowBox.vue';
-  import SaveCancelButton from '~/components/molecules/SaveCancelButton.vue';
+  
 
   @Component({
     components: {
@@ -35,7 +36,7 @@
       SecondSearchInput,
       MemoBox,
       NotShowBox,
-      SaveCancelButton
+      
     },
   })
   export default class BasicInfomation extends Vue {
@@ -54,37 +55,38 @@
 
     scanName(val: string): void {
       this.nameVal = val;
-      console.log(this.nameVal);
     }
   
     scanKana(val: string): void {
       this.kanaVal = val;
-      console.log(this.kanaVal);
     }
   
     scanShort(val: string): void {
       this.shortVal = val;
-      console.log(this.shortVal);
     }
   
     scanPrimary(val: string): void {
       this.primaryVal = val;
-      console.log(this.primaryVal);
     }
   
     scanSecond(val: string): void {
       this.secondVal = val;
-      console.log(this.secondVal);
     }
   
     scanMemo(val: string): void {
       this.memoVal = val;
-      console.log(this.memoVal);
     }
   
     scanCheck(val: boolean): void {
       this.checkVal = val;
-      console.log(this.checkVal);
+    }
+
+    onsave(): void {
+
+    }
+
+    oncansel(): void {
+
     }
   }
   </script>

@@ -81,6 +81,11 @@ export default {
           title: 'Customer Register',
           to: '/customerRegister',
         },
+        {
+          icon: 'mdi-apps',
+          title: '得意先情報登録画面',
+          to: '/BasicInfomation',
+        },
       ],
       miniVariant: false,
       right: true,
