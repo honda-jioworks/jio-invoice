@@ -77,7 +77,7 @@ export default class BasicInfomation extends Vue {
     }
 
     onsave(): void {
-
+      alert('保存されました。')
     }
 
     oncansel(): void {
