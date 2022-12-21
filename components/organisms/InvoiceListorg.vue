@@ -2,7 +2,7 @@
 <template>
 <v-row>
   <v-col> 
-    <Sortbtn/><Register /><Fixbtn/><Deleat/><Copy/>
+    <Sortbtn/><Register /><Fixbtn/><Deleat/><Copy/><Print/>
     </v-col>
   </v-row>
 
@@ -15,7 +15,8 @@ import Fixbtn from '@/components/molecuels/Fixbtn.vue';
 import Deleat from '@/components/molecuels/Deleat.vue';
 import Copy from '@/components/molecuels/Copy.vue';
 import Sortbtn from '@/components/molecuels/Sortbtn.vue';
-@Component({ components: { Register,Fixbtn,Deleat,Copy,Sortbtn,}})
+import Print from '@/components/molecuels/Print.vue';
+@Component({ components: { Register,Fixbtn,Deleat,Copy,Sortbtn,Print}})
 export default class InvoiceList extends Vue {
 }
 </script>
