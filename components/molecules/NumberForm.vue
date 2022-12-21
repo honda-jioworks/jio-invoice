@@ -1,8 +1,8 @@
 <template>
     <v-row>
         <v-col>
-            <v-text-field :value="tellNumber" @input="scanTel" label=TEL></v-text-field>
-            <v-text-field :value="faxNumber" @input="scanFax" label=FAX></v-text-field>
+            <v-text-field v-model="tellNumber" @input="scanTel" label=TEL></v-text-field>
+            <v-text-field v-model="faxNumber" @input="scanFax" label=FAX></v-text-field>
         </v-col>
     </v-row>
   </template>
@@ -15,12 +15,12 @@
     faxNumber: string ='';
 
     @Emit()
-    scanTel(_:string): string{
+    scanTel(): string{
         return this.tellNumber
     }
 
     @Emit()
-    scanFax(_:string): string{
+    scanFax(): string{
         return this.faxNumber
     }
   }

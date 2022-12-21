@@ -1,13 +1,13 @@
 <template>
     <v-row>
         <v-col>
-            <v-text-field :value="position" @input="scanposition" label=役職></v-text-field>
+            <v-text-field v-model="positionName" @input="scanPosition" label=役職></v-text-field>
         </v-col>
         <v-col>
-            <v-text-field :value="staff" @input="scanstaff" label=担当者></v-text-field>
+            <v-text-field v-model="staffName" @input="scanStaff" label=担当者></v-text-field>
         </v-col>
         <v-col>
-            <v-select :value="honorific" @change="scanhonorific" :items="items" label="敬称" ></v-select>
+            <v-select v-model="honorific" @input="scanHonorific" :items="items" label="敬称" ></v-select>
         </v-col>
     </v-row>
   </template>
@@ -17,23 +17,22 @@
   @Component({ components: {} })
   export default class PersonnelForm extends Vue {
     items: Array<string> = ['様','殿','御中'];
-    position: string ='';
-    staff: string ='';
+    positionName: string ='';
+    staffName: string ='';
     honorific: string ='';
   
     @Emit()
-    scanstaff(){
-    return this.position
+    scanPosition(): string{
+    return this.positionName
     }
-  
+
     @Emit()
-    scanposition(){
-    return this.staff
+    scanStaff(): string{
+    return this.staffName
     }
-  
+    
     @Emit()
-    scanhonorific(){
-        console.log(this.honorific)
+    scanHonorific(): string{
     return this.honorific
     }
   

@@ -1,7 +1,7 @@
 <template>
     <v-row>
         <v-col>
-            <v-text-field  label=会社名 :value="corpName" @input="scancorp"></v-text-field>
+            <v-text-field v-model="corp" @input="scanCorp"  label=会社名 ></v-text-field>
         </v-col>
     </v-row>
   </template>
@@ -11,11 +11,11 @@
   @Component({ components: {} })
   
   export default class CorporationName extends Vue {
-    corpName: string ='';
+    corp: string ='';
 
     @Emit()
-    scancorp(_:string): string{
-      return this.corpName;
+    scanCorp(): string{
+      return this.corp;
     }
     
   }
