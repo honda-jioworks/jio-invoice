@@ -5,7 +5,7 @@
       <BelongForm @scan-department="scanDepartment" @scan-division="scanDivision" />
       <CorporationName @scan-corp="scanCorp" />
       <NumberForm @scan-tel="scanTel" @scan-fax="scanFax" />
-      <PersonnelForm />
+      <PersonnelForm @scan-staff="scanStaff" @scan-position="scanPosition" @scan-honorific="scanHonorific" />
       <ProjectForm />
   </div>
 </template>
@@ -39,11 +39,15 @@ export default class DestinationForm extends Vue {
  public corpval: string = '';
  public telval: string = '';
  public faxval: string = '';
+ public potisionval: string = '';
+ public staffval: string = '';
+ public honorificval: string = '';
 
 
  // 部署名
  scanDepartment(val: string): void{
   this.departmentval = val;
+  console.log(this.departmentval)
  }
 // 課名
  scanDivision(val: string): void{
@@ -61,6 +65,17 @@ export default class DestinationForm extends Vue {
   scanFax(val: string): void{
     this.faxval = val;
   }
-
+// 役職
+  scanPosition(val: string): void{
+    this.potisionval = val;
+  }
+// 担当者
+  scanStaff(val: string): void{
+    this.staffval = val;
+  }
+// 敬称
+scanHonorific(val: string): void{
+    this.honorificval = val;
+  }
 }
 </script>

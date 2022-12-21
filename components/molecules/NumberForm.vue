@@ -11,8 +11,8 @@
   import { Vue, Component, Emit} from 'nuxt-property-decorator';
   @Component({ components: {} })
   export default class NumberForm extends Vue {
-    tellNumber: string ="";
-    faxNumber: string ="";
+    tellNumber: string ='';
+    faxNumber: string ='';
 
     @Emit()
     scanTel(_:string): string{
