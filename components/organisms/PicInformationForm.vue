@@ -1,6 +1,6 @@
 <template>
     <div>
-        <CalendarForm />
+        <CalendarForm @scan-date="scanDate" />
         <PrivateCompanyInformation />
         <PicName />
         <AccountInformation />
@@ -22,6 +22,12 @@
     },
  })
   export default class PicInformationForm extends Vue {
-    
+    public dateval: string ='';
+
+// 日付
+scanDate(val: string):void{
+  this.dateval = val;
+  console.log(this.dateval)
+}
   }
 </script>
