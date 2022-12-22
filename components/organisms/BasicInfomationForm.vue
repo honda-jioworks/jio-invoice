@@ -109,6 +109,9 @@ export default class BasicInfomationForm extends Vue {
     //入力候補に表示しない
     this.checkVal = val;
   }
+  test() {
+    console.log();
+  }
 }
 </script>
 <style lang="scss" scoped>

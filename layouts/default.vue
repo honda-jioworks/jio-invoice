@@ -1,20 +1,8 @@
 <template>
   <v-app light>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
+    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
+        <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -74,24 +62,19 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Welcome',
-          to: '/',
+          to: '/DashBoard',
         },
         {
           icon: 'mdi-pencil',
-          title: 'Customer Register',
-          to: '/customerRegister',
-        },
-        {
-          icon: 'mdi-apps',
           title: '得意先情報登録画面',
-          to: '/BasicInfomation',
+          to: '/customerRegister',
         },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js',
-    }
+    };
   },
-}
+};
 </script>

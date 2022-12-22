@@ -54,7 +54,6 @@ export default class MostRecentSalesAmount extends Vue {
 
   @Prop({ type: String, default: 'aaa' })
   value!: string;
-
 }
 </script>
 <style lang="scss" scoped>
