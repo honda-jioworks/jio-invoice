@@ -6,8 +6,6 @@
             <v-text-field  value="東京都新宿区新宿 5-11-1 ホーメスト新宿ビル9F" readonly></v-text-field>
             <v-text-field  value="TEL:03-6709-8269" readonly></v-text-field>
             <v-text-field  value="FAX:03-6709-8279" readonly></v-text-field>
-            <v-btn>住所等の変更</v-btn>
-
         </v-col>
     </v-row>
   </template>
