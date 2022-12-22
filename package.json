@@ -50,8 +50,6 @@
     "stylelint-config-standard": "^24.0.0",
     "ts-jest": "^27.1.1",
     "uninstall": "^0.0.0",
-    "vue-jest": "^3.0.4",
-    "yubinbango": "github:yubinbango/yubinbango",
-    "yubinbango-core": "github:nasum/yubinbango-core"
+    "vue-jest": "^3.0.4"
   }
 }
