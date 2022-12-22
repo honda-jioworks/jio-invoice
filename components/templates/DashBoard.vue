@@ -1,11 +1,7 @@
 <template>
   <v-sheet class="groundwork">
-    <!-- ヘッダー -->
-    <!-- コンテンツエリア -->
     <v-container fluid>
-      <v-row>
-        <v-col cols="12"><MostRecentSalesAmount /></v-col>
-      </v-row>
+      <MostRecentSalesAmount />
     </v-container>
   </v-sheet>
 </template>

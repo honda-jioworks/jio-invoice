@@ -1,11 +1,12 @@
 <template>
-  <v-text-field v-model="newAddress" @input="changeAddress"> </v-text-field>
+  <v-text-field :rules="nameRules" v-model="newAddress" @input="changeAddress"> </v-text-field>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class AddressOne extends Vue {
+  nameRules: Array<object> = [(v: string) => !!v || '項目を入力してください'];
   // データベースから受け取った住所情報の前半部分
   @Prop({ type: String })
   address1!: string;

@@ -1,11 +1,16 @@
 <template>
-  <v-text-field :value="postalCode1" @input="getPostalCodeOne" :counter="3" solo> </v-text-field>
+  <v-text-field :rules="nameRules" :value="postalCode1" @input="getPostalCodeOne" :counter="3" solo> </v-text-field>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 @Component({})
 export default class ThreeNumbersTextBox extends Vue {
+  nameRules: Array<object> = [
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
+    (v: string) => /^[+,-]?([0-9]{0,3})$/.test(v) || '3桁以内で入力してください',
+  ];
   // データベースから受け取った郵便番号の前3桁
   @Prop({ type: String })
   postalCode1!: string;
