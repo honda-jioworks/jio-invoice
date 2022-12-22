@@ -1,7 +1,7 @@
 <template>
   <div>
-      <AddressForm @scan-address="scanAddress" />
-      <AddressSearch @scan-one="scanOne" @scan-two="scanTwo"/>
+      <AddressForm @scan-address="scanAddress" :addressval="address" />
+      <AddressSearch @postal-code="scanPostalCode"  :officePostalCode="postalCode" />
       <BelongForm @scan-department="scanDepartment" @scan-division="scanDivision" />
       <CorporationName @scan-corp="scanCorp" />
       <NumberForm @scan-tel="scanTel" @scan-fax="scanFax" />
@@ -32,9 +32,10 @@ import ProjectForm from  '~/components/molecules/ProjectForm.vue';
   },
 })
 export default class DestinationForm extends Vue {
+ public address: string ='';
  public addressval: string ='';
- public oneval: string ='';
- public twoval: string ='';
+ public postalcodevalval: string ='';
+ public postalCodeVal: string = this.postalCode;
  public departmentval: string ='';
  public divisionval: string ='';
  public corpval: string = '';
@@ -50,15 +51,10 @@ scanAddress(val: string): void{
   this.addressval = val;
   console.log(this.addressval)
 }
-// 郵便番号3桁
-scanOne(val: string): void{
-  this.oneval = val;
-  console.log(this.oneval)
-}
-  // 郵便番号4桁
-  scanTwo(val: string): void{
-  this.twoval = val;
-  console.log(this.twoval)
+// 郵便番号
+scanPostalCode(val: string): void{
+  this.postalcodeval = val;
+  console.log(this.postalcodeval)
 }
  // 部署名
  scanDepartment(val: string): void{

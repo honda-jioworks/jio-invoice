@@ -1,32 +1,37 @@
   <template>
     <v-row>
         <v-col>
-            <v-text-field v-model="addressOne" @input="scanOne" label=〒></v-text-field>
+            <v-text-field v-model="textpostalCode" @input="scanPostalCode" label=〒></v-text-field>
         </v-col>
         <v-col>
-            <v-text-field v-model="addressTwo" @input="scanTwo" ></v-text-field>
-        </v-col>
-        <v-col>
-            <v-btn >住所を検索</v-btn>
+            <v-btn @click="sendAddress()" >住所を検索</v-btn>
         </v-col>
     </v-row>
   </template>
 
   <script lang="ts">
-  import { Vue, Component, Emit} from 'nuxt-property-decorator';
+  import { Vue, Component, Emit, Prop} from 'nuxt-property-decorator';
+  import { fetchAddressByZipcode } from '@/plugins/yubinbango';
   @Component({ components: {} })
   export default class AddressSearch extends Vue {
-    addressOne: string ='';
-    addressTwo: string ='';
-  
-  @Emit()
-  scanOne(): string{
-    return this.addressOne;
-  }
+  textpostalCode: string ='';
+  addressVal: string = '';
+  zipCode: string = '';
 
   @Emit()
-  scanTwo(): string{
-    return this.addressTwo;
+  scanPostalCode(): string{
+    return this.textpostalCode;
+  }
+  @Prop({ type: String }) //郵便番号の受け取った値をorganismsからPropで受け取る
+  postalCodeVal!: string;
+  
+  @Emit() //郵便番号から住所に変換しorganismsに送る
+  async sendAddress() {
+    this.zipCode = this.postalCodeVal;
+    const address = await fetchAddressByZipcode(this.zipCode);
+    const { region, locality, street, extended } = address;
+    this.addressVal = region + locality + street + extended;
+    return this.addressVal;
   }
 }
 </script>
