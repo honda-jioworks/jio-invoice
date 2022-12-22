@@ -4,52 +4,34 @@
       <div>
         <!-- 1段目 -->
         <v-row>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><ConsumptionTax @scan-select="scanConsumptionTax" class="mb-n5" /></v-col
-          ><v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><ConsumptionTaxRounding @scan-select="scanConsumptionTaxRounding" class="mb-n5"
-          /></v-col>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><MulUnitPriceQuantityRounding @scan-select="scanMulUnitPriceQuantityRounding" class="mb-n5"
-          /></v-col>
+          <v-col cols="5"><ConsumptionTax @scan-select="scanConsumptionTax" class="mb-n5" /></v-col
+          ><v-col cols="5"><ConsumptionTaxRounding @scan-select="scanConsumptionTaxRounding" class="mb-n5" /></v-col>
         </v-row>
-
         <!-- 2段目 -->
         <v-row>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
+          <v-col cols="5"
+            ><MulUnitPriceQuantityRounding @scan-select="scanMulUnitPriceQuantityRounding" class="mb-n5"
+          /></v-col>
+          <v-col cols="5"
             ><UnitPriceCulculationRounding @scan-select="scanUnitPriceCulculationRounding" class="mb-n5"
-          /></v-col>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><DecimalalPart @scan-select="scanDecimalalPart" class="mb-n5"
-          /></v-col>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><NumberOfDigits @scan-select="scanNumberOfDigits" class="mb-n5"
           /></v-col>
         </v-row>
         <!-- 3段目 -->
         <v-row>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><AmountOfWithholdingTax @check-bool="checkBool" class="mb-n5"
-          /></v-col>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><SubjectName :checkVal="bool" @scan-text="scanText" class="mb-n5"
-          /></v-col>
-          <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-            ><TaxRate :checkVal="bool" @scan-select="scanTaxRate" class="mb-n5"
-          /></v-col>
+          <v-col cols="5"><DecimalalPart @scan-select="scanDecimalalPart" class="mb-n5" /></v-col>
+          <v-col cols="5"><NumberOfDigits @scan-select="scanNumberOfDigits" class="mb-n5" /></v-col>
         </v-row>
         <!-- 4段目 -->
         <v-row>
-          <v-col cols="12" sm="6" lg="3" md="4" xl="4"
-            ><SalaryPaymentDate @scan-select="scanSalaryPaymentDate" class="mb-n5"
-          /></v-col>
-          <v-col cols="12" sm="6" lg="3" md="4" xl="4"
-            ><BonusPaymentDate @scan-select="scanBonusPaymentDate" class="mb-n5"
-          /></v-col>
+          <v-col cols="5"><AmountOfWithholdingTax @check-bool="checkBool" class="mb-n5" /></v-col>
+          <v-col cols="3"><SubjectName :checkVal="bool" @scan-text="scanText" class="mb-n5" /></v-col>
+          <v-col cols="3"><TaxRate :checkVal="bool" @scan-select="scanTaxRate" class="mb-n5" /></v-col>
         </v-row>
         <!-- 5段目 -->
-
-        <!-- 6段目 -->
+        <v-row>
+          <v-col cols="4"><SalaryPaymentDate @scan-select="scanSalaryPaymentDate" class="mb-n5" /></v-col>
+          <v-col cols="4"><BonusPaymentDate @scan-select="scanBonusPaymentDate" class="mb-n5" /></v-col>
+        </v-row>
       </div>
     </v-sheet>
   </v-container>

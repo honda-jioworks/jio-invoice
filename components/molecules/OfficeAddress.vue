@@ -1,11 +1,11 @@
 <template>
   <v-sheet>
     <v-row>
-      <v-col cols="2" class="wrap30"><AddressLabel /></v-col>
-      <v-col cols="6"
+      <v-col cols="3" class="wrap30"><AddressLabel /></v-col>
+      <v-col cols="6" class="wrap31"
         ><AddressOne :address1="address1" :newAddress="newAddress" @change-address="changeAddress"
       /></v-col>
-      <v-col cols="3"
+      <v-col cols="3" class="wrap32"
         ><ShowMap :newAddress="newAddress" :postalCode1="postalCode1" :postalCode2="postalCode2" :address1="address1"
       /></v-col>
     </v-row>
@@ -46,6 +46,12 @@ export default class OfficeAddress extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap30 {
-  margin-left: 25px;
+  margin-left: 45px;
+}
+.wrap31 {
+  margin-left: -65px;
+}
+.wrap32 {
+  margin-left: -10px;
 }
 </style>

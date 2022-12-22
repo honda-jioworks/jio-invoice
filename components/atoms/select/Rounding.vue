@@ -1,7 +1,5 @@
 <template>
-  <v-col>
-    <v-select :items="items" outlined :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
-  </v-col>
+  <v-select :items="items" :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
 </template>
 
 <script lang="ts">
@@ -20,9 +18,3 @@ export default class Rounding extends Vue {
   }
 }
 </script>
-<style lang="scss" scoped>
-.v-select {
-  margin-left: 3px;
-  margin-top: 2px;
-}
-</style>

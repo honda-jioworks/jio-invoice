@@ -1,9 +1,6 @@
 <template>
-  <v-col>
-    <v-select :items="items" solo :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
-  </v-col>
+  <v-select :items="items" solo :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
 </template>
-
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({
@@ -53,13 +50,3 @@ export default class Date extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.layout {
-  width: 50vh;
-}
-
-.v-select {
-  margin-left: 5px;
-}
-</style>

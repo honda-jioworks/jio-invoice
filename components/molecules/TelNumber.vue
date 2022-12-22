@@ -1,15 +1,16 @@
 <template>
   <v-sheet>
-    <v-row class="d-none d-xl-flex d-md-none" dense>
+    <v-row dense>
       <v-col cols="2" class="wrap25"><TelLabel /></v-col>
       <v-col cols="3" class="wrap26"
         ><ThreeNumbersTextBox :telNumber1="telNumber1" @get-postal-code-one="sendTelNumberOne"
       /></v-col>
-      <v-col cols="3" class="wrap27"
+      <v-col cols="3" class="wrap26"
         ><FourNumbersTextBox :telNumber2="telNumber2" @get-postal-code-two="sendTelNumberTwo"
       /></v-col>
-      <v-col cols="3"><FourNumbersTextBox :telNumber3="telNumber3" @get-postal-code-two="sendTelNumberThree" /></v-col>
-      <v-col cols="1"></v-col>
+      <v-col cols="3" class="wrap26"
+        ><FourNumbersTextBox :telNumber3="telNumber3" @get-postal-code-two="sendTelNumberThree"
+      /></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -26,7 +27,7 @@ import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue'
     FourNumbersTextBox,
   },
 })
-export default class DashBoard extends Vue {
+export default class TelNumber extends Vue {
   // データベースから受け取った電話番号
   @Prop({ type: String })
   telNumber!: string;
@@ -51,9 +52,10 @@ export default class DashBoard extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap25 {
-  padding-left: 48px;
+  margin-left: 60px;
+  margin-right: 35px;
 }
 .wrap26 {
-  margin-left: 26px;
+  margin-left: -25px;
 }
 </style>

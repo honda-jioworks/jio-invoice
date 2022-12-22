@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="text-right">
     <v-row dense>
-      <v-col col="6" class="wrap06"> 消費税の端数処理： </v-col>
-      <v-col col="6">
+      <v-col col="6" class="wrap04"> 消費税の端数処理: </v-col>
+      <v-col col="6" class="wrap05">
         <Rounding @scan-select="scanSelect" />
       </v-col>
     </v-row>
@@ -21,7 +21,11 @@ export default class ConsumptionTaxRounding extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.wrap06 {
-  margin-top: 28px;
+.wrap04 {
+  margin-top: 25px;
+}
+.wrap05 {
+  padding-left: 30px;
+  margin-top: 10px;
 }
 </style>

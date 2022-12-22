@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="text-right">
     <v-row>
-      <v-col cols="6" class="wrap08">単価計算の端数処理：</v-col>
-      <v-col cols="6"><Rounding @scan-select="scanSelect" /></v-col>
+      <v-col cols="6" class="wrap04">単価計算の端数処理:</v-col>
+      <v-col cols="6" class="wrap07"><Rounding @scan-select="scanSelect" /></v-col>
     </v-row>
   </div>
 </template>
@@ -19,7 +19,10 @@ export default class UnitPriceCulculationRounding extends Vue {
 }
 </script>
 <style lang="scss">
-.wrap08 {
-  margin-top: 27px;
+.wrap04 {
+  margin-top: 15px;
+}
+.wrap07 {
+  padding-left: 18px;
 }
 </style>

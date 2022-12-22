@@ -1,7 +1,5 @@
 <template>
-  <v-col>
-    <v-text-field :rules="rules" :disabled="!checkVal" v-model="textContents" @input="scanText"></v-text-field>
-  </v-col>
+  <v-text-field :rules="rules" :disabled="!checkVal" v-model="textContents" @input="scanText"></v-text-field>
 </template>
 
 <script lang="ts">

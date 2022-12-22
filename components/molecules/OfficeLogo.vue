@@ -1,27 +1,25 @@
 <template>
-  <div>
-    <v-sheet rounded>
-      <v-row>
-        <v-col cols="12"><OfficeLogoName /></v-col>
-      </v-row>
-      <v-row>
-        <div class="wrap">
-          <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
-          <div>
-            <v-col cols="12"
-              ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="logoSelect"
-            /></v-col>
-            <v-col cols="12"
-              ><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="logoRemoveButton"
-            /></v-col>
-            <v-col cols="12 "
-              ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="logoDownlord"
-            /></v-col>
-          </div>
+  <v-sheet rounded>
+    <v-row>
+      <v-col cols="12"><OfficeLogoName /></v-col>
+    </v-row>
+    <v-row>
+      <div class="wrap">
+        <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
+        <div>
+          <v-col cols="12"
+            ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="logoSelect"
+          /></v-col>
+          <v-col cols="12"
+            ><Clearbutton id="DeleteOfficeLogo" action="クリア" @remove-button="logoRemoveButton"
+          /></v-col>
+          <v-col cols="12"
+            ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="logoDownlord"
+          /></v-col>
         </div>
-      </v-row>
-    </v-sheet>
-  </div>
+      </div>
+    </v-row>
+  </v-sheet>
 </template>
 
 <script lang="ts">

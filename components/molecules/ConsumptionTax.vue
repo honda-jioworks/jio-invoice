@@ -1,12 +1,8 @@
 <template>
-  <div>
+  <div class="text-right">
     <v-row dense>
-      <v-col col="6" class="wrap04">
-        <v-col cols="12"> 消費税： </v-col>
-      </v-col>
-      <v-col col="6" class="wrap05">
-        <v-col cols="12"><AutomaticCalculation @scan-select="scanSelect" /></v-col>
-      </v-col>
+      <v-col col="6" class="wrap04"> 消費税 </v-col>
+      <v-col cols="6" class="wrap05"><AutomaticCalculation @scan-select="scanSelect" /></v-col>
     </v-row>
   </div>
 </template>
@@ -25,10 +21,10 @@ export default class ConsumptionTax extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap04 {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 .wrap05 {
-  margin-top: 7px;
-  margin-left: 25px;
+  padding-left: 30px;
+  margin-top: 10px;
 }
 </style>

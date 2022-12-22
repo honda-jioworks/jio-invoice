@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="text-right">
     <v-row>
-      <v-col cols="6" class="wrap12">売上で厳選所得税額を入力:</v-col>
-      <v-col cols="6"><DoOrNot @check-bool="checkBool" /></v-col>
+      <v-col cols="6" class="wrap11">売上で厳選所得税額を入力:</v-col>
+      <v-col cols="6" class="wrap09"><DoOrNot @check-bool="checkBool" /></v-col>
     </v-row>
   </div>
 </template>
@@ -21,7 +21,11 @@ export default class AmountOfWithholdingTax extends Vue {
 }
 </script>
 <style lang="scss">
-.wrap12 {
-  margin-top: 23px;
+.wrap11 {
+  margin-top: 25px;
+}
+.wrap09 {
+  padding-left: 30px;
+  margin-top: 10px;
 }
 </style>

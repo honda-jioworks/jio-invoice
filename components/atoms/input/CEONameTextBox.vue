@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class CEONameTextBox extends Vue {
   private name: string = '';
@@ -22,9 +22,6 @@ export default class CEONameTextBox extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.textbox {
-  border: 2px solid black;
-}
 .v-text-field {
   width: 100%;
 }

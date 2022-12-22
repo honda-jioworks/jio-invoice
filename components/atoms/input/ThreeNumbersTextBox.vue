@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
-@Component({ components: {} })
+@Component({})
 export default class ThreeNumbersTextBox extends Vue {
   // データベースから受け取った郵便番号の前3桁
   @Prop({ type: String })

@@ -2,7 +2,7 @@
   <div>
     <v-sheet>
       <v-row>
-        <v-col cols="2" class="wrap29">
+        <v-col cols="2" class="wrap39">
           <OfficeURLLabel />
         </v-col>
         <v-col cols="6" class="wrap35">
@@ -34,8 +34,9 @@ export default class OfficeURL extends Vue {
 }
 </script>
 <style lang="scss">
-.wrap29 {
-  padding-left: 59px;
+.wrap39 {
+  margin-left: 60px;
+  margin-right: -35px;
 }
 .wrap35 {
   margin-left: 30px;

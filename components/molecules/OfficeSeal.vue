@@ -1,20 +1,19 @@
 <template>
   <v-sheet rounded>
     <v-row>
-      <v-col cols="12" xl="4"><CompanySeal /></v-col>
+      <v-col cols="12"><CompanySeal /></v-col>
     </v-row>
     <v-row>
       <div class="wrap">
-        <v-col cols="12" xl="6" class="wrap39"><Selectfile ref="SelectImg" /></v-col>
+        <v-col cols="12" xl="6"><Selectfile ref="SelectImg" /></v-col>
         <div>
           <v-col cols="12"
             ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"
           /></v-col>
-          <!-- <v-col cols="12"><CreateCompanySeal @create-seal="createSeal" /></v-col> -->
           <v-col cols="12"
             ><Clearbutton id="DeleteCompanySeal" action="クリア" @remove-button="sealRemoveButton"
           /></v-col>
-          <v-col cols="12 "
+          <v-col cols="12"
             ><ImgImport depressed elevation="5" rounded color="#909090" @img-downlord="sealDownlord"
           /></v-col>
         </div>
@@ -62,7 +61,7 @@ export default class OfficeSeal extends Vue {
 
 <style lang="scss" scoped>
 .wrap {
-  width: 20%;
+  width: 60%;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -72,5 +71,12 @@ export default class OfficeSeal extends Vue {
 
 .wrap39 {
   margin-right: 700px;
+}
+
+.wrap img {
+  width: 30%;
+}
+.wrap div {
+  width: 40%;
 }
 </style>

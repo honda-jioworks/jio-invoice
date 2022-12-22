@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="text-right">
     <v-row>
       <v-col cols="6" class="wrap011">数量の桁:</v-col>
       <v-col cols="6">
-        <v-select :items="items" :rules="rules" outlined v-model="selectContents" @change="scanSelect"></v-select>
+        <v-select :items="items" :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
       </v-col>
     </v-row>
   </div>
@@ -25,11 +25,10 @@ export default class NumberOfDigits extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap011 {
-  margin-top: 23px;
+  margin-top: 15px;
 }
 .v-select {
-  margin-top: 11px;
-  margin-right: 12px;
-  margin-left: 9px;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 </style>

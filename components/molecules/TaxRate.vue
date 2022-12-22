@@ -1,9 +1,8 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6" class="wrap14">税率:</v-col>
-
-      <v-col cols="6">
+      <v-col cols="4" class="wrap04">税率:</v-col>
+      <v-col cols="8">
         <v-select
           :items="items"
           :rules="rules"
@@ -35,12 +34,10 @@ export default class TaxRate extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.wrap14 {
-  margin-top: 23px;
+.wrap04 {
+  margin-top: 15px;
 }
 .v-select {
-  margin-top: 16px;
-  margin-right: 12px;
-  margin-left: 9px;
+  margin-top: 10px;
 }
 </style>

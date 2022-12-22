@@ -1,12 +1,10 @@
 <template>
-  <v-row>
-    <v-col><v-text-field v-model="postalCode2" @input="getPostalCodeTwo" :counter="4" solo> </v-text-field></v-col>
-  </v-row>
+  <v-text-field v-model="postalCode2" @input="getPostalCodeTwo" :counter="4" solo> </v-text-field>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
-@Component({ components: {} })
+@Component({})
 export default class FourNumbersTextBox extends Vue {
   // データベースから受け取った郵便番号の後ろ4桁
   @Prop({ type: String })

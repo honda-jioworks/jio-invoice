@@ -67,7 +67,6 @@ export default {
         {
           icon: 'mdi-pencil',
           title: '自社情報登録画面',
-
           to: '/DisplayCompanyRegister',
         },
         {
@@ -84,5 +83,3 @@ export default {
   },
 };
 </script>
-
-10:39 show context menu 2022. 12. 16. (金) Attach fileStickeredit photo

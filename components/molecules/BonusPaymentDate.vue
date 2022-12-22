@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="text-right">
     <v-row>
-      <v-col cols="6" class="wrap19">賞与支給日:</v-col>
-      <v-col cols="6" class="wrap20"><Date @scan-select="scanSelect" /></v-col>
+      <v-col cols="5" class="wrap19">賞与支給日:</v-col>
+      <v-col cols="4" class="wrap20"><Date @scan-select="scanSelect" /></v-col>
     </v-row>
   </div>
 </template>
@@ -20,9 +20,12 @@ export default class BonusPaymentDate extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap19 {
-  margin-top: 35px;
+  margin-top: 15px;
 }
 .wrap20 {
-  margin-top: 19px;
+  padding-left: -10px;
+}
+.text-right {
+  padding-left: -200px;
 }
 </style>
