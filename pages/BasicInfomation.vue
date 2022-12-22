@@ -81,7 +81,10 @@ export default class BasicInfomation extends Vue {
     }
 
     oncansel(): void {
-      location.href = "/"
+      let result = window.confirm("一覧ページへ移動します。よろしいですか?")
+      if (result) {
+        location.href = "/";
+      }
     }
   }
 </script>
