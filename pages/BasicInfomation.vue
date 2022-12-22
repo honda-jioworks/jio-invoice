@@ -77,11 +77,11 @@ export default class BasicInfomation extends Vue {
     }
 
     onsave(): void {
-      alert('保存されました。')
+      alert(this.nameVal+this.kanaVal+this.shortVal+this.primaryVal+this.secondVal+this.memoVal+this.checkVal)
     }
 
     oncansel(): void {
-
+      location.href = "/"
     }
   }
 </script>
