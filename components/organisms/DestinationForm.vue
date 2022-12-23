@@ -1,7 +1,12 @@
 <template>
   <div>
-      <AddressForm @scan-address="scanAddress" />
-      <AddressSearch @scan-one="scanOne" @scan-two="scanTwo"/>
+      <AddressForm @change-address="changeAddress" :addressVal="address" />
+      <AddressSearch 
+        @scan-postal="scanPostal"
+        :PostalCode="postalcodeval" 
+        @send-address="sendAddress"
+        :postalCodeVal="postalCodeVal"
+       />
       <BelongForm @scan-department="scanDepartment" @scan-division="scanDivision" />
       <CorporationName @scan-corp="scanCorp" />
       <NumberForm @scan-tel="scanTel" @scan-fax="scanFax" />
@@ -32,9 +37,12 @@ import ProjectForm from  '~/components/molecules/ProjectForm.vue';
   },
 })
 export default class DestinationForm extends Vue {
+ public address: string ='';
  public addressval: string ='';
- public oneval: string ='';
- public twoval: string ='';
+ public postalcodeval: string ='';
+ public postalCode: string = '';
+ public postalCodeVal: string = this.postalCode;
+ public changeAddressVal: string = '';
  public departmentval: string ='';
  public divisionval: string ='';
  public corpval: string = '';
@@ -49,19 +57,22 @@ export default class DestinationForm extends Vue {
 scanAddress(val: string): void{
   this.addressval = val;
   console.log(this.addressval)
-}
-// 郵便番号3桁
-scanOne(val: string): void{
-  this.oneval = val;
-  console.log(this.oneval)
-}
-  // 郵便番号4桁
-  scanTwo(val: string): void{
-  this.twoval = val;
-  console.log(this.twoval)
-}
+  } 
+//住所をmoleculesから受け取る
+sendAddress(val: string): void {
+    this.address = val;
+    console.log(this.address)
+  }
+changeAddress(val: string): void {
+//住所をmoleculesから受け取りorganismsで出力
+    this.changeAddressVal = val;
+  }
+ // 郵便番号
+ scanPostal(val: string): void{
+  this.postalcodeval = val;
+ }
  // 部署名
- scanDepartment(val: string): void{
+  scanDepartment(val: string): void{
   this.departmentval = val;
   console.log(this.departmentval)
  }
