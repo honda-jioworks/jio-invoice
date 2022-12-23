@@ -11,12 +11,14 @@
   import { Vue, Component, Emit, Prop} from 'nuxt-property-decorator';
   @Component({ })
   export default class AddressForm extends Vue {
-
+  
+  //住所をorganismsへ送る
   @Emit()
   changeAddress(val:string): string{
     return val;
   }
-
+  
+  //organismsから住所をPropで受け取る
   @Prop({ type: String }) 
   addressVal!: string;
 
