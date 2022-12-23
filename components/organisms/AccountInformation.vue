@@ -1,5 +1,5 @@
 <template>
-  <div class="Accountcolor">
+  <v-container class="Accountcolor">
     <!--1段目-->
     <v-row>
       <v-col cols="12" sm="6" lg="4" md="4" xl="4"
@@ -35,7 +35,7 @@
       <v-col cols="12" sm="6" lg="6" md="4" xl="4"><DefaultValue class="mb-n5" @scan-default="scanDefault" /></v-col>
       <v-col cols="12" sm="6" lg="6" md="4" xl="4"><InputCandidate @scan-candidate="scanCandidate" /></v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">

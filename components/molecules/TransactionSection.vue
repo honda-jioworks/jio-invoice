@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-row align="center">
-      <v-col class="d-flex" cols="12" sm="3">
+      <v-col class="d-flex" cols="12">
         <v-select
           :items="items"
           label="取引区分"

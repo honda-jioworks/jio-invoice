@@ -1,36 +1,36 @@
 <template>
-  <div class="Transactioncolor">
+  <v-container class="Accountcolor">
     <!-- 1段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TransactionSection class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TaxProcessing class="mb-n5" /></v-col>
-      </v-row>
-     <!-- 2段目 -->
-    <v-row>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><DepositAccount class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><ClosingDate class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><RecoveryCycle class="mb-n5" /></v-col>
+      <v-col cols="4"><TransactionSection class="mb-n5" /></v-col>
+      <v-col cols="4"><TaxProcessing class="mb-n5" /></v-col>
     </v-row>
-      <!-- 3段目 -->
+    <!-- 2段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><StartingBalance class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><BettingRate class="mb-n5" /></v-col>
-      </v-row>
-      <!-- 4段目 -->
-    <v-row>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><PriceCategory class="mb-n5" /></v-col>
+      <v-col cols="4"><DepositAccount class="mb-n5" /></v-col>
+      <v-col cols="4"><ClosingDate class="mb-n5" /></v-col>
+      <v-col cols="4"><RecoveryCycle class="mb-n5" /></v-col>
     </v-row>
-      <!-- 5段目 -->
+    <!-- 3段目 -->
     <v-row>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><TaxRounding class="mb-n5"/></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><PriceQuantityRounding class="mb-n5" /></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><PriceCalcRounding class="mb-n5" /></v-col>
+      <v-col cols="4"><StartingBalance class="mb-n5" /></v-col>
+      <v-col cols="4"><BettingRate class="mb-n5" /></v-col>
     </v-row>
-      <!-- 6段目 -->
+    <!-- 4段目 -->
     <v-row>
-      <v-col cols="12"><TaxAddIndicateCheck class="mb-5" /></v-col>
-      </v-row>
-  </div>
+      <v-col cols="4"><PriceCategory class="mb-n5" /></v-col>
+    </v-row>
+    <!-- 5段目 -->
+    <v-row>
+      <v-col cols="4"><TaxRounding class="mb-n5" /></v-col>
+      <v-col cols="4"><PriceQuantityRounding class="mb-n5" /></v-col>
+      <v-col cols="4"><PriceCalcRounding class="mb-n5" /></v-col>
+    </v-row>
+    <!-- 6段目 -->
+    <v-row>
+      <v-col cols="4"><TaxAddIndicateCheck class="mb-5" /></v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -72,9 +72,9 @@ export default class TransactionForm extends Vue {
   }
 }
 </script>
-</script>
+
 <style lang="scss" scoped>
-.Transactioncolor {
+.Accountcolor {
   background-color: white;
 }
 </style>

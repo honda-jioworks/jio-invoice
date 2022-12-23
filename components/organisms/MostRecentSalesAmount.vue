@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <v-text-field :test="value"></v-text-field>
-  </div>
+  <v-sheet class="groundwork">
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      :items-per-page="5"
+      class="elevation-1"
+      hide-default-footer
+    ></v-data-table>
+  </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import DashBoard from '@/components/templates/DashBoard.vue';
-@Component({ components: { DashBoard } })
+import { Vue, Component } from 'nuxt-property-decorator';
+@Component({})
 export default class MostRecentSalesAmount extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
-
-  headers: Array<Object> = [
+  private headers: Array<Object> = [
     {
       text: '直近の売上金額',
       align: 'start',
@@ -25,7 +29,7 @@ export default class MostRecentSalesAmount extends Vue {
     { text: '注文書', value: 'iron' },
   ];
 
-  desserts: Array<Object> = [
+  private desserts: Array<Object> = [
     {
       name: '9月　　　　　　16,395,500円',
       calories: '1枚',
@@ -51,11 +55,9 @@ export default class MostRecentSalesAmount extends Vue {
       iron: '0枚',
     },
   ];
-
-  @Prop({ type: String, default: 'aaa' })
-  value!: string;
 }
 </script>
+
 <style lang="scss" scoped>
 .groundwork {
   background-color: white;

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="5">
+      <v-col cols="12">
         <v-text-field :rules="nameRules" label="得意先名(カナ)" v-model="textKana" @input="scanKana"> </v-text-field>
       </v-col>
     </v-row>

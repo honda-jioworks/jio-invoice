@@ -61,8 +61,8 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/DashBoard',
+          title: 'Welcom',
+          to: '/index',
         },
         {
           icon: 'mdi-pencil',
