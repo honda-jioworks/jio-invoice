@@ -11,9 +11,7 @@ declare global {
   }
 }
 const YubinBango = window.YubinBango || {};
-export function fetchAddressByZipcode(
-  zipcode: string
-): Promise<ZipcodeAddress> {
+export function fetchAddressByZipcode(zipcode: string): Promise<ZipcodeAddress> {
   return new Promise((resolve) => {
     return new YubinBango.Core(zipcode, (address: ZipcodeAddress) => {
       return resolve(address);
