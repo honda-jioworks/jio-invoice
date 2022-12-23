@@ -4,7 +4,6 @@
             <v-text-field v-model="data1" @input="scanOne"  label=振込先2等></v-text-field>
             <v-text-field v-model="data2" @input="scanTwo" label=振込先2等></v-text-field>
             <v-text-field v-model="data3" @input="scanThree" label=振込先2等></v-text-field>
-            <v-btn >口座情報の変更</v-btn>
         </v-col>
     </v-row>
   </template>
