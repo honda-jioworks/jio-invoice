@@ -8,8 +8,6 @@
   import { Vue, Component} from 'nuxt-property-decorator';
   @Component({ })
   export default class CalendarForm extends Vue {
-  Calendar(): void {
-    
-  }
+
   }
 </script>
