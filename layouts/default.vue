@@ -86,6 +86,11 @@ export default {
           title: '請求書発行画面',
           to: '/InvoiceIssuePages',
         },
+        {
+          icon: 'mdi-pencil',
+          title: '請求書一覧画面',
+          to: '/InvoiceIssueTabie',
+        },
       ],
       miniVariant: false,
       right: true,
