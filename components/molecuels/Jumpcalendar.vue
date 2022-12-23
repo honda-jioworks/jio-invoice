@@ -1,15 +1,15 @@
 <template>
     <v-row>
-<v-btn @click="Calendar" v-on:input="inputEvent"></v-btn>
+<v-btn @click="Calendar" v-on:input="inputEvent">ジャンプ</v-btn>
     </v-row>
 </template>
 
 <script lang="ts">
   import { Vue, Component} from 'nuxt-property-decorator';
-  @Component({  })
+  @Component({ })
   export default class CalendarForm extends Vue {
-    inputEvent(event){
-      
-    }
+  Calendar(): void {
+    
+  }
   }
 </script>

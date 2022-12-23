@@ -1,3 +1,19 @@
 <template>
-  <v-btn>削除</v-btn>
+  <v-btn @click="deleat">削除</v-btn>
+
 </template>
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator';
+@Component({})
+export default class Deleat extends Vue {
+
+   deleat(): void {
+    let result = window.confirm("本当に削除しますか？")
+    if( result==true ){
+    console.log('削除しました')
+    }else{
+      console.log('キャンセルしました')
+    }
+  }
+}
+</script>
