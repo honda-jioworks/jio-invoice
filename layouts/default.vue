@@ -74,7 +74,7 @@ export default {
         {
           icon: 'mdi-apps',
           title: 'Welcome',
-          to: '/',
+          to: '/index',
         },
         {
           icon: 'mdi-pencil',
