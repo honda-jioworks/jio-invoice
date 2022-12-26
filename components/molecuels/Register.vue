@@ -13,6 +13,7 @@ export default class Register extends Vue {
       location.href ="/";
     }
   }
+  
 }
 
 </script>
