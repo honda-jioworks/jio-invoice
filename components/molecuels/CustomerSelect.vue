@@ -3,7 +3,7 @@
     <v-col md="8">
     <v-sheet
       color="white"
-      height="35"
+      height="55"
       width="140"
 
       >

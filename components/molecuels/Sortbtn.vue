@@ -4,7 +4,7 @@
        <v-sheet
            color="white"
            height="11"
-           width="25"
+           width="35"
            >
       <v-dialog
       v-model="dialog"

@@ -4,8 +4,7 @@
       cols="8"
     >
   <v-sheet
-  color="white"
-  height="35"
+  height="55"
   width="140"
 
 >
@@ -29,6 +28,7 @@
           ></v-text-field>
         </template>
         <v-date-picker
+          locale="ja"
           v-model="date"
           type="month"
           scrollable
@@ -36,14 +36,14 @@
           <v-spacer></v-spacer>
           <v-btn
             text
-            color="black"
+
             @click="modal = false"
           >
             Cancel
           </v-btn>
           <v-btn
             text
-            color="black"
+
             @click="$refs.dialog.save(date)"
           >
             OK
