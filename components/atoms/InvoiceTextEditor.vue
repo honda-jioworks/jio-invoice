@@ -6,7 +6,9 @@
         v-model="value_in"
         :rules="rule"
         :label="label"
+        :type="type"
         counter
+        @click:outside="closeDialog"
       ></v-text-field>
     </template>
   </v-edit-dialog>
@@ -25,5 +27,12 @@ export default class editor extends Vue {
 
   @Prop()
   rule!: Array<object>
+
+  @Prop()
+  type: any
+
+  closeDialog() {
+    this.value_in = false
+  }
 }
 </script>
