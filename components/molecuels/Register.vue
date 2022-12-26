@@ -1,6 +1,11 @@
 <template>
-  <v-btn @click="open">新規</v-btn>
- 
+<v-row>
+  <v-col> 
+
+   <v-btn text @click="open">新規</v-btn>
+   
+  </v-col>
+  </v-row>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';

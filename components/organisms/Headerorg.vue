@@ -1,9 +1,10 @@
 <template>
 <v-row>
-
 <v-col >
+
   <v-card >
     <v-card-title>
+      
      請求書一覧表
      <v-spacer>
        
@@ -20,8 +21,9 @@
 
     </v-card-title>
   </v-card>
+   
 </v-col>
-<v-col></v-col>
+
   
   </v-row>
 </template>

@@ -1,5 +1,10 @@
 <template>
-  <v-btn @click="deleat">削除</v-btn>
+<v-row>
+  <v-col>  
+    <v-btn text @click="deleat">削除</v-btn>
+    </v-col>
+    </v-row>
+
 
 </template>
 <script lang="ts">

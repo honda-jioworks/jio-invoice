@@ -1,11 +1,10 @@
 <template>
   <v-row>
-    <v-col md="5">
+    <v-col md="7">
        <v-select
       v-model="enabled"
       :items="slots"
       label="得意先"
-      clearable
       ></v-select>
       </v-col>
       </v-row>
