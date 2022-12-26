@@ -1,13 +1,16 @@
 <template>
+<v-row>
+
   <v-card>
     <v-card-title>
      請求書一覧表
      <v-spacer></v-spacer>
-      <v-data-table
-      :headers="headers"
-      :items="desserts"
-      :search="search"
-    ></v-data-table>
+      <v-select
+      v-model="enabled"
+      :items="slots"
+      label="得意先"
+      clearable
+      ></v-select>
      <v-text-field
      v-model="search"
      label="検索"
@@ -17,14 +20,11 @@
      >
    
      </v-text-field>
+  
      
-      <v-select
-      v-model="enabled"
-      :items="slots"
-      label="得意先"
-      clearable
-      ></v-select>
+
 
     </v-card-title>
   </v-card>
+  </v-row>
 </template>
