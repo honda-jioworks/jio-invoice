@@ -1,1 +1,0 @@
-<v-btn elevation="2"color="primary"height="50" width="100">OK</v-btn>
