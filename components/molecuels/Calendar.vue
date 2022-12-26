@@ -1,8 +1,7 @@
 <template>
   <v-row>
     <v-col
-      cols="7"
-      sm="50"
+      cols="8"
     >
     
     <v-spacer></v-spacer>

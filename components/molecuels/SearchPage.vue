@@ -1,6 +1,6 @@
 <template>
 <v-row>
-  <v-col md="7">
+  <v-col md="8">
    <v-text-field
      v-model="search"
      label="検索"
