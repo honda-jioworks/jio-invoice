@@ -66,8 +66,8 @@ export default {
         },
         {
           icon: 'mdi-pencil',
-          title: '得意先登録画面',
-          to: '/customerRegister',
+          title: '請求書一覧画面',
+          to: '/InvoiceIssueList',
         },
         {
           icon: 'mdi-pencil',
