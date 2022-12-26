@@ -1,7 +1,13 @@
 <template>
 <v-row>
   <v-col>  
+    <v-sheet
+  color="white"
+  height="35"
+  width="60"
+>
     <v-btn text @click="deleat">削除</v-btn>
+    </v-sheet>
     </v-col>
     </v-row>
 

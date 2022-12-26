@@ -3,7 +3,12 @@
     <v-col
       cols="8"
     >
-    
+  <v-sheet
+  color="white"
+  height="35"
+  width="140"
+
+>
     <v-spacer></v-spacer>
   
       <v-dialog
@@ -45,6 +50,7 @@
           </v-btn>
         </v-date-picker>
       </v-dialog>
+  </v-sheet>
 </v-col>
   </v-row>
 </template>

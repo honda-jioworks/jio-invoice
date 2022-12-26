@@ -1,7 +1,11 @@
 <template>
 <v-row>
 <v-col >
-
+       <v-sheet
+           color="white"
+           height="1500"
+           width="1100"
+           >
   <v-card >
     <v-card-title>
       
@@ -21,7 +25,7 @@
 
     </v-card-title>
   </v-card>
-   
+       </v-sheet>
 </v-col>
 
   

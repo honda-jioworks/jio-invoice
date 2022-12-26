@@ -1,6 +1,12 @@
 <template>
 <v-row>
   <v-col md="8">
+        <v-sheet
+      color="white"
+      height="35"
+      width="140"
+
+      >
    <v-text-field
      v-model="search"
      label="検索"
@@ -8,6 +14,7 @@
      >
 
      </v-text-field>
+     </v-sheet>
      </v-col>
      </v-row>
 </template>
