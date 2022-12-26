@@ -1,8 +1,6 @@
 <template>
-
   <div>
-    <InvoiceListorg />
-    <Headerorg/>
+    <Headerorg />
     <MonthCalender />
     <InvoiceTable />
   </div>
@@ -12,15 +10,12 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import InvoiceTable from '@/components/organisms/InvoiceTable.vue'
 import MonthCalender from '@/components/organisms/MonthCalender.vue'
-import InvoiceListorg from '@/components/organisms/InvoiceListorg.vue';
-import Headerorg from '~/components/organisms/Headerorg.vue';
-
+import Headerorg from '~/components/organisms/Headerorg.vue'
 @Component({
   components: {
     InvoiceTable,
     MonthCalender,
-    InvoiceListorg,
-     Headerorg
+    Headerorg,
   },
 })
 export default class InvoiceList extends Vue {}

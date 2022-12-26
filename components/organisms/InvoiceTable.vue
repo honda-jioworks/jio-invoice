@@ -1,4 +1,3 @@
-/* eslint-disable vue/no-useless-template-attributes */
 <template>
   <v-data-table
     :headers="headers"
