@@ -15,7 +15,7 @@ export default class IssuedCheckEditor extends Vue {
 
   label: string = '発行'
   rule: Array<object> = [
-    (v: any) => !!v || '"済"または"済み"と入力してください',
+    (v: any) => /^(済||済み)$/.test(v) || '"済"または"済み"と入力してください',
   ]
 }
 </script>
