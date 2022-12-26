@@ -1,13 +1,13 @@
 <template>
   <v-row>
-    <v-col md="2">
-      <v-text>得意先：</v-text>
-      <v-select
-          :items="items"
-          label="指定なし"
-          dense
-          solo
-      ></v-select></v-col>
+    <v-col md="5">
+       <v-select
+      v-model="enabled"
+      :items="slots"
+      label="得意先"
+      clearable
+      ></v-select>
+      </v-col>
       </v-row>
 </template>
 <script>
