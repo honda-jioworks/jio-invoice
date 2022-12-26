@@ -10,3 +10,9 @@ import MostRecentSalesAmount from '~/components/organisms/MostRecentSalesAmount.
 @Component({ components: { MostRecentSalesAmount } })
 export default class DashBoard extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.groundwork {
+  background-color: gray;
+}
+</style>

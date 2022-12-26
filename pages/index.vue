@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="groundwork">
     <DashBoard />
   </div>
 </template>
@@ -10,3 +10,9 @@ import DashBoard from '~/components/templates/DashBoard.vue'
 @Component({ components: { DashBoard } })
 export default class index extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.groundwork {
+  background-color: gray;
+}
+</style>

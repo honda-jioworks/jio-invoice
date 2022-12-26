@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-useless-template-attributes */
 <template>
   <v-data-table
     :headers="headers"
@@ -7,11 +8,13 @@
     hide-default-footer
   >
     <template #top>
-      <v-toolbar flat>
-        <v-toolbar-title>請求先一覧</v-toolbar-title>
-        <v-divider class="mx-4" inset vertical></v-divider>
-        <v-spacer></v-spacer>
-      </v-toolbar>
+      <div>
+        <v-toolbar flat>
+          <v-toolbar-title>請求先一覧</v-toolbar-title>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <v-spacer></v-spacer>
+        </v-toolbar>
+      </div>
     </template>
     <template #[`item.invoice_date`]="props">
       <InvoiceDateEditor
@@ -81,8 +84,8 @@ export default class InvoiceTable extends Vue {
 
   desserts = [
     {
-      cstmr_id: 'cstmer001',
-      invoice_date: '1225',
+      invoice_id: 'cstmer001',
+      invoice_date: '2022/12/26',
       invoice_num: 'JS20-000666',
       cstm_name: 'jioworks',
       invoice_title: '2022年12月度　請求書管理アプリ案件',
@@ -94,7 +97,7 @@ export default class InvoiceTable extends Vue {
   editedIndex = -1
 
   editedCostomer = {
-    cstmr_id: '',
+    invoice_id: '',
     invoice_date: '',
     invoice_num: '',
     cstm_name: '',
@@ -117,6 +120,6 @@ export default class InvoiceTable extends Vue {
 </script>
 <style lang="scss" scoped>
 .groundwork {
-  background-color: gray;
+  background-color: rgb(91, 91, 243);
 }
 </style>
