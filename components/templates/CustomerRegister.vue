@@ -5,16 +5,16 @@
         <BasicInfomationForm ref="sample" />
       </v-col>
       <v-col cols="12">
-        <ContactAddressForm />
+        <ContactAddressForm ref="sample1" />
       </v-col>
       <v-col cols="12">
-        <TransactionForm />
+        <TransactionForm ref="sample2" />
       </v-col>
       <v-col cols="12">
         <AccountInformation />
       </v-col>
     </v-row>
-    <v-btn @click="onSave" >保存する</v-btn>
+    <v-btn @click="onSave"  >保存する </v-btn>
     <v-btn @click="onJump">トップページに戻る</v-btn>
   </v-container>
 </template>
@@ -30,11 +30,21 @@ import AccountInformation from '~/components/organisms/AccountInformation.vue';
   components: { BasicInfomationForm, ContactAddressForm, TransactionForm, AccountInformation },
 })
 export default class CustomerRegister extends Vue {
+
   @Ref()
   sample!: BasicInfomationForm;
 
+  @Ref()
+  sample1!: ContactAddressForm;
+
+  @Ref()
+  sample2!: TransactionForm;
+
   onSave(): void {
-    this.sample.test();
+    this.sample.test()
+    this.sample1.test()
+    this.sample2.test()
+    
   }
 
   onJump(): void {

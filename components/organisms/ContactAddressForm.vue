@@ -155,6 +155,9 @@ export default class ContactAddressForm extends Vue {
   getFaxnumber(val: string): void {
     this.faxnumber = val;
   }
+  test() {
+    alert(this.address+this.postalCodeVal+this.postalCode+this.depertment+this.postbox+this.manager+this.honorific+this.number+this.email+this.addressValue+this.telnumber+this.faxnumber);
+  }
 }
 </script>
 <style lang="scss" scoped>
