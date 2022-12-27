@@ -29,6 +29,7 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 import DestinationForm from '@/components/organisms/DestinationForm.vue';
+
 import PicInformationForm from '@/components/organisms/PicInformationForm.vue';
 import ThreePoint from '@/components/organisms/ThreePoint.vue';
 
