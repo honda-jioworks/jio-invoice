@@ -2,7 +2,7 @@
   <v-container class="groundcolor">
     <v-row>
       <v-col cols="12">
-        <BasicInfomationForm />
+        <BasicInfomationForm ref="sample" />
       </v-col>
       <v-col cols="12">
         <ContactAddressForm />
@@ -14,7 +14,7 @@
         <AccountInformation />
       </v-col>
     </v-row>
-    <v-btn @click="onSave" ref="sample">保存する</v-btn>
+    <v-btn @click="onSave" >保存する</v-btn>
     <v-btn @click="onJump">トップページに戻る</v-btn>
   </v-container>
 </template>
@@ -33,7 +33,7 @@ export default class CustomerRegister extends Vue {
   @Ref()
   sample!: BasicInfomationForm;
 
-  onSave(val: string): void {
+  onSave(): void {
     this.sample.test();
   }
 

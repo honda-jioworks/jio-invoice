@@ -110,7 +110,7 @@ export default class BasicInfomationForm extends Vue {
     this.checkVal = val;
   }
   test() {
-    console.log();
+    alert(this.nameVal+this.kanaVal+this.shortVal+this.primaryVal+this.secondVal+this.memoVal+this.checkVal);
   }
 }
 </script>
