@@ -3,21 +3,21 @@
     <!--一段目-->
     <v-expansion-panels>
       <v-expansion-panel>
-        <v-expansion-panel-header>請求書</v-expansion-panel-header>
+        <v-expansion-panel-header>顧客先情報</v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-col> <DestinationForm /> </v-col>
         </v-expansion-panel-content>
       </v-expansion-panel>
       <!--二段目-->
       <v-expansion-panel>
-        <v-expansion-panel-header>t</v-expansion-panel-header>
+        <v-expansion-panel-header>自社情報</v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-col><PicInformationForm /></v-col>
         </v-expansion-panel-content>
       </v-expansion-panel>
       <!--三段目-->
       <v-expansion-panel>
-        <v-expansion-panel-header>t</v-expansion-panel-header>
+        <v-expansion-panel-header>編集画面</v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-col><ThreePoint /></v-col>
         </v-expansion-panel-content>
@@ -29,7 +29,6 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 import DestinationForm from '@/components/organisms/DestinationForm.vue';
-
 import PicInformationForm from '@/components/organisms/PicInformationForm.vue';
 import ThreePoint from '@/components/organisms/ThreePoint.vue';
 
