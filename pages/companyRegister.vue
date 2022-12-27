@@ -52,11 +52,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import CompanyInformation from '~/components/organisms/CompanyInformation.vue';
-import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
-import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
-import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
-@Component({ components: { CompanyInformation, DetailsInfomation, LogoSealinfo, RegistrationNumber } })
+
+@Component({ components: {} })
 export default class companyRegister extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;

@@ -11,11 +11,11 @@
 
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
-import SerialNumber from '~/components/atoms/input/SerialNumber.vue';
+
+import SerialNumber from '@/components/atoms/input/SerialNumber.vue';
+
 @Component({
-  components: {
-    SerialNumber,
-  },
+  components: {},
 })
 export default class CalendarForm extends Vue {
   date: string = '';

@@ -1,10 +1,9 @@
 <template>
   <v-row class="cc2">
     <v-col>
-      <v-text-field v-model="data1" outlined @input="scanOne" label="振込先2等"></v-text-field>
-      <v-text-field v-model="data2" outlined @input="scanTwo" label="振込先2等"></v-text-field>
-      <v-text-field v-model="data3" outlined @input="scanThree" label="振込先2等"></v-text-field>
-      <v-btn>口座情報の変更</v-btn>
+      <v-text-field v-model="data1" outlined @input="scanOne" label="＜振込先2等＞"></v-text-field>
+      <v-text-field v-model="data2" outlined @input="scanTwo" label="＜振込先2等＞"></v-text-field>
+      <v-text-field v-model="data3" outlined @input="scanThree" label="＜振込先2等＞"></v-text-field>
     </v-col>
   </v-row>
 </template>

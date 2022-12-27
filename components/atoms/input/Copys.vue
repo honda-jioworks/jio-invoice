@@ -1,15 +1,16 @@
 <template>
-  <v-subheader>代表者名：</v-subheader>
+  <v-row>
+    <v-col> <lavel class="sin">[複写中]</lavel></v-col>
+  </v-row>
 </template>
-
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+
 @Component({ components: {} })
-export default class CEONameLabel extends Vue {}
+export default class Copys extends Vue {}
 </script>
 <style lang="scss" scoped>
-.v-subheader {
-  padding-left: auto;
-  padding-right: auto;
+.sin {
+  color: red;
 }
 </style>
