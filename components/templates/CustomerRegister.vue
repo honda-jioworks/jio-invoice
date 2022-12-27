@@ -1,5 +1,5 @@
 <template>
-  <v-container class="groundcolor">
+  <v-container class="groundcolor" >
     <v-row>
       <v-col cols="12">
         <BasicInfomationForm ref="sample" />
@@ -14,8 +14,8 @@
         <AccountInformation />
       </v-col>
     </v-row>
-    <v-btn @click="onSave"  >保存する </v-btn>
-    <v-btn @click="onJump">トップページに戻る</v-btn>
+    <v-btn color="primary" @click="onSave" small>保存する</v-btn>
+    <v-btn @click="onJump" small>トップページに戻る</v-btn>
   </v-container>
 </template>
 
@@ -31,6 +31,7 @@ import AccountInformation from '~/components/organisms/AccountInformation.vue';
 })
 export default class CustomerRegister extends Vue {
 
+
   @Ref()
   sample!: BasicInfomationForm;
 
@@ -43,10 +44,7 @@ export default class CustomerRegister extends Vue {
   onSave(): void {
     this.sample.test()
     this.sample1.test()
-    this.sample2.test()
-    
   }
-
   onJump(): void {
     let result = window.confirm('一覧ページへ移動します。よろしいですか？');
     if (result) {
