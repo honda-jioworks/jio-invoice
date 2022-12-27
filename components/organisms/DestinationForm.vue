@@ -1,5 +1,11 @@
 <template>
   <div>
+    <v-row
+      ><v-col cols="12"><Headers /></v-col
+    ></v-row>
+    <v-row
+      ><v-col cols="12"><Headers2 /></v-col
+    ></v-row>
     <v-row no-gutters>
       <v-col cols="12">
         <BlueLabel1 />
@@ -55,6 +61,8 @@ import NumberForm from '~/components/molecules/NumberForm.vue';
 import PersonnelForm from '~/components/molecules/PersonnelForm.vue';
 import ProjectForm from '~/components/molecules/ProjectForm.vue';
 import BlueLabel1 from '~/components/atoms/label/BlueLabel1.vue';
+import Headers from '~/components/molecules/Headers.vue';
+import Headers2 from '~/components/molecules/Headers2.vue';
 
 @Component({
   components: {
@@ -66,6 +74,8 @@ import BlueLabel1 from '~/components/atoms/label/BlueLabel1.vue';
     PersonnelForm,
     ProjectForm,
     BlueLabel1,
+    Headers,
+    Headers2,
   },
 })
 export default class DestinationForm extends Vue {}
