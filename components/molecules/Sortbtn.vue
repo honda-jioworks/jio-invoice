@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-sheet color="white" height="11" width="35">
+      <v-sheet color="white" height="15" width="35">
         <v-dialog v-model="dialog" max-width="290px">
           <template #activator="{ on, attrs }">
             <v-btn text v-bind="attrs" v-on="on">ソート</v-btn>
@@ -53,6 +53,6 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 @Component({})
 export default class Sortbtn extends Vue {
-  dialog: boolean = false
+  dialog() {}
 }
 </script>

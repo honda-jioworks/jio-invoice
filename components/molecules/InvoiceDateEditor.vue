@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { Vue, Component, PropSync } from 'nuxt-property-decorator'
-import InvoiceTextEditor from '~/components/atoms/input/InvoiceTextEditor.vue'
+import InvoiceTextEditor from '~/components/atoms/InvoiceTextEditor.vue'
 
 @Component({
   components: { editor: InvoiceTextEditor },
