@@ -77,8 +77,13 @@ export default {
           to: '/',
         },
         {
+          icon: 'mdi-view-list',
+          title: '得意先一覧画面',
+          to: '/CustomerView',
+        },
+        {
           icon: 'mdi-pencil',
-          title: 'Customer Register',
+          title: '得意先登録画面',
           to: '/customerRegister',
         },
       ],
