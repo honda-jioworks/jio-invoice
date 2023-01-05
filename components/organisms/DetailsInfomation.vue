@@ -119,6 +119,21 @@ export default class DetailsInfomation extends Vue {
   scanBonusPaymentDate(val: string): void {
     this.bonusPaymentDateVal = val;
   }
+
+  value2() {
+    alert(
+      this.consumptionTaxVal +
+        this.consumptionTaxRoundingVal +
+        this.mulUnitPriceQuantityRoundingVal +
+        this.unitPriceCulculationRoundingVal +
+        this.decimalalPartVal +
+        this.numberOfDigitsVal +
+        this.textVal +
+        this.taxRateVal +
+        this.salaryPaymentDateVal +
+        this.bonusPaymentDateVal
+    );
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -8,7 +8,7 @@
             <v-expansion-panel-content>
               <v-row justify="center">
                 <v-col cols="12">
-                  <v-card ref="form"><CompanyInformation ref="save" /></v-card
+                  <v-card><CompanyInformation ref="alert1" /></v-card
                 ></v-col>
               </v-row>
             </v-expansion-panel-content>
@@ -18,7 +18,7 @@
             <v-expansion-panel-content>
               <v-row justify="center">
                 <v-col cols="12"
-                  ><v-card ref="form"><DetailsInfomation /></v-card
+                  ><v-card><DetailsInfomation ref="alert2" /></v-card
                 ></v-col>
               </v-row>
             </v-expansion-panel-content>
@@ -28,7 +28,7 @@
             <v-expansion-panel-content>
               <v-row justify="center">
                 <v-col cols="12"
-                  ><v-card ref="form"><LogoSealinfo /></v-card
+                  ><v-card><LogoSealinfo ref="alert3" /></v-card
                 ></v-col>
               </v-row>
             </v-expansion-panel-content>
@@ -38,7 +38,7 @@
             <v-expansion-panel-content>
               <v-row justify="center">
                 <v-col cols="12"
-                  ><v-card ref="form"><RegistrationNumber /></v-card
+                  ><v-card><RegistrationNumber ref="alert4" /></v-card
                 ></v-col>
               </v-row>
             </v-expansion-panel-content>
@@ -63,7 +63,23 @@ export default class companyRegister extends Vue {
   text!: string;
 
   @Ref()
-  save!: CompanyInformation;
+  alert1!: CompanyInformation;
+
+  @Ref()
+  alert2!: DetailsInfomation;
+
+  @Ref()
+  alert3!: LogoSealinfo;
+
+  @Ref()
+  alert4!: RegistrationNumber;
+
+  onSave(): void {
+    this.alert1.value1();
+    this.alert2.value2();
+    this.alert3.value3();
+    this.alert4.value4();
+  }
 
   onJump(): void {
     let result = window.confirm('一覧ページに移動します。よろしいですか？');

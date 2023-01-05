@@ -32,35 +32,41 @@ import OfficeSeal from '~/components/molecules/OfficeSeal.vue';
 
 @Component({ components: { OfficeLogo, OfficeSeal, Selectfile } })
 export default class LogoSealinfo extends Vue {
-  private selectLogo: string = '';
-  private removeLogo: string = '';
-  private downloadLogo: string = '';
-  private selectSeal: string = '';
-  private removeSeal: string = '';
-  private downloadSeal: string = '';
+  private selectLogo: any = '';
+  private removeLogo: any = '';
+  private downloadLogo: any = '';
+  private selectSeal: any = '';
+  private removeSeal: any = '';
+  private downloadSeal: any = '';
 
-  logoSelect(val: string): void {
+  logoSelect(val: any): void {
     this.selectLogo = val;
   }
 
-  logoRemoveButton(val: string): void {
+  logoRemoveButton(val: any): void {
     this.removeLogo = val;
   }
 
-  logoDownlord(val: string): void {
+  logoDownlord(val: any): void {
     this.downloadLogo = val;
   }
 
-  sealSelect(val: string): void {
+  sealSelect(val: any): void {
     this.selectSeal = val;
   }
 
-  sealRemoveButton(val: string): void {
+  sealRemoveButton(val: any): void {
     this.removeSeal = val;
   }
 
-  sealDownlord(val: string): void {
+  sealDownlord(val: any): void {
     this.downloadSeal = val;
+  }
+
+  value3() {
+    alert(
+      this.selectLogo + this.removeLogo + this.downloadLogo + this.selectSeal + this.removeSeal + this.downloadSeal
+    );
   }
 }
 </script>

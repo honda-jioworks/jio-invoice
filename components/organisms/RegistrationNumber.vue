@@ -30,5 +30,8 @@ export default class RegistrationNumber extends Vue {
   getCheck(val: string): void {
     this.textVal = val;
   }
+  value4() {
+    alert(this.textVal + this.disabled);
+  }
 }
 </script>

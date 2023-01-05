@@ -162,6 +162,19 @@ export default class CompanyInfomation extends Vue {
   getFaxNumberThree(val: string): void {
     this.faxNumber3 = val;
   }
+  value1() {
+    alert(
+      this.officeName +
+        this.CEONameVal +
+        this.postalCode +
+        this.postalCode +
+        this.address1 +
+        this.address2 +
+        this.telNumber +
+        this.faxNumber +
+        this.officeUrl
+    );
+  }
 }
 </script>
 <style lang="scss" scoped>
