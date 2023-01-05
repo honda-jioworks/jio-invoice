@@ -2,15 +2,19 @@
   <v-container>
     <v-row>
       <span class="zipcode-mark"></span>
-      <v-col cols="7" sm="10" md="10" lg="10" xl="10">
-        <v-text-field :rules="nameRules" label="郵便番号" v-model="textPostalCode" @input="scanPostalCode"></v-text-field>
+      <v-col cols="10">
+        <v-text-field
+          :rules="nameRules"
+          label="郵便番号"
+          v-model="textPostalCode"
+          @input="scanPostalCode"
+        ></v-text-field>
       </v-col>
-      <v-col align-self="top" cols="5" sm="2" md="2" lg="2" xl="2">
-        <v-btn @click="sendAddress()" class="ml-n2">住所を表示</v-btn>
+      <v-col align-self="top" cols="2">
+        <v-btn @click="sendAddress()">住所を表示</v-btn>
       </v-col>
     </v-row>
   </v-container>
-
 </template>
 
 <script lang="ts">

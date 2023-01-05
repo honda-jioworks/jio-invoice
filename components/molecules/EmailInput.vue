@@ -1,15 +1,13 @@
 <template>
   <v-container>
-    <v-form>
-      <v-row>
-        <v-col cols="8" sm="9" md="9" lg="9" xl="9">
-          <v-text-field :rules="nameRules" label="担当者メール" v-model="email" @input="getEmail"></v-text-field>
-        </v-col>
-        <v-col cols="2" sm="2" md="2" lg="2" xl="2">
-          <v-btn height="45" width="75" class="ml-n12" min-width="30" @click="sendEmail"> 送る </v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
+    <v-row>
+      <v-col cols="9">
+        <v-text-field :rules="nameRules" label="担当者メール" v-model="email" @input="getEmail"></v-text-field>
+      </v-col>
+      <v-col cols="2">
+        <v-btn @click="sendEmail"> 送る </v-btn>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

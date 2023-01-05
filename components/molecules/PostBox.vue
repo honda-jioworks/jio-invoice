@@ -1,12 +1,11 @@
 <template>
-
-  <v-form>
+  <v-container>
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12">
         <v-text-field :rules="nameRules" v-model="postBox" label="役職" @input="getPostbox"></v-text-field>
       </v-col>
     </v-row>
-  </v-form>
+  </v-container>
 </template>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
   <v-container class="color">
     <!--1行目-->
     <v-row>
-      <v-col cols="12" sm="4" md="4" lg="4" xl="4">
+      <v-col cols="6">
         <!--郵便番号-->
         <PostalCode
           @scan-postal-code="scanPostalCode"
@@ -15,7 +15,7 @@
     </v-row>
     <!--2行目-->
     <v-row>
-      <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+      <v-col cols="6">
         <!--住所-->
         <AddressInput class="mt-n10" :addressVal="address" @change-address="changeAddress" />
         <!--郵便番号と住所の行間詰め-->
@@ -23,39 +23,38 @@
       <v-spacer />
     </v-row>
     <!--3行目-->
-    <v-row>
-      <v-col cols="6" sm="6" md="6" lg="3" xl="3">
+    <v-row class="mt-n5">
+      <v-col cols="4">
         <!--役職-->
-        <PostBox class="mt-n5" @get-postbox="getPostbox" />
+        <PostBox @get-postbox="getPostbox" />
       </v-col>
-      <v-col cols="6" sm="6" md="6" lg="3" xl="3">
+      <v-col cols="4">
         <!--部署-->
-        <DepartmentInput class="mt-n5" @get-depertment="getDepertment" />
+        <DepartmentInput @get-depertment="getDepertment" />
       </v-col>
-      <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+      <v-col cols="4">
         <!--担当者名-->
-        <HonorificBox class="mt-n5" @get-manager="getManager" @get-honorific="getHonorific" />
+        <HonorificBox @get-manager="getManager" @get-honorific="getHonorific" />
       </v-col>
-      <v-spacer />
     </v-row>
     <!--4行目-->
     <v-row>
-      <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+      <v-col cols="4">
         <!--担当者携帯-->
-        <PhoneNumber @get-number="getNumber" class="mt-n5" />
+        <PhoneNumber class="mt-n5" @get-number="getNumber" />
       </v-col>
-      <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+      <v-col cols="5">
         <!--担当者メール-->
-        <EmailInput class="mt-n5" @get-email="getEmail" v-bind:getClick="email" @sendAddress="getAddress" />
+        <EmailInput class="mt-n5" @get-email="getEmail" :getClick="email" @sendAddress="getAddress" />
       </v-col>
     </v-row>
     <!--5行目-->
-    <v-row>
-      <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+    <v-row class="mt-n5">
+      <v-col cols="4">
         <!--TEL-->
         <TelNumberInput class="mt-n5" @get-telnumber="getTelnumber" />
       </v-col>
-      <v-col cols="12" sm="6" md="6" lg="6" xl="6">
+      <v-col cols="4">
         <!--FAX-->
         <FaxNumberInput class="mt-n5" @get-faxnumber="getFaxnumber" />
       </v-col>
@@ -155,8 +154,21 @@ export default class ContactAddressForm extends Vue {
   getFaxnumber(val: string): void {
     this.faxnumber = val;
   }
-  test() {
-    alert(this.address+this.postalCodeVal+this.postalCode+this.depertment+this.postbox+this.manager+this.honorific+this.number+this.email+this.addressValue+this.telnumber+this.faxnumber);
+  test2() {
+    alert(
+      this.address +
+        this.postalCodeVal +
+        this.postalCode +
+        this.depertment +
+        this.postbox +
+        this.manager +
+        this.honorific +
+        this.number +
+        this.email +
+        this.addressValue +
+        this.telnumber +
+        this.faxnumber
+    );
   }
 }
 </script>

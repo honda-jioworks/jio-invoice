@@ -2,20 +2,28 @@
   <v-container>
     <v-row>
       <v-col class="d-flex" cols="8">
-        <v-select :items="cyclemonth" label="回収サイクル" :rules="boxRules"></v-select>
+        <v-select
+          :items="cyclemonth"
+          label="回収サイクル"
+          :rules="boxRules"
+          @change="sendCyclemonth"
+          v-model="monthVal"
+        ></v-select>
       </v-col>
       <v-col class="d-flex" cols="4">
-        <v-select :items="cycledate" :rules="boxRules" ></v-select>
+        <v-select :items="cycledate" :rules="boxRules" @change="sendCycledate" v-model="dateVal"></v-select>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Emit } from 'nuxt-property-decorator';
 
 @Component({})
 export default class RecoveryCycle extends Vue {
+  monthVal: string = '';
+  dateVal: string = '';
   cyclemonth: Array<string> = ['当月', '翌月', '翌々月', '3ヶ月先', '4ヶ月先', '5ヶ月先', '6ヶ月先'];
   cycledate: Array<string> = [
     '1日',
@@ -49,5 +57,14 @@ export default class RecoveryCycle extends Vue {
     '末日',
   ];
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
+
+  @Emit()
+  sendCyclemonth() {
+    return this.monthVal;
+  }
+  @Emit()
+  sendCycledate() {
+    return this.dateVal;
+  }
 }
 </script>

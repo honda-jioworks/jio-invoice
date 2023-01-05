@@ -31,7 +31,7 @@ export default class TransactionSection extends Vue {
 
   @Emit()
   keepId(sectionId: any): any {
-    return sectionId;
+    return this.selected;
   }
 
   print(v: any): any {

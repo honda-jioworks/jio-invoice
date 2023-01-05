@@ -1,11 +1,11 @@
 <template>
-  <v-form>
+  <v-container>
     <v-row>
-      <v-col cols="12" md="5">
+      <v-col cols="12">
         <v-text-field :rules="nameRules" v-model="number" label="担当者携帯" @input="getNumber"></v-text-field>
       </v-col>
     </v-row>
-  </v-form>
+  </v-container>
 </template>
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator';

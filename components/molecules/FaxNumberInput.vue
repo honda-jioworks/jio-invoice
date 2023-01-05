@@ -1,11 +1,11 @@
 <template>
-  <v-form>
+  <v-container>
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col cols="12">
         <v-text-field :rules="nameRules" v-model="faxnumber" label="FAX" @input="getFaxnumber"></v-text-field>
       </v-col>
     </v-row>
-  </v-form>
+  </v-container>
 </template>
 
 <script lang="ts">

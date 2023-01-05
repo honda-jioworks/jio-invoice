@@ -1,11 +1,11 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" sm="12" md="12" lg="12" xl="12">
-        <v-text-field :rules="nameRules" label="住所：" v-model="addressVal" @input="changeAddress"></v-text-field>
+      <v-col cols="10">
+        <v-text-field :rules="nameRules" label="住所" v-model="addressVal" @input="changeAddress"></v-text-field>
       </v-col>
-      <v-col align-self="top" cols="2" sm="2" md="2" lg="2" xl="2">
-        <v-btn large min-width="30" @click="showMaptest"> 地図を表示 </v-btn>
+      <v-col align-self="top" cols="2">
+        <v-btn @click="showMaptest"> 地図を表示 </v-btn>
       </v-col>
     </v-row>
   </v-container>

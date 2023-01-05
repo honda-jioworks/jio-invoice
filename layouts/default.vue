@@ -61,13 +61,18 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcom',
+          title: 'Welcome',
           to: '/index',
         },
         {
           icon: 'mdi-pencil',
-          title: '得意先情報登録画面',
+          title: 'Customer Register',
           to: '/customerRegister',
+        },
+        {
+          icon: 'mdi-pencil',
+          title: '請求書一覧画面',
+          to: '/DisplayInvoiceList',
         },
       ],
       miniVariant: false,

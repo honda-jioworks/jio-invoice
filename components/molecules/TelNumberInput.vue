@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="5">
+      <v-col cols="12">
         <v-text-field :rules="nameRules" v-model="telnumber" label="TEL" @input="getTelnumber"></v-text-field>
       </v-col>
     </v-row>

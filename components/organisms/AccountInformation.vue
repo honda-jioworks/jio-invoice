@@ -125,6 +125,21 @@ export default class AccountInformation extends Vue {
     //入力候補に表示しない
     this.candidateVal = val;
   }
+
+  test4() {
+    alert(
+      this.financialnameVal +
+        this.branchnameVal +
+        this.numberVal +
+        this.accountnameVal +
+        this.selectVal +
+        this.seachoneVal +
+        this.searchtwoVal +
+        this.memoVal +
+        this.defaultVal +
+        this.candidateVal
+    );
+  }
 }
 </script>
 <style lang="scss" scoped>
