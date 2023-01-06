@@ -1,9 +1,11 @@
 <template>
   <v-row>
-    <v-col cols="5" class="a2">
-      <v-text-field v-model="addressVal" outlined @input="changeAddress" label="＜住所＞"></v-text-field
-    ></v-col>
-    <v-btn class="b2" @click="showMaptest">地図を表示</v-btn>
+    <v-col>
+      <v-text-field v-model="addressVal" outlined @input="changeAddress" label="＜住所＞"></v-text-field>
+    </v-col>
+    <v-col>
+      <v-text-field v-model="addressVal" outlined @input="changeAddress" label="＜住所＞"></v-text-field>
+    </v-col>
   </v-row>
 </template>
 
@@ -20,16 +22,12 @@ export default class AddressForm extends Vue {
   //organismsから住所をPropで受け取る
   @Prop({ type: String })
   addressVal!: string;
-
-  @Emit()
-  showMaptest() {
-    window.open('https://www.google.com/maps/search/〒' + this.addressVal + '/', 'subwin', 'width=750,height=750');
-  }
 }
 </script>
 <style lang="scss" scoped>
-.a2 {
-  margin-left: 2%;
+.v-text-field {
+  margin-left: 4%;
+  margin-right: 16%;
 }
 .b2 {
   margin-top: 2%;

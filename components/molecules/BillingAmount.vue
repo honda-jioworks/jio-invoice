@@ -1,8 +1,8 @@
 <template>
   <v-row
-    ><v-col cols="2"><BilingAmountt /></v-col>
+    ><v-col cols="5"><BilingAmountt /></v-col>
     <v-spacer />
-    <v-col cols="3"><TargetPeriod /></v-col>
+    <v-col cols="5"><TargetPeriod /></v-col>
   </v-row>
 </template>
 <script lang="ts">

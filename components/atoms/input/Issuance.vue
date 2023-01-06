@@ -1,7 +1,9 @@
 <template>
   <v-row no-gutter>
-    <lable class="w1">発行:</lable>
-    <v-text-field outlined></v-text-field
+    <v-col cols="12">
+      <v-select class="ww1" dense outlined clearable :items="items" :rules="rules">
+        <template v-slot:label>発行<span style="color: red"> *</span></template></v-select
+      ></v-col
     ><!--v-select等に変更-->
   </v-row>
 </template>
@@ -9,16 +11,14 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
-export default class Issuance extends Vue {}
+export default class Issuance extends Vue {
+  rules: Array<object> = [(v: any) => !!v || '選択してください'];
+  items: Array<string> = ['発行', '非発行'];
+}
 </script>
 <style lang="scss" scoped>
-.w1 {
-  font-size: 95%;
-  margin-right: 2%;
-  margin-top: 5%;
-  margin-left: 2%;
-}
-.v-text-field {
+.ww1 {
   margin-right: 10%;
+  margin-left: 2%;
 }
 </style>

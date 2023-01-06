@@ -10,8 +10,7 @@ import SelectEditer from '@/components/atoms/SelectEditer.vue';
   components: { editor: SelectEditer },
 })
 export default class DivisionEditer extends Vue {
-
-  @PropSync('division_val', {type: String})
+  @PropSync('division_val', { type: String })
   division_in!: string;
 
   @Prop()
@@ -19,8 +18,6 @@ export default class DivisionEditer extends Vue {
 
   label: string = '区分';
 
-  rule: Array<object> = [
-    (v: any) => !!v || '区分を選択してください。',
-  ];
+  rule: Array<object> = [(v: any) => !!v || '区分を選択してください。'];
 }
 </script>

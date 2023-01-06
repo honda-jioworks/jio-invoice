@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col> <lavel class="sin">[複写中]</lavel></v-col>
+    <v-col class="sin"> <lavel>[複写中]</lavel></v-col>
   </v-row>
 </template>
 <script lang="ts">
@@ -12,5 +12,8 @@ export default class Copys extends Vue {}
 <style lang="scss" scoped>
 .sin {
   color: red;
+  font-size: 90%;
+  margin-top: 5%;
+  margin-left: 25%;
 }
 </style>

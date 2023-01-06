@@ -1,8 +1,9 @@
 <template>
   <v-row>
-    <v-col class="e2">
+    <v-col cols="6">
       <v-text-field v-model="corp" outlined @input="scanCorp" label="会社名"></v-text-field>
     </v-col>
+    <v-col cols="6"></v-col>
   </v-row>
 </template>
 
@@ -20,7 +21,7 @@ export default class CorporationName extends Vue {
 </script>
 <style lang="scss" scoped>
 .v-text-field {
-  margin-left: 2%;
-  margin-right: 598px;
+  margin-left: 4%;
+  margin-right: 13%;
 }
 </style>

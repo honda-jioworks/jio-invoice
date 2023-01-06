@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-row no-gutters
+      ><v-col><headers2 /></v-col
+    ></v-row>
     <v-row no-gutters>
       <v-col cols="12"> <CalendarForm @scan-date="scanDate" @get-new-number="getNewNumber" /></v-col
     ></v-row>
@@ -20,6 +23,7 @@ import AccountInformation from '~/components/molecules/AccountInformation.vue';
 import PrivateCompanyInformation from '~/components/molecules/PrivateCompanyInformation.vue';
 import PicName from '~/components/molecules/PicName.vue';
 import CalendarForm from '~/components/molecules/CalendarForm.vue';
+import Headers2 from '~/components/molecules/Headers2.vue';
 
 @Component({
   components: {
@@ -27,6 +31,7 @@ import CalendarForm from '~/components/molecules/CalendarForm.vue';
     PrivateCompanyInformation,
     PicName,
     CalendarForm,
+    Headers2,
   },
 })
 export default class PicInformationForm extends Vue {

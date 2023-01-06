@@ -15,7 +15,7 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 import SerialNumber from '@/components/atoms/input/SerialNumber.vue';
 
 @Component({
-  components: {},
+  components: { SerialNumber },
 })
 export default class CalendarForm extends Vue {
   date: string = '';
@@ -35,12 +35,12 @@ export default class CalendarForm extends Vue {
   margin-left: 2%;
 }
 .w1 {
-  margin-top: 1%;
+  margin-top: 1.5%;
   background-color: blue;
   color: white;
 }
 .x1 {
-  margin-top: 1%;
+  margin-top: 1.5%;
   background-color: blue;
   color: white;
   margin-left: 130px;

@@ -1,7 +1,7 @@
 <template>
-  <v-row class="dd1">
-    <v-col>
-      <v-text-field v-model="projectName" @input="scanProject" label="案件名"></v-text-field>
+  <v-row>
+    <v-col cols="6">
+      <v-text-field v-model="projectName" outlined @input="scanProject" label="案件名"></v-text-field>
     </v-col>
   </v-row>
 </template>
@@ -19,8 +19,8 @@ export default class ProjectForm extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.dd1 {
-  margin-left: 2%;
-  margin-right: 598px;
+.v-text-field {
+  margin-left: 4%;
+  margin-right: 12%;
 }
 </style>

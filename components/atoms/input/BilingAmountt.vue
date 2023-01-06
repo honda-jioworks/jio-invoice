@@ -2,7 +2,10 @@
   <div>
     <v-row>
       <v-col>
-        <v-subheader>　　請求額　　　<v-divider color="white" vertical></v-divider>　　　消費税等　</v-subheader>
+        <v-subheader>
+          　 請求額 　 　 　 　 　<v-divider class="q1" color="white" vertical></v-divider>　 　 　 　
+          　消費税等　</v-subheader
+        >
         <v-row no-gutters>
           <v-col>
             <v-text-field background-color="#FFFDE7" outlined />
@@ -21,5 +24,8 @@
 }
 .v-divider {
   color: white;
+}
+.q1 {
+  margin-left: 2%;
 }
 </style>

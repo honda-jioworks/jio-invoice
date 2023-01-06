@@ -25,13 +25,10 @@ export default class PicName extends Vue {
   font-size: 71%;
   background-color: blue;
   color: white;
-  margin-top: 1%;
+  margin-top: 1.5%;
   margin-left: 1%;
 }
 .lll1 {
   margin-left: 1%;
-}
-.cdw {
-  margin-top: 1%;
 }
 </style>

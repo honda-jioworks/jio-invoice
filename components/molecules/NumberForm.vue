@@ -1,10 +1,8 @@
 <template>
   <v-row>
-    <v-col>
-      <v-col class="ddd1"><v-text-field v-model="tellNumber" @input="scanTel" label="TEL"></v-text-field></v-col>
-      <v-col class="eee1"><v-text-field v-model="faxNumber" @input="scanFax" label="FAX"></v-text-field></v-col>
-      <v-col cols="4"></v-col>
-    </v-col>
+    <v-col class="ddd1"><v-text-field v-model="tellNumber" outlined @input="scanTel" label="TEL"></v-text-field></v-col>
+    <v-col class="eee1"><v-text-field v-model="faxNumber" outlined @input="scanFax" label="FAX"></v-text-field></v-col>
+    <v-col cols="4"></v-col>
   </v-row>
 </template>
 

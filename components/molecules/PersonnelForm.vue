@@ -6,9 +6,10 @@
     <v-col class="bb1">
       <v-text-field v-model="staffName" outlined @input="scanStaff" label="担当者"></v-text-field>
     </v-col>
-    <v-col cols="4" class="cc1">
+    <v-col cols="2" class="cc1">
       <v-select v-model="honorific" outlined @input="scanHonorific" :items="items" label="敬称"></v-select>
     </v-col>
+    <v-col cols="2"></v-col>
   </v-row>
 </template>
 

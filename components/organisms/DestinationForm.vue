@@ -1,17 +1,17 @@
 <template>
   <div>
-    <v-row
+    <v-row no-gutters
       ><v-col cols="12"><Headers /></v-col
     ></v-row>
-    <v-row
-      ><v-col cols="12"><Headers2 /></v-col
+    <v-row no-gutters
+      ><v-col cols="12"><Headers3 /></v-col
     ></v-row>
     <v-row no-gutters>
       <v-col cols="12">
         <BlueLabel1 />
       </v-col>
     </v-row>
-    <v-row no-gutters>
+    <v-row>
       <v-col cols="12"
         ><AddressSearch
           @scan-postal="scanPostal"
@@ -22,6 +22,7 @@
     <v-row no-gutters>
       <v-col cols="12"> <AddressForm @change-address="changeAddress" :addressVal="address" /></v-col
     ></v-row>
+
     <v-row no-gutters>
       <v-col cols="12"><CorporationName @scan-corp="scanCorp" /></v-col
     ></v-row>
@@ -52,7 +53,8 @@ import PersonnelForm from '~/components/molecules/PersonnelForm.vue';
 import ProjectForm from '~/components/molecules/ProjectForm.vue';
 import BlueLabel1 from '~/components/atoms/label/BlueLabel1.vue';
 import Headers from '~/components/molecules/Headers.vue';
-import Headers2 from '~/components/molecules/Headers2.vue';
+import Headers3 from '~/components/molecules/Headers3.vue';
+import AddressForm2 from '~/components/molecules/AddressForm2.vue';
 @Component({
   components: {
     AddressForm,
@@ -64,7 +66,8 @@ import Headers2 from '~/components/molecules/Headers2.vue';
     ProjectForm,
     BlueLabel1,
     Headers,
-    Headers2,
+    Headers3,
+    AddressForm2,
   },
 })
 export default class DestinationForm extends Vue {

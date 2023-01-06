@@ -1,10 +1,10 @@
 <template>
   <v-row>
     <v-col class="c2">
-      <v-text-field v-model="departmentName" @input="scanDepartment" label="部署"></v-text-field>
+      <v-text-field v-model="departmentName" outlined @input="scanDepartment" label="部署"></v-text-field>
     </v-col>
     <v-col class="d2">
-      <v-text-field v-model="divisionName" @input="scanDivision" label="課"></v-text-field>
+      <v-text-field v-model="divisionName" outlined @input="scanDivision" label="課"></v-text-field>
     </v-col>
     <v-col cols="4" class="e2"></v-col>
   </v-row>
