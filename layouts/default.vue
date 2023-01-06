@@ -86,6 +86,11 @@ export default {
           title: '請求書一覧画面',
           to: '/DisplayInvoiceList',
         },
+        {
+          icon: 'mdi-pencil',
+          title: '見積書一覧画面',
+          to: '/DisplayQuotationList',
+        },
       ],
       miniVariant: false,
       right: true,

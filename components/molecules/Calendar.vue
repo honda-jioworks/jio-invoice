@@ -35,5 +35,8 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 @Component({})
-export default class CalendarForm extends Vue {}
+export default class CalendarForm extends Vue {
+  modal: any
+  date: any
+}
 </script>
