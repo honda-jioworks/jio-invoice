@@ -90,7 +90,7 @@ export default class InvoiceIssueTable extends Vue {
       division_val: '通常',
       productcode_val: '',
       productname_val: '',
-      quanitity_val: 1,
+      quanitity_val: '',
       unit_val: '',
       unitprice_val: '￥',
       amount_val: '￥',
@@ -123,6 +123,12 @@ export default class InvoiceIssueTable extends Vue {
     alert(JSON.stringify(this.editedCostomer));
   }
 }
+
+var items = [
+  { name: 'レモン', price: 100, quantity: 2 },
+  { name: 'りんご', price: 200, quantity: 1 },
+  { name: 'メロン', price: 800, quantity: 1 },
+];
 </script>
 <style lang="scss" scoped>
 .groundwork {

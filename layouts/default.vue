@@ -75,6 +75,11 @@ export default {
           title: '請求書発行画面',
           to: '/InvoiceIssuePages',
         },
+        {
+          icon: 'mdi-pencil',
+          title: '見積書発行画面',
+          to: '/QuotationIssuePages',
+        },
       ],
       miniVariant: false,
       right: true,

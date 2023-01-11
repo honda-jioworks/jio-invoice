@@ -13,13 +13,13 @@
       <v-col cols="12"> <PicName @scan-person="scanPerson" /></v-col
     ></v-row>
     <v-row no-gutters>
-      <v-col cols="12"> <AccountInformation @scan-one="scanOne" @scan-two="scanTwo" @scan-three="scanThree" /></v-col
+      <v-col cols="12"><QuotationInput /></v-col
     ></v-row>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import AccountInformation from '~/components/molecules/AccountInformation.vue';
+import QuotationInput from '~/components/molecules/QuotationInput.vue';
 import PrivateCompanyInformation from '~/components/molecules/PrivateCompanyInformation.vue';
 import PicName from '~/components/molecules/PicName.vue';
 import CalendarForm from '~/components/molecules/CalendarForm.vue';
@@ -27,7 +27,7 @@ import Headers2 from '~/components/molecules/Headers2.vue';
 
 @Component({
   components: {
-    AccountInformation,
+    QuotationInput,
     PrivateCompanyInformation,
     PicName,
     CalendarForm,
