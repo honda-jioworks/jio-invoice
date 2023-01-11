@@ -9,6 +9,7 @@
         :type="type"
         counter
         @click:outside="closeDialog"
+        @keydown="something = $event.target.value"
       ></v-text-field>
     </template>
   </v-edit-dialog>

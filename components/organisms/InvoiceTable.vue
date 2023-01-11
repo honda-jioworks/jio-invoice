@@ -2,7 +2,7 @@
   <v-data-table
     :headers="headers"
     :items="desserts"
-    :items-per-page="5"
+    :items-per-page="10"
     class="elevation-1"
     hide-default-footer
   >
@@ -44,7 +44,15 @@
       <PriceEditor :price.sync="props.item.price"></PriceEditor>
     </template>
     <template #[`item.actions`]="{ item }">
-      <v-btn color="primary" @click="editCostomer(item)"> 更新 </v-btn>
+      <v-btn color="primary" @click="editInvoice(item)"> 更新 </v-btn>
+    </template>
+    <template #[`item.delete`]="{ item }">
+      <v-btn color="error" @click="deleteInvoice(item)"> 削除 </v-btn>
+    </template>
+    <template #[`item.copy`]="{ item }">
+      <v-btn color="green" class="white--text" @click="copyInvoice(item)">
+        複写
+      </v-btn>
     </template>
   </v-data-table>
 </template>
@@ -79,11 +87,13 @@ export default class InvoiceTable extends Vue {
     { text: '発行', value: 'issued_check' },
     { text: '金額', value: 'price' },
     { text: '更新', value: 'actions', sortable: false },
+    { text: '削除', value: 'delete', sortable: false },
+    { text: '複写', value: 'copy', sortable: false },
   ]
 
   desserts = [
     {
-      invoice_id: 'cstmer001',
+      invoice_id: 'invoice001',
       invoice_date: '2022/12/26',
       invoice_num: 'JS20-000666',
       cstm_name: 'jioworks',
@@ -91,11 +101,38 @@ export default class InvoiceTable extends Vue {
       issued_check: '済',
       price: '100,000',
     },
+    {
+      invoice_id: 'invoice002',
+      invoice_date: '2023/1/11',
+      invoice_num: 'JS20-000777',
+      cstm_name: 'zeihen',
+      invoice_title: '2023年1月度　請求書管理アプリ案件',
+      issued_check: '済',
+      price: '200,000',
+    },
+    {
+      invoice_id: 'invoice003',
+      invoice_date: '2023/1/1',
+      invoice_num: 'JS20-000888',
+      cstm_name: '株式会社A',
+      invoice_title: '2023年1月度　請求書管理アプリ案件',
+      issued_check: '済',
+      price: '300,000',
+    },
+    {
+      invoice_id: 'invoice004',
+      invoice_date: '2023/1/1',
+      invoice_num: 'JS20-000888',
+      cstm_name: '株式会社B',
+      invoice_title: '2023年1月度　請求書管理アプリ案件',
+      issued_check: '済',
+      price: '300,000',
+    },
   ]
 
   editedIndex = -1
 
-  editedCostomer = {
+  editedInvoice = {
     invoice_id: '',
     invoice_date: '',
     invoice_num: '',
@@ -110,13 +147,31 @@ export default class InvoiceTable extends Vue {
   }
 
   @Emit()
-  editCostomer(costmer: any) {
-    this.editedIndex = this.desserts.indexOf(costmer)
-    this.editedCostomer = Object.assign({}, costmer)
-    alert(JSON.stringify(this.editedCostomer))
+  editInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice)
+    this.editedInvoice = Object.assign({}, invoice)
+    alert(JSON.stringify(this.editedInvoice))
+    // 更新
+  }
+
+  deleteInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice)
+    this.editedInvoice = Object.assign({}, invoice)
+    this.desserts.splice(this.editedIndex, 1)
+    alert(JSON.stringify(invoice.invoice_id))
+    // 削除
+  }
+
+  copyInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice)
+    this.editedInvoice = Object.assign({}, invoice)
+    this.desserts.push(this.editedInvoice)
+    alert(JSON.stringify(invoice.invoice_id))
+    // 複写
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .groundwork {
   background-color: rgb(91, 91, 243);

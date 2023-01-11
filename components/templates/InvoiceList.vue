@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderList />
     <MonthCalender />
     <InvoiceTable />
   </div>
@@ -8,7 +7,6 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import Headerorg from '~/components/organisms/Headerorg.vue'
 import InvoiceTable from '@/components/organisms/InvoiceTable.vue'
 import MonthCalender from '@/components/organisms/MonthCalender.vue'
 import HeaderList from '@/components/organisms/HeaderList.vue'
@@ -17,7 +15,6 @@ import HeaderList from '@/components/organisms/HeaderList.vue'
   components: {
     InvoiceTable,
     MonthCalender,
-    Headerorg,
     HeaderList,
   },
 })
