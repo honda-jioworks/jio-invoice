@@ -23,7 +23,7 @@
           <v-date-picker v-model="date" locale="ja" type="month" scrollable>
             <v-spacer></v-spacer>
             <v-btn text @click="modal = false"> Cancel </v-btn>
-            <v-btn text @click="$refs.dialog.save(date)"> OK </v-btn>
+            <v-btn text @click="save(date)"> OK </v-btn>
           </v-date-picker>
         </v-dialog>
       </v-sheet>
@@ -32,15 +32,20 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator'
+import { Vue, Component, Emit } from 'nuxt-property-decorator'
 @Component({})
-export default class customerRegister extends Vue {
-  public date: string = new Date().toISOString().substr(0, 7)
+export default class MonthCalender extends Vue {
+  public date: string = new Date().toISOString().substring(0, 7)
   public menu: boolean = false
   public modal: boolean = false
 
-  save() {
-    alert()
+  get refs():any {
+      return this.$refs;
+  }
+
+  @Emit()
+  save(date: string) {
+    return this.refs.dialog.save(date);
   }
 }
 </script>
