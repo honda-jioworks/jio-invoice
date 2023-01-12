@@ -1,12 +1,12 @@
 <template #click>
-  <v-btn v-model="fix_btn" @click="sendFix">修正</v-btn>
+  <v-icon v-model="fix_btn" @click="sendFix">mdi-lead-pencil</v-icon>
 </template>
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator'
 @Component({
   components: {},
 })
-export default class FixButton extends Vue {
+export default class FixIcon extends Vue {
   public fix_btn: string = ''
   @Emit()
   sendFix() {

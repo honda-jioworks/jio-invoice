@@ -1,12 +1,12 @@
 <template #click>
-  <v-btn v-model="dlt_btn" @click="sendDelete">削除</v-btn>
+  <v-icon v-model="dlt_btn" @click="sendDelete">mdi-delete</v-icon>
 </template>
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator'
 @Component({
   components: {},
 })
-export default class DeleteButton extends Vue {
+export default class DeleteIcon extends Vue {
   public dlt_btn: string = ''
   @Emit()
   sendDelete() {

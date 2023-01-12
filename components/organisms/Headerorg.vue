@@ -18,9 +18,9 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import NewButton from '~/components/molecules/NewButton.vue'
-import FixButton from '~/components/molecules/FixButton.vue'
+import FixIcon from '~/components/molecules/FixIcon.vue'
 import Sortbtn from '~/components/molecules/Sortbtn.vue'
-import CopyItmen from '~/components/molecules/CopyButton.vue'
+import CopyIcon from '~/components/molecules/CopyIcon.vue'
 import JumpCalendar from '~/components/molecules/Calendar.vue'
 import SerectTime from '~/components/molecules/SerectTime.vue'
 import SearchPage from '~/components/molecules/SearchPage.vue'
@@ -28,11 +28,10 @@ import SearchPage from '~/components/molecules/SearchPage.vue'
 @Component({
   components: {
     NewButton,
-    FixButton,
+    FixIcon,
     Sortbtn,
-    CopyItmen,
+    CopyIcon,
     JumpCalendar,
-
     SerectTime,
     SearchPage,
   },
