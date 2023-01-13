@@ -22,6 +22,7 @@
     </template>
     <template #[`item.quotation_num`]="props">
       <QuotationNumberEditor
+        id="NumberEdit"
         :quotation_num.sync="props.item.quotation_num"
       ></QuotationNumberEditor>
     </template>

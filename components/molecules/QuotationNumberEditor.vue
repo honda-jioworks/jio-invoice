@@ -1,5 +1,5 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="quotation_num_in"></editor>
+  <div @click="send">JS20-000666</div>
 </template>
 
 <script lang="ts">
@@ -16,5 +16,8 @@ export default class QuotationNumberEditor extends Vue {
   label: string = '見積書No.'
 
   rule: Array<object> = [(v: any) => !!v || '見積書番号を入力して下さい']
+  send() {
+    location.href = '/DisplayQutationIssuelist'
+  }
 }
 </script>

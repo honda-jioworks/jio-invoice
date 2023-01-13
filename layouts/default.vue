@@ -88,6 +88,11 @@ export default {
         },
         {
           icon: 'mdi-pencil',
+          title: '見積書発行画面',
+          to: '/DisplayQutationIssuelist',
+        },
+        {
+          icon: 'mdi-pencil',
           title: '見積書一覧画面',
           to: '/DisplayQuotationList',
         },
