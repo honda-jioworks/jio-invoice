@@ -1,5 +1,5 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="invoice_num_in"></editor>
+  <div @click="send">JS20-000666</div>
 </template>
 
 <script lang="ts">
@@ -16,5 +16,9 @@ export default class InvoiceNumberEditor extends Vue {
   label: string = '請求書No.'
 
   rule: Array<object> = [(v: any) => !!v || '請求書番号を入力してください。']
+
+  send() {
+    location.href = '/DisplayInvoiceIssue'
+  }
 }
 </script>

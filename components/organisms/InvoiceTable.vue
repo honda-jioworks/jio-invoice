@@ -44,15 +44,19 @@
       <PriceEditor :price.sync="props.item.price"></PriceEditor>
     </template>
     <template #[`item.actions`]="{ item }">
-      <v-btn color="primary" @click="editInvoice(item)"> 更新 </v-btn>
+      <v-icon color="primary" @click="editInvoice(item)">
+        mdi-pencil-outline
+      </v-icon>
     </template>
     <template #[`item.delete`]="{ item }">
-      <v-btn color="error" @click="deleteInvoice(item)"> 削除 </v-btn>
+      <v-icon color="error" @click="deleteInvoice(item)">
+        mdi-delete-outline</v-icon
+      >
     </template>
     <template #[`item.copy`]="{ item }">
-      <v-btn color="green" class="white--text" @click="copyInvoice(item)">
-        複写
-      </v-btn>
+      <v-icon color="green" @click="copyInvoice(item)"
+        >mdi-content-copy
+      </v-icon>
     </template>
   </v-data-table>
 </template>
