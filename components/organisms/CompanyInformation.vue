@@ -1,8 +1,13 @@
 <template>
-  <v-container fluid>
+  <v-container :headers="headers" :items="desserts">
     <v-sheet>
       <v-row dense>
-        <v-col cols="5" class="Name"><OfficeName :officeName="officeName" /></v-col>
+        <template>
+          <v-col cols="5"
+            ><OfficeName v-for="item in desserts" :key="item.company_id" :officename_val.sync="item.officeName">
+            </OfficeName
+          ></v-col>
+        </template>
         <v-col cols="5"><CEOName :CEOName="CEONameVal" /></v-col>
         <v-spacer />
       </v-row>
@@ -86,7 +91,12 @@ import FileName from '@/components/molecules/FileName.vue';
 })
 export default class CompanyInfomation extends Vue {
   // データベースから持ってくるデータ
-  public officeName: string = '株式会社jioworks';
+  desserts = [
+    {
+      company_id: 'company001',
+      officeName: '株式会社jioworks',
+    },
+  ];
   public CEONameVal: string = '横田　龍介';
   public postalCode: string = '1600022';
   public address1: string = '東京都新宿区新宿5-11-1';
@@ -94,6 +104,12 @@ export default class CompanyInfomation extends Vue {
   public telNumber: string = '03-6709-8269';
   public faxNumber: string = '03-6709-8279';
   public officeUrl: string = 'https://jioworks.com';
+
+  editedRegister = {
+    company_id: '',
+    officeName: '',
+  };
+
   // 入力された郵便番号をもとに生成された住所情報
   public address: string = this.address1 + this.address2;
   // 郵便番号の前3桁を取得
@@ -161,19 +177,6 @@ export default class CompanyInfomation extends Vue {
   // 入力されたFAX番号の後ろをfaxNumber3に代入する
   getFaxNumberThree(val: string): void {
     this.faxNumber3 = val;
-  }
-  value1() {
-    alert(
-      this.officeName +
-        this.CEONameVal +
-        this.postalCode +
-        this.postalCode +
-        this.address1 +
-        this.address2 +
-        this.telNumber +
-        this.faxNumber +
-        this.officeUrl
-    );
   }
 }
 </script>
