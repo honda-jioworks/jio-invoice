@@ -1,18 +1,23 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="amount"><input v-model.number="totalPrice" type="number" /></editor>
+  <!-- <editor :label="label" :rule="rule" :value.sync="amount"><input v-model.number="totalPrice" type="number" /></editor> -->
+  <div>&yen;{{ toLocale }}</div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, PropSync, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 import TextEditer from '@/components/atoms/TextEditer.vue';
 
 @Component({
   components: { editor: TextEditer },
 })
 export default class AmountEditer extends Vue {
-  @PropSync('amount_val', { type: String })
-  amount!: string;
+  @Prop({ type: Number, default: 0 })
+  amount!: number;
   private totalPrice: number = 2;
+
+  get toLocale() {
+    return this.amount.toLocaleString();
+  }
 
   label: string = '金額';
 

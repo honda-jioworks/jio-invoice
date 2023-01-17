@@ -26,7 +26,7 @@
       <UnitPriceEditer :unitprice_val.sync="props.item.unitprice_val" />
     </template>
     <template v-slot:[`item.amount_val`]="props">
-      <AmountEditer :amount_val.sync="props.item.amount_val" />
+      <AmountEditer :amount="amount(props.item.quanitity_val, props.item.unitprice_val)" />
     </template>
     <template v-slot:[`item.remarks_val`]="props">
       <RemarksEditer :remarks_val.sync="props.item.remarks_val" />
@@ -51,6 +51,7 @@ import RemarksEditer from '@/components/molecules/RemarksEditer.vue';
 import TaxEditer from '@/components/molecules/TaxEditer.vue';
 import UnitEditer from '@/components/molecules/UnitEditer.vue';
 import UnitPriceEditer from '@/components/molecules/UnitPriceEditer.vue';
+import { computed } from 'vue';
 
 @Component({
   components: {
@@ -92,7 +93,7 @@ export default class InvoiceIssueTable extends Vue {
       productname_val: '',
       quanitity_val: 1,
       unit_val: '',
-      unitprice_val: '￥',
+      unitprice_val: 100,
       amount_val: '￥',
       remarks_val: '',
       tax_val: 10 + '%',
@@ -105,9 +106,9 @@ export default class InvoiceIssueTable extends Vue {
     division_val: '',
     productcode_val: '',
     productname_val: '',
-    quanitity_val: '',
+    quanitity_val: 0,
     unit_val: '',
-    unitprice_val: '',
+    unitprice_val: 0,
     amount_val: '',
     remarks_val: '',
     tax_val: 10 + '%',
@@ -121,6 +122,12 @@ export default class InvoiceIssueTable extends Vue {
     this.editedIndex = this.desserts.indexOf(costmer);
     this.editedCostomer = Object.assign({}, costmer);
     alert(JSON.stringify(this.editedCostomer));
+  }
+
+  get amount() {
+    return (quanitity: number, unitprice: number) => {
+      return quanitity * unitprice;
+    };
   }
 }
 </script>
