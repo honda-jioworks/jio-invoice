@@ -91,9 +91,9 @@ export default class InvoiceIssueTable extends Vue {
       division_val: '通常',
       productcode_val: '',
       productname_val: '',
-      quanitity_val: 1,
+      quanitity_val: '1',
       unit_val: '',
-      unitprice_val: 100,
+      unitprice_val: '100',
       amount_val: '￥',
       remarks_val: '',
       tax_val: 10 + '%',
@@ -106,9 +106,9 @@ export default class InvoiceIssueTable extends Vue {
     division_val: '',
     productcode_val: '',
     productname_val: '',
-    quanitity_val: 0,
+    quanitity_val: '0',
     unit_val: '',
-    unitprice_val: 0,
+    unitprice_val: '0',
     amount_val: '',
     remarks_val: '',
     tax_val: 10 + '%',
@@ -125,8 +125,9 @@ export default class InvoiceIssueTable extends Vue {
   }
 
   get amount() {
-    return (quanitity: number, unitprice: number) => {
-      return quanitity * unitprice;
+    return (quanitity: string, unitprice: string) => {
+      const retVal = Number(quanitity) * Number(unitprice);
+      return retVal ? retVal : 0;
     };
   }
 }
