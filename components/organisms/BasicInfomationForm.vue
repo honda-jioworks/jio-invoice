@@ -4,7 +4,7 @@
     <v-row>
       <v-col cols="6">
         <!--得意先名-->
-        <CustomerName @scan-name="scanName" />
+        <CustomerName :customer.sync="customer" />
       </v-col>
       <v-spacer />
     </v-row>
@@ -65,6 +65,7 @@ import NotShowBox from '~/components/molecules/NotShowBox.vue';
   },
 })
 export default class BasicInfomationForm extends Vue {
+  public customer_name: string = '';
   public nameVal: string = '';
   public kanaVal: string = '';
   public shortVal: string = '';
