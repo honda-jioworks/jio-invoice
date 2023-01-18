@@ -40,6 +40,7 @@
           :valueManager.sync="item.manager"
           :valueHonorific.sync="item.honorific"
         />
+        <ManagerBox />
       </v-col>
     </v-row>
     <!--4行目-->
@@ -73,7 +74,8 @@ import PostalCode from '@/components/molecules/PostalCode.vue';
 import AddressInput from '@/components/molecules/AddressInput.vue';
 import DepartmentInput from '@/components/molecules/DepartmentInput.vue';
 import PostBox from '@/components/molecules/PostBox.vue';
-import HonorificBox from '@/components/molecules/HonorificBox.vue';
+import HonorificBox from '~/components/molecules/Manager.vue';
+import ManagerBox from '~/components/molecules/Manager.vue';
 import PhoneNumber from '@/components/molecules/PhoneNumber.vue';
 import EmailInput from '@/components/molecules/EmailInput.vue';
 import TelNumberInput from '~/components/molecules/TelNumberInput.vue';
@@ -86,6 +88,7 @@ import FaxNumberInput from '~/components/molecules/FaxNumberInput.vue';
     DepartmentInput,
     PostBox,
     HonorificBox,
+    ManagerBox,
     PhoneNumber,
     EmailInput,
     TelNumberInput,
@@ -93,6 +96,8 @@ import FaxNumberInput from '~/components/molecules/FaxNumberInput.vue';
   },
 })
 export default class ContactAddressForm extends Vue {
+  keisyo: Array<string> = ['殿', '様', '御中'];
+
   desserts = [
     {
       post_id: '',
