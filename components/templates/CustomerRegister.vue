@@ -43,8 +43,6 @@ export default class CustomerRegister extends Vue {
   sample4!: AccountInformation;
 
   onSave(): void {
-    this.sample1.test1();
-    this.sample2.test2();
     this.sample3.test3();
     this.sample4.test4();
   }
