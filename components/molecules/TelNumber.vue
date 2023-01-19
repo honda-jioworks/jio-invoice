@@ -2,21 +2,13 @@
   <v-sheet>
     <v-row dense>
       <v-col cols="2" class="wrap25"><TelLabel /></v-col>
-      <v-col cols="3" class="wrap26"
-        ><ThreeNumbersTextBox :telNumber1="telNumber1" @get-postal-code-one="sendTelNumberOne"
-      /></v-col>
-      <v-col cols="3" class="wrap26"
-        ><FourNumbersTextBox :telNumber2="telNumber2" @get-postal-code-two="sendTelNumberTwo"
-      /></v-col>
-      <v-col cols="3" class="wrap26"
-        ><FourNumbersTextBox :telNumber3="telNumber3" @get-postal-code-two="sendTelNumberThree"
-      /></v-col>
+      <v-col cols="3" class="wrap26"><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="telNumber" /></v-col>
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
 import TelLabel from '~/components/atoms/label/TelLabel.vue';
 import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
 import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
@@ -28,13 +20,16 @@ import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue'
   },
 })
 export default class TelNumber extends Vue {
-  // データベースから受け取った電話番号
-  @Prop({ type: String })
+  @PropSync('telNumber_val', { type: String })
   telNumber!: string;
-  // 電話番号を3つに分割する
-  private telNumber1: string = this.telNumber.substr(0, 2);
-  private telNumber2: string = this.telNumber.substr(2, 4);
-  private telNumber3: string = this.telNumber.substr(6, 4);
+
+  label: string = '電話番号';
+
+  rule: Array<object> = [
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
+    (v: string) => /^[+,-]?([0-9]{0,11})$/.test(v) || '11桁以内で入力してください',
+  ];
 
   @Emit()
   sendTelNumberOne(val: string): string {

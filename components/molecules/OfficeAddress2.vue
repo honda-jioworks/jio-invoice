@@ -2,14 +2,14 @@
   <v-sheet>
     <v-row>
       <v-col cols="3" class="wrap31"><AddressTwoLabel /></v-col>
-      <v-col cols="6" class="wrap32"><AddressTwo :address2="address2" @change-address-two="changeAddressTwo" /></v-col>
+      <v-col cols="6" class="wrap32"><AddressTwo :label="label" :rule="rule" :value.sync="address2" /></v-col>
       <v-spacer />
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
 import AddressTwoLabel from '~/components/atoms/label/AddressTwoLabel.vue';
 import AddressTwo from '~/components/atoms/input/AddressTwo.vue';
 @Component({
@@ -18,10 +18,14 @@ import AddressTwo from '~/components/atoms/input/AddressTwo.vue';
     AddressTwo,
   },
 })
-export default class OfficeAddress extends Vue {
-  // データベースから受け取った住所情報の後半部分
-  @Prop({ type: String })
+export default class OfficeAddress2 extends Vue {
+  @PropSync('address2_val', { type: String })
   address2!: string;
+
+  label: string = '住所2';
+
+  rule: Array<object> = [(v: string) => !!v || '項目を入力してください'];
+
   // 入力された住所の後半部分をorganismsに送信する
   @Emit()
   changeAddressTwo(val: string): string {

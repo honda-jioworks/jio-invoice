@@ -1,25 +1,19 @@
-<template>
-  <v-text-field :rules="nameRules" :value="name" @input="scanName"> </v-text-field>
+<template #input>
+  <v-text-field :return-value.sync="value_in" :rules="rule" v-model="value_in" :label="label" counter> </v-text-field>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
-export default class CEONameTextBox extends Vue {
-  nameRules: Array<object> = [(v: string) => !!v || '項目を入力してください'];
-  private name: string = '';
-  // ページ表示時にscanNameメソッドを実行
-  created(): void {
-    this.scanName('');
-  }
+export default class OfficeNameTextBox extends Vue {
+  @PropSync('value', { type: String })
+  value_in!: any;
 
-  scanName(val: string): void {
-    if (val == '') {
-      this.name = '横田　龍介';
-    } else {
-      this.name = val;
-    }
-  }
+  @Prop()
+  label!: any;
+
+  @Prop()
+  rule!: Array<object>;
 }
 </script>
 <style lang="scss" scoped>

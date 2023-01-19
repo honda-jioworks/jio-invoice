@@ -1,25 +1,21 @@
 <template>
   <div>
-    <v-text-field :rules="nameRules" :value="officeUrl" @input="scanUrl"> </v-text-field>
+    <v-text-field :return-value.sync="value_in" :rules="rule" v-model="value_in" :label="label" counter> </v-text-field>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class URLBox extends Vue {
-  nameRules: Array<object> = [
-    (v: string) => !!v || '項目を入力してください',
-    (v: string) => /^(ftp|http|https):\/\/[^ "]+$/.test(v) || 'URLを入力してください',
-  ];
-  // データベースから受け取ったURL
-  @Prop({ type: String })
-  officeUrl!: string;
-  // 入力されたURLをmoleculesに送る
-  @Emit()
-  scanUrl(url: string): string {
-    return url;
-  }
+  @PropSync('value', { type: String })
+  value_in!: any;
+
+  @Prop()
+  label!: any;
+
+  @Prop()
+  rule!: Array<object>;
 }
 </script>
 <style lang="scss">

@@ -15,14 +15,11 @@ export default class AddressSearch extends Vue {
   private addressVal: string = '';
   // データベースから受け取った郵便番号の前3桁
   @Prop({ type: String })
-  postalCode1!: string;
-  // データベースから受け取った郵便番号の後ろ4桁
-  @Prop({ type: String })
-  postalCode2!: string;
+  postalCode!: string;
 
   //入力された郵便番号をもとに住所情報を生成
   async makeAddress() {
-    this.zipCode = this.postalCode1 + '_' + this.postalCode2;
+    this.zipCode = this.postalCode;
     //awaitを利用している箇所のエラーはcatchで受け取ることができないため
     //try catchは同期処理の時に記載するもの
     await fetchAddressByZipcode(this.zipCode)

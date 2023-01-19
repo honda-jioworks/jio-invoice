@@ -3,18 +3,15 @@
     <v-row dense>
       <v-col cols="4" class="wrap21"><PostalCodeLabel /></v-col>
       <v-col cols="3" class="wrap22"
-        ><ThreeNumbersTextBox :postalCode1="postalCode1" @get-postal-code-one="getPostalCodeOne"
+        ><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="postalCode"
       /></v-col>
-      <v-col cols="3"><FourNumbersTextBox :postalCode2="postalCode2" @get-postal-code-two="getPostalCodeTwo" /></v-col>
-      <v-col cols="1" class="wrap37"
-        ><AddressSearch :postalCode1="postalCode1" :postalCode2="postalCode2" @send-address="sendAddress"
-      /></v-col>
+      <v-col cols="1" class="wrap37"><AddressSearch :postalCode="postalCode" @send-address="sendAddress" /></v-col>
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Emit, Prop, PropSync } from 'nuxt-property-decorator';
 import PostalCodeLabel from '~/components/atoms/label/PostalCodeLabel.vue';
 import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
 import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
@@ -28,12 +25,24 @@ import AddressSearch from '~/components/atoms/button/AddressSearch.vue';
   },
 })
 export default class DashBoard extends Vue {
-  private address: string = '';
-  // 生成された住所情報をorganismsに送る
+  public address: string = '';
+
+  @PropSync('postalCode_val', { type: String })
+  postalCode!: string;
+
+  label: string = '郵便番号';
+
+  rule: Array<object> = [
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
+    (v: string) => /^[+,-]?([0-9]{0,7})$/.test(v) || '7桁以内で入力してください',
+  ];
+
   @Emit()
   sendAddress(val: string): void {
     this.address = val;
   }
+
   // 入力された郵便番号の前3桁をorganismsに送る
   @Emit()
   getPostalCodeOne(val: string): string {
@@ -44,14 +53,6 @@ export default class DashBoard extends Vue {
   getPostalCodeTwo(val: string): string {
     return val;
   }
-
-  // データベースから受け取った郵便番号の前3桁
-  @Prop({ type: String })
-  postalCode1!: string;
-
-  // データベースから受け取った郵便番号の後ろ4桁
-  @Prop({ type: String })
-  postalCode2!: string;
 }
 </script>
 

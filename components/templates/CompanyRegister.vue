@@ -62,25 +62,6 @@ export default class companyRegister extends Vue {
   @Prop({ type: String, default: '' })
   text!: string;
 
-  @Ref()
-  alert1!: CompanyInformation;
-
-  @Ref()
-  alert2!: DetailsInfomation;
-
-  @Ref()
-  alert3!: LogoSealinfo;
-
-  @Ref()
-  alert4!: RegistrationNumber;
-
-  onSave(): void {
-    this.alert1.value1();
-    this.alert2.value2();
-    this.alert3.value3();
-    this.alert4.value4();
-  }
-
   onJump(): void {
     let result = window.confirm('一覧ページに移動します。よろしいですか？');
     if (result) {

@@ -6,7 +6,7 @@
           <OfficeURLLabel />
         </v-col>
         <v-col cols="6" class="wrap35">
-          <URLBox :officeUrl="officeUrl" @scan-url="scanUrl" />
+          <URLBox :label="label" :rule="rule" :value.sync="officeUrl" />
         </v-col>
         <v-col>
           <URLBtn :officeUrl="officeUrl" :urlValue="urlValue" />
@@ -17,20 +17,21 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 import OfficeURLLabel from '~/components/atoms/label/OfficeURLLabel.vue';
 import URLBox from '~/components/atoms/input/URLBox.vue';
 import URLBtn from '@/components/atoms/button/URLBtn.vue';
 @Component({ components: { OfficeURLLabel, URLBox, URLBtn } })
 export default class OfficeURL extends Vue {
-  public urlValue: string = '';
-  // データベースから受け取ったURL
-  @Prop({ type: String })
+  @PropSync('officeUrl_val', { type: String })
   officeUrl!: string;
-  // atomsから受け取ったURLをurlValueに代入
-  scanUrl(val: string): void {
-    this.urlValue = val;
-  }
+
+  label: string = 'URL';
+
+  rule: Array<object> = [
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^(ftp|http|https):\/\/[^ "]+$/.test(v) || 'URLを入力してください',
+  ];
 }
 </script>
 <style lang="scss">

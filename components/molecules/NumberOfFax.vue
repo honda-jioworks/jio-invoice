@@ -2,15 +2,13 @@
   <v-sheet>
     <v-row dense>
       <v-col cols="2" class="wrap28 {"><FAXLabel /></v-col>
-      <v-col cols="3" class="wrap29"><ThreeNumbersTextBox @get-postal-code-one="sendFaxNumberOne" /></v-col>
-      <v-col cols="3" class="wrap29"><FourNumbersTextBox @get-postal-code-two="sendFaxNumberTwo" /></v-col>
-      <v-col cols="3" class="wrap29"><FourNumbersTextBox @get-postal-code-two="sendFaxNumberThree" /></v-col>
+      <v-col cols="3" class="wrap29"><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="faxNumber" /></v-col>
     </v-row>
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
 import FAXLabel from '~/components/atoms/label/FAXLabel.vue';
 import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
 import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
@@ -22,26 +20,16 @@ import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue'
   },
 })
 export default class NumberOfFax extends Vue {
-  // データベースから受け取ったFAXの電話番号
-  @Prop({ type: String })
+  @PropSync('faxNumber_val', { type: String })
   faxNumber!: string;
-  // FAXの電話番号を3つに分割する
-  private faxNumber1: string = this.faxNumber.substr(0, 2);
-  private faxNumber2: string = this.faxNumber.substr(2, 4);
-  private faxNumber3: string = this.faxNumber.substr(6, 4);
 
-  @Emit()
-  sendFaxNumberOne(val: string): string {
-    return val;
-  }
-  @Emit()
-  sendFaxNumberTwo(val: string): string {
-    return val;
-  }
-  @Emit()
-  sendFaxNumberThree(val: string): string {
-    return val;
-  }
+  label: string = 'FAX';
+
+  rule: Array<object> = [
+    (v: string) => !!v || '項目を入力してください',
+    (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
+    (v: string) => /^[+,-]?([0-9]{0,11})$/.test(v) || '11桁以内で入力してください',
+  ];
 }
 </script>
 <style lang="scss" scoped>

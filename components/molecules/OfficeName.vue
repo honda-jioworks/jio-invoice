@@ -22,8 +22,4 @@ export default class OfficeName extends Vue {
   rule: Array<object> = [(v: string) => !!v || '項目を入力してください'];
 }
 </script>
-<style lang="scss" scoped>
-.wrap32 {
-  margin-left: 35px;
-}
-</style>
+<style lang="scss" scoped></style>
