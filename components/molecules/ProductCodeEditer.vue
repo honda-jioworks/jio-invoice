@@ -10,7 +10,7 @@
     components: { editor: TextEditer },
   })
   export default class ProductCodeEditer extends Vue {
-    @PropSync('productname_val', {type: String})
+    @PropSync('productcode_val', {type: String})
     productcode!: string;
   
     label: string = '商品コード';

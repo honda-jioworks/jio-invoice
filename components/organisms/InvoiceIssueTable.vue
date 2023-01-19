@@ -1,10 +1,27 @@
 <template>
   <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1" hide-default-footer>
     <template v-slot:top>
+      <div>
+    <v-row>
+      <v-col>
+        <v-subheader>
+          　 請求額 　 　 　 　 　<v-divider class="q1" color="white" vertical></v-divider>　 　 　 　
+          　消費税等　
+        </v-subheader>
+        <v-row no-gutters  background-color="#FFFDE7">
+          <v-col>
+            {{ amount }}
+          </v-col>
+          <v-col>
+            <v-text-field background-color outlined />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </div>
       <v-toolbar flat>
         <v-toolbar-title>請求書一覧</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
-        <v-spacer></v-spacer>
       </v-toolbar>
     </template>
     <template v-slot:[`item.division_val`]="props">
@@ -26,7 +43,7 @@
       <UnitPriceEditer :unitprice_val.sync="props.item.unitprice_val" />
     </template>
     <template v-slot:[`item.amount_val`]="props">
-      <AmountEditer :amount="amount(props.item.quanitity_val, props.item.unitprice_val)" />
+      <AmountEditer :amount= "amount(props.item.quanitity_val, props.item.unitprice_val)" />
     </template>
     <template v-slot:[`item.remarks_val`]="props">
       <RemarksEditer :remarks_val.sync="props.item.remarks_val" />
@@ -51,6 +68,7 @@ import RemarksEditer from '@/components/molecules/RemarksEditer.vue';
 import TaxEditer from '@/components/molecules/TaxEditer.vue';
 import UnitEditer from '@/components/molecules/UnitEditer.vue';
 import UnitPriceEditer from '@/components/molecules/UnitPriceEditer.vue';
+import BillingAmount from '@/components/molecules/BillingAmount.vue';
 import { computed } from 'vue';
 
 @Component({
@@ -64,6 +82,7 @@ import { computed } from 'vue';
     TaxEditer,
     UnitEditer,
     UnitPriceEditer,
+    BillingAmount,
   },
 })
 export default class InvoiceIssueTable extends Vue {
@@ -71,7 +90,7 @@ export default class InvoiceIssueTable extends Vue {
   unit_items: Array<string> = ['人月', '印月', '日', '時間', '人時', '名', '式', 'ヶ月', 'ページ'];
   tax_items: Array<string> = ['10%', '税なし'];
   division_items: Array<string> = ['通常', '値引', '返品', 'メモ', '小計', '文章行', '表題', '改頁', '空行', '源泉外'];
-
+  
   headers = [
     { text: '区分', value: 'division_val' },
     { text: '商品コード', value: 'productcode_val' },
@@ -93,8 +112,21 @@ export default class InvoiceIssueTable extends Vue {
       productname_val: '',
       quanitity_val: '1',
       unit_val: '',
-      unitprice_val: '100',
-      amount_val: '￥',
+      unitprice_val: '',
+      amount_val: '',
+      remarks_val: '',
+      tax_val: 10 + '%',
+    },
+  
+    {
+      cstmr_id: 'cstmer002',
+      division_val: '通常',
+      productcode_val: '',
+      productname_val: '',
+      quanitity_val: '1',
+      unit_val: '',
+      unitprice_val: '',
+      amount_val: '',
       remarks_val: '',
       tax_val: 10 + '%',
     },
@@ -106,9 +138,9 @@ export default class InvoiceIssueTable extends Vue {
     division_val: '',
     productcode_val: '',
     productname_val: '',
-    quanitity_val: '0',
+    quanitity_val: '',
     unit_val: '',
-    unitprice_val: '0',
+    unitprice_val: '',
     amount_val: '',
     remarks_val: '',
     tax_val: 10 + '%',
@@ -130,10 +162,22 @@ export default class InvoiceIssueTable extends Vue {
       return retVal ? retVal : 0;
     };
   }
+  
 }
 </script>
 <style lang="scss" scoped>
 .groundwork {
   background-color: white;
+}
+.v-subheader {
+  background-color: rgb(56, 129, 255);
+  color: white;
+  justify-content: center;
+}
+.v-divider {
+  color: white;
+}
+.q1 {
+  margin-left: 2%;
 }
 </style>

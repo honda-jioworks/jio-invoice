@@ -4,8 +4,8 @@
       <v-col>
         <v-subheader>
           　 請求額 　 　 　 　 　<v-divider class="q1" color="white" vertical></v-divider>　 　 　 　
-          　消費税等　</v-subheader
-        >
+          　消費税等　
+        </v-subheader>
         <v-row no-gutters>
           <v-col>
             <v-text-field background-color="#FFFDE7" outlined />

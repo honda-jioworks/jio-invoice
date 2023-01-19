@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-row
-      ><v-col cols="12"><BillingAmount /></v-col><v-col cols="12"><InvoiceIssueTable /></v-col>
+    <v-row>
+      <v-col cols="12"><InvoiceIssueTable /></v-col>
     </v-row>
   </div>
 </template>
