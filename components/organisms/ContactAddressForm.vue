@@ -34,35 +34,42 @@
       </v-col>
       <v-col cols="4">
         <!--担当者名-->
+        <ManagerBox v-for="item in desserts" :key="item.manager_id" :value.sync="item.manager" />
+        <!-- 敬称 -->
         <HonorificBox
           v-for="item in desserts"
-          :key="item.manager_id"
-          :valueManager.sync="item.manager"
-          :valueHonorific.sync="item.honorific"
+          :key="item.honorific_id"
+          :value.sync="item.honorific"
+          :keisyo_items="keisyo_items"
         />
-        <ManagerBox />
       </v-col>
     </v-row>
     <!--4行目-->
     <v-row>
       <v-col cols="4">
         <!--担当者携帯-->
-        <PhoneNumber class="mt-n5" />
+        <PhoneNumber v-for="item in desserts" :key="item.phonenumber_id" :value.sync="item.phonenumber" class="mt-n5" />
       </v-col>
       <v-col cols="5">
         <!--担当者メール-->
-        <EmailInput class="mt-n5" :getClick="email" />
+        <EmailInput
+          class="mt-n5"
+          v-for="item in desserts"
+          :key="item.emailinput_id"
+          :value.sync="item.emailinput"
+          :getClick="email"
+        />
       </v-col>
     </v-row>
     <!--5行目-->
     <v-row class="mt-n5">
       <v-col cols="4">
         <!--TEL-->
-        <TelNumberInput class="mt-n5" />
+        <TelNumberInput v-for="item in desserts" :key="item.telnumber_id" :value.sync="telnumber" class="mt-n5" />
       </v-col>
       <v-col cols="4">
         <!--FAX-->
-        <FaxNumberInput class="mt-n5" />
+        <FaxNumberInput v-for="item in desserts" :key="item.faxnumber_id" :value.sync="faxnumber" class="mt-n5" />
       </v-col>
     </v-row>
   </v-container>
@@ -74,8 +81,8 @@ import PostalCode from '@/components/molecules/PostalCode.vue';
 import AddressInput from '@/components/molecules/AddressInput.vue';
 import DepartmentInput from '@/components/molecules/DepartmentInput.vue';
 import PostBox from '@/components/molecules/PostBox.vue';
-import HonorificBox from '~/components/molecules/Manager.vue';
 import ManagerBox from '~/components/molecules/Manager.vue';
+import HonorificBox from '~/components/molecules/HonorificBox.vue';
 import PhoneNumber from '@/components/molecules/PhoneNumber.vue';
 import EmailInput from '@/components/molecules/EmailInput.vue';
 import TelNumberInput from '~/components/molecules/TelNumberInput.vue';
@@ -87,8 +94,8 @@ import FaxNumberInput from '~/components/molecules/FaxNumberInput.vue';
     AddressInput,
     DepartmentInput,
     PostBox,
-    HonorificBox,
     ManagerBox,
+    HonorificBox,
     PhoneNumber,
     EmailInput,
     TelNumberInput,
@@ -96,7 +103,7 @@ import FaxNumberInput from '~/components/molecules/FaxNumberInput.vue';
   },
 })
 export default class ContactAddressForm extends Vue {
-  keisyo: Array<string> = ['殿', '様', '御中'];
+  keisyo_items: Array<string> = ['殿', '様', '御中'];
 
   desserts = [
     {
@@ -106,7 +113,16 @@ export default class ContactAddressForm extends Vue {
       department: '',
       manager_id: '',
       manager: '',
+      honorific_id: '',
       honorific: '',
+      phonenumber_id: '',
+      phonenumber: '',
+      emailinput_id: '',
+      emailinput: '',
+      telnumber_id: '',
+      tenumber: 0,
+      faxnumber_id: '',
+      faxnumber: 0,
     },
   ];
 
