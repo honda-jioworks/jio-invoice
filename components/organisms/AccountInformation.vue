@@ -3,37 +3,65 @@
     <!--1段目-->
     <v-row>
       <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-        ><FinancialInstitutionName class="mb-n5" @scan-financialname="scanFinancialname"
+        ><FinancialInstitutionName
+          v-for="item in desserts"
+          :key="item.financialname_id"
+          :value.sync="item.financialname"
+          class="mb-n5"
       /></v-col>
       <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-        ><BranchName class="mb-n5" @scan-branchname="scanBranchname"
+        ><BranchName v-for="item in desserts" :key="item.branchname_id" :value.sync="item.branchname" class="mb-n5"
       /></v-col>
     </v-row>
     <!--2段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><AccountNumber class="mb-n5" @scan-number="scanNumber" /></v-col>
       <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-        ><AccountName class="mb-n5" @scan-accountname="scanAccountname"
+        ><AccountNumber
+          v-for="item in desserts"
+          :key="item.accountnumber_id"
+          :value.sync="item.accountnumber"
+          class="mb-n5"
       /></v-col>
-      <v-col cols="12" sm="6" lg="4" md="4" xl="4"><DepositCategory class="mb-n5" @test-select="testSelect" /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"
+        ><AccountName v-for="item in desserts" :key="item.accountname_id" :value.sync="item.accountname" class="mb-n5"
+      /></v-col>
+      <v-col cols="12" sm="6" lg="4" md="4" xl="4"
+        ><DepositCategory
+          v-for="item in desserts"
+          :key="item.depositcategory_id"
+          :value.sync="item.depositcategory"
+          :items="categoryitems"
+          item
+          class="mb-n5"
+      /></v-col>
     </v-row>
     <!--3段目-->
     <v-row>
       <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-        ><SearchKeyOne class="mb-n5" @scan-searchone="scanSearchone"
+        ><SearchKeyOne v-for="item in desserts" :key="item.keyone_id" :value.sync="item.keyone" class="mb-n5"
       /></v-col>
       <v-col cols="12" sm="6" lg="4" md="4" xl="4"
-        ><SearchKeyTwo class="mb-n5" @scan-searchtwo="scanSearchtwo"
+        ><SearchKeyTwo v-for="item in desserts" :key="item.keytwo_id" :value.sync="item.keytwo" class="mb-n5"
       /></v-col>
     </v-row>
     <!--4段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="8" md="4" xl="4"><MemoBox class="mb-n5" @scan-memo="scanMemo" /></v-col>
+      <v-col cols="12" sm="6" lg="8" md="4" xl="4"
+        ><MemoBox v-for="item in desserts" :key="item.memobox_id" :value.sync="item.memobox" class="mb-n5"
+      /></v-col>
     </v-row>
     <!--5段目-->
     <v-row>
-      <v-col cols="12" sm="6" lg="6" md="4" xl="4"><DefaultValue class="mb-n5" @scan-default="scanDefault" /></v-col>
-      <v-col cols="12" sm="6" lg="6" md="4" xl="4"><InputCandidate @scan-candidate="scanCandidate" /></v-col>
+      <v-col cols="12" sm="6" lg="6" md="4" xl="4"
+        ><DefaultValue
+          v-for="item in desserts"
+          :key="item.defaultvalue_id"
+          :value.sync="item.defaultvalue"
+          class="mb-n5"
+      /></v-col>
+      <v-col cols="12" sm="6" lg="6" md="4" xl="4"
+        ><InputCandidate v-for="item in desserts" :key="item.inputcandidate_id" :value.sync="item.inputcandidate"
+      /></v-col>
     </v-row>
   </v-container>
 </template>
@@ -66,80 +94,40 @@ import InputCandidate from '@/components/molecules/InputCandidate.vue';
   },
 })
 export default class AccountInformation extends Vue {
-  public financialnameVal: string = '';
-  public branchnameVal: string = '';
-  public numberVal: string = '';
-  public accountnameVal: string = '';
-  public selectVal: string = '';
-  public seachoneVal: string = '';
-  public searchtwoVal: string = '';
-  public memoVal: string = '';
-  public defaultVal: boolean = false;
-  public candidateVal: boolean = false;
-
-  scanFinancialname(val: string): void {
-    //金融機関名
-    this.financialnameVal = val;
-  }
-
-  scanBranchname(val: string): void {
-    //支店名
-    this.branchnameVal = val;
-  }
-
-  scanNumber(val: string): void {
-    //口座番号
-    this.numberVal = val;
-  }
-
-  scanAccountname(val: string): void {
-    //口座名義
-    this.accountnameVal = val;
-  }
-
-  testSelect(val: string): void {
-    //預金区分
-    this.selectVal = val;
-  }
-  scanSearchone(val: string): void {
-    //検査キー１
-    this.seachoneVal = val;
-  }
-
-  scanSearchtwo(val: string): void {
-    //検索キー２
-    this.searchtwoVal = val;
-  }
-
-  scanMemo(val: string): void {
-    //メモ
-    this.memoVal = val;
-  }
-
-  scanDefault(val: boolean): void {
-    //初期値として使用する
-    this.defaultVal = val;
-  }
-
-  scanCandidate(val: boolean): void {
-    //入力候補に表示しない
-    this.candidateVal = val;
-  }
-
-  test4() {
-    alert(
-      this.financialnameVal +
-        this.branchnameVal +
-        this.numberVal +
-        this.accountnameVal +
-        this.selectVal +
-        this.seachoneVal +
-        this.searchtwoVal +
-        this.memoVal +
-        this.defaultVal +
-        this.candidateVal
-    );
-  }
+  categoryitems: Array<string> = [
+    '普通預金',
+    '当座預金',
+    '定期預金',
+    '定期積金',
+    '通知預金',
+    '別段預金',
+    '郵便貯金',
+    'その他',
+  ];
+  desserts = [
+    {
+      financialname_id: '',
+      financialname: '',
+      branchname_id: '',
+      branchname: '',
+      accountnumber_id: '',
+      accountnumber: '',
+      accountname_id: '',
+      accountname: '',
+      depositcategory_id: '',
+      depositcategory: '',
+      keyone_id: '',
+      keyone: '',
+      keytwo_id: '',
+      keytwo: '',
+      memobox_id: '',
+      memobox: '',
+      defaultvalue_id: '',
+      defaultvalue: false,
+      inputcandidate_id: '',
+      inputcandidate: false,
+    },
+  ];
 }
 </script>
 <style lang="scss" scoped>

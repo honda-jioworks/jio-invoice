@@ -14,7 +14,7 @@
         <AccountInformation ref="sample4" />
       </v-col>
     </v-row>
-    <v-btn color="primary" @click="onSave" small>保存する</v-btn>
+    <v-btn color="primary" small>保存する</v-btn>
     <v-btn @click="onJump" small>トップページに戻る</v-btn>
   </v-container>
 </template>
@@ -42,9 +42,6 @@ export default class CustomerRegister extends Vue {
   @Ref()
   sample4!: AccountInformation;
 
-  onSave(): void {
-    this.sample4.test4();
-  }
   onJump(): void {
     let result = window.confirm('一覧ページへ移動します。よろしいですか？');
     if (result) {
