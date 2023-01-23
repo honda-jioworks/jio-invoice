@@ -1,19 +1,23 @@
 <template>
-  <v-select :items="items" :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
+  <v-select v-model="selected_in" :items="items" :rules="rule" :label="label"></v-select>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Emit, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({
   components: {},
 })
 export default class AutomaticCalculation extends Vue {
-  public selectContents: string = '';
-  public items: Array<string> = ['自動', '軽減自動', 'しない'];
-  public rules: Array<object> = [(v: String) => !!v || '項目を選択してください'];
-  @Emit()
-  scanSelect() {
-    return this.selectContents;
-  }
+  @PropSync('selected', { type: String })
+  selected_in!: string;
+
+  @Prop()
+  items!: Array<string>;
+
+  @Prop()
+  label!: string;
+
+  @Prop()
+  rule!: Array<object>;
 }
 </script>

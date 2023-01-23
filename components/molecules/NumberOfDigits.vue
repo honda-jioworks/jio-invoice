@@ -3,24 +3,25 @@
     <v-row>
       <v-col cols="6" class="wrap011">数量の桁:</v-col>
       <v-col cols="6">
-        <v-select :items="items" :rules="rules" v-model="selectContents" @change="scanSelect"></v-select>
+        <v-select :items="numberOfDigits_items" :rules="rule" v-model="numberOfDigits_in" :label="label"></v-select>
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class NumberOfDigits extends Vue {
-  public selectContents: string = '';
-  public items: Array<string> = ['整数7桁 小数なし', '整数6桁 小数第1位', '整数5桁 小数第2位', '整数4桁 小数第3位'];
-  public rules: Array<object> = [(v: String) => !!v || '項目を選択してください'];
+  @PropSync('numberOfDigits_val', { type: String })
+  numberOfDigits_in!: string;
 
-  @Emit()
-  scanSelect() {
-    return this.selectContents;
-  }
+  @Prop()
+  numberOfDigits_items!: Array<string>;
+
+  label: string = '数量の桁';
+
+  rule: Array<object> = [(v: String) => !!v || '項目を選択してください'];
 }
 </script>
 <style lang="scss" scoped>

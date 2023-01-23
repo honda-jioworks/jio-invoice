@@ -1,36 +1,110 @@
 <template>
-  <v-container>
+  <v-container :items="desserts">
     <v-sheet>
       <div>
         <!-- 1段目 -->
         <v-row>
-          <v-col cols="5"><ConsumptionTax @scan-select="scanConsumptionTax" class="mb-n5" /></v-col
-          ><v-col cols="5"><ConsumptionTaxRounding @scan-select="scanConsumptionTaxRounding" class="mb-n5" /></v-col>
+          <v-col cols="5"
+            ><ConsumptionTax
+              v-for="item in desserts"
+              :key="item.company_id"
+              :consumption_val.sync="item.consumptionTaxVal"
+              :consumption_items="consumption_items"
+              class="mb-n5" /></v-col
+          ><v-col cols="5"
+            ><ConsumptionTaxRounding
+              v-for="item in desserts"
+              :key="item.company_id"
+              :taxrounding_val.sync="item.consumptionTaxRoundingVal"
+              :taxrounding_items="taxrounding_items"
+              class="mb-n5"
+          /></v-col>
         </v-row>
         <!-- 2段目 -->
         <v-row>
           <v-col cols="5"
-            ><MulUnitPriceQuantityRounding @scan-select="scanMulUnitPriceQuantityRounding" class="mb-n5"
+            ><MulUnitPriceQuantityRounding
+              v-for="item in desserts"
+              :key="item.company_id"
+              :mulUnitPriceQuantityRounding_val.sync="item.mulUnitPriceQuantityRoundingVal"
+              :taxrounding_items="taxrounding_items"
+              class="mb-n5"
           /></v-col>
           <v-col cols="5"
-            ><UnitPriceCulculationRounding @scan-select="scanUnitPriceCulculationRounding" class="mb-n5"
+            ><UnitPriceCulculationRounding
+              v-for="item in desserts"
+              :key="item.company_id"
+              :unitPriceCulculationRounding_val.sync="item.unitPriceCulculationRoundingVal"
+              :taxrounding_items="taxrounding_items"
+              class="mb-n5"
           /></v-col>
         </v-row>
         <!-- 3段目 -->
         <v-row>
-          <v-col cols="5"><DecimalalPart @scan-select="scanDecimalalPart" class="mb-n5" /></v-col>
-          <v-col cols="5"><NumberOfDigits @scan-select="scanNumberOfDigits" class="mb-n5" /></v-col>
+          <v-col cols="5"
+            ><DecimalalPart
+              v-for="item in desserts"
+              :key="item.company_id"
+              :decimalalPart_val.sync="item.decimalalPartVal"
+              :decimalalPart_items="check_items"
+              class="mb-n5"
+          /></v-col>
+          <v-col cols="5"
+            ><NumberOfDigits
+              v-for="item in desserts"
+              :key="item.company_id"
+              :numberOfDigits_val.sync="item.numberOfDigitsVal"
+              :numberOfDigits_items="keta_items"
+              class="mb-n5"
+          /></v-col>
         </v-row>
         <!-- 4段目 -->
         <v-row>
-          <v-col cols="5"><AmountOfWithholdingTax @check-bool="checkBool" class="mb-n5" /></v-col>
-          <v-col cols="3"><SubjectName :checkVal="bool" @scan-text="scanText" class="mb-n5" /></v-col>
-          <v-col cols="3"><TaxRate :checkVal="bool" @scan-select="scanTaxRate" class="mb-n5" /></v-col>
+          <v-col cols="5"
+            ><AmountOfWithholdingTax
+              v-for="item in desserts"
+              :key="item.company_id"
+              :amountOfWithholdingTax_val.sync="item.amountOfWithholdingTaxVal"
+              :amountOfWithholdingTax_items="check_items"
+              @check-bool="checkBool"
+              class="mb-n5"
+          /></v-col>
+          <v-col cols="3"
+            ><SubjectName
+              v-for="item in desserts"
+              :key="item.company_id"
+              :subjectName_val.sync="item.textVal"
+              :checkVal="bool"
+              class="mb-n5"
+          /></v-col>
+          <v-col cols="3"
+            ><TaxRate
+              v-for="item in desserts"
+              :key="item.company_id"
+              :taxRate_val.sync="item.taxRateVal"
+              :taxRate_items="taxRate_items"
+              :checkVal="bool"
+              class="mb-n5"
+          /></v-col>
         </v-row>
         <!-- 5段目 -->
         <v-row>
-          <v-col cols="4"><SalaryPaymentDate @scan-select="scanSalaryPaymentDate" class="mb-n5" /></v-col>
-          <v-col cols="4"><BonusPaymentDate @scan-select="scanBonusPaymentDate" class="mb-n5" /></v-col>
+          <v-col cols="4"
+            ><SalaryPaymentDate
+              v-for="item in desserts"
+              :key="item.company_id"
+              :salaryPaymentDate_val.sync="item.salaryPaymentDateVal"
+              :salaryPaymentDate_items="date_items"
+              class="mb-n5"
+          /></v-col>
+          <v-col cols="4"
+            ><BonusPaymentDate
+              v-for="item in desserts"
+              :key="item.company_id"
+              :bonusPaymentDate_val.sync="item.bonusPaymentDateVal"
+              :bonusPaymentDate_items="date_items"
+              class="mb-n5"
+          /></v-col>
         </v-row>
       </div>
     </v-sheet>
@@ -67,72 +141,87 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
   },
 })
 export default class DetailsInfomation extends Vue {
+  public consumption_items: Array<string> = ['自動', '軽減自動', 'しない'];
+  public taxrounding_items: Array<string> = ['切り上げ', '切り捨て', '四捨五入'];
+  public check_items: Array<Object> = ['する', 'しない'];
+  public keta_items: Array<string> = [
+    '整数7桁 小数なし',
+    '整数6桁 小数第1位',
+    '整数5桁 小数第2位',
+    '整数4桁 小数第3位',
+  ];
+  public taxRate_items: Array<string> = ['平成24年まで', '平成25年以降'];
+  public date_items: Array<string> = [
+    '1日',
+    '2日',
+    '3日',
+    '4日',
+    '5日',
+    '6日',
+    '7日',
+    '8日',
+    '9日',
+    '10日',
+    '11日',
+    '12日',
+    '13日',
+    '14日',
+    '15日',
+    '16日',
+    '17日',
+    '18日',
+    '19日',
+    '20日',
+    '21日',
+    '22日',
+    '23日',
+    '24日',
+    '25日',
+    '26日',
+    '27日',
+    '28日',
+    '29日',
+    '30日',
+    '31日',
+    '末日',
+  ];
+
+  desserts = [
+    {
+      company_id: 'company001',
+      consumptionTaxVal: '',
+      consumptionTaxRoundingVal: '',
+      mulUnitPriceQuantityRoundingVal: '',
+      unitPriceCulculationRoundingVal: '',
+      decimalalPartVal: '',
+      numberOfDigitsVal: '',
+      amountOfWithholdingTaxVal: '',
+      textVal: '',
+      taxRateVal: '',
+      salaryPaymentDateVal: '',
+      bonusPaymentDateVal: '',
+    },
+  ];
+
+  editedRegister = {
+    company_id: '',
+    officeName: '',
+    consumptionTaxRoundingVal: '',
+    mulUnitPriceQuantityRoundingVal: '',
+    unitPriceCulculationRoundingVal: '',
+    decimalalPartVal: '',
+    numberOfDigitsVal: '',
+    amountOfWithholdingTaxVal: '',
+    textVal: '',
+    taxRateVal: '',
+    salaryPaymentDateVal: '',
+    bonusPaymentDateVal: '',
+  };
+
   public bool: boolean = false;
-  private consumptionTaxVal: string = ''; //消費税
-  private consumptionTaxRoundingVal: string = ''; //消費税の端数処理
-  private mulUnitPriceQuantityRoundingVal: string = '';
-  private unitPriceCulculationRoundingVal: string = '';
-  private decimalalPartVal: string = '';
-  private numberOfDigitsVal: string = '';
-  private textVal: string = '';
-  private taxRateVal: string = '';
-  private salaryPaymentDateVal: string = '';
-  private bonusPaymentDateVal: string = '';
-
-  scanConsumptionTax(val: string): void {
-    this.consumptionTaxVal = val;
-  }
-
-  scanConsumptionTaxRounding(val: string): void {
-    this.consumptionTaxRoundingVal = val;
-  }
-
-  scanMulUnitPriceQuantityRounding(val: string): void {
-    this.mulUnitPriceQuantityRoundingVal = val;
-  }
-
-  scanUnitPriceCulculationRounding(val: string): void {
-    this.unitPriceCulculationRoundingVal = val;
-  }
-
-  scanDecimalalPart(val: string): void {
-    this.decimalalPartVal = val;
-  }
-
-  scanNumberOfDigits(val: string): void {
-    this.numberOfDigitsVal = val;
-  }
 
   checkBool(val: boolean): void {
     this.bool = val;
-  }
-  scanText(val: string): void {
-    this.textVal = val;
-  }
-
-  scanTaxRate(val: string): void {
-    this.taxRateVal = val;
-  }
-  scanSalaryPaymentDate(val: string): void {
-    this.salaryPaymentDateVal = val;
-  }
-  scanBonusPaymentDate(val: string): void {
-    this.bonusPaymentDateVal = val;
-  }
-
-  value2() {
-    alert(
-      this.consumptionTaxVal +
-        this.consumptionTaxRoundingVal +
-        this.mulUnitPriceQuantityRoundingVal +
-        this.unitPriceCulculationRoundingVal +
-        this.decimalalPartVal +
-        this.numberOfDigitsVal +
-        this.textVal +
-        this.taxRateVal +
-        this.salaryPaymentDateVal +
-        this.bonusPaymentDateVal
-    );
   }
 }
 </script>
