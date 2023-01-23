@@ -1,29 +1,35 @@
 <template>
   <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1" hide-default-footer>
     <template v-slot:top>
-      <div>
-    <v-row>
-      <v-col>
-        <v-subheader>
-          　 請求額 　 　 　 　 　<v-divider class="q1" color="white" vertical></v-divider>　 　 　 　
-          　消費税等　
-        </v-subheader>
-        <v-row no-gutters  background-color="#FFFDE7">
+  <v-container>
+    <v-row class="d-flex">
+      <v-col cols="5" class="ml-auto">
+        <v-subheader>請求額</v-subheader> <v-subheader>消費税等</v-subheader>
+        <v-row  background-color="#FFFDE7">
           <v-col>
-            {{ amount }}
+            &yen;{{ totalAmount }}
           </v-col>
           <v-col>
-            <v-text-field background-color outlined />
+            &yen;{{ taxAmount }}
           </v-col>
         </v-row>
-      </v-col>
-    </v-row>
-  </div>
+          </v-col>
+          <v-col cols="4" class="ml-auto">
+        <v-subheader>対象期間</v-subheader>
+          </v-col>
+        </v-row>
+  </v-container>
+      
+      
+      
+    
+
       <v-toolbar flat>
         <v-toolbar-title>請求書一覧</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
       </v-toolbar>
     </template>
+
     <template v-slot:[`item.division_val`]="props">
       <DivisionEditer :division_val.sync="props.item.division_val" :division_items="division_items" />
     </template>
@@ -130,6 +136,18 @@ export default class InvoiceIssueTable extends Vue {
       remarks_val: '',
       tax_val: 10 + '%',
     },
+    {
+      cstmr_id: 'cstmer002',
+      division_val: '通常',
+      productcode_val: '',
+      productname_val: '',
+      quanitity_val: '1',
+      unit_val: '',
+      unitprice_val: '',
+      amount_val: '',
+      remarks_val: '',
+      tax_val: 10 + '%',
+    },
   ];
 
   editedIndex = -1;
@@ -163,6 +181,23 @@ export default class InvoiceIssueTable extends Vue {
     };
   }
   
+  get totalAmount(){
+    let totalAmount = 0
+    this.desserts.forEach((item) =>{
+      totalAmount += Math.round (Number(item.quanitity_val) * Number(item.unitprice_val)*1.1)
+    })
+    return totalAmount
+  }
+
+  get taxAmount(){
+    let taxAmount = 0
+    this.desserts.forEach((item) =>{
+      taxAmount += Math.round (Number(item.quanitity_val) * Number(item.unitprice_val)*0.1)
+    })
+    return taxAmount
+  }
+
+
 }
 </script>
 <style lang="scss" scoped>
