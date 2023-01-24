@@ -7,14 +7,14 @@
           <v-col cols="5"
             ><ConsumptionTax
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.consumptionTax_id"
               :consumption_val.sync="item.consumptionTaxVal"
               :consumption_items="consumption_items"
               class="mb-n5" /></v-col
           ><v-col cols="5"
             ><ConsumptionTaxRounding
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.consumptionTaxRounding_id"
               :taxrounding_val.sync="item.consumptionTaxRoundingVal"
               :taxrounding_items="taxrounding_items"
               class="mb-n5"
@@ -25,15 +25,15 @@
           <v-col cols="5"
             ><MulUnitPriceQuantityRounding
               v-for="item in desserts"
-              :key="item.company_id"
-              :mulUnitPriceQuantityRounding_val.sync="item.mulUnitPriceQuantityRoundingVal"
+              :key="item.mulUnitPriceQuantityRounding_id"
+              :mulUnitPriceQuantityRounding_val.sync="item.mulUnitPriceQuantityRounding_id"
               :taxrounding_items="taxrounding_items"
               class="mb-n5"
           /></v-col>
           <v-col cols="5"
             ><UnitPriceCulculationRounding
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.unitPriceCulculationRounding_id"
               :unitPriceCulculationRounding_val.sync="item.unitPriceCulculationRoundingVal"
               :taxrounding_items="taxrounding_items"
               class="mb-n5"
@@ -44,7 +44,7 @@
           <v-col cols="5"
             ><DecimalalPart
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.decimalalPart_id"
               :decimalalPart_val.sync="item.decimalalPartVal"
               :decimalalPart_items="check_items"
               class="mb-n5"
@@ -52,7 +52,7 @@
           <v-col cols="5"
             ><NumberOfDigits
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.numberOfDigits_id"
               :numberOfDigits_val.sync="item.numberOfDigitsVal"
               :numberOfDigits_items="keta_items"
               class="mb-n5"
@@ -63,7 +63,7 @@
           <v-col cols="5"
             ><AmountOfWithholdingTax
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.amountOfWithholdingTax_id"
               :amountOfWithholdingTax_val.sync="item.amountOfWithholdingTaxVal"
               :amountOfWithholdingTax_items="check_items"
               @check-bool="checkBool"
@@ -72,7 +72,7 @@
           <v-col cols="3"
             ><SubjectName
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.text_id"
               :subjectName_val.sync="item.textVal"
               :checkVal="bool"
               class="mb-n5"
@@ -80,7 +80,7 @@
           <v-col cols="3"
             ><TaxRate
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.taxRate_id"
               :taxRate_val.sync="item.taxRateVal"
               :taxRate_items="taxRate_items"
               :checkVal="bool"
@@ -92,7 +92,7 @@
           <v-col cols="4"
             ><SalaryPaymentDate
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.salaryPaymentDate_id"
               :salaryPaymentDate_val.sync="item.salaryPaymentDateVal"
               :salaryPaymentDate_items="date_items"
               class="mb-n5"
@@ -100,7 +100,7 @@
           <v-col cols="4"
             ><BonusPaymentDate
               v-for="item in desserts"
-              :key="item.company_id"
+              :key="item.bonusPaymentDate_id"
               :bonusPaymentDate_val.sync="item.bonusPaymentDateVal"
               :bonusPaymentDate_items="date_items"
               class="mb-n5"
@@ -188,35 +188,30 @@ export default class DetailsInfomation extends Vue {
 
   desserts = [
     {
-      company_id: 'company001',
+      consumptionTax_id: 'consumptionTax_id',
       consumptionTaxVal: '',
+      consumptionTaxRounding_id: 'consumptionTaxRounding_id',
       consumptionTaxRoundingVal: '',
+      mulUnitPriceQuantityRounding_id: 'mulUnitPriceQuantityRounding_id',
       mulUnitPriceQuantityRoundingVal: '',
+      unitPriceCulculationRounding_id: 'unitPriceCulculationRounding_id',
       unitPriceCulculationRoundingVal: '',
+      decimalalPart_id: 'decimalalPart_id',
       decimalalPartVal: '',
+      numberOfDigits_id: 'numberOfDigits_id',
       numberOfDigitsVal: '',
+      amountOfWithholdingTax_id: 'amountOfWithholdingTax_id',
       amountOfWithholdingTaxVal: '',
+      text_id: 'text_id',
       textVal: '',
+      taxRate_id: 'taxRate_id',
       taxRateVal: '',
+      salaryPaymentDate_id: 'salaryPaymentDate_id',
       salaryPaymentDateVal: '',
+      bonusPaymentDate_id: 'bonusPaymentDate_id',
       bonusPaymentDateVal: '',
     },
   ];
-
-  editedRegister = {
-    company_id: '',
-    officeName: '',
-    consumptionTaxRoundingVal: '',
-    mulUnitPriceQuantityRoundingVal: '',
-    unitPriceCulculationRoundingVal: '',
-    decimalalPartVal: '',
-    numberOfDigitsVal: '',
-    amountOfWithholdingTaxVal: '',
-    textVal: '',
-    taxRateVal: '',
-    salaryPaymentDateVal: '',
-    bonusPaymentDateVal: '',
-  };
 
   public bool: boolean = false;
 

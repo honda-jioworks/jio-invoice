@@ -42,7 +42,6 @@ export default class DashBoard extends Vue {
   sendAddress(val: string): void {
     this.address = val;
   }
-
   // 入力された郵便番号の前3桁をorganismsに送る
   @Emit()
   getPostalCodeOne(val: string): string {

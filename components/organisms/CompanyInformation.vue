@@ -3,10 +3,10 @@
     <v-sheet>
       <v-row dense>
         <v-col cols="5"
-          ><OfficeName v-for="item in desserts" :key="item.company_id" :officename_val.sync="item.officeName" />
+          ><OfficeName v-for="item in desserts" :key="item.officeName_id" :officename_val.sync="item.officeName" />
         </v-col>
         <v-col cols="5"
-          ><CEOName v-for="item in desserts" :key="item.company_id" :CEOName_val.sync="item.CEONameVal"
+          ><CEOName v-for="item in desserts" :key="item.CEOName_id" :CEOName_val.sync="item.CEONameVal"
         /></v-col>
         <v-spacer />
       </v-row>
@@ -34,7 +34,7 @@
       </v-row>
       <v-row>
         <v-col cols="8"
-          ><OfficeAddress2 v-for="item in desserts" :key="item.company_id" :address2_val.sync="item.address2"
+          ><OfficeAddress2 v-for="item in desserts" :key="item.company_id" :address2_val.sync="item.addressTwo"
         /></v-col>
       </v-row>
       <v-row>
@@ -90,29 +90,19 @@ export default class CompanyInfomation extends Vue {
   // データベースから持ってくるデータ
   desserts = [
     {
-      company_id: 'company001',
+      officeName_id: 'officeName_id',
       officeName: '株式会社jioworks',
-      CEONameVal: '横田　龍介',
+      CEOName_id: 'CEOName_id',
+      CEOName: '横田　龍介',
+
       postalCode: '1600022',
       addressOne: '東京都新宿区新宿5-11-1',
-      address2: 'ホーメスト新宿ビル9F',
+      addressTwo: 'ホーメスト新宿ビル9F',
       telNumber: '0367098269',
       faxNumber: '0367098279',
       officeUrl: 'https://jioworks.com',
     },
   ];
-
-  editedRegister = {
-    company_id: '',
-    officeName: '',
-    CEONameVal: '',
-    postalCode: '',
-    addressOne: '',
-    address2: '',
-    telNumber: '',
-    faxNumber: '',
-    officeUrl: '',
-  };
 
   // ファイル名の初期値を定義
   fileName: any = 'ファイル名が表示されます';

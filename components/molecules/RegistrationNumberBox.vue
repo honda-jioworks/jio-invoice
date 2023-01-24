@@ -11,7 +11,7 @@
       </div>
       <v-col cols="9">
         <div class="wrap03">
-          <v-text-field counter="13" :disabled="!checkValue" outlined color="black" @input="scanCheck"> </v-text-field>
+          <v-text-field counter="13" v-model="value_in" :disabled="!checkValue" outlined color="black"> </v-text-field>
         </div>
       </v-col>
     </v-row>
@@ -19,16 +19,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({})
 export default class RegistrationNumberBox extends Vue {
+  @PropSync('value', { type: String })
+  value_in!: string;
+
   @Prop({ type: Boolean, required: true, default: false })
   checkValue!: boolean;
-
-  @Emit()
-  scanCheck(val: string): string {
-    return val;
-  }
 }
 </script>
 
