@@ -4,14 +4,14 @@
   <v-sheet>
     <v-container>
       <v-row>
-        <v-col cols="12" xl="12"
+        <v-col cols="12"
           ><OfficeLogo
             @logo-select="logoSelect"
             @logo-downlord="logoDownlord"
             @logo-remove-button="logoRemoveButton" /></v-col
       ></v-row>
       <v-row>
-        <v-col cols="12" xl="12"
+        <v-col cols="12"
           ><OfficeSeal
             @seal-select="sealSelect"
             @seal-remove-button="sealRemoveButton"

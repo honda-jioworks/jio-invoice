@@ -1,6 +1,9 @@
 <template>
   <v-sheet>
     <v-row dense>
+      <v-col cols="4">
+        <CEONameLabel />
+      </v-col>
       <v-col cols="6" class="wrap35"><CEONameTextBox :label="label" :rule="rule" :value.sync="CEOName" /></v-col>
     </v-row>
   </v-sheet>
@@ -20,4 +23,8 @@ export default class CEOName extends Vue {
   rule: Array<object> = [(v: string) => !!v || '項目を入力してください'];
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrap35 {
+  margin-left: -20px;
+}
+</style>

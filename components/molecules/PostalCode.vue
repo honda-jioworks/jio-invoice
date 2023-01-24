@@ -2,7 +2,7 @@
   <v-sheet>
     <v-row dense>
       <v-col cols="4" class="wrap21"><PostalCodeLabel /></v-col>
-      <v-col cols="3" class="wrap22"
+      <v-col cols="4" class="wrap22"
         ><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="postalCode"
       /></v-col>
       <v-col cols="1" class="wrap37"><AddressSearch :postalCode="postalCode" @send-address="sendAddress" /></v-col>
@@ -61,9 +61,5 @@ export default class DashBoard extends Vue {
 }
 .wrap22 {
   margin-left: -50px;
-  margin-right: -30px;
-}
-.wrap37 {
-  margin-left: -20px;
 }
 </style>

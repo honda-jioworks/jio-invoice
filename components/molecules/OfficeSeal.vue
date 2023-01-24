@@ -5,7 +5,7 @@
     </v-row>
     <v-row>
       <div class="wrap">
-        <v-col cols="12" xl="6"><Selectfile ref="SelectImg" /></v-col>
+        <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
         <div>
           <v-col cols="12"
             ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"

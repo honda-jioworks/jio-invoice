@@ -1,6 +1,9 @@
 <template>
   <v-sheet>
     <v-row>
+      <v-col cols="4" class="wrap30">
+        <OfficeNameLabel />
+      </v-col>
       <v-col cols="6" class="wrap33">
         <OfficeNameTextBox :label="label" :rule="rule" :value.sync="officename" />
       </v-col>
@@ -22,4 +25,11 @@ export default class OfficeName extends Vue {
   rule: Array<object> = [(v: string) => !!v || '項目を入力してください'];
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.wrap30 {
+  margin-left: 30px;
+}
+.wrap33 {
+  margin-left: -25px;
+}
+</style>

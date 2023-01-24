@@ -66,6 +66,9 @@ export default class OfficeLogo extends Vue {
   align-items: center;
   gap: 50px;
 }
+.wrap39 {
+  margin-right: 700px;
+}
 
 .wrap img {
   width: 30%;

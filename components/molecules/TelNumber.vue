@@ -2,7 +2,7 @@
   <v-sheet>
     <v-row dense>
       <v-col cols="2" class="wrap25"><TelLabel /></v-col>
-      <v-col cols="3" class="wrap26"><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="telNumber" /></v-col>
+      <v-col cols="4" class="wrap26"><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="telNumber" /></v-col>
     </v-row>
   </v-sheet>
 </template>
