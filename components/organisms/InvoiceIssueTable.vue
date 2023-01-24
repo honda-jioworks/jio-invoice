@@ -1,35 +1,27 @@
 <template>
   <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1" hide-default-footer>
     <template v-slot:top>
-  <v-container>
-    <v-row class="d-flex">
-      <v-col cols="5" class="ml-auto">
-        <v-subheader>請求額</v-subheader> <v-subheader>消費税等</v-subheader>
-        <v-row  background-color="#FFFDE7">
-          <v-col>
-            &yen;{{ totalAmount }}
+      <v-container>
+        <v-row class="d-flex">
+          <v-col cols="2">
+            <v-subheader>請求額</v-subheader>
+            <v-col> &yen;{{ totalAmount }} </v-col>
           </v-col>
-          <v-col>
-            &yen;{{ taxAmount }}
+          <v-col cols="2">
+            <v-subheader>消費税等</v-subheader>
+            <v-col> &yen;{{ taxAmount }} </v-col>
           </v-col>
-        </v-row>
-          </v-col>
-          <v-col cols="4" class="ml-auto">
-        <v-subheader>対象期間</v-subheader>
+          <v-col cols="2" class="ml-auto">
+            <v-subheader>対象期間</v-subheader>
           </v-col>
         </v-row>
-  </v-container>
-      
-      
-      
-    
+      </v-container>
 
       <v-toolbar flat>
         <v-toolbar-title>請求書一覧</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
       </v-toolbar>
     </template>
-
     <template v-slot:[`item.division_val`]="props">
       <DivisionEditer :division_val.sync="props.item.division_val" :division_items="division_items" />
     </template>
@@ -58,7 +50,13 @@
       <TaxEditer :tax_val.sync="props.item.tax_val" :tax_items="tax_items" />
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-btn color="primary" @click="editCostomer(item)"> 更新 </v-btn>
+      <v-icon color="primary" @click="editInvoice(item)">mdi-pencil-outline</v-icon>
+    </template>
+    <template v-slot:[`item.delete`]="{ item }">
+      <v-icon color="error" @click="deleteInvoice(item)">mdi-delete-outline</v-icon>
+    </template>
+    <template v-slot:[`item.copy`]="{ item }">
+      <v-icon color="green" @click="copyInvoice(item)" >mdi-content-copy</v-icon>
     </template>
   </v-data-table>
 </template>
@@ -75,7 +73,6 @@ import TaxEditer from '@/components/molecules/TaxEditer.vue';
 import UnitEditer from '@/components/molecules/UnitEditer.vue';
 import UnitPriceEditer from '@/components/molecules/UnitPriceEditer.vue';
 import BillingAmount from '@/components/molecules/BillingAmount.vue';
-import { computed } from 'vue';
 
 @Component({
   components: {
@@ -92,7 +89,6 @@ import { computed } from 'vue';
   },
 })
 export default class InvoiceIssueTable extends Vue {
-  // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
   unit_items: Array<string> = ['人月', '印月', '日', '時間', '人時', '名', '式', 'ヶ月', 'ページ'];
   tax_items: Array<string> = ['10%', '税なし'];
   division_items: Array<string> = ['通常', '値引', '返品', 'メモ', '小計', '文章行', '表題', '改頁', '空行', '源泉外'];
@@ -108,6 +104,8 @@ export default class InvoiceIssueTable extends Vue {
     { text: '備考', value: 'remarks_val' },
     { text: '消費税', value: 'tax_val' },
     { text: '更新', value: 'actions', sortable: false },
+    { text: '削除', value: 'delete', sortable: false },
+    { text: '複写', value: 'copy', sortable: false },
   ];
 
   desserts = [
@@ -123,36 +121,11 @@ export default class InvoiceIssueTable extends Vue {
       remarks_val: '',
       tax_val: 10 + '%',
     },
-  
-    {
-      cstmr_id: 'cstmer002',
-      division_val: '通常',
-      productcode_val: '',
-      productname_val: '',
-      quanitity_val: '1',
-      unit_val: '',
-      unitprice_val: '',
-      amount_val: '',
-      remarks_val: '',
-      tax_val: 10 + '%',
-    },
-    {
-      cstmr_id: 'cstmer002',
-      division_val: '通常',
-      productcode_val: '',
-      productname_val: '',
-      quanitity_val: '1',
-      unit_val: '',
-      unitprice_val: '',
-      amount_val: '',
-      remarks_val: '',
-      tax_val: 10 + '%',
-    },
   ];
 
   editedIndex = -1;
 
-  editedCostomer = {
+  editedInvoice = {
     division_val: '',
     productcode_val: '',
     productname_val: '',
@@ -168,11 +141,29 @@ export default class InvoiceIssueTable extends Vue {
     // 何か処理
   }
   @Emit()
-  editCostomer(costmer: any) {
-    this.editedIndex = this.desserts.indexOf(costmer);
-    this.editedCostomer = Object.assign({}, costmer);
-    alert(JSON.stringify(this.editedCostomer));
+  editInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice)
+    this.editedInvoice = Object.assign({}, invoice)
+    alert(JSON.stringify(this.editedInvoice))
+    // 更新
   }
+
+  deleteInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice)
+    this.editedInvoice = Object.assign({}, invoice)
+    this.desserts.splice(this.editedIndex, 1)
+    alert(JSON.stringify(invoice.invoice_id))
+    // 削除
+  }
+
+  copyInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice)
+    this.editedInvoice = Object.assign({}, invoice)
+    this.desserts.push(this.editedInvoice)
+    alert(JSON.stringify(invoice.invoice_id))
+    // 複写
+  }
+  
 
   get amount() {
     return (quanitity: string, unitprice: string) => {
