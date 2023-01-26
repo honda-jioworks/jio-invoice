@@ -11,7 +11,7 @@ export default class BlueLabel extends Vue {}
 .v-subheader {
   padding: auto, auto, auto, auto;
   margin: auto, auto, auto, auto;
-  background-color: rgb(56, 129, 255);
+  background-color: rgb(255, 56, 56);
   color: white;
   font-size: 120%;
   justify-content: center;

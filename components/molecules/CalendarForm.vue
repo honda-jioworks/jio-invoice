@@ -36,12 +36,12 @@ export default class CalendarForm extends Vue {
 }
 .w1 {
   margin-top: 1.5%;
-  background-color: blue;
+  background-color: rgb(255, 56, 56);
   color: white;
 }
 .x1 {
   margin-top: 1.5%;
-  background-color: blue;
+  background-color: rgb(255, 56, 56);
   color: white;
   margin-left: 130px;
 }

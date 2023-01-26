@@ -66,12 +66,6 @@ export default {
         },
         {
           icon: 'mdi-pencil',
-
-          title: '請求書一覧画面',
-          to: '/InvoiceIssueList',
-        },
-        {
-          icon: 'mdi-pencil',
           title: '請求書発行画面',
           to: '/InvoiceIssuePages',
         },

@@ -11,8 +11,13 @@
             <v-subheader>消費税等</v-subheader>
             <v-col> &yen;{{ taxAmount }} </v-col>
           </v-col>
-          <v-col cols="2" class="ml-auto">
+          <v-col cols="4" class="ml-auto">
             <v-subheader>対象期間</v-subheader>
+            <v-row class="d-flex align-center">
+              <v-col cols="5"> <v-text-field input type="date" /></v-col>
+              <v-col align="center"> 〜</v-col>
+              <v-col cols="5"><v-text-field input type="date" /></v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -72,7 +77,7 @@ import RemarksEditer from '@/components/molecules/RemarksEditer.vue';
 import TaxEditer from '@/components/molecules/TaxEditer.vue';
 import UnitEditer from '@/components/molecules/UnitEditer.vue';
 import UnitPriceEditer from '@/components/molecules/UnitPriceEditer.vue';
-import BillingAmount from '@/components/molecules/BillingAmount.vue';
+
 
 @Component({
   components: {
@@ -85,7 +90,6 @@ import BillingAmount from '@/components/molecules/BillingAmount.vue';
     TaxEditer,
     UnitEditer,
     UnitPriceEditer,
-    BillingAmount,
   },
 })
 export default class InvoiceIssueTable extends Vue {
@@ -106,7 +110,7 @@ export default class InvoiceIssueTable extends Vue {
     { text: '更新', value: 'actions', sortable: false },
     { text: '削除', value: 'delete', sortable: false },
     { text: '複写', value: 'copy', sortable: false },
-  ];
+  ]
 
   desserts = [
     {
@@ -119,13 +123,26 @@ export default class InvoiceIssueTable extends Vue {
       unitprice_val: '',
       amount_val: '',
       remarks_val: '',
-      tax_val: 10 + '%',
+      tax_val: '10%',
+    },
+    {
+      cstmr_id: 'cstmer002',
+      division_val: '通常',
+      productcode_val: '',
+      productname_val: '',
+      quanitity_val: '1',
+      unit_val: '',
+      unitprice_val: '',
+      amount_val: '',
+      remarks_val: '',
+      tax_val: '10%',
     },
   ];
 
   editedIndex = -1;
 
   editedInvoice = {
+    cstmr_id:'',
     division_val: '',
     productcode_val: '',
     productname_val: '',
@@ -134,17 +151,15 @@ export default class InvoiceIssueTable extends Vue {
     unitprice_val: '',
     amount_val: '',
     remarks_val: '',
-    tax_val: 10 + '%',
+    tax_val: '10%',
   };
 
-  created() {
-    // 何か処理
-  }
   @Emit()
   editInvoice(invoice: any) {
-    this.editedIndex = this.desserts.indexOf(invoice)
-    this.editedInvoice = Object.assign({}, invoice)
-    alert(JSON.stringify(this.editedInvoice))
+    this.editedIndex = this.desserts.indexOf(invoice);
+    this.editedInvoice = Object.assign({}, invoice);
+    this.editedInvoice.amount_val = String(this.amount(invoice.quanitity_val, invoice.unitprice_val));
+    alert(JSON.stringify(this.editedInvoice));
     // 更新
   }
 
@@ -152,7 +167,7 @@ export default class InvoiceIssueTable extends Vue {
     this.editedIndex = this.desserts.indexOf(invoice)
     this.editedInvoice = Object.assign({}, invoice)
     this.desserts.splice(this.editedIndex, 1)
-    alert(JSON.stringify(invoice.invoice_id))
+    alert(JSON.stringify(invoice.cstmr_id))
     // 削除
   }
 
@@ -160,7 +175,7 @@ export default class InvoiceIssueTable extends Vue {
     this.editedIndex = this.desserts.indexOf(invoice)
     this.editedInvoice = Object.assign({}, invoice)
     this.desserts.push(this.editedInvoice)
-    alert(JSON.stringify(invoice.invoice_id))
+    alert(JSON.stringify(invoice.cstmr_id))
     // 複写
   }
   
@@ -187,23 +202,16 @@ export default class InvoiceIssueTable extends Vue {
     })
     return taxAmount
   }
-
-
 }
+
 </script>
 <style lang="scss" scoped>
 .groundwork {
   background-color: white;
 }
 .v-subheader {
-  background-color: rgb(56, 129, 255);
+  background-color: rgb(255, 56, 56);
   color: white;
   justify-content: center;
-}
-.v-divider {
-  color: white;
-}
-.q1 {
-  margin-left: 2%;
 }
 </style>
