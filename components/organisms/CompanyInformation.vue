@@ -6,12 +6,12 @@
           ><OfficeName v-for="item in desserts" :key="item.officeName_id" :officename_val.sync="item.officeName" />
         </v-col>
         <v-col cols="5"
-          ><CEOName v-for="item in desserts" :key="item.CEOName_id" :CEOName_val.sync="item.CEONameVal"
+          ><CEOName v-for="item in desserts" :key="item.CEOName_id" :CEOName_val.sync="item.CEOName"
         /></v-col>
         <v-spacer />
       </v-row>
       <v-row>
-        <v-col cols="6"
+        <v-col cols="5"
           ><PostalCode
             v-for="item in desserts"
             :key="item.company_id"
@@ -26,9 +26,10 @@
             v-for="item in desserts"
             :key="item.company_id"
             :addressOne_val.sync="item.addressOne"
-            :address1="address1"
+            :addressOne="addressOne"
             :postalCode="postalCode"
-            :newAddress="address1"
+            :address1="address1"
+            :newAddress="newAddress"
             @change-address="changeAddress"
         /></v-col>
       </v-row>
@@ -94,7 +95,6 @@ export default class CompanyInfomation extends Vue {
       officeName: '株式会社jioworks',
       CEOName_id: 'CEOName_id',
       CEOName: '横田　龍介',
-
       postalCode: '1600022',
       addressOne: '東京都新宿区新宿5-11-1',
       addressTwo: 'ホーメスト新宿ビル9F',
@@ -104,12 +104,24 @@ export default class CompanyInfomation extends Vue {
     },
   ];
 
+  public address1: string = '';
+  public address: string = this.address1;
+
+  sample(desserts: any) {
+    console.log(desserts.addressOne);
+    return (desserts.addressOne = this.address1);
+  }
+
   // ファイル名の初期値を定義
   fileName: any = 'ファイル名が表示されます';
 
   //Emitで貰った値がfileNameに格納される。
   scanFile(fileName: any) {
     this.fileName = fileName;
+  }
+  // 生成された住所情報をaddress1に代入
+  sendAddress(val: string): void {
+    this.desserts[0].addressOne = val;
   }
 }
 </script>

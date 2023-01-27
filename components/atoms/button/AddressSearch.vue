@@ -13,7 +13,7 @@ export default class AddressSearch extends Vue {
   private zipCode: string = '';
   // 住所
   private addressVal: string = '';
-  // データベースから受け取った郵便番号の前3桁
+  // データベースから受け取った郵便番号
   @Prop({ type: String })
   postalCode!: string;
 

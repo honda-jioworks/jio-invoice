@@ -60,6 +60,6 @@ export default class DashBoard extends Vue {
   margin-left: 35px;
 }
 .wrap22 {
-  margin-left: -50px;
+  margin-left: -25px;
 }
 </style>

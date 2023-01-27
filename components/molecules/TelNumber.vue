@@ -47,10 +47,10 @@ export default class TelNumber extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap25 {
-  margin-left: 60px;
+  margin-left: 65px;
   margin-right: 35px;
 }
 .wrap26 {
-  margin-left: -25px;
+  margin-left: -18px;
 }
 </style>

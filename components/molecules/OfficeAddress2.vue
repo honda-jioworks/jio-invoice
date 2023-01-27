@@ -35,10 +35,10 @@ export default class OfficeAddress2 extends Vue {
 </script>
 <style lang="scss" scoped>
 .wrap31 {
-  margin-left: 45px;
+  margin-left: 48px;
 }
 .wrap32 {
-  margin-left: -65px;
+  margin-left: -73px;
 }
 .wrap33 {
   padding-right: -10px;

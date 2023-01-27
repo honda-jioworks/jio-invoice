@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="3" class="wrap30"><AddressLabel /></v-col>
       <v-col cols="6" class="wrap31"
-        ><AddressOne :label="label" :rule="rule" :value.sync="addressOne" :address1="address1"
+        ><AddressOne :label="label" :rule="rule" :value.sync="addressOne" :address1="address1" :newAddress="newAddress"
       /></v-col>
       <v-col cols="3" class="wrap32"
         ><ShowMap :newAddress="newAddress" :postalCode1="postalCode1" :postalCode2="postalCode2" :address1="address1"
@@ -40,18 +40,20 @@ export default class OfficeAddress extends Vue {
   // 郵便番号の前3桁
   @Prop({ type: String })
   postalCode!: string;
+
   @Prop({ type: String })
   address1!: string; // 入力された郵便番号をもとに生成された住所情報
+
   @Prop({ type: String })
   newAddress!: string;
 }
 </script>
 <style lang="scss" scoped>
 .wrap30 {
-  margin-left: 45px;
+  margin-left: 48px;
 }
 .wrap31 {
-  margin-left: -65px;
+  margin-left: -73px;
 }
 .wrap32 {
   margin-left: -10px;

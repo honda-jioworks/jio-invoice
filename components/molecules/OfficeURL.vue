@@ -40,6 +40,6 @@ export default class OfficeURL extends Vue {
   margin-right: -35px;
 }
 .wrap35 {
-  margin-left: 30px;
+  margin-left: 40px;
 }
 </style>
