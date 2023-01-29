@@ -5,18 +5,18 @@
         <v-row class="d-flex">
           <v-col cols="2">
             <v-subheader>請求額</v-subheader>
-            <v-col> &yen;{{ totalAmount }} </v-col>
+            <v-col @click="total"> &yen;{{ totalAmount }} </v-col>
           </v-col>
           <v-col cols="2">
             <v-subheader>消費税等</v-subheader>
-            <v-col> &yen;{{ taxAmount }} </v-col>
+            <v-col @click="tax"> &yen;{{ taxAmount }} </v-col>
           </v-col>
           <v-col cols="4" class="ml-auto">
             <v-subheader>対象期間</v-subheader>
             <v-row class="d-flex align-center">
-              <v-col cols="5"> <v-text-field input type="date" /></v-col>
+              <v-col cols="5" > <v-text-field input type="date" @input="dayStart" /></v-col>
               <v-col align="center"> 〜</v-col>
-              <v-col cols="5"><v-text-field input type="date" /></v-col>
+              <v-col cols="5"><v-text-field input type="date"  @input="dayEnd" /></v-col>
             </v-row>
           </v-col>
         </v-row>
@@ -96,7 +96,7 @@ export default class InvoiceIssueTable extends Vue {
   unit_items: Array<string> = ['人月', '印月', '日', '時間', '人時', '名', '式', 'ヶ月', 'ページ'];
   tax_items: Array<string> = ['10%', '税なし'];
   division_items: Array<string> = ['通常', '値引', '返品', 'メモ', '小計', '文章行', '表題', '改頁', '空行', '源泉外'];
-  
+
   headers = [
     { text: '区分', value: 'division_val' },
     { text: '商品コード', value: 'productcode_val' },
@@ -160,7 +160,7 @@ export default class InvoiceIssueTable extends Vue {
     this.editedInvoice = Object.assign({}, invoice);
     this.editedInvoice.amount_val = String(this.amount(invoice.quanitity_val, invoice.unitprice_val));
     alert(JSON.stringify(this.editedInvoice));
-    // 更新
+    // 更新ボタン
   }
 
   deleteInvoice(invoice: any) {
@@ -168,7 +168,7 @@ export default class InvoiceIssueTable extends Vue {
     this.editedInvoice = Object.assign({}, invoice)
     this.desserts.splice(this.editedIndex, 1)
     alert(JSON.stringify(invoice.cstmr_id))
-    // 削除
+    // 削除ボタン
   }
 
   copyInvoice(invoice: any) {
@@ -176,15 +176,36 @@ export default class InvoiceIssueTable extends Vue {
     this.editedInvoice = Object.assign({}, invoice)
     this.desserts.push(this.editedInvoice)
     alert(JSON.stringify(invoice.cstmr_id))
-    // 複写
+    // 複写ボタン
+  }
+
+  total(){
+    alert(JSON.stringify(this.totalAmount))
+    // 合計額をバック側へ
   }
   
+  tax(){
+    alert(JSON.stringify(this.taxAmount))
+    // 合計額をバック側へ
+  }
+
+  dayStart(date: any){
+    alert(JSON.stringify(date));
+    // 開始年月をバック側へ
+  }
+
+  dayEnd(date: any){
+    alert(JSON.stringify(date));
+    // 終了年月をバック側へ
+  }
+
 
   get amount() {
     return (quanitity: string, unitprice: string) => {
       const retVal = Number(quanitity) * Number(unitprice);
       return retVal ? retVal : 0;
     };
+    // データテーブル内の数量と単価の乗算
   }
   
   get totalAmount(){
@@ -193,6 +214,7 @@ export default class InvoiceIssueTable extends Vue {
       totalAmount += Math.round (Number(item.quanitity_val) * Number(item.unitprice_val)*1.1)
     })
     return totalAmount
+    // データテーブル内の計算を合計額へ表示
   }
 
   get taxAmount(){
@@ -201,6 +223,7 @@ export default class InvoiceIssueTable extends Vue {
       taxAmount += Math.round (Number(item.quanitity_val) * Number(item.unitprice_val)*0.1)
     })
     return taxAmount
+    // データテーブル内の計算を消費税等へ表示
   }
 }
 
