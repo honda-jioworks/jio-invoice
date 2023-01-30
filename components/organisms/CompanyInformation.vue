@@ -53,7 +53,13 @@
       </v-row>
       <v-row>
         <v-col cols="auto"><FileLocation @scan-file="scanFile" /></v-col>
-        <v-col cols="auto"><FileName :fileName="fileName" /></v-col>
+        <v-col cols="auto"
+          ><FileName
+            v-for="item in desserts"
+            :key="item.company_id"
+            :fileNamel_val.sync="item.fileName"
+            :fileName="fileName"
+        /></v-col>
       </v-row>
     </v-sheet>
   </v-container>
@@ -101,6 +107,7 @@ export default class CompanyInfomation extends Vue {
       telNumber: '0367098269',
       faxNumber: '0367098279',
       officeUrl: 'https://jioworks.com',
+      fileName: 'ファイル名が表示されます',
     },
   ];
 
@@ -117,7 +124,7 @@ export default class CompanyInfomation extends Vue {
 
   //Emitで貰った値がfileNameに格納される。
   scanFile(fileName: any) {
-    this.fileName = fileName;
+    this.desserts[0].fileName = fileName;
   }
   // 生成された住所情報をaddress1に代入
   sendAddress(val: string): void {

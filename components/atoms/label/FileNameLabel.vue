@@ -1,14 +1,17 @@
 <template>
-  <v-subheader
-    >ファイル名：<strong>{{ fileName }}</strong></v-subheader
+  <v-subheader :return-value.sync="value_in" v-model="value_in"
+    >ファイル名：<strong>{{ value_in }}</strong></v-subheader
   >
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class FileNameLabel extends Vue {
+  @PropSync('value', { type: String })
+  value_in!: any;
   //PropでFileName内のfileNameの値を受け取る。
+
   @Prop()
   fileName!: string;
 }
