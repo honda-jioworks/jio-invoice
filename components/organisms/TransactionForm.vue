@@ -21,14 +21,6 @@
     </v-row>
     <!-- 2段目 -->
     <v-row>
-      <v-col cols="4"
-        ><DepositAccount
-          v-for="item in desserts"
-          :key="item.deposit_id"
-          :value.sync="item.deposit"
-          :items="deposititems"
-          class="mb-n5"
-      /></v-col>
       <v-col cols="4"><ClosingDate class="mb-n5" /></v-col>
       <v-col cols="4"><RecoveryCycle class="mb-n5" /></v-col>
     </v-row>
@@ -98,7 +90,6 @@ import BettingRate from '../molecules/BettingRate.vue';
 import StartingBalance from '../molecules/StartingBalance.vue';
 import RecoveryCycle from '../molecules/RecoveryCycle.vue';
 import ClosingDate from '../molecules/ClosingDate.vue';
-import DepositAccount from '../molecules/DepositAccount.vue';
 import TaxProcessing from '../molecules/TaxProcessing.vue';
 import TransactionSection from '../molecules/TransactionSection.vue';
 import TaxAddIndicateCheck from '../molecules/TaxAddIndicateCheck.vue';
@@ -107,7 +98,6 @@ import TaxAddIndicateCheck from '../molecules/TaxAddIndicateCheck.vue';
   components: {
     TransactionSection,
     TaxProcessing,
-    DepositAccount,
     ClosingDate,
     RecoveryCycle,
     StartingBalance,

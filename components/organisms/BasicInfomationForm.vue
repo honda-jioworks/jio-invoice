@@ -1,5 +1,11 @@
 <template>
   <v-container class="color" :items="desserts">
+    <v-row>
+      <v-col cols="5">
+        <Responsible v-for="item in desserts" :key="item.responsible_id" :value.sync="item.responsible" />
+        <v-spacer />
+      </v-col>
+    </v-row>
     <!--1行目-->
     <v-row>
       <v-col cols="6">
@@ -58,6 +64,7 @@
 
 <script lang="ts">
 import { Vue, Component, Emit } from 'nuxt-property-decorator';
+import Responsible from '@/components/molecules/ResponsiblePerson.vue';
 import CustomerName from '@/components/molecules/CustomerName.vue';
 import CustomerNameKana from '@/components/molecules/CustomerNameKana.vue';
 import AbbreviationInput from '~/components/molecules/AbbreviationInput.vue';
@@ -67,6 +74,7 @@ import MemoBox from '@/components/molecules/MemoBox.vue';
 import NotShowBox from '~/components/molecules/NotShowBox.vue';
 @Component({
   components: {
+    Responsible,
     CustomerName,
     CustomerNameKana,
     AbbreviationInput,
@@ -79,6 +87,8 @@ import NotShowBox from '~/components/molecules/NotShowBox.vue';
 export default class BasicInfomationForm extends Vue {
   desserts = [
     {
+      responsible_id: '',
+      responsible: '',
       customer_id: '',
       customer: '',
       nameKana_id: '',
