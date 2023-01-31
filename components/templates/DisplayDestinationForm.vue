@@ -19,7 +19,7 @@
       <v-expansion-panel>
         <v-expansion-panel-header>編集画面</v-expansion-panel-header>
         <v-expansion-panel-content>
-          <v-col><ThreePoint /></v-col>
+          <v-col><InvoiceIssueTable /></v-col>
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -31,8 +31,9 @@ import { Vue, Component } from 'nuxt-property-decorator';
 import DestinationForm from '@/components/organisms/DestinationForm.vue';
 import PicInformationForm from '@/components/organisms/PicInformationForm.vue';
 import ThreePoint from '@/components/organisms/ThreePoint.vue';
+import InvoiceIssueTable from '@/components/organisms/InvoiceIssueTable.vue';
 
-@Component({ components: { DestinationForm, PicInformationForm, ThreePoint } })
+@Component({ components: { DestinationForm, PicInformationForm, InvoiceIssueTable } })
 export default class DisplayDestinationForm extends Vue {}
 </script>
 <style lang="scss" scoped>

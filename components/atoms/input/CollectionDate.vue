@@ -3,8 +3,7 @@
     <v-col cols="12" class="w1">
       <v-text-field dense type="date" clearable outlined :rules="rules">
         <template v-slot:label>回収日<span style="color: red"> *</span></template>
-      </v-text-field> </v-col
-    ><!--v-select等に変更-->
+      </v-text-field> </v-col>
   </v-row>
 </template>
 <script lang="ts">

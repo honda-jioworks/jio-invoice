@@ -181,22 +181,22 @@ export default class InvoiceIssueTable extends Vue {
 
   total(){
     alert(JSON.stringify(this.totalAmount))
-    // 合計額をバック側へ
+    // 合計額を値保持確認
   }
   
   tax(){
     alert(JSON.stringify(this.taxAmount))
-    // 合計額をバック側へ
+    // 消費税額を値保持確認
   }
 
   dayStart(date: any){
     alert(JSON.stringify(date));
-    // 開始年月をバック側へ
+    // 開始年月を値保持確認
   }
 
   dayEnd(date: any){
     alert(JSON.stringify(date));
-    // 終了年月をバック側へ
+    // 終了年月を値保持確認
   }
 
 
@@ -233,7 +233,7 @@ export default class InvoiceIssueTable extends Vue {
   background-color: white;
 }
 .v-subheader {
-  background-color: rgb(255, 56, 56);
+  background-color: rgb(236, 65, 84);
   color: white;
   justify-content: center;
 }

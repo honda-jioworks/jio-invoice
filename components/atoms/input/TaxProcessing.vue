@@ -16,7 +16,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class TaxProcessing extends Vue {
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
-  items: Array<string> = ['外税', '殿', '御中'];
+  items: Array<string> = ['外税', '内税', '税なし'];
 }
 </script>
 <style lang="scss" scoped>

@@ -1,16 +1,16 @@
 <template>
   <div>
     <v-row no-gutters
-      ><v-col><headers2 /></v-col
+      ><v-col><Headers2 /></v-col
     ></v-row>
     <v-row no-gutters>
-      <v-col cols="12"> <CalendarForm @scan-date="scanDate" @get-new-number="getNewNumber" /></v-col
+      <v-col cols="12"> <CalendarForm @scan-date="scanDate" @get-new-number="getNewNumber"   /></v-col
     ></v-row>
     <v-row no-gutters>
       <v-col cols="12"> <PrivateCompanyInformation /></v-col
     ></v-row>
     <v-row no-gutters>
-      <v-col cols="12"> <PicName @scan-person="scanPerson" /></v-col
+      <v-col cols="12"> <PicName @scan-person="scanPerson"  /></v-col
     ></v-row>
     <v-row no-gutters>
       <v-col cols="12"> <AccountInformation @scan-one="scanOne" @scan-two="scanTwo" @scan-three="scanThree" /></v-col
@@ -42,26 +42,41 @@ export default class PicInformationForm extends Vue {
   public threeval: string = '';
   public newNumber: string = '';
 
-  // 日付
+  
   scanDate(val: string): void {
     this.dateval = val;
+    alert(JSON.stringify(val));
+    // 日付値保持確認
   }
-  // 担当者名
+  
   scanPerson(val: string): void {
     this.nameval = val;
+    alert(JSON.stringify(val));
+    // 担当者名値保持確認
   }
-  // 口座情報
+  
   scanOne(val: string): void {
     this.oneval = val;
+    console.log(JSON.stringify(val));
+    // 口座情報1段目値保持確認
   }
+  
   scanTwo(val: string): void {
     this.twoval = val;
+    console.log(JSON.stringify(val));
+    // 口座情報2段目値保持確認
   }
+  
   scanThree(val: string): void {
     this.threeval = val;
+    console.log(JSON.stringify(val));
+    // 口座情報3段目値保持確認
   }
+  
   getNewNumber(val: string): void {
     this.newNumber = val;
+    console.log(JSON.stringify(val));
+    // 請求書ナンバー値保持確認
   }
 }
 </script>

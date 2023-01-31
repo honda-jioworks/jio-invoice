@@ -23,7 +23,7 @@ export default class PicName extends Vue {
 <style lang="scss" scoped>
 .v-subheader {
   font-size: 71%;
-  background-color: rgb(255, 56, 56);
+  background-color: rgb(236, 65, 84);
   color: white;
   margin-top: 1.5%;
   margin-left: 1%;

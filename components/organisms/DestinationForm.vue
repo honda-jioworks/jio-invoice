@@ -12,17 +12,13 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12"
-        ><AddressSearch
-          @scan-postal="scanPostal"
-          :PostalCode="postalcodeval"
-          @send-address="sendAddress"
-          :postalCodeVal="postalCodeVal" /></v-col
-    ></v-row>
+      <v-col cols="12">
+        <AddressSearch @scan-postal="scanPostal" :PostalCode="postalcodeval" @send-address="sendAddress" :postalCodeVal="postalCodeVal" />
+      </v-col>
+    </v-row>
     <v-row no-gutters>
       <v-col cols="12"> <AddressForm @change-address="changeAddress" :addressVal="address" /></v-col
     ></v-row>
-
     <v-row no-gutters>
       <v-col cols="12"><CorporationName @scan-corp="scanCorp" /></v-col
     ></v-row>
@@ -90,54 +86,67 @@ export default class DestinationForm extends Vue {
   // 住所
   scanAddress(val: string): void {
     this.addressval = val;
+    console.log(JSON.stringify(this.addressval));
   }
   //住所をmoleculesから受け取る
   sendAddress(val: string): void {
     this.address = val;
+    console.log(JSON.stringify(this.address));
   }
   changeAddress(val: string): void {
     //住所をmoleculesから受け取りorganismsで出力
     this.changeAddressVal = val;
+    console.log(JSON.stringify(this.changeAddressVal));
   }
   // 郵便番号
   scanPostal(val: string): void {
     this.postalcodeval = val;
+    console.log(JSON.stringify(val));
   }
   // 部署名
   scanDepartment(val: string): void {
     this.departmentval = val;
+    console.log(JSON.stringify(val));
   }
   // 課名
   scanDivision(val: string): void {
     this.divisionval = val;
+    console.log(JSON.stringify(val));
   }
   // 会社名
   scanCorp(val: string): void {
     this.corpval = val;
+    console.log(JSON.stringify(val));
   }
   // TEL番号
   scanTel(val: string): void {
     this.telval = val;
+    console.log(JSON.stringify(val));
   }
   // FAX番号
   scanFax(val: string): void {
     this.faxval = val;
+    console.log(JSON.stringify(val));
   }
   // 役職
   scanPosition(val: string): void {
     this.potisionval = val;
+    console.log(JSON.stringify(val));
   }
   // 担当者
   scanStaff(val: string): void {
     this.staffval = val;
+    console.log(JSON.stringify(val));
   }
   // 敬称
   scanHonorific(val: string): void {
     this.honorificval = val;
+    console.log(JSON.stringify(val));
   }
   // 案件名
   scanProject(val: string): void {
     this.projectval = val;
+    console.log(JSON.stringify(val));
   }
 }
 </script>
