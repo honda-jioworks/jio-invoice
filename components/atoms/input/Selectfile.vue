@@ -12,19 +12,22 @@
         label="画像ファイルから選択"
         prepend-icon="mdi-image"
         @change="uploadFile"
+        :value="value_in"
       />
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, PropSync, Prop } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
 export default class Selectfile extends Vue {
-  public Url: string | undefined = '';
+  @Prop()
+  value!: any;
+
+  public Url: any = '';
   files: any;
-  value!: string;
   private test: any;
 
   //OfficeLogo,OfficeSealのRefで参照した際のクリックメゾット実行される

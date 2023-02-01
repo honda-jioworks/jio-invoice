@@ -1,5 +1,5 @@
 <template>
-  <v-container :headers="headers" :items="desserts">
+  <v-container :items="desserts">
     <v-sheet>
       <v-row dense>
         <v-col cols="5"
@@ -14,7 +14,7 @@
         <v-col cols="5"
           ><PostalCode
             v-for="item in desserts"
-            :key="item.company_id"
+            :key="item.postalCode_id"
             :postalCode_val.sync="item.postalCode"
             @send-address="sendAddress"
             @get-postal-code="getPostalCode"
@@ -24,7 +24,7 @@
         <v-col cols="8"
           ><OfficeAddress
             v-for="item in desserts"
-            :key="item.company_id"
+            :key="item.addressOne_id"
             :addressOne_val.sync="item.addressOne"
             :addressOne="addressOne"
             :postalCode="postalCode"
@@ -35,20 +35,20 @@
       </v-row>
       <v-row>
         <v-col cols="8"
-          ><OfficeAddress2 v-for="item in desserts" :key="item.company_id" :address2_val.sync="item.addressTwo"
+          ><OfficeAddress2 v-for="item in desserts" :key="item.addressTwo_id" :address2_val.sync="item.addressTwo"
         /></v-col>
       </v-row>
       <v-row>
         <v-col cols="5"
-          ><TelNumber v-for="item in desserts" :key="item.company_id" :telNumber_val.sync="item.telNumber"
+          ><TelNumber v-for="item in desserts" :key="item.telNumber_id" :telNumber_val.sync="item.telNumber"
         /></v-col>
         <v-col cols="5"
-          ><NumberOfFax v-for="item in desserts" :key="item.company_id" :faxNumber_val.sync="item.faxNumber"
+          ><NumberOfFax v-for="item in desserts" :key="item.faxNumber_id" :faxNumber_val.sync="item.faxNumber"
         /></v-col>
       </v-row>
       <v-row>
         <v-col cols="6"
-          ><OfficeURL v-for="item in desserts" :key="item.company_id" :officeUrl_val.sync="item.officeUrl"
+          ><OfficeURL v-for="item in desserts" :key="item.officeUrl_id" :officeUrl_val.sync="item.officeUrl"
         /></v-col>
       </v-row>
       <v-row>
@@ -56,7 +56,7 @@
         <v-col cols="auto"
           ><FileName
             v-for="item in desserts"
-            :key="item.company_id"
+            :key="item.fileName_id"
             :fileNamel_val.sync="item.fileName"
             :fileName="fileName"
         /></v-col>
@@ -95,19 +95,27 @@ import FileName from '@/components/molecules/FileName.vue';
 })
 export default class CompanyInfomation extends Vue {
   // データベースから持ってくるデータ
+  @Prop()
   desserts = [
     {
       officeName_id: 'officeName_id',
-      officeName: '株式会社jioworks',
+      officeName: '',
       CEOName_id: 'CEOName_id',
-      CEOName: '横田　龍介',
-      postalCode: '1600022',
-      addressOne: '東京都新宿区新宿5-11-1',
-      addressTwo: 'ホーメスト新宿ビル9F',
-      telNumber: '0367098269',
-      faxNumber: '0367098279',
-      officeUrl: 'https://jioworks.com',
-      fileName: 'ファイル名が表示されます',
+      CEOName: '',
+      postalCode_id: 'postalCode_id',
+      postalCode: '',
+      addressOne_id: 'addressOne_id',
+      addressOne: '',
+      addressTwo_id: 'addressTwo_id',
+      addressTwo: '',
+      telNumber_id: 'telNumber_id',
+      telNumber: '',
+      faxNumber_id: 'faxNumber_id',
+      faxNumber: '',
+      officeUrl_id: 'officeUrl_id',
+      officeUrl: '',
+      fileName_id: 'fileName_id',
+      fileName: '',
     },
   ];
 

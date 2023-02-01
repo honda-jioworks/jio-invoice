@@ -5,7 +5,7 @@
     </v-row>
     <v-row>
       <div class="wrap">
-        <v-col cols="12"><Selectfile ref="SelectImg" /></v-col>
+        <v-col cols="12"><Selectfile ref="SelectImg" :value.sync="selectFile" /></v-col>
         <div>
           <v-col cols="12"
             ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref, Prop, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, PropSync, Emit } from 'nuxt-property-decorator';
 import Selectfile from '~/components/atoms/input/Selectfile.vue';
 import CompanySeal from '../atoms/label/CompanySeal.vue';
 import Clearbutton from '../atoms/button/clearbutton.vue';
@@ -38,6 +38,9 @@ export default class OfficeSeal extends Vue {
   //RefしてAtomsのクリックイベントを実行している
   @Ref()
   SelectImg!: Selectfile;
+
+  @PropSync('selectFile_val', { type: String })
+  selectFile!: string;
 
   @Emit()
   sealSelect() {

@@ -112,7 +112,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import ConsumptionTax from '@/components/molecules/ConsumptionTax.vue';
 import ConsumptionTaxRounding from '@/components/molecules/ConsumptionTaxRounding.vue';
 import MulUnitPriceQuantityRounding from '@/components/molecules/MulUnitPriceQuantityRounding.vue';
@@ -141,51 +141,25 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
   },
 })
 export default class DetailsInfomation extends Vue {
-  public consumption_items: Array<string> = ['自動', '軽減自動', 'しない'];
-  public taxrounding_items: Array<string> = ['切り上げ', '切り捨て', '四捨五入'];
-  public check_items: Array<Object> = ['する', 'しない'];
-  public keta_items: Array<string> = [
-    '整数7桁 小数なし',
-    '整数6桁 小数第1位',
-    '整数5桁 小数第2位',
-    '整数4桁 小数第3位',
-  ];
-  public taxRate_items: Array<string> = ['平成24年まで', '平成25年以降'];
-  public date_items: Array<string> = [
-    '1日',
-    '2日',
-    '3日',
-    '4日',
-    '5日',
-    '6日',
-    '7日',
-    '8日',
-    '9日',
-    '10日',
-    '11日',
-    '12日',
-    '13日',
-    '14日',
-    '15日',
-    '16日',
-    '17日',
-    '18日',
-    '19日',
-    '20日',
-    '21日',
-    '22日',
-    '23日',
-    '24日',
-    '25日',
-    '26日',
-    '27日',
-    '28日',
-    '29日',
-    '30日',
-    '31日',
-    '末日',
-  ];
+  @Prop()
+  consumption_items: Array<string> = [];
 
+  @Prop()
+  taxrounding_items: Array<string> = [];
+
+  @Prop()
+  check_items: Array<string> = [];
+
+  @Prop()
+  keta_items: Array<string> = [];
+
+  @Prop()
+  taxRate_items: Array<string> = [];
+
+  @Prop()
+  date_items: Array<string> = [];
+
+  @Prop()
   desserts = [
     {
       consumptionTax_id: 'consumptionTax_id',
