@@ -125,26 +125,27 @@ export default class DisplayCompanyRegister extends Vue {
   }
 
   onSave() {
+    console.log(this.$store.state.company.officeName);
     axios
       .post('/company', {
-        officeName_id: '',
-        officeName: '',
-        CEOName_id: '',
-        CEOName: '',
-        postalCode_id: '',
-        postalCode: '',
-        addressOne_id: '',
-        addressOne: '',
-        addressTwo_id: '',
-        addressTwo: '',
-        telNumber_id: '',
-        telNumber: '',
-        faxNumber_id: '',
-        faxNumber: '',
-        officeUrl_id: '',
-        officeUrl: '',
-        fileName_id: '',
-        fileName: '',
+        officeName_id: this.$store.state.company.officeName_id,
+        officeName: this.$store.state.company.officeName,
+        CEOName_id: this.$store.state.company.CEOName_id,
+        CEOName: this.$store.state.company.CEOName,
+        postalCode_id: this.$store.state.company.postalCode_id,
+        postalCode: this.$store.state.company.postalCode,
+        addressOne_id: this.$store.state.company.addressOne_id,
+        addressOne: this.$store.state.company.addressOne,
+        addressTwo_id: this.$store.state.company.addressTwo_id,
+        addressTwo: this.$store.state.company.addressTwo,
+        telNumber_id: this.$store.state.company.telNumber_id,
+        telNumber: this.$store.state.company.telNumber,
+        faxNumber_id: this.$store.state.company.faxNumber_id,
+        faxNumber: this.$store.state.company.faxNumber,
+        officeUrl_id: this.$store.state.company.officeUrl_id,
+        officeUrl: this.$store.state.company.officeUrl,
+        fileName_id: this.$store.state.company.fileName_id,
+        fileName: this.$store.state.company.fileName,
       })
       .then(function (response) {
         alert(response.data);
