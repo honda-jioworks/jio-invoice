@@ -142,22 +142,15 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
 })
 export default class DetailsInfomation extends Vue {
   @Prop()
-  consumption_items: Array<string> = [];
-
+  taxrounding_items!: Array<string>;
   @Prop()
-  taxrounding_items: Array<string> = [];
-
+  check_items!: Array<string>;
   @Prop()
-  check_items: Array<string> = [];
-
+  keta_items!: Array<string>;
   @Prop()
-  keta_items: Array<string> = [];
-
+  taxRate_items!: Array<string>;
   @Prop()
-  taxRate_items: Array<string> = [];
-
-  @Prop()
-  date_items: Array<string> = [];
+  date_items!: Array<string>;
 
   @Prop()
   desserts = [

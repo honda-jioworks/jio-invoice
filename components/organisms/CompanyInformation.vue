@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Ref } from 'nuxt-property-decorator';
+import { Vue, Component, Emit, Prop, Ref, PropSync } from 'nuxt-property-decorator';
 import OfficeName from '@/components/molecules/OfficeName.vue';
 import CEOName from '@/components/molecules/CEOName.vue';
 import PostalCode from '@/components/molecules/PostalCode.vue';
@@ -95,26 +95,30 @@ import FileName from '@/components/molecules/FileName.vue';
 })
 export default class CompanyInfomation extends Vue {
   // データベースから持ってくるデータ
-  @Prop()
+  @Emit()
+  testSend() {
+    return this.desserts[0];
+  }
+
   desserts = [
     {
-      officeName_id: 'officeName_id',
+      officeName_id: '',
       officeName: '',
-      CEOName_id: 'CEOName_id',
+      CEOName_id: '',
       CEOName: '',
-      postalCode_id: 'postalCode_id',
+      postalCode_id: '',
       postalCode: '',
-      addressOne_id: 'addressOne_id',
+      addressOne_id: '',
       addressOne: '',
-      addressTwo_id: 'addressTwo_id',
+      addressTwo_id: '',
       addressTwo: '',
-      telNumber_id: 'telNumber_id',
+      telNumber_id: '',
       telNumber: '',
-      faxNumber_id: 'faxNumber_id',
+      faxNumber_id: '',
       faxNumber: '',
-      officeUrl_id: 'officeUrl_id',
+      officeUrl_id: '',
       officeUrl: '',
-      fileName_id: 'fileName_id',
+      fileName_id: '',
       fileName: '',
     },
   ];
@@ -122,7 +126,7 @@ export default class CompanyInfomation extends Vue {
   public address1: string = '';
   public address: string = this.address1;
 
-  sample(desserts: any) {
+  changeAddress(desserts: any) {
     console.log(desserts.addressOne);
     return (desserts.addressOne = this.address1);
   }

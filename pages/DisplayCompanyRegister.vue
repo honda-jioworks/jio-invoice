@@ -8,7 +8,7 @@
             <v-expansion-panel-content>
               <v-row justify="center">
                 <v-col cols="12">
-                  <v-card><CompanyInformation :desserts="companyInfo_items" /></v-card
+                  <v-card><CompanyInformation :desserts="companyInfo_items" @test-send="testSend" /></v-card
                 ></v-col>
               </v-row>
             </v-expansion-panel-content>
@@ -68,17 +68,16 @@ import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
 import axios from 'axios';
 @Component({ components: { CompanyInformation, DetailsInfomation, LogoSealinfo, RegistrationNumber } })
 export default class DisplayCompanyRegister extends Vue {
-  public consumption_items: Array<string> = ['自動', '軽減自動', 'しない'];
-  public taxrounding_items: Array<string> = ['切り上げ', '切り捨て', '四捨五入'];
-  public check_items: Array<Object> = ['する', 'しない'];
-  public keta_items: Array<string> = [
-    '整数7桁 小数なし',
-    '整数6桁 小数第1位',
-    '整数5桁 小数第2位',
-    '整数4桁 小数第3位',
-  ];
-  public taxRate_items: Array<string> = ['平成24年まで', '平成25年以降'];
-  public date_items: Array<string> = [
+  sample: any[] = [];
+  testSend(val: any) {
+    this.sample = val;
+  }
+  consumption_items: Array<string> = ['自動', '軽減自動', 'しない'];
+  taxrounding_items: Array<string> = ['切り上げ', '切り捨て', '四捨五入'];
+  check_items: Array<string> = ['する', 'しない'];
+  keta_items: Array<string> = ['整数7桁 小数なし', '整数6桁 小数第1位', '整数5桁 小数第2位', '整数4桁 小数第3位'];
+  taxRate_items: Array<string> = ['平成24年まで', '平成25年以降'];
+  date_items: Array<string> = [
     '1日',
     '2日',
     '3日',
@@ -126,21 +125,30 @@ export default class DisplayCompanyRegister extends Vue {
   }
 
   onSave() {
-    alert(this.mounted);
-    return this.mounted;
-  }
-
-  async mounted() {
-    const response = await axios.get('');
-    console.log(JSON.stringify(response.data));
-
-    const custmer = response.data.msg;
-    console.log(JSON.stringify(custmer));
-
-    this.companyInfo_items = custmer;
-    this.DetailsInfo_items = custmer;
-    this.logosealInfo_items = custmer;
-    this.RegistrationNum_items = custmer;
+    axios
+      .post('/company', {
+        officeName_id: '',
+        officeName: '',
+        CEOName_id: '',
+        CEOName: '',
+        postalCode_id: '',
+        postalCode: '',
+        addressOne_id: '',
+        addressOne: '',
+        addressTwo_id: '',
+        addressTwo: '',
+        telNumber_id: '',
+        telNumber: '',
+        faxNumber_id: '',
+        faxNumber: '',
+        officeUrl_id: '',
+        officeUrl: '',
+        fileName_id: '',
+        fileName: '',
+      })
+      .then(function (response) {
+        alert(response.data);
+      });
   }
 }
 </script>
