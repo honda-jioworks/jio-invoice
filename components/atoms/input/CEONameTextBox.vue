@@ -1,5 +1,6 @@
 <template #input>
-  <v-text-field :return-value.sync="value_in" :rules="rule" v-model="value_in" :label="label" counter> </v-text-field>
+  <v-text-field :return-value.sync="value_in" :rules="rule" v-model="value_in" @blur="input" :label="label" counter>
+  </v-text-field>
 </template>
 
 <script lang="ts">
@@ -14,6 +15,10 @@ export default class OfficeNameTextBox extends Vue {
 
   @Prop()
   rule!: Array<object>;
+
+  input() {
+    this.$store.commit('company/set', { CEOName: this.value_in });
+  }
 }
 </script>
 <style lang="scss" scoped>

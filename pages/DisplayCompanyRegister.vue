@@ -125,31 +125,61 @@ export default class DisplayCompanyRegister extends Vue {
   }
 
   onSave() {
-    console.log(this.$store.state.company.officeName);
-    axios
-      .post('/company', {
-        officeName_id: this.$store.state.company.officeName_id,
-        officeName: this.$store.state.company.officeName,
-        CEOName_id: this.$store.state.company.CEOName_id,
-        CEOName: this.$store.state.company.CEOName,
-        postalCode_id: this.$store.state.company.postalCode_id,
-        postalCode: this.$store.state.company.postalCode,
-        addressOne_id: this.$store.state.company.addressOne_id,
-        addressOne: this.$store.state.company.addressOne,
-        addressTwo_id: this.$store.state.company.addressTwo_id,
-        addressTwo: this.$store.state.company.addressTwo,
-        telNumber_id: this.$store.state.company.telNumber_id,
-        telNumber: this.$store.state.company.telNumber,
-        faxNumber_id: this.$store.state.company.faxNumber_id,
-        faxNumber: this.$store.state.company.faxNumber,
-        officeUrl_id: this.$store.state.company.officeUrl_id,
-        officeUrl: this.$store.state.company.officeUrl,
-        fileName_id: this.$store.state.company.fileName_id,
-        fileName: this.$store.state.company.fileName,
-      })
-      .then(function (response) {
-        alert(response.data);
-      });
+    console.log(this.$store.state.company);
+    // axios  //定数ファイルが完成しだい指定する
+    //   .post('/', {
+    //     officeName_id: this.$store.state.company.officeName_id,
+    //     officeName: this.$store.state.company.officeName,
+    //     CEOName_id: this.$store.state.company.CEOName_id,
+    //     CEOName: this.$store.state.company.CEOName,
+    //     postalCode_id: this.$store.state.company.postalCode_id,
+    //     postalCode: this.$store.state.company.postalCode,
+    //     addressOne_id: this.$store.state.company.addressOne_id,
+    //     addressOne: this.$store.state.company.addressOne,
+    //     addressTwo_id: this.$store.state.company.addressTwo_id,
+    //     addressTwo: this.$store.state.company.addressTwo,
+    //     telNumber_id: this.$store.state.company.telNumber_id,
+    //     telNumber: this.$store.state.company.telNumber,
+    //     faxNumber_id: this.$store.state.company.faxNumber_id,
+    //     faxNumber: this.$store.state.company.faxNumber,
+    //     officeUrl_id: this.$store.state.company.officeUrl_id,
+    //     officeUrl: this.$store.state.company.officeUrl,
+    //     fileName_id: this.$store.state.company.fileName_id,
+    //     fileName: this.$store.state.company.fileName,
+    //     consumptionTax_id: this.$store.state.company.consumptionTax_id,
+    //     consumptionTaxVal: this.$store.state.company.consumptionTaxVal,
+    //     consumptionTaxRounding_id: this.$store.state.company.consumptionTaxRounding_id,
+    //     consumptionTaxRoundingVal: this.$store.state.company.consumptionTaxRoundingVal,
+    //     mulUnitPriceQuantityRounding_id: this.$store.state.company.mulUnitPriceQuantityRounding_id,
+    //     mulUnitPriceQuantityRoundingVal: this.$store.state.company.mulUnitPriceQuantityRoundingVal,
+    //     unitPriceCulculationRounding_id: this.$store.state.company.unitPriceCulculationRounding_id,
+    //     unitPriceCulculationRoundingVal: this.$store.state.company.unitPriceCulculationRoundingVal,
+    //     decimalalPart_id: this.$store.state.company.decimalalPart_id,
+    //     decimalalPartVal: this.$store.state.company.decimalalPartVal,
+    //     numberOfDigits_id: this.$store.state.company.numberOfDigits_id,
+    //     numberOfDigitsVal: this.$store.state.company.numberOfDigitsVal,
+    //     amountOfWithholdingTax_id: this.$store.state.company.amountOfWithholdingTax_id,
+    //     amountOfWithholdingTaxVal: this.$store.state.company.amountOfWithholdingTaxVal,
+    //     text_id: this.$store.state.company.text_id,
+    //     textVal: this.$store.state.company.textVal,
+    //     taxRate_id: this.$store.state.company.taxRate_id,
+    //     taxRateVal: this.$store.state.company.taxRateVal,
+    //     salaryPaymentDate_id: this.$store.state.company.salaryPaymentDate_id,
+    //     salaryPaymentDateVal: this.$store.state.company.salaryPaymentDateVal,
+    //     bonusPaymentDate_id: this.$store.state.company.bonusPaymentDate_id,
+    //     bonusPaymentDateVal: this.$store.state.company.bonusPaymentDateVal,
+    //     logo_id: this.$store.state.company.logo_id,
+    //     select_logo: this.$store.state.company.select_logo,
+    //     seal_id: this.$store.state.company.seal_id,
+    //     select_seal: this.$store.state.company.select_seal,
+    //     check_id: this.$store.state.company.check_id,
+    //     disabled: this.$store.state.company.disabled,
+    //     numberbox_id: this.$store.state.company.numberbox_id,
+    //     RegistrationNumberBox_val: this.$store.state.company.RegistrationNumberBox_val,
+    //   })
+    //   .then(function (response) {
+    //     alert(response.data);
+    //   });
   }
 }
 </script>

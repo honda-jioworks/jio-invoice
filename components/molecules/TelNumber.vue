@@ -2,7 +2,14 @@
   <v-sheet>
     <v-row dense>
       <v-col cols="2" class="wrap25"><TelLabel /></v-col>
-      <v-col cols="4" class="wrap26"><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="telNumber" /></v-col>
+      <v-col cols="4" class="wrap26"
+        ><ThreeNumbersTextBox
+          :label="label"
+          :rule="rule"
+          :value.sync="telNumber"
+          :field="'telNumber'"
+          v-model="telNumber"
+      /></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -11,12 +18,10 @@
 import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
 import TelLabel from '~/components/atoms/label/TelLabel.vue';
 import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
-import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
 @Component({
   components: {
     TelLabel,
     ThreeNumbersTextBox,
-    FourNumbersTextBox,
   },
 })
 export default class TelNumber extends Vue {

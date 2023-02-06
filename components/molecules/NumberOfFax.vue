@@ -2,7 +2,14 @@
   <v-sheet>
     <v-row dense>
       <v-col cols="2" class="wrap28 {"><FAXLabel /></v-col>
-      <v-col cols="4" class="wrap29"><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="faxNumber" /></v-col>
+      <v-col cols="4" class="wrap29"
+        ><ThreeNumbersTextBox
+          :label="label"
+          :rule="rule"
+          :value.sync="faxNumber"
+          :field="'faxNumber'"
+          v-model="faxNumber"
+      /></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -11,12 +18,10 @@
 import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
 import FAXLabel from '~/components/atoms/label/FAXLabel.vue';
 import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
-import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
 @Component({
   components: {
     FAXLabel,
     ThreeNumbersTextBox,
-    FourNumbersTextBox,
   },
 })
 export default class NumberOfFax extends Vue {

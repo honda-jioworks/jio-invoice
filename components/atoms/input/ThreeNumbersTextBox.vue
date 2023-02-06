@@ -1,10 +1,17 @@
 <template>
-  <v-text-field :return-value.sync="value_in" :rules="rule" v-model="value_in" :label="label" counter="11" solo>
+  <v-text-field
+    :return-value.sync="value_in"
+    :rules="rule"
+    v-model="value_in"
+    :label="label"
+    counter="11"
+    solo
+    @blur="input"
+  >
   </v-text-field>
 </template>
-
 <script lang="ts">
-import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({})
 export default class ThreeNumbersTextBox extends Vue {
   @PropSync('value', { type: String })
@@ -16,8 +23,25 @@ export default class ThreeNumbersTextBox extends Vue {
   @Prop()
   rule!: Array<object>;
 
+  @Prop({ type: String, required: true })
+  field!: string;
+
   @Prop({ type: String })
   postalCode!: string;
+
+  input() {
+    switch (this.field) {
+      case 'postalCode':
+        this.$store.commit('company/set', { postalCode: this.value_in });
+        break;
+      case 'telNumber':
+        this.$store.commit('company/set', { telNumber: this.value_in });
+        break;
+      case 'faxNumber':
+        this.$store.commit('company/set', { faxNumber: this.value_in });
+        break;
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -7,6 +7,7 @@
     counter
     :address1="address1"
     :newAddress="newAddress"
+    @blur="input"
   >
   </v-text-field>
 </template>
@@ -28,6 +29,10 @@ export default class AddressOne extends Vue {
 
   @Prop({ type: String })
   address1!: String;
+
+  input() {
+    this.$store.commit('company/set', { addressOne: this.value_in });
+  }
 
   // 入力された郵便番号をもとに生成された住所情報
   @Prop({ type: String })

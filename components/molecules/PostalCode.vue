@@ -3,7 +3,12 @@
     <v-row dense>
       <v-col cols="4" class="wrap21"><PostalCodeLabel /></v-col>
       <v-col cols="4" class="wrap22"
-        ><ThreeNumbersTextBox :label="label" :rule="rule" :value.sync="postalCode"
+        ><ThreeNumbersTextBox
+          :label="label"
+          :rule="rule"
+          :value.sync="postalCode"
+          :field="'postalCode'"
+          v-model="postalCode"
       /></v-col>
       <v-col cols="1" class="wrap37"><AddressSearch :postalCode="postalCode" @send-address="sendAddress" /></v-col>
     </v-row>
@@ -14,13 +19,11 @@
 import { Vue, Component, Emit, Prop, PropSync } from 'nuxt-property-decorator';
 import PostalCodeLabel from '~/components/atoms/label/PostalCodeLabel.vue';
 import ThreeNumbersTextBox from '~/components/atoms/input/ThreeNumbersTextBox.vue';
-import FourNumbersTextBox from '~/components/atoms/input/FourNumbersTextBox.vue';
 import AddressSearch from '~/components/atoms/button/AddressSearch.vue';
 @Component({
   components: {
     PostalCodeLabel,
     ThreeNumbersTextBox,
-    FourNumbersTextBox,
     AddressSearch,
   },
 })

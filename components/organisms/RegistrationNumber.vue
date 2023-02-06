@@ -30,7 +30,7 @@ import RegistrationNumberBox from '~/components/molecules/RegistrationNumberBox.
 @Component({ components: { RegistrationCheck, RegistrationNumberBox } })
 export default class RegistrationNumber extends Vue {
   @Prop()
-  desserts = [{ check_id: 'check_id', disabled: false, numberbox_id: 'numberbox_id', RegistrationNumberBox_val: '' }];
+  desserts = [{ check_id: '', disabled: false, numberbox_id: '', RegistrationNumberBox_val: '' }];
 
   private textVal: string = '';
   // boolean値の初期値を設定

@@ -1,5 +1,5 @@
 <template>
-  <v-subheader :return-value.sync="value_in" v-model="value_in"
+  <v-subheader :return-value.sync="value_in" v-model="value_in" @blur="input"
     >ファイル名：<strong>{{ value_in }}</strong></v-subheader
   >
 </template>
@@ -14,5 +14,9 @@ export default class FileNameLabel extends Vue {
 
   @Prop()
   fileName!: string;
+
+  input() {
+    this.$store.commit('company/set', { fileName: this.value_in });
+  }
 }
 </script>

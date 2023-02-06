@@ -27,9 +27,9 @@ export default class LogoSealinfo extends Vue {
   @Prop()
   desserts = [
     {
-      logo_id: 'logo_id',
+      logo_id: '',
       select_logo: '',
-      seal_id: 'seal_id',
+      seal_id: '',
       select_seal: '',
     },
   ];
