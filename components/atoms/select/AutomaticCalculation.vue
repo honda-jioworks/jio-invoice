@@ -1,5 +1,5 @@
 <template>
-  <v-select v-model="selected_in" :items="items" :rules="rule" :label="label"></v-select>
+  <v-select v-model="selected_in" :items="items" :rules="rule" @blur="input" :label="label"></v-select>
 </template>
 
 <script lang="ts">
@@ -19,5 +19,9 @@ export default class AutomaticCalculation extends Vue {
 
   @Prop()
   rule!: Array<object>;
+
+  input() {
+    this.$store.commit('company/set', { consumptionTaxVal: this.selected_in });
+  }
 }
 </script>

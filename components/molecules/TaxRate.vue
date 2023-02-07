@@ -10,6 +10,7 @@
           :disabled="!checkVal"
           v-model="taxRate_in"
           :label="label"
+          @blur="input"
         ></v-select>
       </v-col>
     </v-row>
@@ -32,6 +33,10 @@ export default class TaxRate extends Vue {
 
   @Prop({ type: Boolean })
   checkVal!: boolean;
+
+  input() {
+    this.$store.commit('company/set', { taxRateVal: this.taxRate_in });
+  }
 }
 </script>
 <style lang="scss" scoped>

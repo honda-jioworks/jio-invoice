@@ -9,6 +9,8 @@
           :selected.sync="amountOfWithholdingTax_in"
           :items="amountOfWithholdingTax_items"
           @check-bool="checkBool"
+          :field="'amountOfWithholdingTax_in'"
+          v-model="amountOfWithholdingTax_in"
       /></v-col>
     </v-row>
   </div>

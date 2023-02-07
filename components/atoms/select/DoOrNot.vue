@@ -6,6 +6,7 @@
     :rules="rule"
     @input="checkBool"
     @change="scanSelect"
+    @blur="input"
   ></v-select>
 </template>
 
@@ -39,5 +40,19 @@ export default class DoOrNot extends Vue {
 
   @Prop()
   rule!: Array<object>;
+
+  @Prop({ type: String, required: true })
+  field!: string;
+
+  input() {
+    switch (this.field) {
+      case 'decimalalPart_in':
+        this.$store.commit('company/set', { decimalalPartVal: this.selected_in });
+        break;
+      case 'amountOfWithholdingTax_in':
+        this.$store.commit('company/set', { amountOfWithholdingTaxVal: this.selected_in });
+        break;
+    }
+  }
 }
 </script>

@@ -3,7 +3,14 @@
     <v-row dense>
       <v-col col="6" class="wrap04"> 消費税の端数処理: </v-col>
       <v-col col="6" class="wrap05">
-        <Rounding :label="label" :rule="rule" :selected.sync="taxrounding_in" :items="taxrounding_items" />
+        <Rounding
+          :label="label"
+          :rule="rule"
+          :selected.sync="taxrounding_in"
+          :items="taxrounding_items"
+          :field="'taxrounding_in'"
+          v-model="taxrounding_in"
+        />
       </v-col>
     </v-row>
   </div>

@@ -3,7 +3,13 @@
     <v-row>
       <v-col cols="5" class="wrap16">給与支給日:</v-col>
       <v-col cols="4" class="wrap17"
-        ><Date :rules="rule" :label="label" :selected.sync="salaryPaymentDate_in" :items="salaryPaymentDate_items"
+        ><Date
+          :rules="rule"
+          :label="label"
+          :selected.sync="salaryPaymentDate_in"
+          :items="salaryPaymentDate_items"
+          :field="'salaryPaymentDate_in'"
+          v-model="salaryPaymentDate_in"
       /></v-col>
     </v-row>
   </div>

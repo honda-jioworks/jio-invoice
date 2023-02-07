@@ -3,7 +3,13 @@
     <v-row>
       <v-col cols="6" class="wrap04">単価,数量の小数部0を印刷:</v-col>
       <v-col cols="6" class="wrap12"
-        ><DoOrNot :label="label" :rule="rule" :selected.sync="decimalalPart_in" :items="decimalalPart_items"
+        ><DoOrNot
+          :label="label"
+          :rule="rule"
+          :selected.sync="decimalalPart_in"
+          :items="decimalalPart_items"
+          :field="'decimalalPart_in'"
+          v-model="decimalalPart_in"
       /></v-col>
     </v-row>
   </div>

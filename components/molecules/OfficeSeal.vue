@@ -5,7 +5,9 @@
     </v-row>
     <v-row>
       <div class="wrap">
-        <v-col cols="12"><Selectfile ref="SelectImg" :value.sync="selectFile" /></v-col>
+        <v-col cols="12"
+          ><Selectfile ref="SelectImg" :value.sync="selectFile" :field="'select_seal'" v-model="select_seal"
+        /></v-col>
         <div>
           <v-col cols="12"
             ><SelectImgbutton selectimgbutton="画像を選択してください" @click-select="sealSelect"

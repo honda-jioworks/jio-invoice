@@ -8,6 +8,8 @@
           :rule="rule"
           :selected.sync="unitPriceCulculationRounding_in"
           :items="taxrounding_items"
+          :field="'unitPriceCulculationRounding_in'"
+          v-model="unitPriceCulculationRounding_in"
       /></v-col>
     </v-row>
   </div>
@@ -19,7 +21,7 @@ import Rounding from '@/components/atoms/select/Rounding.vue';
 @Component({ components: { Rounding } })
 export default class UnitPriceCulculationRounding extends Vue {
   @PropSync('unitPriceCulculationRounding_val', { type: String })
-  taxrounitPriceCulculationRounding_inunding_in!: string;
+  unitPriceCulculationRounding_in!: string;
 
   @Prop()
   taxrounding_items!: Array<string>;

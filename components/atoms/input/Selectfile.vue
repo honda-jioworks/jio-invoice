@@ -13,6 +13,7 @@
         prepend-icon="mdi-image"
         @change="uploadFile"
         :value="value_in"
+        @blur="input"
       />
     </v-col>
   </v-row>
@@ -26,8 +27,11 @@ export default class Selectfile extends Vue {
   @Prop()
   value!: any;
 
+  @Prop({ type: String, required: true })
+  field!: string;
+
   public Url: any = '';
-  files: any;
+  files: any = '';
   private test: any;
 
   //OfficeLogo,OfficeSealのRefで参照した際のクリックメゾット実行される
@@ -49,6 +53,7 @@ export default class Selectfile extends Vue {
   //アップロードされたfileの情報を取得している。
   uploadFile() {
     const file = this.scanImgs.files[0];
+    this.files = file.name;
     this.Url = URL.createObjectURL(file);
     this.scanImgs.value = '';
   }
@@ -61,10 +66,16 @@ export default class Selectfile extends Vue {
     file.click();
   }
 
-  //@input="scanImg"
-  // scanImg() {
-  //   return this.image;
-  // }
+  input() {
+    switch (this.field) {
+      case 'select_logo':
+        this.$store.commit('company/set', { select_logo: this.Url });
+        break;
+      case 'select_seal':
+        this.$store.commit('company/set', { select_seal: this.Url });
+        break;
+    }
+  }
 }
 </script>
 

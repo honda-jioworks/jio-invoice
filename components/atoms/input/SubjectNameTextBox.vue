@@ -1,5 +1,5 @@
 <template>
-  <v-text-field :rules="rule" :label="label" :disabled="!checkVal" v-model="value_in"></v-text-field>
+  <v-text-field :rules="rule" :label="label" :disabled="!checkVal" @blur="input" v-model="value_in"></v-text-field>
 </template>
 
 <script lang="ts">
@@ -23,6 +23,10 @@ export default class TextBox extends Vue {
   public rules: Array<object> = [
     //(v: String) => v.length <= 25 || 'Max 25 characters',
   ];
+
+  input() {
+    this.$store.commit('company/set', { textVal: this.value_in });
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -26,7 +26,7 @@
             ><MulUnitPriceQuantityRounding
               v-for="item in desserts"
               :key="item.mulUnitPriceQuantityRounding_id"
-              :mulUnitPriceQuantityRounding_val.sync="item.mulUnitPriceQuantityRounding_id"
+              :mulUnitPriceQuantityRounding_val.sync="item.mulUnitPriceQuantityRoundingVal"
               :taxrounding_items="taxrounding_items"
               class="mb-n5"
           /></v-col>
@@ -141,6 +141,8 @@ import BonusPaymentDate from '@/components/molecules/BonusPaymentDate.vue';
   },
 })
 export default class DetailsInfomation extends Vue {
+  @Prop()
+  consumption_items!: Array<string>;
   @Prop()
   taxrounding_items!: Array<string>;
   @Prop()

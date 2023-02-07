@@ -3,7 +3,13 @@
     <v-row dense>
       <v-col cols="6" class="wrap04">単価×数量の端数処理:</v-col>
       <v-col cols="6" class="wrap07"
-        ><Rounding :label="label" :rule="rule" :selected.sync="mulUnitPriceQuantityRounding" :items="taxrounding_items"
+        ><Rounding
+          :label="label"
+          :rule="rule"
+          :selected.sync="mulUnitPriceQuantityRounding"
+          :items="taxrounding_items"
+          :field="'mulUnitPriceQuantityRounding'"
+          v-model="mulUnitPriceQuantityRounding"
       /></v-col>
     </v-row>
   </div>

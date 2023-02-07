@@ -46,7 +46,7 @@ export const state = () => ({
   check_id: '',
   disabled: false,
   numberbox_id: '',
-  RegistrationNumberBox_val: '',
+  RegistrationNumberBox_val: false,
 });
 
 export const mutations = {

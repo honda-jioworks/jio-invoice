@@ -1,5 +1,5 @@
 <template>
-  <v-select v-model="selected_in" :items="items" :rules="rule" :label="label"></v-select>
+  <v-select v-model="selected_in" :items="items" :rules="rule" :label="label" @blur="input"></v-select>
 </template>
 
 <script lang="ts">
@@ -19,5 +19,22 @@ export default class Rounding extends Vue {
 
   @Prop()
   rule!: Array<object>;
+
+  @Prop({ type: String, required: true })
+  field!: string;
+
+  input() {
+    switch (this.field) {
+      case 'taxrounding_in':
+        this.$store.commit('company/set', { consumptionTaxRoundingVal: this.selected_in });
+        break;
+      case 'mulUnitPriceQuantityRounding':
+        this.$store.commit('company/set', { mulUnitPriceQuantityRoundingVal: this.selected_in });
+        break;
+      case 'unitPriceCulculationRounding_in':
+        this.$store.commit('company/set', { unitPriceCulculationRoundingVal: this.selected_in });
+        break;
+    }
+  }
 }
 </script>

@@ -11,7 +11,8 @@
       </div>
       <v-col cols="9">
         <div class="wrap03">
-          <v-text-field counter="13" v-model="value_in" :disabled="!checkValue" outlined color="black"> </v-text-field>
+          <v-text-field counter="13" v-model="value_in" :disabled="!checkValue" @blur="input" outlined color="black">
+          </v-text-field>
         </div>
       </v-col>
     </v-row>
@@ -27,6 +28,10 @@ export default class RegistrationNumberBox extends Vue {
 
   @Prop({ type: Boolean, required: true, default: false })
   checkValue!: boolean;
+
+  input() {
+    this.$store.commit('company/set', { disabled: this.value_in });
+  }
 }
 </script>
 
