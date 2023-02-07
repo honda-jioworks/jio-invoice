@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-checkbox v-model="checkbox" label="初期値として使用する"></v-checkbox>
+        <v-checkbox @change="input" v-model="checkbox" label="初期値として使用する"></v-checkbox>
       </v-row>
     </v-container>
   </div>
@@ -12,7 +12,10 @@
 import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class DefaultValue extends Vue {
-  @PropSync('value', { type: String })
+  @PropSync('value', { type: Boolean })
   checkbox!: any;
+  input() {
+    this.$store.commit('company/set', { defaultvalue: this.checkbox });
+  }
 }
 </script>

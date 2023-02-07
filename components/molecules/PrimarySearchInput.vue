@@ -2,7 +2,13 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field :rules="nameRules" label="検索キー1" v-model="textPrimary" @input="scanPrimary"></v-text-field>
+        <v-text-field
+          :rules="nameRules"
+          @blur="input"
+          label="検索キー1"
+          v-model="textPrimary"
+          @input="scanPrimary"
+        ></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -18,6 +24,9 @@ export default class PrimarySearchInput extends Vue {
   @Emit()
   scanPrimary(): string {
     return this.textPrimary;
+  }
+  input() {
+    this.$store.commit('company/set', { serchkeyone: this.textPrimary });
   }
 }
 </script>

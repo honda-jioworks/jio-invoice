@@ -1,6 +1,6 @@
 <template>
   <v-container class="px-0" fluid>
-    <v-checkbox label="合計請求書で消費税を合算表示する" v-model="checkbox"></v-checkbox>
+    <v-checkbox @change="input" label="合計請求書で消費税を合算表示する" v-model="checkbox"></v-checkbox>
   </v-container>
 </template>
 
@@ -11,5 +11,8 @@ import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
 export default class TaxAddIndicateCheck extends Vue {
   @PropSync('value', { type: Boolean })
   checkbox!: any;
+  input() {
+    this.$store.commit('company/set', { taxcheck: this.checkbox });
+  }
 }
 </script>

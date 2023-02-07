@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col class="d-flex">
-        <v-text-field :rules="inputRules" label="開始残高" v-model="textVal"></v-text-field>
+        <v-text-field :rules="inputRules" @blur="input" label="開始残高" v-model="textVal"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -18,5 +18,8 @@ export default class StartingBalance extends Vue {
     (v: string) => !!v || '項目を入力してください',
     (v: string) => /^([1-9]\d*|0)$/.test(v) || '数値を入力してください',
   ];
+  input() {
+    this.$store.commit('company/set', { balance: this.textVal });
+  }
 }
 </script>

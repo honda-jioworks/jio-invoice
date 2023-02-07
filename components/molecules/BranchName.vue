@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-col>
-      <v-text-field label="支店名" :rules="textRules" v-model="textBranchname"></v-text-field>
+      <v-text-field label="支店名" @blur="input" :rules="textRules" v-model="textBranchname"></v-text-field>
     </v-col>
   </div>
 </template>
@@ -14,5 +14,8 @@ export default class BranchName extends Vue {
   @PropSync('value', { type: String })
   textBranchname!: any;
   public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+  input() {
+    this.$store.commit('company/set', { branchname: this.textBranchname });
+  }
 }
 </script>

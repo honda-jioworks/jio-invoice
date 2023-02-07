@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field :rules="nameRules" label="略称" v-model="textShort"></v-text-field>
+        <v-text-field :rules="nameRules" @blur="input" label="略称" v-model="textShort"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -17,5 +17,8 @@ export default class AbbreviatationInput extends Vue {
   @PropSync('value', { type: String })
   textShort!: any;
   nameRules: Array<object> = [(v: string) => !!v || '得意先名(略称)を入力してください。'];
+  input() {
+    this.$store.commit('company/set', { textShort: this.textShort });
+  }
 }
 </script>

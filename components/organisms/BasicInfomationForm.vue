@@ -40,17 +40,27 @@
       </v-col>
       <v-col cols="4">
         <!--検索キー1-->
-        <PrimarySearchInput class="mt-n5" />
+        <PrimarySearchInput
+          v-for="item in desserts"
+          :key="item.serchkeyone_id"
+          :value.sync="item.serchkeyone"
+          class="mt-n5"
+        />
       </v-col>
       <v-col cols="4">
         <!--検索キー2-->
-        <SecondSearchInput class="mt-n5" />
+        <SecondSearchInput
+          v-for="item in desserts"
+          :key="item.serchkeytwo_id"
+          :value.sync="item.serchkeytwo"
+          class="mt-n5"
+        />
       </v-col>
     </v-row>
     <!--4行目-->
     <v-row>
       <v-col cols="5">
-        <MemoBox v-for="item in desserts" :key="item.textMemo_id" :value.sync="item.textmemo" class="mt-n5" />
+        <MemoBox v-for="item in desserts" :key="item.textMemo_id" :value.sync="item.textMemo" class="mt-n5" />
       </v-col>
     </v-row>
     <!--5行目-->
@@ -96,7 +106,11 @@ export default class BasicInfomationForm extends Vue {
       textShort_id: '',
       textShort: '',
       textMemo_id: '',
-      textmemo: '',
+      textMemo: '',
+      serchkeyone_id: '',
+      serchkeyone: '',
+      serchkeytwo_id: '',
+      serchkeytwo: '',
       check_id: '',
       check: '',
     },

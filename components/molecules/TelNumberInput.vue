@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field :rules="nameRules" v-model="telnumber" label="TEL"></v-text-field>
+        <v-text-field :rules="nameRules" @blur="input" v-model="telnumber" label="TEL"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -19,5 +19,8 @@ export default class TelNumberInput extends Vue {
   ];
   @PropSync('value', { type: String })
   telnumber!: any;
+  input() {
+    this.$store.commit('company/set', { telnumber: this.telnumber });
+  }
 }
 </script>

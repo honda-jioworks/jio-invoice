@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field :rules="nameRules" label="部署" v-model="department"></v-text-field>
+        <v-text-field :rules="nameRules" @blur="input" label="部署" v-model="department"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -14,5 +14,8 @@ export default class DepartmentInput extends Vue {
   @PropSync('value', { type: String })
   department!: any;
   nameRules: Array<object> = [(v: string) => !!v || '部署名を入力してください'];
+  input() {
+    this.$store.commit('company/set', { department: this.department });
+  }
 }
 </script>

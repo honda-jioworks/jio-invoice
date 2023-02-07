@@ -8,10 +8,17 @@
           :rules="boxRules"
           @change="sendCyclemonth"
           v-model="monthVal"
+          @blur="input"
         ></v-select>
       </v-col>
       <v-col class="d-flex" cols="4">
-        <v-select :items="cycledate" :rules="boxRules" @change="sendCycledate" v-model="dateVal"></v-select>
+        <v-select
+          :items="cycledate"
+          @blur="input"
+          :rules="boxRules"
+          @change="sendCycledate"
+          v-model="dateVal"
+        ></v-select>
       </v-col>
     </v-row>
   </v-container>
@@ -25,37 +32,8 @@ export default class RecoveryCycle extends Vue {
   monthVal: string = '';
   dateVal: string = '';
   cyclemonth: Array<string> = ['当月', '翌月', '翌々月', '3ヶ月先', '4ヶ月先', '5ヶ月先', '6ヶ月先'];
-  cycledate: Array<string> = [
-    '1日',
-    '2日',
-    '3日',
-    '4日',
-    '5日',
-    '6日',
-    '7日',
-    '8日',
-    '9日',
-    '10日',
-    '11日',
-    '12日',
-    '13日',
-    '14日',
-    '15日',
-    '16日',
-    '17日',
-    '18日',
-    '19日',
-    '20日',
-    '21日',
-    '22日',
-    '23日',
-    '24日',
-    '25日',
-    '26日',
-    '27日',
-    '28日',
-    '末日',
-  ];
+  cycledate = Array.from({ length: 28 }, (_, i) => `${i + 1}日`).concat('末日');
+
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
 
   @Emit()
@@ -65,6 +43,10 @@ export default class RecoveryCycle extends Vue {
   @Emit()
   sendCycledate() {
     return this.dateVal;
+  }
+  input() {
+    this.$store.commit('company/set', { collectmonth: this.monthVal });
+    this.$store.commit('company/set', { collectday: this.dateVal });
   }
 }
 </script>

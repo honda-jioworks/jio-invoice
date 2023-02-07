@@ -2,9 +2,15 @@
   <v-container>
     <v-row>
       <v-col cols="10">
-        <v-text-field :rules="nameRules" label="住所" v-model="addressVal" @input="changeAddress"></v-text-field>
+        <v-text-field
+          :rules="nameRules"
+          label="住所"
+          @blur="input"
+          v-model="addressVal"
+          @input="changeAddress"
+        ></v-text-field>
       </v-col>
-      <v-col align-self="top" cols="2">
+      <v-col align-self="auto" cols="2">
         <v-btn @click="showMaptest"> 地図を表示 </v-btn>
       </v-col>
     </v-row>
@@ -19,6 +25,9 @@ export default class AddressInput extends Vue {
 
   @Prop({ type: String }) //organismsから住所をPropで受け取る
   addressVal!: string;
+  input() {
+    this.$store.commit('company/set', { address: this.addressVal });
+  }
 
   @Emit()
   changeAddress(val: string): string {

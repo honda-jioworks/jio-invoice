@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-checkbox v-model="checkbox" label="入力候補に表示しない"></v-checkbox>
+        <v-checkbox v-model="checkbox" @change="input" label="入力候補に表示しない"></v-checkbox>
       </v-row>
     </v-container>
   </div>
@@ -12,7 +12,10 @@
 import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class InputCandidate extends Vue {
-  @PropSync('value', { type: String })
+  @PropSync('value', { type: Boolean })
   checkbox!: any;
+  input() {
+    this.$store.commit('company/set', { inputcandidate: this.checkbox });
+  }
 }
 </script>

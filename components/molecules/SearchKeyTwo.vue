@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col>
-          <v-text-field label="検索キー2" v-model="textSearchtwo"></v-text-field>
+          <v-text-field label="検索キー2" @blur="input" v-model="textSearchtwo"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -16,5 +16,8 @@ import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
 export default class SearchKeyTwo extends Vue {
   @PropSync('value', { type: String })
   textSearchtwo!: any;
+  input() {
+    this.$store.commit('company/set', { keytwo: this.textSearchtwo });
+  }
 }
 </script>

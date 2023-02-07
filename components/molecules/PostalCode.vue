@@ -8,9 +8,10 @@
           label="郵便番号"
           v-model="textPostalCode"
           @input="scanPostalCode"
+          @blur="input"
         ></v-text-field>
       </v-col>
-      <v-col align-self="top" cols="2">
+      <v-col>
         <v-btn @click="sendAddress()">住所を表示</v-btn>
       </v-col>
     </v-row>
@@ -47,6 +48,9 @@ export default class PostalCode extends Vue {
     const { region, locality, street, extended } = address;
     this.addressVal = region + locality + street + extended;
     return this.addressVal;
+  }
+  input() {
+    this.$store.commit('company/set', { postalcode: this.textPostalCode });
   }
 }
 </script>

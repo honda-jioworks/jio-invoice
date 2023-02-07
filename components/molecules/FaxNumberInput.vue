@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field :rules="nameRules" v-model="faxnumber" label="FAX"></v-text-field>
+        <v-text-field :rules="nameRules" @blur="input" v-model="faxnumber" label="FAX"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -18,5 +18,8 @@ export default class FaxNumberInput extends Vue {
     (v: string) => !!v || 'FAX番号を入力してください',
     (v: string) => /^0\d{1,3}-\d{2,4}-\d{3,4}$/.test(v) || 'ハイフンと数値を入力してください',
   ];
+  input() {
+    this.$store.commit('company/set', { faxnumber: this.faxnumber });
+  }
 }
 </script>

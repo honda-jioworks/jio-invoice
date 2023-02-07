@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col>
-          <v-text-field label="口座名義" :rules="textRules" v-model="textAccountname"></v-text-field>
+          <v-text-field label="口座名義" @blur="input" :rules="textRules" v-model="textAccountname"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -18,5 +18,8 @@ export default class AccountName extends Vue {
   @PropSync('value', { type: String })
   textAccountname!: any;
   textRules: Array<Object> = [(v: string) => !!v || '項目を入力してください'];
+  input() {
+    this.$store.commit('company/set', { accountname: this.textAccountname });
+  }
 }
 </script>
