@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator'
+import { Vue, Component, Emit, Prop, Watch } from 'nuxt-property-decorator'
 import InvoiceDateEditor from '@/components/molecules/InvoiceDateEditor.vue'
 import InvoiceNumberEditor from '@/components/molecules/InvoiceNumberEditor.vue'
 import CustomerNameEditor from '@/components/molecules/CustomerNameEditor.vue'
@@ -82,6 +82,14 @@ import PriceEditor from '@/components/molecules/PriceEditor.vue'
 })
 export default class InvoiceTable extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
+
+  @Prop()
+  date!: string
+
+  @Watch('date')
+  changeDate() {
+    alert(this.date)
+  }
 
   headers = [
     { text: '日付', align: 'start', sortable: false, value: 'invoice_date' },

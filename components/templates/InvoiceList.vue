@@ -1,7 +1,8 @@
 <template>
   <div>
-    <MonthCalender />
-    <InvoiceTable />
+    <MonthCalender
+      @save="save" />
+    <InvoiceTable :date="date" />
   </div>
 </template>
 
@@ -18,5 +19,12 @@ import HeaderList from '@/components/organisms/HeaderList.vue'
     HeaderList,
   },
 })
-export default class InvoiceList extends Vue {}
+export default class InvoiceList extends Vue {
+
+  date: string = ''
+
+  save(date: string) {
+    this.date = date
+  }
+}
 </script>
