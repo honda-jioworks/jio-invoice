@@ -1,5 +1,11 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="price_in"></editor>
+  <editor
+    v-model="price"
+    :label="label"
+    :rule="rule"
+    :value.sync="price_in"
+    :field="'price'"
+  ></editor>
 </template>
 
 <script lang="ts">

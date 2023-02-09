@@ -1,12 +1,25 @@
 <template>
   <div>
-    <InvoiceList />
+    <MonthCalender @save="save" />
+    <InvoiceTable :date="date" @edit-invoice="editedInvoice" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import InvoiceList from '~/components/templates/InvoiceList.vue'
-@Component({ components: { InvoiceList } })
-export default class DisplayInvoiceList extends Vue {}
+import InvoiceTable from '@/components/organisms/InvoiceTable.vue'
+import MonthCalender from '@/components/organisms/MonthCalender.vue'
+@Component({
+  components: {
+    InvoiceTable,
+    MonthCalender,
+  },
+})
+export default class DisplayInvoiceList extends Vue {
+  date: string = ''
+
+  save(date: string) {
+    this.date = date
+  }
+}
 </script>

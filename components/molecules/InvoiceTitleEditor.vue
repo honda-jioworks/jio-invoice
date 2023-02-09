@@ -1,5 +1,11 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="invoice_title_in"></editor>
+  <editor
+    v-model="invoice_title"
+    :label="label"
+    :rule="rule"
+    :value.sync="invoice_title_in"
+    :field="'invoice_title'"
+  ></editor>
 </template>
 
 <script lang="ts">

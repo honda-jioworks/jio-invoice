@@ -1,9 +1,11 @@
 <template>
   <editor
+    v-model="invoice_date"
     :label="label"
     :rule="rule"
     :value.sync="invoice_date_in"
     :type="type"
+    :field="'invoice_date'"
   ></editor>
 </template>
 

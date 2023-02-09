@@ -1,5 +1,11 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="cstm_name_in"></editor>
+  <editor
+    v-model="cstm_name"
+    :label="label"
+    :rule="rule"
+    :value.sync="cstm_name_in"
+    :field="'cstm_name'"
+  ></editor>
 </template>
 
 <script lang="ts">

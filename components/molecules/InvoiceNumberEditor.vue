@@ -1,5 +1,7 @@
 <template>
-  <div @click="send">JS20-000666</div>
+  <div :value="invoice_num" :field="'invoice_num'" @click="send">
+    &yen;{{ invoice_num }}
+  </div>
 </template>
 
 <script lang="ts">

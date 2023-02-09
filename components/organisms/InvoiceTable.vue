@@ -63,6 +63,7 @@
 
 <script lang="ts">
 import { Vue, Component, Emit, Prop, Watch } from 'nuxt-property-decorator'
+import axios from 'axios'
 import InvoiceDateEditor from '@/components/molecules/InvoiceDateEditor.vue'
 import InvoiceNumberEditor from '@/components/molecules/InvoiceNumberEditor.vue'
 import CustomerNameEditor from '@/components/molecules/CustomerNameEditor.vue'
@@ -105,40 +106,13 @@ export default class InvoiceTable extends Vue {
 
   desserts = [
     {
-      invoice_id: 'invoice001',
-      invoice_date: '2022/12/26',
-      invoice_num: 'JS20-000666',
-      cstm_name: 'jioworks',
-      invoice_title: '2022年12月度　請求書管理アプリ案件',
-      issued_check: '済',
-      price: '100,000',
-    },
-    {
-      invoice_id: 'invoice002',
-      invoice_date: '2023/1/11',
-      invoice_num: 'JS20-000777',
-      cstm_name: 'zeihen',
-      invoice_title: '2023年1月度　請求書管理アプリ案件',
-      issued_check: '済',
-      price: '200,000',
-    },
-    {
-      invoice_id: 'invoice003',
-      invoice_date: '2023/1/1',
-      invoice_num: 'JS20-000888',
-      cstm_name: '株式会社A',
-      invoice_title: '2023年1月度　請求書管理アプリ案件',
-      issued_check: '済',
-      price: '300,000',
-    },
-    {
-      invoice_id: 'invoice004',
-      invoice_date: '2023/1/1',
-      invoice_num: 'JS20-000888',
-      cstm_name: '株式会社B',
-      invoice_title: '2023年1月度　請求書管理アプリ案件',
-      issued_check: '済',
-      price: '300,000',
+      invoice_id: '',
+      invoice_date: '',
+      invoice_num: '',
+      cstm_name: '',
+      invoice_title: '',
+      issued_check: '',
+      price: '',
     },
   ]
 
@@ -162,7 +136,20 @@ export default class InvoiceTable extends Vue {
   editInvoice(invoice: any) {
     this.editedIndex = this.desserts.indexOf(invoice)
     this.editedInvoice = Object.assign({}, invoice)
-    alert(JSON.stringify(this.editedInvoice))
+    alert(JSON.stringify(this.$store.state.invoice))
+    axios
+      .post('/custmer', {
+        invoice_id: this.$store.state.invoice.invoice_id,
+        invoice_date: this.$store.state.invoice.invoice_date,
+        invoice_num: this.$store.state.invoice.invoice_num,
+        cstm_name: this.$store.state.invoice.cstm_name,
+        invoice_title: this.$store.state.invoice.invoice_title,
+        issued_check: this.$store.state.invoice.issued_check,
+        price: this.$store.state.invoice.price,
+      })
+      .then(function (response) {
+        alert(response.data)
+      })
     // 更新
   }
 
@@ -170,7 +157,16 @@ export default class InvoiceTable extends Vue {
     this.editedIndex = this.desserts.indexOf(invoice)
     this.editedInvoice = Object.assign({}, invoice)
     this.desserts.splice(this.editedIndex, 1)
-    alert(JSON.stringify(invoice.invoice_id))
+    alert(JSON.stringify(this.$store.state.invoice.invoice_id))
+    axios
+      .delete('/invoice', {
+        params: {
+          invoice_id: this.$store.state.invoice.invoice_id,
+        },
+      })
+      .then(function (response) {
+        alert(response.data)
+      })
     // 削除
   }
 
@@ -178,7 +174,7 @@ export default class InvoiceTable extends Vue {
     this.editedIndex = this.desserts.indexOf(invoice)
     this.editedInvoice = Object.assign({}, invoice)
     this.desserts.push(this.editedInvoice)
-    alert(JSON.stringify(invoice.invoice_id))
+    alert(JSON.stringify(this.$store.state.invoice.invoice_id))
     // 複写
   }
 }
