@@ -15,15 +15,3 @@ export const mutations = {
     })
   },
 }
-
-export const id = () => ({
-  invoice_id: '',
-})
-
-export const mutation = {
-  set(id, companyData) {
-    Object.keys(companyData.invoice_id).forEach((key) => {
-      id[key] = companyData[key]
-    })
-  },
-}
