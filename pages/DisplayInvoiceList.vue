@@ -1,7 +1,7 @@
 <template>
   <div>
     <MonthCalender @save="save" />
-    <InvoiceTable :date="date" @edit-invoice="editedInvoice" />
+    <InvoiceTable :date="date" />
   </div>
 </template>
 

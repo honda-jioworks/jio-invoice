@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit, Prop, Watch } from 'nuxt-property-decorator'
+import { Vue, Component, Prop, Watch } from 'nuxt-property-decorator'
 import axios from 'axios'
 import InvoiceDateEditor from '@/components/molecules/InvoiceDateEditor.vue'
 import InvoiceNumberEditor from '@/components/molecules/InvoiceNumberEditor.vue'
@@ -128,11 +128,6 @@ export default class InvoiceTable extends Vue {
     price: '',
   }
 
-  created() {
-    // 何か処理
-  }
-
-  @Emit()
   editInvoice(invoice: any) {
     this.editedIndex = this.desserts.indexOf(invoice)
     this.editedInvoice = Object.assign({}, invoice)
