@@ -1,7 +1,11 @@
 <template>
   <v-row>
-    <v-col class="ddd1"><v-text-field v-model="tellNumber" outlined @input="scanTel" label="TEL"></v-text-field></v-col>
-    <v-col class="eee1"><v-text-field v-model="faxNumber" outlined @input="scanFax" label="FAX"></v-text-field></v-col>
+    <v-col class="ddd1"
+      ><v-text-field v-model="tellNumber" @blur="input" outlined @input="scanTel" label="TEL"></v-text-field
+    ></v-col>
+    <v-col class="eee1"
+      ><v-text-field v-model="faxNumber" @blur="input" outlined @input="scanFax" label="FAX"></v-text-field
+    ></v-col>
     <v-col cols="4"></v-col>
   </v-row>
 </template>
@@ -12,6 +16,10 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 export default class NumberForm extends Vue {
   tellNumber: string = '';
   faxNumber: string = '';
+  input() {
+    this.$store.commit('invoiceIssue/set', { tellNumber: this.tellNumber });
+    this.$store.commit('invoiceIssue/set', { faxNumber: this.faxNumber });
+  }
 
   @Emit()
   scanTel(): string {

@@ -16,7 +16,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
 export default class Customers extends Vue {
-  private items: Array<Object> = [{ text: 'TDCソフトウェア' }];
+  public items: Array<Object> = [{ text: 'TDCソフトウェア' }];
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
 }
 </script>

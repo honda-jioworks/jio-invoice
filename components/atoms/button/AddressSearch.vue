@@ -12,7 +12,7 @@ import { fetchAddressByZipcode } from '@/plugins/yubinbango';
 export default class AddressSearch extends Vue {
   private zipCode: string = '';
   // 住所
-  private addressVal: string = '';
+  public addressVal: string = '';
   // データベースから受け取った郵便番号の前3桁
   @Prop({ type: String })
   postalCode1!: string;

@@ -1,10 +1,10 @@
 <template>
   <v-row>
     <v-col class="c2">
-      <v-text-field v-model="departmentName" outlined @input="scanDepartment" label="部署"></v-text-field>
+      <v-text-field v-model="departmentName" @blur="input" outlined @input="scanDepartment" label="部署"></v-text-field>
     </v-col>
     <v-col class="d2">
-      <v-text-field v-model="divisionName" outlined @input="scanDivision" label="課"></v-text-field>
+      <v-text-field v-model="divisionName" @blur="input" outlined @input="scanDivision" label="課"></v-text-field>
     </v-col>
     <v-col cols="4" class="e2"></v-col>
   </v-row>
@@ -16,6 +16,11 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 export default class BelongForm extends Vue {
   departmentName: string = '';
   divisionName: string = '';
+
+  input() {
+    this.$store.commit('invoiceIssue/set', { departmentName: this.departmentName });
+    this.$store.commit('invoiceIssue/set', { divisionName: this.divisionName });
+  }
 
   @Emit()
   scanDepartment(): string {

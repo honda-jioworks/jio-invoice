@@ -21,6 +21,10 @@ export default class AddressForm extends Vue {
   @Prop({ type: String })
   addressVal!: string;
 
+  input() {
+    this.$store.commit('invoiceIssue/set', { addressForm: this.addressVal });
+  }
+
   @Emit()
   showMaptest() {
     window.open('https://www.google.com/maps/search/〒' + this.addressVal + '/', 'subwin', 'width=750,height=750');

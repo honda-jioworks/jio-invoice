@@ -23,6 +23,7 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+    <v-btn @click="onSave()">更新</v-btn>
   </v-row>
 </template>
 
@@ -34,7 +35,11 @@ import ThreePoint from '@/components/organisms/ThreePoint.vue';
 import InvoiceIssueTable from '@/components/organisms/InvoiceIssueTable.vue';
 
 @Component({ components: { DestinationForm, PicInformationForm, InvoiceIssueTable } })
-export default class DisplayDestinationForm extends Vue {}
+export default class DisplayDestinationForm extends Vue {
+  onSave() {
+    console.log(JSON.stringify(this.$store.state.invoiceIssue));
+  }
+}
 </script>
 <style lang="scss" scoped>
 .dq {

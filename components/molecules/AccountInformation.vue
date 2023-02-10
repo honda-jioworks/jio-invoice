@@ -1,9 +1,9 @@
 <template>
   <v-row class="cc2">
     <v-col>
-      <v-text-field v-model="data1" outlined @input="scanOne" label="＜振込先2等＞"></v-text-field>
-      <v-text-field v-model="data2" outlined @input="scanTwo" label="＜振込先2等＞"></v-text-field>
-      <v-text-field v-model="data3" outlined @input="scanThree" label="＜振込先2等＞"></v-text-field>
+      <v-text-field v-model="data1" @blur="input" outlined @input="scanOne" label="＜振込先2等＞"></v-text-field>
+      <v-text-field v-model="data2" @blur="input" outlined @input="scanTwo" label="＜振込先2等＞"></v-text-field>
+      <v-text-field v-model="data3" @blur="input" outlined @input="scanThree" label="＜振込先2等＞"></v-text-field>
     </v-col>
   </v-row>
 </template>
@@ -15,6 +15,12 @@ export default class AccountInformation extends Vue {
   data1: string = '';
   data2: string = '';
   data3: string = '';
+
+  input() {
+    this.$store.commit('invoiceIssue/set', { info1: this.data1 });
+    this.$store.commit('invoiceIssue/set', { info2: this.data2 });
+    this.$store.commit('invoiceIssue/set', { info3: this.data3 });
+  }
 
   @Emit()
   scanOne(): string {

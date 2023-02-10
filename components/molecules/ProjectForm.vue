@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="6">
-      <v-text-field v-model="projectName" outlined @input="scanProject" label="案件名"></v-text-field>
+      <v-text-field v-model="projectName" @blur="input" outlined @input="scanProject" label="案件名"></v-text-field>
     </v-col>
   </v-row>
 </template>
@@ -11,6 +11,10 @@ import { Vue, Component, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class ProjectForm extends Vue {
   projectName: string = '';
+
+  input() {
+    this.$store.commit('invoiceIssue/set', { projectName: this.projectName });
+  }
 
   @Emit()
   scanProject(): string {
