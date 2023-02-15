@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="2" class="a1">
-      <v-text-field v-model="textPostalCode" outlined label="〒"></v-text-field>
+      <v-text-field v-model="textPostalCode" @blur="input" outlined label="〒"></v-text-field>
     </v-col>
     <v-col>
       <v-btn @click="sendAddress()" class="d1">住所を検索</v-btn>
@@ -17,6 +17,10 @@ export default class AddressSearch extends Vue {
   public textPostalCode: string = '';
   public addressVal: string = '';
   public zipCode: string = '';
+
+  input() {
+    this.$store.commit('invoiceIssue/set', { address: this.textPostalCode });
+  }
 
   @Prop({ type: String }) //郵便番号の受け取った値をorganismsからPropで受け取る
   PostalCode!: string;

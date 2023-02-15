@@ -35,9 +35,6 @@ export default class CustomerName extends Vue {
       case 'quanitity':
         this.$store.commit('invoiceIssue/set', { quanitity: this.value_in });
         break;
-      case 'unit_in':
-        this.$store.commit('invoiceIssue/set', { unit_in: this.value_in });
-        break;
       case 'unitprice':
         this.$store.commit('invoiceIssue/set', { unitprice: this.value_in });
         break;

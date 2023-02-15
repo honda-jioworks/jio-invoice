@@ -37,8 +37,6 @@ export const state = () => ({
   serial: '',
   personName_id: '',
   personName: '',
-  totalAmount_id: '',
-  totalAmount: '',
   info1_id: '',
   info1: '',
   info2_id: '',
@@ -66,7 +64,7 @@ export const state = () => ({
   unitprice: '',
   remarks_id: '',
   remarks: '',
-  tax_in: '',
+  tax_in_id: '',
   tax_in: '',
 });
 

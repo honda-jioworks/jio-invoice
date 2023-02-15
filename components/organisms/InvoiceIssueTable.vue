@@ -15,13 +15,9 @@
           <v-col cols="4" class="ml-auto">
             <v-subheader>対象期間</v-subheader>
             <v-row class="d-flex align-center">
-              <v-col cols="5">
-                <v-text-field input type="date" @blur="inputStart" v-model="dayStart" @input="dayStart"
-              /></v-col>
+              <v-col cols="5"> <v-text-field input type="date" @blur="inputStart" v-model="dayStart" /></v-col>
               <v-col align="center"> 〜</v-col>
-              <v-col cols="5"
-                ><v-text-field input type="date" @blur="inputEnd" v-model="dayEnd" @input="dayEnd"
-              /></v-col>
+              <v-col cols="5"><v-text-field input type="date" @blur="inputEnd" v-model="dayEnd" /></v-col>
             </v-row>
           </v-col>
         </v-row>
@@ -129,19 +125,7 @@ export default class InvoiceIssueTable extends Vue {
       division_val: '通常',
       productcode_val: '',
       productname_val: '',
-      quanitity_val: '1',
-      unit_val: '',
-      unitprice_val: '',
-      amount_val: '',
-      remarks_val: '',
-      tax_val: '10%',
-    },
-    {
-      cstmr_id: 'cstmer002',
-      division_val: '通常',
-      productcode_val: '',
-      productname_val: '',
-      quanitity_val: '1',
+      quanitity_val: '',
       unit_val: '',
       unitprice_val: '',
       amount_val: '',

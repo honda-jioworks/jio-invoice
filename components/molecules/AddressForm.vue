@@ -4,7 +4,6 @@
       <v-text-field v-model="addressValInternal" @change="input" outlined label="＜住所＞"></v-text-field>
     </v-col>
     <v-btn class="b2" @click="showMaptest">地図を表示</v-btn>
-    <v-btn @click="test">ooo</v-btn>
   </v-row>
 </template>
 <script lang="ts">
