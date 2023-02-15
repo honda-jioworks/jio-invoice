@@ -1,7 +1,7 @@
 <template>
   <v-row dense class="ww2">
     <v-col cols="8" class="ww1">
-      <v-select dense outlined clearable :items="items" :rules="rules">
+      <v-select dense outlined v-model="value_in" @blur="input" clearable :items="items" :rules="rules">
         <template v-slot:label>税処理<span style="color: red"> *</span></template>
       </v-select></v-col
     ><!--v-select等に変更-->
@@ -16,7 +16,12 @@ import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class TaxProcessing extends Vue {
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
-  items: Array<string> = ['外税', '殿', '御中'];
+  items: Array<string> = ['外税', '内税', '税なし'];
+  value_in!: any;
+
+  input() {
+    this.$store.commit('quotation/set', { taxProcess: this.value_in });
+  }
 }
 </script>
 <style lang="scss" scoped>

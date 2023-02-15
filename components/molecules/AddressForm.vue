@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="5" class="a2">
-      <v-text-field v-model="addressVal" outlined @input="changeAddress" label="＜住所＞"></v-text-field
+      <v-text-field v-model="addressVal" @blur="input" outlined @input="changeAddress" label="＜住所＞"></v-text-field
     ></v-col>
     <v-btn class="b2" @click="showMaptest">地図を表示</v-btn>
   </v-row>
@@ -12,6 +12,10 @@ import { Vue, Component, Emit, Prop } from 'nuxt-property-decorator';
 @Component({})
 export default class AddressForm extends Vue {
   //住所をorganismsへ送る
+
+  input() {
+    this.$store.commit('quotation/set', { address: this.addressVal });
+  }
   @Emit()
   changeAddress(val: string): string {
     return val;

@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="2" class="a1">
-      <v-text-field v-model="textPostalCode" outlined @input="scanPostal" label="〒"></v-text-field>
+      <v-text-field v-model="textPostalCode" @blur="input" outlined @input="scanPostal" label="〒"></v-text-field>
     </v-col>
     <v-col>
       <v-btn @click="sendAddress()" class="d1">住所を検索</v-btn>
@@ -17,6 +17,10 @@ export default class AddressSearch extends Vue {
   public textPostalCode: string = '';
   public addressVal: string = '';
   public zipCode: string = '';
+
+  input() {
+    this.$store.commit('quotation/set', { address: this.textPostalCode });
+  }
 
   @Emit()
   scanPostal(): string {

@@ -23,6 +23,7 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+    <v-btn @click="onSave()">更新</v-btn>
   </v-row>
 </template>
 
@@ -33,7 +34,11 @@ import PicInformationForm from '@/components/organisms/PicInformationForm.vue';
 import ThreePoint from '@/components/organisms/ThreePoint.vue';
 
 @Component({ components: { QuotationIssueForm, PicInformationForm, ThreePoint } })
-export default class DisplayDestinationForm extends Vue {}
+export default class DisplayDestinationForm extends Vue {
+  onSave() {
+    console.log(JSON.stringify(this.$store.state.quotation));
+  }
+}
 </script>
 <style lang="scss" scoped>
 .dq {
