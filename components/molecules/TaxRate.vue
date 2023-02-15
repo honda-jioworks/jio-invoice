@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
-@Component({ components: {} })
+@Component({})
 export default class TaxRate extends Vue {
   @PropSync('taxRate_val', { type: String })
   taxRate_in!: string;
@@ -29,7 +29,7 @@ export default class TaxRate extends Vue {
 
   label: string = '税率';
 
-  rules: Array<object> = [(v: String) => !!v || '項目を選択してください'];
+  rule: Array<object> = [(v: String) => !!v || '項目を選択してください'];
 
   @Prop({ type: Boolean })
   checkVal!: boolean;

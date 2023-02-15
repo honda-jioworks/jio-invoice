@@ -7,6 +7,7 @@
           :label="label"
           :rule="rule"
           :value.sync="telNumber"
+          :counter="counter"
           :field="'telNumber'"
           v-model="telNumber"
       /></v-col>
@@ -35,6 +36,8 @@ export default class TelNumber extends Vue {
     (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
     (v: string) => /^[+,-]?([0-9]{0,11})$/.test(v) || '11桁以内で入力してください',
   ];
+
+  counter: string = '11';
 
   @Emit()
   sendTelNumberOne(val: string): string {

@@ -9,7 +9,7 @@
           <URLBox :label="label" :rule="rule" :value.sync="officeUrl" />
         </v-col>
         <v-col>
-          <URLBtn :officeUrl="officeUrl" :urlValue="urlValue" />
+          <URLBtn :officeUrl="officeUrl" />
         </v-col>
       </v-row>
     </v-sheet>
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
+import { Vue, Component, PropSync } from 'nuxt-property-decorator';
 import OfficeURLLabel from '~/components/atoms/label/OfficeURLLabel.vue';
 import URLBox from '~/components/atoms/input/URLBox.vue';
 import URLBtn from '@/components/atoms/button/URLBtn.vue';

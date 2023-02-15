@@ -12,7 +12,6 @@
         label="画像ファイルから選択"
         prepend-icon="mdi-image"
         @change="uploadFile"
-        :value="value_in"
         @blur="input"
       />
     </v-col>
@@ -20,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref, PropSync, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, Prop } from 'nuxt-property-decorator';
 
 @Component({ components: {} })
 export default class Selectfile extends Vue {
@@ -28,7 +27,7 @@ export default class Selectfile extends Vue {
   value!: any;
 
   @Prop({ type: String, required: true })
-  field!: string;
+  field!: any;
 
   public Url: any = '';
   files: any = '';

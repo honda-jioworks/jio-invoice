@@ -29,7 +29,6 @@ import RegistrationCheck from '~/components/molecules/RegistrationCheck.vue';
 import RegistrationNumberBox from '~/components/molecules/RegistrationNumberBox.vue';
 @Component({ components: { RegistrationCheck, RegistrationNumberBox } })
 export default class RegistrationNumber extends Vue {
-  @Prop()
   desserts = [{ check_id: '', disabled: false, numberbox_id: '', RegistrationNumberBox_val: '' }];
 
   private textVal: string = '';

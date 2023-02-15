@@ -5,7 +5,6 @@
     v-model="selected_in"
     :rules="rule"
     @input="checkBool"
-    @change="scanSelect"
     @blur="input"
   ></v-select>
 </template>

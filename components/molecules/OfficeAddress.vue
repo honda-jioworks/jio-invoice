@@ -3,11 +3,9 @@
     <v-row>
       <v-col cols="3" class="wrap30"><AddressLabel /></v-col>
       <v-col cols="6" class="wrap31"
-        ><AddressOne :label="label" :rule="rule" :value.sync="addressOne" :address1="address1" :newAddress="newAddress"
+        ><AddressOne :label="label" :rule="rule" :value.sync="addressOne" :address1="address1"
       /></v-col>
-      <v-col cols="3" class="wrap32"
-        ><ShowMap :newAddress="newAddress" :postalCode1="postalCode1" :postalCode2="postalCode2" :address1="address1"
-      /></v-col>
+      <v-col cols="3" class="wrap32"><ShowMap :address1="address1" /></v-col>
     </v-row>
   </v-sheet>
 </template>
@@ -43,9 +41,6 @@ export default class OfficeAddress extends Vue {
 
   @Prop({ type: String })
   address1!: string; // 入力された郵便番号をもとに生成された住所情報
-
-  @Prop({ type: String })
-  newAddress!: string;
 }
 </script>
 <style lang="scss" scoped>

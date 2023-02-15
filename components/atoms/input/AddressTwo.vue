@@ -10,11 +10,9 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class AddressTwo extends Vue {
-  private newAddress2: string = '';
-
   @PropSync('value', { type: String })
   value_in!: any;
 
@@ -24,7 +22,7 @@ export default class AddressTwo extends Vue {
   @Prop()
   rule!: Array<object>;
 
-  input() {
+  input(): void {
     this.$store.commit('company/set', { addressTwo: this.value_in });
   }
 }

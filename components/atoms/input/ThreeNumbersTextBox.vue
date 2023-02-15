@@ -4,7 +4,7 @@
     :rules="rule"
     v-model="value_in"
     :label="label"
-    counter="11"
+    :counter="counter"
     solo
     @blur="input"
   >
@@ -22,6 +22,9 @@ export default class ThreeNumbersTextBox extends Vue {
 
   @Prop()
   rule!: Array<object>;
+
+  @Prop()
+  counter!: string;
 
   @Prop({ type: String, required: true })
   field!: string;

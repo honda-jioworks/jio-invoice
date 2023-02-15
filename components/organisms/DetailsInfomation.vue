@@ -154,7 +154,6 @@ export default class DetailsInfomation extends Vue {
   @Prop()
   date_items!: Array<string>;
 
-  @Prop()
   desserts = [
     {
       consumptionTax_id: '',

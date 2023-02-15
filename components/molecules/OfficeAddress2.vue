@@ -25,12 +25,6 @@ export default class OfficeAddress2 extends Vue {
   label: string = '住所2';
 
   rule: Array<object> = [(v: string) => !!v || '項目を入力してください'];
-
-  // 入力された住所の後半部分をorganismsに送信する
-  @Emit()
-  changeAddressTwo(val: string): string {
-    return val;
-  }
 }
 </script>
 <style lang="scss" scoped>

@@ -24,7 +24,6 @@ import OfficeSeal from '~/components/molecules/OfficeSeal.vue';
 
 @Component({ components: { OfficeLogo, OfficeSeal } })
 export default class LogoSealinfo extends Vue {
-  @Prop()
   desserts = [
     {
       logo_id: '',

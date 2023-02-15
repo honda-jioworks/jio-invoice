@@ -37,6 +37,8 @@ import SelectImgbutton from '../atoms/button/SelectImgbutton.vue';
   components: { Selectfile, Clearbutton, CompanySeal, ImgImport, CreateCompanySeal, SelectImgbutton },
 })
 export default class OfficeSeal extends Vue {
+  select_seal: any = '';
+
   //RefしてAtomsのクリックイベントを実行している
   @Ref()
   SelectImg!: Selectfile;

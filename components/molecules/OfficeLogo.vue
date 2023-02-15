@@ -37,11 +37,13 @@ import SelectImgbutton from '../atoms/button/SelectImgbutton.vue';
   components: { OfficeLogoName, Selectfile, Clearbutton, CompanySeal, ImgImport, CreateCompanySeal, SelectImgbutton },
 })
 export default class OfficeLogo extends Vue {
+  select_logo: any = '';
+
   @Ref()
   SelectImg!: Selectfile;
 
   @PropSync('selectFile_val', { type: String })
-  selectFile!: string;
+  selectFile!: any;
 
   @Emit()
   logoSelect() {

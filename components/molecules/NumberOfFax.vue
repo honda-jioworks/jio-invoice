@@ -7,6 +7,7 @@
           :label="label"
           :rule="rule"
           :value.sync="faxNumber"
+          :counter="counter"
           :field="'faxNumber'"
           v-model="faxNumber"
       /></v-col>
@@ -35,6 +36,8 @@ export default class NumberOfFax extends Vue {
     (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
     (v: string) => /^[+,-]?([0-9]{0,11})$/.test(v) || '11桁以内で入力してください',
   ];
+
+  counter: string = '11';
 }
 </script>
 <style lang="scss" scoped>

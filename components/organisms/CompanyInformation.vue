@@ -17,7 +17,6 @@
             :key="item.postalCode_id"
             :postalCode_val.sync="item.postalCode"
             @send-address="sendAddress"
-            @get-postal-code="getPostalCode"
         /></v-col>
       </v-row>
       <v-row>
@@ -26,10 +25,7 @@
             v-for="item in desserts"
             :key="item.addressOne_id"
             :addressOne_val.sync="item.addressOne"
-            :addressOne="addressOne"
-            :postalCode="postalCode"
             :address1="address1"
-            :newAddress="newAddress"
             @change-address="changeAddress"
         /></v-col>
       </v-row>
@@ -68,7 +64,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit, Prop, Ref, PropSync } from 'nuxt-property-decorator';
+import { Vue, Component } from 'nuxt-property-decorator';
 import OfficeName from '@/components/molecules/OfficeName.vue';
 import CEOName from '@/components/molecules/CEOName.vue';
 import PostalCode from '@/components/molecules/PostalCode.vue';
@@ -95,10 +91,6 @@ import FileName from '@/components/molecules/FileName.vue';
 })
 export default class CompanyInfomation extends Vue {
   // データベースから持ってくるデータ
-  @Emit()
-  testSend() {
-    return this.desserts[0];
-  }
 
   desserts = [
     {

@@ -7,6 +7,7 @@
           :label="label"
           :rule="rule"
           :value.sync="postalCode"
+          :counter="counter"
           :field="'postalCode'"
           v-model="postalCode"
       /></v-col>
@@ -40,6 +41,8 @@ export default class DashBoard extends Vue {
     (v: string) => /^[+,-]?([0-9]\d*|0)$/.test(v) || '数値を入力してください',
     (v: string) => /^[+,-]?([0-9]{0,7})$/.test(v) || '7桁以内で入力してください',
   ];
+
+  counter: string = '7';
 
   @Emit()
   sendAddress(val: string): void {

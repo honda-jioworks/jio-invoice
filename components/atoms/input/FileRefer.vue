@@ -1,19 +1,11 @@
 <template>
   <v-sheet>
-    <input
-      type="file"
-      ref="input"
-      style="display: none"
-      accept=""
-      :value="files"
-      @input="scanFile"
-      @change="selectedFile"
-    />
+    <input type="file" ref="input" style="display: none" accept="" @input="scanFile" @change="selectedFile" />
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Ref, Emit } from 'nuxt-property-decorator';
+import { Vue, Component, Ref, Emit } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class FileRefer extends Vue {
   private isUploading: boolean | undefined;

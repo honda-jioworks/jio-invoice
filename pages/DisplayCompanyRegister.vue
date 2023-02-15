@@ -8,7 +8,7 @@
             <v-expansion-panel-content>
               <v-row justify="center">
                 <v-col cols="12">
-                  <v-card><CompanyInformation :desserts="companyInfo_items" @test-send="testSend" /></v-card
+                  <v-card><CompanyInformation :desserts="companyInfo_items" /></v-card
                 ></v-col>
               </v-row>
             </v-expansion-panel-content>
@@ -65,13 +65,8 @@ import CompanyInformation from '~/components/organisms/CompanyInformation.vue';
 import DetailsInfomation from '@/components/organisms/DetailsInfomation.vue';
 import LogoSealinfo from '@/components/organisms/LogoSealinfo.vue';
 import RegistrationNumber from '@/components/organisms/RegistrationNumber.vue';
-import axios from 'axios';
 @Component({ components: { CompanyInformation, DetailsInfomation, LogoSealinfo, RegistrationNumber } })
 export default class DisplayCompanyRegister extends Vue {
-  sample: any[] = [];
-  testSend(val: any) {
-    this.sample = val;
-  }
   consumption_items: Array<string> = ['自動', '軽減自動', 'しない'];
   taxrounding_items: Array<string> = ['切り上げ', '切り捨て', '四捨五入'];
   check_items: Array<string> = ['する', 'しない'];
@@ -125,7 +120,7 @@ export default class DisplayCompanyRegister extends Vue {
   }
 
   onSave() {
-    console.log(this.$store.state.company);
+    console.log(JSON.stringify(this.$store.state.company));
     // axios  //定数ファイルが完成しだい指定する
     //   .post('/', {
     //     officeName_id: this.$store.state.company.officeName_id,

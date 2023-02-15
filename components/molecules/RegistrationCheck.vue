@@ -1,26 +1,17 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-checkbox
-        :value="bool"
-        v-model="value_in"
-        @click="pushCheckbox"
-        dense
-        @change="input"
-        :label="label"
-        color="red"
-      >
-      </v-checkbox>
+      <v-checkbox :value="bool" @click="pushCheckbox" dense @change="input" :label="label" color="red"> </v-checkbox>
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit, Prop, PropSync } from 'nuxt-property-decorator';
-@Component({ components: {} })
+import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
+@Component({})
 export default class RegistrationCheck extends Vue {
-  @PropSync('registrationCheck_val', { type: String })
-  value_in!: string;
+  @PropSync('registrationCheck_val', { type: Boolean })
+  value_in!: boolean;
 
   label: string = '適格請求書発行事業者の登録通知を受けた';
 
@@ -32,7 +23,7 @@ export default class RegistrationCheck extends Vue {
   }
 
   input() {
-    this.$store.commit('company/set', { RegistrationNumberBox_val: this.value_in });
+    this.$store.commit('company/set', { RegistrationNumberBox_val: this.bool });
   }
 }
 </script>
