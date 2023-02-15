@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="sin"> <lavel>[複写中]</lavel></v-col>
+    <v-col class="sin">[複写中]</v-col>
   </v-row>
 </template>
 <script lang="ts">

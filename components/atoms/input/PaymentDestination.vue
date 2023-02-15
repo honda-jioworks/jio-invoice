@@ -18,7 +18,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 export default class PaymentDestination extends Vue {
   items: Array<string> = ['現金', '銀行振替'];
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
-  value_in!: any;
+  value_in = '';
   input() {
     this.$store.commit('invoiceIssue/set', { payment: this.value_in });
   }

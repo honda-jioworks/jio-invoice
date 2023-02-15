@@ -72,7 +72,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch, Emit, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Watch, Emit } from 'nuxt-property-decorator';
 import AmountEditer from '@/components/molecules/AmountEditer.vue';
 import DivisionEditer from '@/components/molecules/DivisionEditer.vue';
 import ProductCodeEditer from '@/components/molecules/ProductCodeEditer.vue';
@@ -100,9 +100,6 @@ export default class InvoiceIssueTable extends Vue {
   unit_items: Array<string> = ['人月', '印月', '日', '時間', '人時', '名', '式', 'ヶ月', 'ページ'];
   tax_items: Array<string> = ['10%', '税なし'];
   division_items: Array<string> = ['通常', '値引', '返品', 'メモ', '小計', '文章行', '表題', '改頁', '空行', '源泉外'];
-
-  @Prop()
-  field!: any;
 
   inputStart() {
     this.$store.commit('invoiceIssue/set', { dayStart: this.dayStart });

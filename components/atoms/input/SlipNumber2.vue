@@ -13,7 +13,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class SlipNumber extends Vue {
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
-  value_in!: any;
+  value_in = '';
   input() {
     this.$store.commit('invoiceIssue/set', { slipNumber: this.value_in });
   }

@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="2" class="a1">
-      <v-text-field v-model="textPostalCode" outlined @input="scanPostal" label="〒"></v-text-field>
+      <v-text-field v-model="textPostalCode" outlined label="〒"></v-text-field>
     </v-col>
     <v-col>
       <v-btn @click="sendAddress()" class="d1">住所を検索</v-btn>
@@ -18,17 +18,12 @@ export default class AddressSearch extends Vue {
   public addressVal: string = '';
   public zipCode: string = '';
 
-  @Emit()
-  scanPostal(): string {
-    //郵便番号をorganismsへ
-    return this.textPostalCode;
-  }
   @Prop({ type: String }) //郵便番号の受け取った値をorganismsからPropで受け取る
   PostalCode!: string;
 
   @Emit() //郵便番号から住所に変換しorganismsに送る
   async sendAddress() {
-    this.zipCode = this.PostalCode;
+    this.zipCode = this.textPostalCode;
     const address = await fetchAddressByZipcode(this.zipCode);
     const { region, locality, street, extended } = address;
     this.addressVal = region + locality + street + extended;

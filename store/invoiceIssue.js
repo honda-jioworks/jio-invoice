@@ -54,8 +54,20 @@ export const state = () => ({
   dayStart: '',
   dayEnd_id: '',
   dayEnd: '',
-  textEditer_id: '',
-  textEditer: '',
+  productcode_id: '',
+  productcode: '',
+  productname_id: '',
+  productname: '',
+  quanitity_id: '',
+  quanitity: '',
+  unit_in_id: '',
+  unit_in: '',
+  unitprice_id: '',
+  unitprice: '',
+  remarks_id: '',
+  remarks: '',
+  tax_in: '',
+  tax_in: '',
 });
 
 export const mutations = {

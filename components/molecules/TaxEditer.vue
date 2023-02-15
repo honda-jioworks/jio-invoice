@@ -1,5 +1,12 @@
 <template>
-  <editor :label="label" :rule="rule" :selected.sync="tax_in" :items="tax_items"></editor>
+  <editor
+    :label="label"
+    :rule="rule"
+    :field="'tax_in'"
+    v-model="tax_in"
+    :selected.sync="tax_in"
+    :items="tax_items"
+  ></editor>
 </template>
 
 <script lang="ts">
