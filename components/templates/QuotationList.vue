@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderList />
     <QuotaitionTable />
   </div>
 </template>

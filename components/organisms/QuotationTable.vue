@@ -2,7 +2,7 @@
   <v-data-table
     :headers="headers"
     :items="desserts"
-    :items-per-page="5"
+    :items-per-page="10"
     class="elevation-1"
     hide-default-footer
   >
@@ -48,11 +48,27 @@
     <template #[`item.price`]="props">
       <PriceEditor :price.sync="props.item.price"></PriceEditor>
     </template>
+    <template #[`item.actions`]="{ item }">
+      <v-icon color="primary" @click="editQuotation(item)">
+        mdi-pencil-outline
+      </v-icon>
+    </template>
+    <template #[`item.delete`]="{ item }">
+      <v-icon color="error" @click="deleteQuotation(item)">
+        mdi-delete-outline</v-icon
+      >
+    </template>
+    <template #[`item.copy`]="{ item }">
+      <v-icon color="green" @click="copyQuotation(item)"
+        >mdi-content-copy
+      </v-icon>
+    </template>
   </v-data-table>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from 'nuxt-property-decorator'
+import { Vue, Component, Prop, Watch } from 'nuxt-property-decorator'
+import axios from 'axios'
 import QuotationDateEditor from '../molecules/QuotationDateEditor.vue'
 import QuotationNumberEditor from '../molecules/QuotationNumberEditor.vue'
 import CustomerNameEditor from '@/components/molecules/CustomerNameEditor.vue'
@@ -75,6 +91,14 @@ import PriceEditor from '@/components/molecules/PriceEditor.vue'
 export default class QuotationTable extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
 
+  @Prop()
+  date!: string
+
+  @Watch('date')
+  changeDate() {
+    alert(this.date)
+  }
+
   headers = [
     { text: '日付', align: 'start', sortable: false, value: 'quotation_date' },
     { text: '見積書No.', value: 'quotation_num' },
@@ -84,11 +108,14 @@ export default class QuotationTable extends Vue {
     { text: '受注', value: 'received_check' },
     { text: '新着', value: '' },
     { text: '金額', value: 'price' },
+    { text: '更新', value: 'actions', sortable: false },
+    { text: '削除', value: 'delete', sortable: false },
+    { text: '複写', value: 'copy', sortable: false },
   ]
 
   desserts = [
     {
-      invoice_id: 'cstmer001',
+      quotation_id: 'cstmer001',
       quotation_date: '2022/12/26',
       quotation_num: 'JS20-000666',
       cstm_name: 'jioworks',
@@ -101,12 +128,12 @@ export default class QuotationTable extends Vue {
 
   editedIndex = -1
 
-  editedCostomer = {
-    invoice_id: '',
+  editedQuotation = {
+    quotation_id: '',
     quotation_date: '',
-    invoice_num: '',
+    quotation_num: '',
     cstm_name: '',
-    invoice_title: '',
+    quotation_title: '',
     issued_check: '',
     received_check: '',
     price: '',
@@ -116,11 +143,48 @@ export default class QuotationTable extends Vue {
     // 何か処理
   }
 
-  @Emit()
-  editCostomer(costmer: any) {
-    this.editedIndex = this.desserts.indexOf(costmer)
-    this.editedCostomer = Object.assign({}, costmer)
-    alert(JSON.stringify(this.editedCostomer))
+  editQuotation(quotation: any) {
+    this.editedIndex = this.desserts.indexOf(quotation)
+    this.editedQuotation = Object.assign({}, quotation)
+    alert(JSON.stringify(this.$store.state.quotation))
+    axios
+      .post('/quotation', {
+        quotation_id: this.$store.state.quotation.quotation_id,
+        quotation_date: this.$store.state.quotation.quotation_date,
+        quotation_num: this.$store.state.quotation.quotation_num,
+        cstm_name: this.$store.state.quotation.cstm_name,
+        quotation_title: this.$store.state.quotation.quotation_title,
+        issued_check: this.$store.state.quotation.issued_check,
+        price: this.$store.state.quotation.price,
+      })
+      .then(function (response) {
+        alert(response.data)
+      })
+    // 更新
+  }
+
+  deleteQuotation(quotation: any) {
+    this.editedIndex = this.desserts.indexOf(quotation)
+    this.editedQuotation = Object.assign({}, quotation)
+    this.desserts.splice(this.editedIndex, 1)
+    alert(JSON.stringify(this.$store.state.quotation.quotation_id))
+    axios
+      .delete('/quotation', {
+        params: {
+          quotation_id: this.$store.state.quotation.quotation_id,
+        },
+      })
+      .then(function (response) {
+        alert(response.data)
+      }) // 削除
+  }
+
+  copyQuotation(quotation: any) {
+    this.editedIndex = this.desserts.indexOf(quotation)
+    this.editedQuotation = Object.assign({}, quotation)
+    this.desserts.push(this.editedQuotation)
+    alert(JSON.stringify(quotation.quotation_id))
+    // 複写
   }
 }
 </script>

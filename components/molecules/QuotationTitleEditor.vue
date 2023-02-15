@@ -1,5 +1,11 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="quotation_title_in">
+  <editor
+    v-model="quotation_title"
+    :label="label"
+    :rule="rule"
+    :value.sync="quotation_title_in"
+    :field="'quotation_title'"
+  >
   </editor>
 </template>
 
