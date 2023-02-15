@@ -16,7 +16,7 @@ import { Vue, Component, Prop, Emit, PropSync } from 'nuxt-property-decorator';
 @Component({ components: {} })
 export default class AddressOne extends Vue {
   @PropSync('value', { type: String })
-  value_in!: any;
+  value_in!: string;
 
   @Prop()
   label!: any;
@@ -28,7 +28,6 @@ export default class AddressOne extends Vue {
   address1!: String;
 
   input(): void {
-    this.$store.commit('company/set', { addressOne: this.newAddress });
     this.$store.commit('company/set', { addressOne: this.value_in });
   }
 

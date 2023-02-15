@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn v-model="addressVal" @mouseover="makeAddress()" @click="sendAddress"> 住所を検索 </v-btn>
+    <v-btn v-model="addressVal" @blur="input" @mouseover="makeAddress()" @click="sendAddress"> 住所を検索 </v-btn>
   </div>
 </template>
 
@@ -33,6 +33,9 @@ export default class AddressSearch extends Vue {
         console.log(error);
         alert('郵便番号の処理に失敗しました。\rlnしばらく時間を置いてから再度実施してください');
       });
+  }
+  input(): void {
+    this.$store.commit('company/set', { addressOne: this.addressVal });
   }
   //郵便番号から住所に変換しmoleculesに送る
   @Emit()
