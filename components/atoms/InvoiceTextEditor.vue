@@ -8,6 +8,7 @@
         :label="label"
         :type="type"
         counter
+        :prefix="prefix"
         @click:outside="closeDialog"
         @keydown="something = $event.target.value"
         @blur="input"
@@ -26,6 +27,9 @@ export default class editor extends Vue {
 
   @Prop()
   label: any
+
+  @Prop()
+  prefix!: string
 
   @Prop()
   rule!: Array<object>

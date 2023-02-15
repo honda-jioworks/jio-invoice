@@ -5,6 +5,7 @@
     :rule="rule"
     :value.sync="price_in"
     :field="'price'"
+    :prefix="prefix"
   ></editor>
 </template>
 
@@ -20,6 +21,9 @@ export default class PriceEditor extends Vue {
   price_in!: string
 
   label: string = '金額'
+
+  prefix: string = '¥'
+
   rule: Array<object> = [(v: any) => !!v || '金額を入力してください。']
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div :value="invoice_num" :field="'invoice_num'" @click="send">
-    &yen;{{ invoice_num }}
+    No.{{ invoice_num }}
   </div>
 </template>
 
