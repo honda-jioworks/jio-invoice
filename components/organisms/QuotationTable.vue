@@ -96,7 +96,7 @@ export default class QuotationTable extends Vue {
 
   @Watch('date')
   changeDate() {
-    alert(this.date)
+    alert(JSON.stringify(this.date))
   }
 
   headers = [

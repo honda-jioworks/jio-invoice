@@ -1,20 +1,25 @@
 <template>
   <div>
-    <QuotaitionTable />
+    <MonthCalender @save="save" />
+    <QuotaitionTable :date="date" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import Headerorg from '~/components/organisms/Headerorg.vue'
-import HeaderList from '~/components/organisms/HeaderList.vue'
+import MonthCalender from '~/components/organisms/MonthCalender.vue'
 import QuotaitionTable from '~/components/organisms/QuotationTable.vue'
 @Component({
   components: {
     QuotaitionTable,
-    Headerorg,
-    HeaderList,
+    MonthCalender,
   },
 })
-export default class QuotationList extends Vue {}
+export default class QuotationList extends Vue {
+  date: string = ''
+
+  save(date: string) {
+    this.date = date
+  }
+}
 </script>
