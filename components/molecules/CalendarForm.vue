@@ -2,7 +2,7 @@
   <v-row class="sw1">
     <v-subheader class="w1">日付</v-subheader>
     <v-col cols="3">
-      <v-text-field outlined type="date" v-model="date" @input="scanDate" />
+      <v-text-field @blur="input" outlined type="date" v-model="date" @input="scanDate" />
     </v-col>
     <v-subheader class="x1">No1.</v-subheader>
     <v-col cols="3" class="th1"><SerialNumber @get-new-number="getNewNumber" /></v-col>
@@ -19,6 +19,10 @@ import SerialNumber from '@/components/atoms/input/SerialNumber.vue';
 })
 export default class CalendarForm extends Vue {
   date: string = '';
+
+  input() {
+    this.$store.commit('quotation/set', { date: this.date });
+  }
 
   @Emit()
   scanDate(): string {

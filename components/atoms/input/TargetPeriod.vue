@@ -4,14 +4,28 @@
       <v-col>
         <v-subheader>対象期間</v-subheader>
         <v-row>
-          <v-col cols="5"> <v-text-field background-color="#FFFDE7" outlined /><!--v-select等に変更--> </v-col>
-          <v-col class="b1"><label class="q1">〜</label></v-col>
-          <v-col cols="5"><v-text-field class="a1" background-color="#FFFDE7" outlined /> </v-col>
+          <v-col cols="5"> <v-text-field input type="date" @blur="input" v-model="dayStart" /></v-col>
+          <v-col cols="5"><v-text-field input type="date" @blur="input" v-model="dayEnd" /></v-col>
         </v-row>
       </v-col>
     </v-row>
   </div>
 </template>
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator';
+
+@Component({ components: {} })
+export default class TargetPeriod extends Vue {
+  dayStart = '';
+  dayEnd = '';
+
+  input() {
+    this.$store.commit('quotation/set', { dayStart: this.dayStart });
+    this.$store.commit('quotation/set', { dayEnd: this.dayEnd });
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 .v-subheader {
   background-color: rgb(56, 129, 255);

@@ -5,6 +5,7 @@
       <v-col cols="3">
         <v-select
           v-model="deliveryDeadline"
+          @blur="input"
           outlined
           @input="scanDeadline"
           :items="deadlineItems"
@@ -15,7 +16,14 @@
     <v-row class="lll1">
       <v-subheader>納入場所</v-subheader>
       <v-col cols="3">
-        <v-select v-model="deliveryPlace" outlined @input="scanPlace" :items="placeItems" label="納入場所"></v-select>
+        <v-select
+          v-model="deliveryPlace"
+          outlined
+          @blur="input"
+          @input="scanPlace"
+          :items="placeItems"
+          label="納入場所"
+        ></v-select>
       </v-col>
     </v-row>
     <v-row class="lll1">
@@ -23,6 +31,7 @@
       <v-col cols="3">
         <v-select
           v-model="transactionSystem"
+          @blur="input"
           outlined
           @input="scanTransaction"
           :items="transactionItems"
@@ -33,7 +42,14 @@
     <v-row class="lll1">
       <v-subheader>有効期限</v-subheader>
       <v-col cols="3">
-        <v-select v-model="dateExpiry" outlined @input="scanExpiry" :items="expiryItems" label="有効期限"></v-select>
+        <v-select
+          v-model="dateExpiry"
+          @blur="input"
+          outlined
+          @input="scanExpiry"
+          :items="expiryItems"
+          label="有効期限"
+        ></v-select>
       </v-col>
     </v-row>
   </div>
@@ -51,6 +67,13 @@ export default class QuotationInfomation extends Vue {
   deliveryPlace: string = '';
   transactionSystem: string = '';
   dateExpiry: string = '';
+
+  input() {
+    this.$store.commit('quotation/set', { deliveryDeadline: this.deliveryDeadline });
+    this.$store.commit('quotation/set', { deliveryPlace: this.deliveryPlace });
+    this.$store.commit('quotation/set', { transactionSystem: this.transactionSystem });
+    this.$store.commit('quotation/set', { dateExpiry: this.dateExpiry });
+  }
 
   @Emit()
   scanDeadline(): string {

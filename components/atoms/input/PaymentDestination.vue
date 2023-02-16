@@ -1,7 +1,7 @@
 <template>
   <v-row dense>
     <v-col cols="8">
-      <v-select outlined clearable dense :items="items" :rules="rules">
+      <v-select v-model="value_in" @blur="input" outlined clearable dense :items="items" :rules="rules">
         <template v-slot:label>入金先<span style="color: red"> *</span></template></v-select
       ></v-col
     ><!--v-select等に変更-->
@@ -18,6 +18,10 @@ import { Vue, Component } from 'nuxt-property-decorator';
 export default class PaymentDestination extends Vue {
   items: Array<string> = ['現金', '銀行振替'];
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
+  value_in = '';
+  input() {
+    this.$store.commit('quotation/set', { payment: this.value_in });
+  }
 }
 </script>
 <style lang="scss" scoped>
