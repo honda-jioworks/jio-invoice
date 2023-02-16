@@ -7,6 +7,7 @@
       :cls_day_items="cls_day_items"
       :coll_cycl_items="coll_cycl_items"
       :jisha_ic_items="jisha_ic_items"
+      :edit-costomer="editCostomer"
     />
   </div>
 </template>
@@ -21,22 +22,26 @@ export default class CustomerView extends Vue {
 
   // pages内でコンテンツ制御（データ取得・更新などのロジックのみ）を管轄する
   @Prop()
-  trhk_kbn_items: Array<string> = ['掛売上', '即時売上'];
+  trhk_kbn_items: Array<string> = [];
 
   @Prop()
-  tax_mtd_items: Array<string> = ['内税', '外税', '合計請求', '税なし'];
+  tax_mtd_items: Array<string> = [];
 
   @Prop()
-  cls_day_items: Array<string> = ['末'];
+  cls_day_items: Array<string> = [];
 
   @Prop()
-  coll_cycl_items: Array<string> = ['当月', '翌月', '翌々月15', '3ヶ月先', '4ヶ月先', '5ヶ月先', '6ヶ月先'];
+  coll_cycl_items: Array<string> = [];
 
   @Prop()
-  jisha_ic_items: Array<string> = ['植木規子'];
+  jisha_ic_items: Array<string> = [];
 
   @Prop()
   items: any[] = [];
 
+  @Prop()
+  editCostomer(){
+
+  }
 }
 </script>

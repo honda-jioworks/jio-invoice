@@ -7,6 +7,7 @@
       :cls_day_items="cls_day_items"
       :coll_cycl_items="coll_cycl_items"
       :jisha_ic_items="jisha_ic_items"
+      :edit-costomer="editCostomer"
     />
   </div>
 </template>
@@ -54,6 +55,15 @@ export default class CusetmerViewPage extends Vue {
     console.log(JSON.stringify(custmer));
     // 戻り値のmsgを変数に格納
     this.items = custmer;
+  }
+
+  editCostomer(costmer: any) {
+    alert(JSON.stringify(costmer));
+    axios.post(API_URL.CREATE_UPDATE_CUSTOMER, costmer)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        alert(response.data.msg);
+      });
   }
 }
 </script>

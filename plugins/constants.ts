@@ -8,6 +8,7 @@ namespace API_URL {
   export const HANYO_EDITOR_CLOSE_DAY = HOST + '/invoice/v-select-editor/GM0003';
   export const HANYO_EDITOR_COLL_CYCLE = HOST + '/invoice/v-select-editor/GM0004';
   export const HANYO_EDITOR_SHAIN = HOST + '/invoice/v-select-editor/shain';
+  export const CREATE_UPDATE_CUSTOMER = HOST + '/invoice/customer';
 }
 
 export default API_URL

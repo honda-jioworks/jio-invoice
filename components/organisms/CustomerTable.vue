@@ -28,14 +28,20 @@
     <template v-slot:[`item.cls_day`]="props">
       <close-day :cls_day.sync="props.item.cls_day" :cls_day_items="cls_day_items" />
     </template>
-    <template v-slot:[`item.coll_cycl`]="props">
+    <template v-slot:[`item.coll_cycl_mon`]="props">
       <coll-cycle
-        :coll_cycl.sync="props.item.coll_cycl"
+        :coll_cycl.sync="props.item.coll_cycl_mon"
         :coll_cycl_items="coll_cycl_items"
       />
     </template>
-    <template v-slot:[`item.jisha_ic`]="props">
-      <jisha-ic :jisha_ic.sync="props.item.jisha_ic" :jisha_ic_items="jisha_ic_items" />
+    <template v-slot:[`item.coll_cycl_day`]="props">
+      <coll-cycle
+        :coll_cycl.sync="props.item.coll_cycl_day"
+        :coll_cycl_items="cls_day_items"
+      />
+    </template>
+    <template v-slot:[`item.ic_mei`]="props">
+      <jisha-ic :jisha_ic.sync="props.item.ic_mei" :jisha_ic_items="jisha_ic_items" />
     </template>
     <template v-slot:[`item.start_bal`]="props">
       <start-bal :start_bal.sync="props.item.start_bal" />
@@ -94,8 +100,9 @@ export default class CustomerTable extends Vue {
     { text: '税処理', value: 'tax_mtd' },
     { text: '入金先', value: 'ac' },
     { text: '締め日', value: 'cls_day' },
-    { text: '回収サイクル', value: 'coll_cycl' },
-    { text: '自社担当者', value: 'jisha_ic' },
+    { text: '回収サイクル月', value: 'coll_cycl_mon' },
+    { text: '回収サイクル日', value: 'coll_cycl_day' },
+    { text: '自社担当者', value: 'ic_mei' },
     { text: '開始残高', value: 'start_bal' },
     { text: '更新', value: 'actions', sortable: false },
   ];
@@ -112,8 +119,9 @@ export default class CustomerTable extends Vue {
       tax_mtd_kbn: '',
       ac: '',
       cls_day: '',
-      coll_cycl: '',
-      jisha_ic: '',
+      coll_cycl_mon: '',
+      coll_cycl_day: '',
+      ic_mei: '',
       start_bal: 0,
       del_flg: 0,
     },
@@ -131,8 +139,9 @@ export default class CustomerTable extends Vue {
     tax_mtd: '',
     ac: '',
     cls_day: '',
-    coll_cycl: '',
-    jisha_ic: '',
+    coll_cycl_mon: '',
+    coll_cycl_day: '',
+    ic_mei: '',
     start_bal: 0,
     del_flg: 0,
   };
@@ -141,7 +150,7 @@ export default class CustomerTable extends Vue {
     // 何か処理
   }
 
-  @Emit()
+  @Prop()
   editCostomer(costmer: any) {
     this.editedIndex = this.desserts.indexOf(costmer);
     this.editedCostomer = Object.assign({}, costmer);
