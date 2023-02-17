@@ -1,10 +1,31 @@
 <template>
   <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1" hide-default-footer>
     <template v-slot:top>
+      <v-container>
+        <v-row class="d-flex">
+          <v-col cols="2">
+            <v-subheader>請求額</v-subheader>
+
+            <v-col @change="inputAmount"> &yen;{{ totalAmount }} </v-col>
+          </v-col>
+          <v-col cols="2">
+            <v-subheader>消費税等</v-subheader>
+            <v-col @change="TaxAmount"> &yen;{{ taxAmount }} </v-col>
+          </v-col>
+          <v-col cols="4" class="ml-auto">
+            <v-subheader>対象期間</v-subheader>
+            <v-row class="d-flex align-center">
+              <v-col cols="5"> <v-text-field input type="date" @blur="inputStart" v-model="dayStart" /></v-col>
+              <v-col align="center"> 〜</v-col>
+              <v-col cols="5"><v-text-field input type="date" @blur="inputEnd" v-model="dayEnd" /></v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
+
       <v-toolbar flat>
         <v-toolbar-title>請求書一覧</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
-        <v-spacer></v-spacer>
       </v-toolbar>
     </template>
     <template v-slot:[`item.division_val`]="props">
@@ -26,7 +47,7 @@
       <UnitPriceEditer :unitprice_val.sync="props.item.unitprice_val" />
     </template>
     <template v-slot:[`item.amount_val`]="props">
-      <AmountEditer :amount_val.sync="props.item.amount_val" />
+      <AmountEditer :amount="amount(props.item.quanitity_val, props.item.unitprice_val)" />
     </template>
     <template v-slot:[`item.remarks_val`]="props">
       <RemarksEditer :remarks_val.sync="props.item.remarks_val" />
@@ -35,7 +56,13 @@
       <TaxEditer :tax_val.sync="props.item.tax_val" :tax_items="tax_items" />
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-btn color="primary" @click="editCostomer(item)"> 更新 </v-btn>
+      <v-icon color="primary" @click="editInvoice(item)">mdi-pencil-outline</v-icon>
+    </template>
+    <template v-slot:[`item.delete`]="{ item }">
+      <v-icon color="error" @click="deleteInvoice(item)">mdi-delete-outline</v-icon>
+    </template>
+    <template v-slot:[`item.copy`]="{ item }">
+      <v-icon color="green" @click="copyInvoice(item)">mdi-content-copy</v-icon>
     </template>
   </v-data-table>
 </template>
@@ -66,10 +93,16 @@ import UnitPriceEditer from '@/components/molecules/UnitPriceEditer.vue';
   },
 })
 export default class InvoiceIssueTable extends Vue {
-  // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
   unit_items: Array<string> = ['人月', '印月', '日', '時間', '人時', '名', '式', 'ヶ月', 'ページ'];
   tax_items: Array<string> = ['10%', '税なし'];
   division_items: Array<string> = ['通常', '値引', '返品', 'メモ', '小計', '文章行', '表題', '改頁', '空行', '源泉外'];
+
+  inputStart() {
+    this.$store.commit('invoiceIssue/set', { dayStart: this.dayStart });
+  }
+  inputEnd() {
+    this.$store.commit('invoiceIssue/set', { dayEnd: this.dayEnd });
+  }
 
   headers = [
     { text: '区分', value: 'division_val' },
@@ -82,6 +115,8 @@ export default class InvoiceIssueTable extends Vue {
     { text: '備考', value: 'remarks_val' },
     { text: '消費税', value: 'tax_val' },
     { text: '更新', value: 'actions', sortable: false },
+    { text: '削除', value: 'delete', sortable: false },
+    { text: '複写', value: 'copy', sortable: false },
   ];
 
   desserts = [
@@ -92,16 +127,17 @@ export default class InvoiceIssueTable extends Vue {
       productname_val: '',
       quanitity_val: '',
       unit_val: '',
-      unitprice_val: '￥',
-      amount_val: '￥',
+      unitprice_val: '',
+      amount_val: '',
       remarks_val: '',
-      tax_val: 10 + '%',
+      tax_val: '10%',
     },
   ];
 
   editedIndex = -1;
 
-  editedCostomer = {
+  editedInvoice = {
+    cstmr_id: '',
     division_val: '',
     productcode_val: '',
     productname_val: '',
@@ -110,28 +146,86 @@ export default class InvoiceIssueTable extends Vue {
     unitprice_val: '',
     amount_val: '',
     remarks_val: '',
-    tax_val: 10 + '%',
+    tax_val: '10%',
   };
 
-  created() {
-    // 何か処理
-  }
   @Emit()
-  editCostomer(costmer: any) {
-    this.editedIndex = this.desserts.indexOf(costmer);
-    this.editedCostomer = Object.assign({}, costmer);
-    alert(JSON.stringify(this.editedCostomer));
+  editInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice);
+    this.editedInvoice = Object.assign({}, invoice);
+    this.editedInvoice.amount_val = String(this.amount(invoice.quanitity_val, invoice.unitprice_val));
+    alert(JSON.stringify(this.editedInvoice));
+    // 更新ボタン
+  }
+
+  deleteInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice);
+    this.editedInvoice = Object.assign({}, invoice);
+    this.desserts.splice(this.editedIndex, 1);
+    alert(JSON.stringify(invoice.cstmr_id));
+    // 削除ボタン
+  }
+
+  copyInvoice(invoice: any) {
+    this.editedIndex = this.desserts.indexOf(invoice);
+    this.editedInvoice = Object.assign({}, invoice);
+    this.desserts.push(this.editedInvoice);
+    alert(JSON.stringify(invoice.cstmr_id));
+    // 複写ボタン
+  }
+
+  dayStart(date: any) {
+    alert(JSON.stringify(date));
+    // 開始年月を値保持確認
+  }
+
+  dayEnd(date: any) {
+    alert(JSON.stringify(date));
+    // 終了年月を値保持確認
+  }
+
+  get amount() {
+    return (quanitity: string, unitprice: string) => {
+      const retVal = Number(quanitity) * Number(unitprice);
+      return retVal ? retVal : 0;
+    };
+    // データテーブル内の数量と単価の乗算
+  }
+
+  get totalAmount() {
+    let totalAmount = 0;
+    this.desserts.forEach((item) => {
+      totalAmount += Math.round(Number(item.quanitity_val) * Number(item.unitprice_val) * 1.1);
+    });
+    return totalAmount;
+    // データテーブル内の計算を合計額へ表示
+  }
+
+  get taxAmount() {
+    let taxAmount = 0;
+    this.desserts.forEach((item) => {
+      taxAmount += Math.round(Number(item.quanitity_val) * Number(item.unitprice_val) * 0.1);
+    });
+    return taxAmount;
+    // データテーブル内の計算を消費税等へ表示
+  }
+  get inputAmount(): Number {
+    this.$store.commit('invoiceIssue/set', { totalAm: this.totalAmount });
+    return this.totalAmount;
+  }
+  get TaxAmount(): Number {
+    this.$store.commit('invoiceIssue/set', { taxAmount: this.taxAmount });
+    return this.totalAmount;
   }
 }
-
-var items = [
-  { name: 'レモン', price: 100, quantity: 2 },
-  { name: 'りんご', price: 200, quantity: 1 },
-  { name: 'メロン', price: 800, quantity: 1 },
-];
 </script>
 <style lang="scss" scoped>
 .groundwork {
   background-color: white;
+}
+.v-subheader {
+  background-color: rgb(236, 65, 84);
+  color: white;
+  justify-content: center;
 }
 </style>

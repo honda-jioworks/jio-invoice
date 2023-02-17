@@ -12,7 +12,7 @@ import TextEditer from '@/components/atoms/TextEditer.vue';
 export default class AmountEditer extends Vue {
   @PropSync('amount_val', { type: String })
   amount!: string;
-  private totalPrice: number = 2;
+  public totalPrice: number = 2;
 
   label: string = '金額';
 

@@ -7,7 +7,6 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import BilingAmountt from '@/components/atoms/input/BilingAmountt.vue';
 import TargetPeriod from '@/components/atoms/input/TargetPeriod.vue';
 import Customers from '@/components/atoms/input/Customers .vue';
 import BettingRate from '@/components/atoms/input/BettingRate.vue';
@@ -15,7 +14,6 @@ import UnitPriceCategory from '@/components/atoms/input/UnitPriceCategory.vue';
 
 @Component({
   components: {
-    BilingAmountt,
     TargetPeriod,
     Customers,
     BettingRate,

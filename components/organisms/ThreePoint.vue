@@ -1,7 +1,6 @@
 <template>
   <div>
-    <v-row
-      ><v-col cols="12"><BillingAmount /></v-col>
+    <v-row>
       <v-col cols="12"><InvoiceIssueTable /></v-col>
     </v-row>
   </div>
@@ -9,8 +8,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
-import BillingAmount from '@/components/molecules/BillingAmount.vue';
 import InvoiceIssueTable from '@/components/organisms/InvoiceIssueTable.vue';
-@Component({ components: { BillingAmount, InvoiceIssueTable } })
+@Component({ components: { InvoiceIssueTable } })
 export default class ThreePoint extends Vue {}
 </script>
