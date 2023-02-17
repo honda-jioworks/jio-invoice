@@ -1,5 +1,11 @@
 <template>
-  <v-data-table :headers="headers" :items="desserts" :items-per-page="5" class="elevation-1" hide-default-footer>
+  <v-data-table
+    :headers="headers"
+    :items="desserts"
+    :items-per-page="5"
+    class="elevation-1"
+    hide-default-footer
+  >
     <template v-slot:top>
       <v-toolbar flat>
         <v-toolbar-title>得意先一覧</v-toolbar-title>
@@ -23,7 +29,7 @@
       <tax :tax_mtd.sync="props.item.tax_mtd_kbn" :tax_mtd_items="tax_mtd_items" />
     </template>
     <template v-slot:[`item.ac`]="props">
-      <ac :ac.sync="props.item.ac" />
+      <ac :ac.sync="props.item.ac" :cstmr_id="props.item.cstmr_id" :ac_items="ac_items" :open-ac="openAc" />
     </template>
     <template v-slot:[`item.cls_day`]="props">
       <close-day :cls_day.sync="props.item.cls_day" :cls_day_items="cls_day_items" />
@@ -47,7 +53,7 @@
       <start-bal :start_bal.sync="props.item.start_bal" />
     </template>
     <template v-slot:[`item.actions`]="{ item }">
-      <v-btn color="primary" @click="editCostomer(item)"> 更新 </v-btn>
+      <v-btn color="primary" @click.stop="editCostomer(item)"> 更新 </v-btn>
     </template>
   </v-data-table>
 </template>
@@ -79,19 +85,19 @@ import DialogStartBalEditer from '@/components/molecules/DialogStartBalEditer.vu
 export default class CustomerTable extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）
   @Prop()
-  trhk_kbn_items: Array<string> = [];
+  trhk_kbn_items!: Array<string>;
 
   @Prop()
-  tax_mtd_items: Array<string> = [];
+  tax_mtd_items!: Array<string>;
 
   @Prop()
-  cls_day_items: Array<string> = [];
+  cls_day_items!: Array<string>;
 
   @Prop()
-  coll_cycl_items: Array<string> = [];
+  coll_cycl_items!: Array<string>;
 
   @Prop()
-  jisha_ic_items: Array<string> = [];
+  jisha_ic_items!: Array<string>;
 
   headers = [
     { text: '名称', align: 'start', sortable: false, value: 'cstmr_mei' },
@@ -108,24 +114,10 @@ export default class CustomerTable extends Vue {
   ];
 
   @Prop()
-  desserts = [
-    {
-      cstmr_id: '',
-      cstmr_mei: '',
-      cstmr_mei_ryaku: '',
-      srch_key_1: '',
-      srch_key_2: '',
-      tran_kbn: '',
-      tax_mtd_kbn: '',
-      ac: '',
-      cls_day: '',
-      coll_cycl_mon: '',
-      coll_cycl_day: '',
-      ic_mei: '',
-      start_bal: 0,
-      del_flg: 0,
-    },
-  ];
+  desserts!: Array<Object>;
+
+  @Prop()
+  ac_items!: Array<string>;
 
   editedIndex = -1;
 
@@ -137,6 +129,7 @@ export default class CustomerTable extends Vue {
     srch_key_2: '',
     tran_kbn: '',
     tax_mtd: '',
+    ac_no: '',
     ac: '',
     cls_day: '',
     coll_cycl_mon: '',
@@ -151,11 +144,11 @@ export default class CustomerTable extends Vue {
   }
 
   @Prop()
-  editCostomer(costmer: any) {
-    this.editedIndex = this.desserts.indexOf(costmer);
-    this.editedCostomer = Object.assign({}, costmer);
-    alert(JSON.stringify(this.editedCostomer));
-  }
+  editCostomer!: (custmer: any) => {};
+
+  @Prop()
+  openAc!: (cstmr_id: any) => {};
+
 }
 </script>
 <style lang="scss" scoped>

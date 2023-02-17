@@ -7,13 +7,15 @@
       :cls_day_items="cls_day_items"
       :coll_cycl_items="coll_cycl_items"
       :jisha_ic_items="jisha_ic_items"
+      :ac_items="ac_items"
       :edit-costomer="editCostomer"
+      :open-ac="openAc"
     />
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Vue, Component, Prop, Emit } from 'nuxt-property-decorator';
 import CustomerTable from '~/components/organisms/CustomerTable.vue';
 @Component({
   components: { CustomerTable },
@@ -22,26 +24,31 @@ export default class CustomerView extends Vue {
 
   // pages内でコンテンツ制御（データ取得・更新などのロジックのみ）を管轄する
   @Prop()
-  trhk_kbn_items: Array<string> = [];
+  trhk_kbn_items!: Array<string>;
 
   @Prop()
-  tax_mtd_items: Array<string> = [];
+  tax_mtd_items!: Array<string>;
 
   @Prop()
-  cls_day_items: Array<string> = [];
+  cls_day_items!: Array<string>;
 
   @Prop()
-  coll_cycl_items: Array<string> = [];
+  coll_cycl_items!: Array<string>;
 
   @Prop()
-  jisha_ic_items: Array<string> = [];
+  jisha_ic_items!: Array<string>;
 
   @Prop()
-  items: any[] = [];
+  items!: any[];
 
   @Prop()
-  editCostomer(){
+  ac_items!: Array<string>;
 
-  }
+  @Prop()
+  editCostomer!: ()=>{};
+
+  @Prop()
+  openAc!: (cstmr_id: any) => {};
+
 }
 </script>

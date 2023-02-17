@@ -7,7 +7,9 @@
       :cls_day_items="cls_day_items"
       :coll_cycl_items="coll_cycl_items"
       :jisha_ic_items="jisha_ic_items"
+      :ac_items="ac_items"
       :edit-costomer="editCostomer"
+      :open-ac="openAc"
     />
   </div>
 </template>
@@ -28,6 +30,7 @@ export default class CusetmerViewPage extends Vue {
   coll_cycl_items: Array<string> = [];
   jisha_ic_items: Array<string> = [];
   items: any[] = [];
+  ac_items: Array<string> = [];
   async mounted() {
     // APIリクエスト送信
     const trhk_kbn_response = await axios.get(API_URL.HANYO_EDITOR_TRHK_KBN);
@@ -41,14 +44,8 @@ export default class CusetmerViewPage extends Vue {
     this.cls_day_items = cls_response.data.msg;
     this.coll_cycl_items = coll_response.data.msg;
     this.jisha_ic_items = ic_response.data.msg;
-    //TODO textとvalueにしちゃったので選択後に表示が数字になってしまう。
-    // 開発者モードのログで確認
-    console.log(JSON.stringify(this.trhk_kbn_items));
     // APIリクエスト送信
     const response = await axios.get(API_URL.CUSTOMER_ALL);
-    // 開発者モードのログで確認
-    console.log(JSON.stringify(response.headers));
-    console.log(JSON.stringify(response.data));
     // レスポンスから受け取り
     const custmer = response.data.msg;
     // 開発者モードのログで確認
@@ -58,12 +55,17 @@ export default class CusetmerViewPage extends Vue {
   }
 
   editCostomer(costmer: any) {
-    alert(JSON.stringify(costmer));
-    axios.post(API_URL.CREATE_UPDATE_CUSTOMER, costmer)
+    console.log(JSON.stringify(costmer));
+    axios.post(API_URL.CUSTOMER_CREATE_UPDATE, costmer)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         alert(response.data.msg);
       });
+  }
+
+  async openAc(cstmr_id: any) {
+    const response = await axios.get(API_URL.AC_EDITOR + cstmr_id);
+    this.ac_items = response.data.msg;
   }
 }
 </script>

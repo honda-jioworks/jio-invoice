@@ -10,8 +10,8 @@ import DialogTextEditer from '@/components/atoms/DialogTextEditer.vue';
 })
 export default class StartBalEditer extends Vue {
 
-  @PropSync('start_bal', {type: String})
-  start_bal_in!: string;
+  @PropSync('start_bal', {type: Number})
+  start_bal_in!: Number;
 
   label: string = '開始残高';
 

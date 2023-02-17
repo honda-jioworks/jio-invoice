@@ -20,7 +20,7 @@ import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator';
 })
 export default class DialogTextEditer extends Vue {
 
-  @PropSync('value', {type: String})
+  @PropSync('value')
   value_in!: any;
 
   @Prop()
