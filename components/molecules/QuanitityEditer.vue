@@ -1,5 +1,5 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="quanitity"></editor>
+  <editor :label="label" :rule="rule" :field="'quanitity'" v-model="quanitity" :value.sync="quanitity"></editor>
 </template>
 
 <script lang="ts">

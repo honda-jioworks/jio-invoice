@@ -70,7 +70,7 @@ export const state = () => ({
   unitprice: '',
   remarks_id: '',
   remarks: '',
-  tax_in: '',
+  tax_in_id: '',
   tax_in: '',
 });
 

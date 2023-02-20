@@ -98,10 +98,10 @@ export default class InvoiceIssueTable extends Vue {
   division_items: Array<string> = ['通常', '値引', '返品', 'メモ', '小計', '文章行', '表題', '改頁', '空行', '源泉外'];
 
   inputStart() {
-    this.$store.commit('invoiceIssue/set', { dayStart: this.dayStart });
+    this.$store.commit('quotation/set', { dayStart: this.dayStart });
   }
   inputEnd() {
-    this.$store.commit('invoiceIssue/set', { dayEnd: this.dayEnd });
+    this.$store.commit('quotation/set', { dayEnd: this.dayEnd });
   }
 
   headers = [
@@ -210,11 +210,11 @@ export default class InvoiceIssueTable extends Vue {
     // データテーブル内の計算を消費税等へ表示
   }
   get inputAmount(): Number {
-    this.$store.commit('invoiceIssue/set', { totalAm: this.totalAmount });
+    this.$store.commit('quotation/set', { totalAm: this.totalAmount });
     return this.totalAmount;
   }
   get TaxAmount(): Number {
-    this.$store.commit('invoiceIssue/set', { taxAmount: this.taxAmount });
+    this.$store.commit('quotation/set', { taxAmount: this.taxAmount });
     return this.totalAmount;
   }
 }

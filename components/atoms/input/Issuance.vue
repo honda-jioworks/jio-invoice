@@ -14,7 +14,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 export default class Issuance extends Vue {
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
   items: Array<string> = ['発行', '非発行'];
-  value_in!: any;
+  value_in = '';
 
   input() {
     this.$store.commit('quotation/set', { issuance: this.value_in });

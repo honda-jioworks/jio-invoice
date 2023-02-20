@@ -17,7 +17,7 @@ import { Vue, Component } from 'nuxt-property-decorator';
 export default class TaxProcessing extends Vue {
   rules: Array<object> = [(v: any) => !!v || '選択してください'];
   items: Array<string> = ['外税', '内税', '税なし'];
-  value_in!: any;
+  value_in = '';
 
   input() {
     this.$store.commit('quotation/set', { taxProcess: this.value_in });
