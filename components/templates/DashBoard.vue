@@ -16,6 +16,6 @@ export default class DashBoard extends Vue {}
 </script>
 <style lang="scss" scoped>
 .groundwork {
-  background-color: gray;
+  background-color: white;
 }
 </style>

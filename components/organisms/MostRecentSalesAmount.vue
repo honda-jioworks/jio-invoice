@@ -57,6 +57,7 @@ export default class MostRecentSalesAmount extends Vue {
   ];
 }
 </script>
+
 <style lang="scss" scoped>
 .groundwork {
   background-color: white;
