@@ -1,11 +1,19 @@
 <template>
-  <div></div>
+  <CustomerRegister />
 </template>
+
+<style lang="scss" scoped>
+.groundcolor {
+  background: grey;
+}
+</style>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+import CustomerRegister from '~/components/templates/CustomerRegister.vue';
 
-@Component({})
-export default class customerRegister extends Vue {
-  // pages内でコンテンツ制御（データ取得・更新などのロジックのみ）を管轄する
-}
+@Component({
+  components: { CustomerRegister },
+})
+export default class customerRegister extends Vue {}
+</script>
