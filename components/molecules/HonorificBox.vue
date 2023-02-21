@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col align-self="top" cols="3">
-        <v-select :rules="serectRules" v-model="honorific" label="敬称" :items="keisyo_items"></v-select>
+      <v-col align-self="auto" cols="3">
+        <v-select :rules="serectRules" @blur="input" v-model="honorific" label="敬称" :items="keisyo_items"></v-select>
       </v-col>
     </v-row>
   </v-container>
@@ -17,5 +17,8 @@ export default class HonorificBox extends Vue {
   serectRules: Array<object> = [(v: string) => !!v || '項目を選択してください'];
   @Prop()
   keisyo_items!: Array<string>;
+  input() {
+    this.$store.commit('customer/set', { honorific: this.honorific });
+  }
 }
 </script>

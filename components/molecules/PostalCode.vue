@@ -58,6 +58,9 @@ export default class DashBoard extends Vue {
   getPostalCodeTwo(val: string): string {
     return val;
   }
+  input() {
+    this.$store.commit('customer/set', { postalcode: this.postalCode });
+  }
 }
 </script>
 

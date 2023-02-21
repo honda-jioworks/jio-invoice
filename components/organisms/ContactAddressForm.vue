@@ -5,6 +5,9 @@
       <v-col cols="6">
         <!--郵便番号-->
         <PostalCode
+          v-for="item in desserts"
+          :key="item.postalcode_id"
+          :value.sync="item.postalcode"
           @scan-postal-code="scanPostalCode"
           :officePostalCode="postalCode"
           @send-address="sendAddress"
@@ -17,12 +20,18 @@
     <v-row>
       <v-col cols="6">
         <!--住所-->
-        <AddressInput class="mt-n10" :addressVal="address" @change-address="changeAddress" />
+        <AddressInput
+          class="mt-n10"
+          v-for="item in desserts"
+          :key="item.address_id"
+          :value.sync="item.address"
+          :addressVal="address"
+          @change-address="changeAddress"
+        />
         <!--郵便番号と住所の行間詰め-->
       </v-col>
       <v-spacer />
     </v-row>
-    <!--3行目-->
     <v-row class="mt-n5">
       <v-col cols="4">
         <!--役職-->
@@ -38,7 +47,7 @@
         <!-- 敬称 -->
         <HonorificBox
           v-for="item in desserts"
-          :key="item.honorific_id"
+          :key="`form-${item.honorific_id}`"
           :value.sync="item.honorific"
           :keisyo_items="keisyo_items"
         />
@@ -107,8 +116,12 @@ export default class ContactAddressForm extends Vue {
 
   desserts = [
     {
+      postalcode_id: '',
+      postalcode: '',
       post_id: '',
       post: '',
+      address: '',
+      address_id: '',
       department_id: '',
       department: '',
       manager_id: '',
@@ -120,7 +133,7 @@ export default class ContactAddressForm extends Vue {
       emailinput_id: '',
       emailinput: '',
       telnumber_id: '',
-      tenumber: 0,
+      telnumber: 0,
       faxnumber_id: '',
       faxnumber: 0,
     },
@@ -137,7 +150,6 @@ export default class ContactAddressForm extends Vue {
   public email: string = '';
   public telnumber: string = '';
   public faxnumber: string = '';
-  public honorific: string = '';
   public addressValue: string = '';
 
   scanPostalCode(val: string): void {

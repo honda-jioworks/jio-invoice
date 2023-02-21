@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <v-text-field :rules="nameRules" v-model="postBox" label="役職"></v-text-field>
+        <v-text-field :rules="nameRules" @blur="input" v-model="postBox" label="役職"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -15,5 +15,8 @@ export default class PostBox extends Vue {
   @PropSync('value', { type: String })
   postBox!: any;
   nameRules: Array<object> = [(v: string) => !!v || '役職を入力してください'];
+  input() {
+    this.$store.commit('customer/set', { post: this.postBox });
+  }
 }
 </script>

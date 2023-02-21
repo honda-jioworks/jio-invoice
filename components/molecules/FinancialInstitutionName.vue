@@ -4,7 +4,7 @@
       <v-row>
         <v-col>
           <!--TextBox :name="label" label="金融機関名" /-->
-          <v-text-field label="金融機関名" :rules="textRules" v-model="textFinancialname"></v-text-field>
+          <v-text-field label="金融機関名" @blur="input" :rules="textRules" v-model="textFinancialname"></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -18,5 +18,8 @@ export default class FinancialInstitutionName extends Vue {
   @PropSync('value', { type: String })
   textFinancialname!: any;
   public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
+  input() {
+    this.$store.commit('customer/set', { financialname: this.textFinancialname });
+  }
 }
 </script>

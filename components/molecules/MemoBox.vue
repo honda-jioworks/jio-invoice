@@ -4,7 +4,7 @@
       <v-row>
         <!--v-col cols="5"><TextBox /-->
         <v-col>
-          <v-textarea label="メモ" rows="1" v-model="textMemo"></v-textarea>
+          <v-textarea label="メモ" @blur="input" rows="1" v-model="textMemo"></v-textarea>
         </v-col>
       </v-row>
     </v-container>
@@ -17,5 +17,8 @@ import { Vue, Component, Emit, PropSync } from 'nuxt-property-decorator';
 export default class MemoBox extends Vue {
   @PropSync('value', { type: String })
   textMemo!: any;
+  input() {
+    this.$store.commit('customer/set', { textMemo: this.textMemo });
+  }
 }
 </script>

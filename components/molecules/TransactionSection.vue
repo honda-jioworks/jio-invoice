@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row align="center">
       <v-col class="d-flex" cols="12">
-        <v-select :items="items" label="取引区分" :rules="boxRules" v-model="selected"></v-select>
+        <v-select :items="items" @blur="input" label="取引区分" :rules="boxRules" v-model="selected"></v-select>
       </v-col>
     </v-row>
   </v-container>
@@ -18,5 +18,8 @@ export default class TransactionSection extends Vue {
   @Prop()
   items!: Array<string>;
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
+  input() {
+    this.$store.commit('customer/set', { transaction: this.selected });
+  }
 }
 </script>

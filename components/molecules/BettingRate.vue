@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col class="d-flex">
-        <v-text-field label="掛率" :rules="inputRules" v-model="textName"></v-text-field>
+        <v-text-field label="掛率" @blur="input" :rules="inputRules" v-model="textName"></v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -21,6 +21,9 @@ export default class BettingRate extends Vue {
   ];
   private numberCheck(value: string): any {
     return (value && value.length <= 3) || '3桁以内で入力してください';
+  }
+  input() {
+    this.$store.commit('customer/set', { betting: this.textName });
   }
 }
 </script>
