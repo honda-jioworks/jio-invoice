@@ -23,7 +23,7 @@ export default class AccountNumber extends Vue {
     (v: string) => /^[+,-]?([1-9]\d*|0)$/.test(v) || '数値を入力してください',
   ];
   input() {
-    this.$store.commit('company/set', { accountnumber: this.textNumber });
+    this.$store.commit('customer/set', { accountnumber: this.textNumber });
   }
 }
 </script>

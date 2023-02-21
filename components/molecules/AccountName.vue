@@ -19,7 +19,7 @@ export default class AccountName extends Vue {
   textAccountname!: any;
   textRules: Array<Object> = [(v: string) => !!v || '項目を入力してください'];
   input() {
-    this.$store.commit('company/set', { accountname: this.textAccountname });
+    this.$store.commit('customer/set', { accountname: this.textAccountname });
   }
 }
 </script>

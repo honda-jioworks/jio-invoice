@@ -19,7 +19,7 @@ export default class FinancialInstitutionName extends Vue {
   textFinancialname!: any;
   public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
   input() {
-    this.$store.commit('company/set', { financialname: this.textFinancialname });
+    this.$store.commit('customer/set', { financialname: this.textFinancialname });
   }
 }
 </script>

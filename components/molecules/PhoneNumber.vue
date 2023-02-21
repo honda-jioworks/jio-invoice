@@ -18,7 +18,7 @@ export default class PhoneNumber extends Vue {
     (v: string) => /^0\d{1,3}-\d{2,4}-\d{3,4}$/.test(v) || 'ハイフンと数値を入力してください',
   ];
   input() {
-    this.$store.commit('company/set', { phonenumber: this.number });
+    this.$store.commit('customer/set', { phonenumber: this.number });
   }
 }
 </script>

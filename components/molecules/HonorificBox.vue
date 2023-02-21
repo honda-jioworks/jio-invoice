@@ -18,7 +18,7 @@ export default class HonorificBox extends Vue {
   @Prop()
   keisyo_items!: Array<string>;
   input() {
-    this.$store.commit('company/set', { honorific: this.honorific });
+    this.$store.commit('customer/set', { honorific: this.honorific });
   }
 }
 </script>

@@ -45,8 +45,8 @@ export default class RecoveryCycle extends Vue {
     return this.dateVal;
   }
   input() {
-    this.$store.commit('company/set', { collectmonth: this.monthVal });
-    this.$store.commit('company/set', { collectday: this.dateVal });
+    this.$store.commit('customer/set', { collectmonth: this.monthVal });
+    this.$store.commit('customer/set', { collectday: this.dateVal });
   }
 }
 </script>

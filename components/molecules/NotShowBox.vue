@@ -11,7 +11,7 @@ export default class NotShowBox extends Vue {
   @PropSync('value', { type: Boolean })
   check!: any;
   input() {
-    this.$store.commit('company/set', { check: this.check });
+    this.$store.commit('customer/set', { check: this.check });
   }
 }
 </script>

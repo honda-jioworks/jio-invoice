@@ -15,7 +15,7 @@ export default class InputCandidate extends Vue {
   @PropSync('value', { type: Boolean })
   checkbox!: any;
   input() {
-    this.$store.commit('company/set', { inputcandidate: this.checkbox });
+    this.$store.commit('customer/set', { inputcandidate: this.checkbox });
   }
 }
 </script>

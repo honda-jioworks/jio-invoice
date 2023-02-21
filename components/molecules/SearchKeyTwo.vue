@@ -17,7 +17,7 @@ export default class SearchKeyTwo extends Vue {
   @PropSync('value', { type: String })
   textSearchtwo!: any;
   input() {
-    this.$store.commit('company/set', { keytwo: this.textSearchtwo });
+    this.$store.commit('customer/set', { keytwo: this.textSearchtwo });
   }
 }
 </script>

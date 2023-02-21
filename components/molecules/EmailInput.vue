@@ -28,7 +28,7 @@ export default class EmailInput extends Vue {
   @PropSync('value', { type: String })
   email!: any;
   input() {
-    this.$store.commit('company/set', { emailinput: this.email });
+    this.$store.commit('customer/set', { emailinput: this.email });
   }
 }
 </script>

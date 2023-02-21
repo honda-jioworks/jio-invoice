@@ -26,7 +26,7 @@ export default class PrimarySearchInput extends Vue {
     return this.textPrimary;
   }
   input() {
-    this.$store.commit('company/set', { serchkeyone: this.textPrimary });
+    this.$store.commit('customer/set', { serchkeyone: this.textPrimary });
   }
 }
 </script>

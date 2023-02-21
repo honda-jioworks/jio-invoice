@@ -82,9 +82,9 @@ export const state = () => ({
 });
 
 export const mutations = {
-  set(state, companyData) {
-    Object.keys(companyData).forEach((key) => {
-      state[key] = companyData[key];
+  set(state, customerData) {
+    Object.keys(customerData).forEach((key) => {
+      state[key] = customerData[key];
     });
   },
 };

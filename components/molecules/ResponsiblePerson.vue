@@ -18,7 +18,7 @@ export default class ResponsiblePerson extends Vue {
   textShort!: any;
   nameRules: Array<object> = [(v: string) => !!v || '自社担当者を入力してください。'];
   input() {
-    this.$store.commit('company/set', { responsible: this.textShort });
+    this.$store.commit('customer/set', { responsible: this.textShort });
   }
 }
 </script>

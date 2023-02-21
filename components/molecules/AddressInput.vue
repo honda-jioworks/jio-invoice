@@ -26,7 +26,7 @@ export default class AddressInput extends Vue {
   @Prop({ type: String }) //organismsから住所をPropで受け取る
   addressVal!: string;
   input() {
-    this.$store.commit('company/set', { address: this.addressVal });
+    this.$store.commit('customer/set', { address: this.addressVal });
   }
 
   @Emit()

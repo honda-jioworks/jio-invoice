@@ -25,7 +25,7 @@ export default class PriceQuantityRounding extends Vue {
   items!: Array<string>;
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { pricerounding: this.textName });
+    this.$store.commit('customer/set', { pricerounding: this.textName });
   }
 }
 </script>

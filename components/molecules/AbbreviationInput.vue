@@ -18,7 +18,7 @@ export default class AbbreviatationInput extends Vue {
   textShort!: any;
   nameRules: Array<object> = [(v: string) => !!v || '得意先名(略称)を入力してください。'];
   input() {
-    this.$store.commit('company/set', { textShort: this.textShort });
+    this.$store.commit('customer/set', { textShort: this.textShort });
   }
 }
 </script>

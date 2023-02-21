@@ -15,7 +15,7 @@ export default class DepartmentInput extends Vue {
   department!: any;
   nameRules: Array<object> = [(v: string) => !!v || '部署名を入力してください'];
   input() {
-    this.$store.commit('company/set', { department: this.department });
+    this.$store.commit('customer/set', { department: this.department });
   }
 }
 </script>

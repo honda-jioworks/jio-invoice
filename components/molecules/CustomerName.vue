@@ -22,7 +22,7 @@ export default class CustomerName extends Vue {
   nameRules: Array<object> = [(v: string) => !!v || '得意先名を入力してください。'];
   public textName: string = '';
   input() {
-    this.$store.commit('company/set', { customer: this.value_in });
+    this.$store.commit('customer/set', { customer: this.value_in });
   }
 }
 </script>

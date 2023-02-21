@@ -19,7 +19,7 @@ export default class TaxProcessing extends Vue {
   items!: Array<string>;
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { tax: this.taxselect });
+    this.$store.commit('customer/set', { tax: this.taxselect });
   }
 }
 </script>

@@ -15,7 +15,7 @@ export default class DefaultValue extends Vue {
   @PropSync('value', { type: Boolean })
   checkbox!: any;
   input() {
-    this.$store.commit('company/set', { defaultvalue: this.checkbox });
+    this.$store.commit('customer/set', { defaultvalue: this.checkbox });
   }
 }
 </script>

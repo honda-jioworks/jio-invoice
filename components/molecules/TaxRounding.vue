@@ -19,7 +19,7 @@ export default class TaxRounding extends Vue {
   items!: Array<string>;
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { taxrounding: this.textName });
+    this.$store.commit('customer/set', { taxrounding: this.textName });
   }
 }
 </script>

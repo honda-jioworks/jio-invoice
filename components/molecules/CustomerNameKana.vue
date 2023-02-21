@@ -18,7 +18,7 @@ export default class CustomerNameKana extends Vue {
   textKana: any;
   nameRules: Array<object> = [(v: string) => !!v || '得意先名(カナ)を入力してください。'];
   input() {
-    this.$store.commit('company/set', { nameKana: this.textKana });
+    this.$store.commit('customer/set', { nameKana: this.textKana });
   }
 }
 </script>

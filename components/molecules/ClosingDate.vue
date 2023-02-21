@@ -30,7 +30,7 @@ export default class ClosingDate extends Vue {
     return this.textName;
   }
   input() {
-    this.$store.commit('company/set', { deposit: this.textName });
+    this.$store.commit('customer/set', { deposit: this.textName });
   }
 }
 </script>

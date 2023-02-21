@@ -24,7 +24,7 @@ export default class PriceCalcRounding extends Vue {
   items: Array<string> = ['基本情報に従う', '切り上げ', '切り捨て', '四捨五入'];
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { pricecalc: this.textName });
+    this.$store.commit('customer/set', { pricecalc: this.textName });
   }
 }
 </script>

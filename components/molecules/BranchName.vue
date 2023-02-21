@@ -15,7 +15,7 @@ export default class BranchName extends Vue {
   textBranchname!: any;
   public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
   input() {
-    this.$store.commit('company/set', { branchname: this.textBranchname });
+    this.$store.commit('customer/set', { branchname: this.textBranchname });
   }
 }
 </script>

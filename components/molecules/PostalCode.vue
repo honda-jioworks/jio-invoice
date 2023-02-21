@@ -50,7 +50,7 @@ export default class PostalCode extends Vue {
     return this.addressVal;
   }
   input() {
-    this.$store.commit('company/set', { postalcode: this.textPostalCode });
+    this.$store.commit('customer/set', { postalcode: this.textPostalCode });
   }
 }
 </script>

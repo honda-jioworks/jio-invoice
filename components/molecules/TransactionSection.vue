@@ -19,7 +19,7 @@ export default class TransactionSection extends Vue {
   items!: Array<string>;
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { transaction: this.selected });
+    this.$store.commit('customer/set', { transaction: this.selected });
   }
 }
 </script>

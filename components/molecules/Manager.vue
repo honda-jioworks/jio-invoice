@@ -16,7 +16,7 @@ export default class ManagerBox extends Vue {
   manager!: any;
   nameRules: Array<object> = [(v: string) => !!v || '名前を入力してください'];
   input() {
-    this.$store.commit('company/set', { manager: this.manager });
+    this.$store.commit('customer/set', { manager: this.manager });
   }
 }
 </script>

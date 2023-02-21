@@ -21,7 +21,7 @@ export default class SecondSearchInput extends Vue {
     return this.textSecond;
   }
   input() {
-    this.$store.commit('company/set', { serchkeytwo: this.textSecond });
+    this.$store.commit('customer/set', { serchkeytwo: this.textSecond });
   }
 }
 </script>

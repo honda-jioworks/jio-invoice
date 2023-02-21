@@ -18,7 +18,7 @@ export default class MemoBox extends Vue {
   @PropSync('value', { type: String })
   textMemo!: any;
   input() {
-    this.$store.commit('company/set', { textMemo: this.textMemo });
+    this.$store.commit('customer/set', { textMemo: this.textMemo });
   }
 }
 </script>

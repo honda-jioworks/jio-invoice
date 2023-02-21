@@ -16,7 +16,7 @@ export default class PostBox extends Vue {
   postBox!: any;
   nameRules: Array<object> = [(v: string) => !!v || '役職を入力してください'];
   input() {
-    this.$store.commit('company/set', { post: this.postBox });
+    this.$store.commit('customer/set', { post: this.postBox });
   }
 }
 </script>

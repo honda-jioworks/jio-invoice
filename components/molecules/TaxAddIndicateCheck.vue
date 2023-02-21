@@ -12,7 +12,7 @@ export default class TaxAddIndicateCheck extends Vue {
   @PropSync('value', { type: Boolean })
   checkbox!: any;
   input() {
-    this.$store.commit('company/set', { taxcheck: this.checkbox });
+    this.$store.commit('customer/set', { taxcheck: this.checkbox });
   }
 }
 </script>

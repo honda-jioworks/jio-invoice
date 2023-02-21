@@ -20,7 +20,7 @@ export default class TelNumberInput extends Vue {
   @PropSync('value', { type: String })
   telnumber!: any;
   input() {
-    this.$store.commit('company/set', { telnumber: this.telnumber });
+    this.$store.commit('customer/set', { telnumber: this.telnumber });
   }
 }
 </script>

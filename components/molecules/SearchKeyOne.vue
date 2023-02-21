@@ -19,7 +19,7 @@ export default class SearchKeyOne extends Vue {
   textSearchone!: any;
   public textRules: Array<Object> = [(v: any) => !!v || '項目を入力してください'];
   input() {
-    this.$store.commit('company/set', { keyone: this.textSearchone });
+    this.$store.commit('customer/set', { keyone: this.textSearchone });
   }
 }
 </script>

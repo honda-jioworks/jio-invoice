@@ -19,7 +19,7 @@ export default class StartingBalance extends Vue {
     (v: string) => /^([1-9]\d*|0)$/.test(v) || '数値を入力してください',
   ];
   input() {
-    this.$store.commit('company/set', { balance: this.textVal });
+    this.$store.commit('customer/set', { balance: this.textVal });
   }
 }
 </script>

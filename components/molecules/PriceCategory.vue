@@ -19,7 +19,7 @@ export default class PriceCategory extends Vue {
   items!: Array<string>;
   boxRules: Array<any> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { category: this.textName });
+    this.$store.commit('customer/set', { category: this.textName });
   }
 }
 </script>

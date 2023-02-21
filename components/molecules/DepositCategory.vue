@@ -20,7 +20,7 @@ export default class DepositCategory extends Vue {
   items!: Array<string>;
   public selectRules: Array<Object> = [(v: any) => !!v || '項目を選択してください'];
   input() {
-    this.$store.commit('company/set', { depositcategory: this.selectCheck });
+    this.$store.commit('customer/set', { depositcategory: this.selectCheck });
   }
 }
 </script>

@@ -32,9 +32,9 @@ import axios from 'axios';
 })
 export default class CustomerRegister extends Vue {
   onSave() {
-    console.log(this.$store.state.company);
+    console.log(this.$store.state.customer);
     // axios.post('/test', {
-    //   responsible_id: this.$store.state.CompanyAllInfomation.responsible_id,
+    //   responsible_id: this.$store.state.customerAllInfomation.responsible_id,
     //   responsible: '',
     //   customer_id: '',
     //   customer: '',

@@ -23,7 +23,7 @@ export default class BettingRate extends Vue {
     return (value && value.length <= 3) || '3桁以内で入力してください';
   }
   input() {
-    this.$store.commit('company/set', { betting: this.textName });
+    this.$store.commit('customer/set', { betting: this.textName });
   }
 }
 </script>
