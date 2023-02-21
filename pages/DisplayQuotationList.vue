@@ -1,15 +1,14 @@
 <template>
   <div>
     <MonthCalender @save="save" />
-
-    <QuotationList :date="date" />
+    <QuotationTable :date="date" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import QuotationList from '~/components/templates/QuotationList.vue'
-@Component({ components: { QuotationList } })
+import QuotationTable from '~/components/organisms/QuotationTable.vue'
+@Component({ components: { QuotationTable } })
 export default class DisplayQuotationList extends Vue {
   date: string = ''
 

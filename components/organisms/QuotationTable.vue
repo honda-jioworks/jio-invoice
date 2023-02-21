@@ -106,7 +106,6 @@ export default class QuotationTable extends Vue {
     { text: '件名', value: 'quotation_title' },
     { text: '発行', value: 'issued_check' },
     { text: '受注', value: 'received_check' },
-    { text: '新着', value: '' },
     { text: '金額', value: 'price' },
     { text: '更新', value: 'actions', sortable: false },
     { text: '削除', value: 'delete', sortable: false },
@@ -115,14 +114,14 @@ export default class QuotationTable extends Vue {
 
   desserts = [
     {
-      quotation_id: 'cstmer001',
-      quotation_date: '2022/12/26',
-      quotation_num: 'JS20-000666',
-      cstm_name: 'jioworks',
-      quotation_title: '2022年12月度　請求書管理アプリ案件',
-      issued_check: '済',
-      received_check: '済',
-      price: '100,000',
+      quotation_id: '',
+      quotation_date: '',
+      quotation_num: '',
+      cstm_name: '',
+      quotation_title: '',
+      issued_check: '',
+      received_check: '',
+      price: '',
     },
   ]
 
@@ -155,6 +154,7 @@ export default class QuotationTable extends Vue {
         cstm_name: this.$store.state.quotation.cstm_name,
         quotation_title: this.$store.state.quotation.quotation_title,
         issued_check: this.$store.state.quotation.issued_check,
+        received_check: this.$store.state.quotation.received_check,
         price: this.$store.state.quotation.price,
       })
       .then(function (response) {

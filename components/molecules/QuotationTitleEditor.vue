@@ -21,6 +21,7 @@ export default class QuotationTitleEditor extends Vue {
   quotation_title_in!: string
 
   label: string = '件名'
+
   rule: Array<object> = [(v: any) => !!v || '件名を入力して下さい。']
 }
 </script>

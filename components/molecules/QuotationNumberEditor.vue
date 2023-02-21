@@ -1,5 +1,7 @@
 <template>
-  <div @click="send">JS20-000666</div>
+  <div :value="invoice_num" :field="'quotation_num'" @click="send">
+    No.{{ quotation_num }}
+  </div>
 </template>
 
 <script lang="ts">

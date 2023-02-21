@@ -3,7 +3,7 @@
     {{ value_in }}
     <template #input>
       <v-text-field
-        v-modal="value_in"
+        v-model="value_in"
         :rules="rule"
         :label="label"
         :type="type"
@@ -21,7 +21,7 @@ import { Vue, Component, Prop, PropSync } from 'nuxt-property-decorator'
 @Component({
   components: {},
 })
-export default class editor extends Vue {
+export default class QuotationTextEditor extends Vue {
   @PropSync('value', { type: String })
   value_in!: any
 
@@ -57,6 +57,9 @@ export default class editor extends Vue {
         break
       case 'issued_check':
         this.$store.commit('quotation/set', { issued_check: this.value_in })
+        break
+      case 'received_check':
+        this.$store.commit('quotation/set', { received_check: this.value_in })
         break
       case 'price':
         this.$store.commit('quotation/set', { price: this.value_in })

@@ -1,13 +1,19 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="cstm_name_in"></editor>
+  <editor
+    v-model="cstm_name"
+    :label="label"
+    :rule="rule"
+    :value.sync="cstm_name_in"
+    :field="'cstm_name'"
+  ></editor>
 </template>
 
 <script lang="ts">
 import { Vue, Component, PropSync } from 'nuxt-property-decorator'
-import InvoiceTextEditor from '~/components/atoms/InvoiceTextEditor.vue'
+import QuotationTextEditor from '~/components/atoms/QuotationTextEditor.vue'
 
 @Component({
-  components: { editor: InvoiceTextEditor },
+  components: { editor: QuotationTextEditor },
 })
 export default class CustomerNameEditor extends Vue {
   @PropSync('cstm_name', { type: String })

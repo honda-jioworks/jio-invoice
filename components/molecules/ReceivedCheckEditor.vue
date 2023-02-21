@@ -1,5 +1,11 @@
 <template>
-  <editor :label="label" :rule="rule" :value.sync="received_check_in"></editor>
+  <editor
+    v-model="received_check"
+    :label="label"
+    :rule="rule"
+    :value.sync="received_check_in"
+    :field="'received_check'"
+  ></editor>
 </template>
 
 <script lang="ts">

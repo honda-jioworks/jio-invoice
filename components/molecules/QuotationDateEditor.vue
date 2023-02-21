@@ -1,15 +1,17 @@
 <template>
   <editor
+    v-model="quotation_date"
     :label="label"
     :rule="rule"
     :value.sync="quotation_date_in"
     :type="type"
+    :field="'quotation_date'"
   ></editor>
 </template>
 
 <script lang="ts">
 import { Vue, Component, PropSync } from 'nuxt-property-decorator'
-import QuotationTextEditor from '../atoms/ButtonEditor.vue'
+import QuotationTextEditor from '../atoms/QuotationTextEditor.vue'
 @Component({
   components: { editor: QuotationTextEditor },
 })
