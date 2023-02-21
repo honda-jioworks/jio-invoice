@@ -14,6 +14,7 @@ export default class DashBoard extends Vue {}
 
 // templatesはページの大まかな配置（ワイヤーフレーム）を管轄
 </script>
+
 <style lang="scss" scoped>
 .groundwork {
   background-color: white;
