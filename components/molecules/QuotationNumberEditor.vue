@@ -1,5 +1,5 @@
 <template>
-  <div :value="invoice_num" :field="'quotation_num'" @click="send">
+  <div :value="quotation_num" :field="'quotation_num'" @click="send">
     No.{{ quotation_num }}
   </div>
 </template>

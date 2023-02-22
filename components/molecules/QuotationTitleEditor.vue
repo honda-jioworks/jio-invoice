@@ -12,7 +12,6 @@
 <script lang="ts">
 import { Vue, Component, PropSync } from 'nuxt-property-decorator'
 import QuotationTextEditor from '~/components/atoms/QuotationTextEditor.vue'
-
 @Component({
   components: { editor: QuotationTextEditor },
 })

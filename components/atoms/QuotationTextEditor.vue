@@ -8,7 +8,6 @@
         :label="label"
         :type="type"
         counter
-        :feild="feild"
         @click:outside="closeDialog"
         @blur="input"
       >
