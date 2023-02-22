@@ -49,7 +49,7 @@
                 <v-col cols="8"><v-card-text>サンプル銀行 本店 普通</v-card-text></v-col>
                 <v-col cols="4" class="text-center">
                   <v-card dark tile>
-                    <v-card-text>d</v-card-text>
+                    <v-card-text>振込み</v-card-text>
                   </v-card>
                 </v-col>
                 <v-col cols="8"><v-card-text>サンプル(カ</v-card-text></v-col>
@@ -133,11 +133,9 @@ import { Vue, Component, Watch, Emit } from 'nuxt-property-decorator';
 import QuanitityEditer from '@/components/molecules/QuanitityEditer.vue';
 import UnitEditer from '@/components/molecules/UnitEditer.vue';
 import UnitPriceEditer from '@/components/molecules/UnitPriceEditer.vue';
-import AmountEditer from '@/components/molecules/AmountEditer.vue';
 import axios from 'axios';
-import { NuxtAxiosInstance } from '@nuxtjs/axios';
 @Component({
-  components: { QuanitityEditer, UnitEditer, UnitPriceEditer, AmountEditer },
+  components: { QuanitityEditer, UnitEditer, UnitPriceEditer },
 })
 export default class PdfPreview extends Vue {
   // Organismsはセクションコンテンツ（それ単体で一区切りとなるコンテンツ）

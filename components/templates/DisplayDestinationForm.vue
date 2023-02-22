@@ -22,6 +22,13 @@
           <v-col><InvoiceIssueTable /></v-col>
         </v-expansion-panel-content>
       </v-expansion-panel>
+      <!--4-->
+      <v-expansion-panel>
+        <v-expansion-panel-header>テンプレート</v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-col><PdfPreview /></v-col>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
     </v-expansion-panels>
     <v-btn @click="onSave()">更新</v-btn>
   </v-row>
@@ -31,10 +38,10 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import DestinationForm from '@/components/organisms/DestinationForm.vue';
 import PicInformationForm from '@/components/organisms/PicInformationForm.vue';
-import ThreePoint from '@/components/organisms/ThreePoint.vue';
 import InvoiceIssueTable from '@/components/organisms/InvoiceIssueTable.vue';
+import PdfPreview from '@/components/organisms/PdfPreview.vue';
 
-@Component({ components: { DestinationForm, PicInformationForm, InvoiceIssueTable } })
+@Component({ components: { DestinationForm, PicInformationForm, InvoiceIssueTable, PdfPreview } })
 export default class DisplayDestinationForm extends Vue {
   onSave() {
     console.log(JSON.stringify(this.$store.state.invoiceIssue));
